@@ -1,0 +1,1166 @@
+{
+   "extDescription": {
+      "description": "Extension description in Chrome webstore (max. 132 characters)",
+      "message": "在您最喜欢的所有网站(Facebook、Amazon等)上缩放图像/视频。只需将鼠标悬停在图像上方即可放大。"
+   },
+   "extName": {
+      "description": "Extension name",
+      "message": "Hover Zoom+"
+   },
+   "extShortName": {
+      "description": "Short extension name",
+      "message": "HoverZoom"
+   },
+   "msgClickPageToActivateActionKeys": {
+      "description": "Action keys are active only if page is focused",
+      "message": "点击页面上的任何地方来激活动作键"
+   },
+   "msgClickPageToPlayVideo": {
+      "description": "User must interact with the document first to play video: https://goo.gl/xX8pDD",
+      "message": "当你看到该提示说明已禁止网页音视频自动播放，请在浏览器设置中开启该选项！"
+   },
+   "optAbovePositionOffset": {
+      "description": "[options] Above offset option",
+      "message": "Above position offset:"
+   },
+   "optAbovePositionOffsetTooltip": {
+      "description": "[options] Tooltip for above position offset",
+      "message": "Amount to vertically offset the text in the above position (positive values move text up, negative values move text down)"
+   },
+   "optAbovePositionOffsetUnit": {
+      "description": "[options] Set unit type for above offset",
+      "message": "Unit Type:"
+   },
+   "optAbovePositionOffsetUnitPercent": {
+      "description": "[options] Unit type percent",
+      "message": "%"
+   },
+   "optAbovePositionOffsetUnitPixel": {
+      "description": "[options] unit type pixel",
+      "message": "像素"
+   },
+   "optAbovePositionOffsetUnitTooltip": {
+      "description": "[options] Tooltip for setting unit for above position offset",
+      "message": "Choose between pixel or percentage based offset"
+   },
+   "optActionKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "如果设置了一个键，HoverZoom+只有在按住这个键时才会被激活。"
+   },
+   "optActionKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "激活HoverZoom+"
+   },
+   "optAddDownloadCaption": {
+      "description": "[options] Add download caption option",
+      "message": "caption"
+   },
+   "optAddDownloadCaptionTooltip": {
+      "description": "[options] Tooltip for add download caption option",
+      "message": "Add caption (e.g: Mona Lisa by Leonardo da Vinci)"
+   },
+   "optAddDownloadDuration": {
+      "description": "[options] Add download duration option",
+      "message": "播放长度"
+   },
+   "optAddDownloadDurationTooltip": {
+      "description": "[options] Tooltip for add download duration option",
+      "message": "添加视频的持续时间（hh mm ss）（例如 00 16 35）"
+   },
+   "optAddDownloadIndex": {
+      "description": "[options] Add download index option",
+      "message": "index"
+   },
+   "optAddDownloadIndexTooltip": {
+      "description": "[options] Tooltip for add download index option",
+      "message": "Add index of image in gallery (e.g: third image out of ten: 03-10)"
+   },
+   "optAddDownloadOrigin": {
+      "description": "[options] Add download origin option",
+      "message": "来源"
+   },
+   "optAddDownloadOriginTooltip": {
+      "description": "[options] Tooltip for add download origin option",
+      "message": "添加来源（例如 www.deviantart.com）"
+   },
+   "optAddDownloadSize": {
+      "description": "[options] Add download size option",
+      "message": "大小"
+   },
+   "optAddDownloadSizeTooltip": {
+      "description": "[options] Tooltip for add download size option",
+      "message": "以像素为单位添加大小 (宽x高)（例如 1024x750）"
+   },
+   "optAddToHistory": {
+      "description": "[options] Add viewed pictures to the browser's history option",
+      "message": "将查看过的图片添加到浏览器的历史记录中"
+   },
+   "optAllowMediaSaving": {
+      "description": "[options] Enable saving media with action key option",
+      "message": "Enable saving media with action key"
+   },
+   "optAlwaysPreload": {
+      "description": "[options] Automatically preload zoomed images option",
+      "message": "自动预加载缩放图像"
+   },
+   "optAmbilightBackgroundOpacity": {
+      "description": "[options] Background opacity option",
+      "message": "背景透明度"
+   },
+   "optAmbilightBackgroundOpacityTooltip": {
+      "description": "[options] Tooltip for background opacity",
+      "message": "0% : 透明, 100% : 黑色"
+   },
+   "optAmbilightBackgroundOpacityUnitName": {
+      "description": "[options] Unit name (percentage) for background opacity",
+      "message": "%"
+   },
+   "optAmbilightHaloSize": {
+      "description": "[options] Size of halo option",
+      "message": "光环大小："
+   },
+   "optAmbilightHaloSizeTooltip": {
+      "description": "[options] Tooltip for size of halo",
+      "message": "缩放图像周围的光晕大小（0%：无光晕）"
+   },
+   "optAmbilightHaloSizeUnitName": {
+      "description": "[options] Unit name (percentage) for halo size",
+      "message": "%"
+   },
+   "optAudioVolume": {
+      "description": "[options] Audio volume option",
+      "message": "音频音量。"
+   },
+   "optAudioVolumeTooltip": {
+      "description": "[options] Tooltip for audio volume option",
+      "message": "将音量设置为这个百分比（0-100）。"
+   },
+   "optAudioVolumeUnitName": {
+      "description": "[options] Unit name (percentage) for audio volume option",
+      "message": "%"
+   },
+   "optAutoLockImages": {
+      "description": "[options] Automatically lock images option",
+      "message": "Automatically lock images"
+   },
+   "optAutoLockImagesTooltip": {
+      "description": "[options] Tooltip for automatically lock images option",
+      "message": "Automatically lock images when activating Hover Zoom+"
+   },
+   "optBanKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Holding this key down adds the zoomed image or video to ban list. Use it when you do not want an image or video to be zoomed again on this page."
+   },
+   "optBanKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Ban image"
+   },
+   "optBelowPositionOffset": {
+      "description": "[options] Below offset option",
+      "message": "Below position offset:"
+   },
+   "optBelowPositionOffsetTooltip": {
+      "description": "[options] Tooltip for below position offset",
+      "message": "Amount to vertically offset the text in the below position (positive values move text down, negative values move text up)"
+   },
+   "optBelowPositionOffsetUnit": {
+      "description": "[options] Set unit type for below offset",
+      "message": "Unit Type:"
+   },
+   "optBelowPositionOffsetUnitPercent": {
+      "description": "[options] Unit type percent",
+      "message": "%"
+   },
+   "optBelowPositionOffsetUnitPixel": {
+      "description": "[options] unit type pixel",
+      "message": "像素"
+   },
+   "optBelowPositionOffsetUnitTooltip": {
+      "description": "[options] Tooltip for setting unit for below position offset",
+      "message": "Choose between pixel or percentage based offset"
+   },
+   "optButtonAddSite": {
+      "description": "[options] Button for adding a site on sites option page",
+      "message": "添加"
+   },
+   "optButtonCancel": {
+      "description": "[options] Cancel button label",
+      "message": "取消"
+   },
+   "optButtonDisableAllPlugins": {
+      "description": "[options] disable all plugins button label",
+      "message": "禁用所有"
+   },
+   "optButtonEnableAllPlugins": {
+      "description": "[options] enable all plugins button label",
+      "message": "启用所有"
+   },
+   "optButtonExportSettings": {
+      "description": "[options] Export a save string into the textarea",
+      "message": "Export"
+   },
+   "optButtonImportSettings": {
+      "description": "[options] Import a save string from the textarea",
+      "message": "Import"
+   },
+   "optButtonMigrateOldSettings": {
+      "description": "[options] Migrate old settings button",
+      "message": "Migrate"
+   },
+   "optButtonReset": {
+      "description": "[options] Reset button label",
+      "message": "重置​​​"
+   },
+   "optButtonResetAllBannedImages": {
+      "description": "[options] Reset all banned images button",
+      "message": "重置​​​"
+   },
+   "optButtonSave": {
+      "description": "[options] Save button label",
+      "message": "保存​​"
+   },
+   "optCancel": {
+      "description": "[options] Notification after cancelling modification(s) to options",
+      "message": "取消的修改（s）。"
+   },
+   "optCaptionLocation": {
+      "description": "[options] Adjust the position of the caption",
+      "message": "标题位置："
+   },
+   "optCaptionLocationAbove": {
+      "description": "[options] Caption location option to put captions above the image",
+      "message": "上方"
+   },
+   "optCaptionLocationBelow": {
+      "description": "[options] Caption location option to put captions below the image",
+      "message": "下方"
+   },
+   "optCaptionLocationNone": {
+      "description": "[options] Caption location option to disable captions",
+      "message": "无"
+   },
+   "optCaptionLocationTooltip": {
+      "description": "[options] Tooltip for adjusting the position of the caption",
+      "message": "标题在图像 上方/下方 或不显示"
+   },
+   "optCaptionOpacity": {
+      "description": "[options] Caption opacity option",
+      "message": "Caption opacity:"
+   },
+   "optCenterImages": {
+      "description": "[options] Center images in the middle of the page option",
+      "message": "图片居中"
+   },
+   "optCenterImagesTooltip": {
+      "description": "[options] Tooltip for center images in the middle of the page option",
+      "message": "将图像居中而不是跟随光标"
+   },
+   "optClickHoldTimeUnit": {
+      "description": "[options] Unit name (pixel) for hold time amount",
+      "message": "milliseconds"
+   },
+   "optCloseKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "按此键来关闭缩放的图像或视频。"
+   },
+   "optCloseKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "关闭图像"
+   },
+   "optCopyImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "按下此键时，图像被复制到剪贴板。"
+   },
+   "optCopyImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "复制图像到剪贴板"
+   },
+   "optCopyImageUrlKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "按下此键时，图像或视频的地址将被复制到剪贴板。"
+   },
+   "optCopyImageUrlKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "复制图片地址到剪贴板"
+   },
+   "optDarkMode": {
+      "description": "[options] Enable dark mode for Options & Popup",
+      "message": "黑暗模式"
+   },
+   "optDetailsLocation": {
+      "description": "[options] Adjust the position of details",
+      "message": "详情位置："
+   },
+   "optDetailsLocationAbove": {
+      "description": "[options] Details location option to put details above the image",
+      "message": "上方"
+   },
+   "optDetailsLocationBelow": {
+      "description": "[options] Details location option to put details below the image",
+      "message": "下方"
+   },
+   "optDetailsLocationNone": {
+      "description": "[options] Details location option to disable details",
+      "message": "无"
+   },
+   "optDetailsLocationTooltip": {
+      "description": "[options] Tooltip for adjusting the position of details",
+      "message": "图片详细信息在 上方/下方（大小、格式...）或不显示"
+   },
+   "optDetailsOpacity": {
+      "description": "[options] Details opacity option",
+      "message": "Details opacity:"
+   },
+   "optDetailsSelectorTooltip": {
+      "description": "[options] Tooltip for details selector",
+      "message": "Select which detail(s) should show, if details are displayed"
+   },
+   "optDisableMouseWheelForVideo": {
+      "description": "[options] Allows you to scroll through albums with the mousewheel but does not change behavior of GFY/Videos",
+      "message": "不使用鼠标滚轮在视频中导航（快捷键仍然有效）"
+   },
+   "optDisableMouseWheelForVideoTooltip": {
+      "description": "[options] Allows you to scroll through albums with the mousewheel but does not change behavior of GFY/Videos",
+      "message": "滚动相册，但不要在视频中向前/向后跳转"
+   },
+   "optDisplayDelay": {
+      "description": "[options] Delay before displaying a picture option",
+      "message": "显示图片前的延迟："
+   },
+   "optDisplayDelayVideo": {
+      "description": "[options] Delay before displaying a video option",
+      "message": "显示视频前的延迟："
+   },
+   "optDisplayImageLoader": {
+      "description": "[options] Display image loader option",
+      "message": "当图像加载失败时显示红色旋转器"
+   },
+   "optDisplayImageLoaderTooltip": {
+      "description": "[options] Tooltip for display image loader option",
+      "message": "在加载图像时显示一个旋转器（绿色：正在加载，红色：错误）。红色旋转器是可选的。"
+   },
+   "optDownloadFolder": {
+      "description": "[options] Download folder option",
+      "message": "Save images, videos & audios to folder: Downloads/"
+   },
+   "optDownloadFolderPlaceholder": {
+      "description": "[options] Placeholder for download folder option",
+      "message": "示例：动物/猫"
+   },
+   "optDownloadFolderTooltip": {
+      "description": "[options] Tooltip for download folder option",
+      "message": "如果需要，将创建子文件夹 (s)"
+   },
+   "optDownloadReplaceOriginalFilename": {
+      "description": "[options] Replace original filename when downloading option",
+      "message": "On save, replace original filename by:"
+   },
+   "optDownloadReplaceOriginalFilenamePlaceholder": {
+      "description": "[options] Placeholder for download folder option",
+      "message": "Example: fullsize_image"
+   },
+   "optDownloadReplaceOriginalFilenameTooltip": {
+      "description": "[options] Tooltip for replace original filename when downloading option",
+      "message": "Replace original filename or remove it if no value supplied (extension is preserved)"
+   },
+   "optDurationUnitName": {
+      "description": "[options] Short form of \"second\" for delay duration",
+      "message": "秒"
+   },
+   "optEnableAmbilight": {
+      "description": "[options] Enable ambient light behind images option",
+      "message": "启用图像背景光"
+   },
+   "optEnableAmbilightTooltip": {
+      "description": "[options] Tooltip for enable ambient light behind images option",
+      "message": "开启类似于飞利浦流光溢彩技术的微妙发光效果"
+   },
+   "optEnableCaptionDetailShadow": {
+      "description": "[options] Enable shadow behind caption and details option",
+      "message": "Enable shadow behind caption and details"
+   },
+   "optEnableCaptionDetailShadowTooltip": {
+      "description": "[options] Tooltip for enable shadow behind caption and details option",
+      "message": "Adds a small shadow any captions or details, making it pop out more from the background"
+   },
+   "optEnableDebug": {
+      "description": "[options] Enable debug option",
+      "message": "启用调试日志"
+   },
+   "optEnableDebugTooltip": {
+      "description": "[options] Tooltip for enable debug option",
+      "message": "在浏览器的控制台中显示调试消息（打开控制台：按 F12）"
+   },
+   "optEnableGalleries": {
+      "description": "[options] Enable albums support option",
+      "message": "启用对相册的支持"
+   },
+   "optEnableNoFocusMsg": {
+      "description": "[options] Enable Action Keys focus overlay message option",
+      "message": "启用动作键聚焦叠加信息"
+   },
+   "optEnableNoFocusMsgTooltip": {
+      "description": "[options] Tooltip for enable Action Keys focus overlay message option",
+      "message": "有时动作键似乎被破坏了，这通常发生在页面失去焦点的时候。如果选项被选中，将显示一个警告信息（只有一次）。"
+   },
+   "optEnableViewerShadow": {
+      "description": "[options] Enable shadow behind image viewer option",
+      "message": "Enable shadow behind image viewer"
+   },
+   "optEnableViewerShadowTooltip": {
+      "description": "[options] Tooltip for enable shadow behind caption and details option",
+      "message": "Adds a small shadow behind the zoomed image viewer, making it more visible from the background"
+   },
+   "optExtensionEnabled": {
+      "description": "[options] Enable Hover Zoom+ option",
+      "message": "启用Hover Zoom"
+   },
+   "optFAQ_A1_1": {
+      "description": "[options] FAQ Answer 1 part 1",
+      "message": "编辑完毕后，点击 \"保存 \"按钮"
+   },
+   "optFAQ_A1_2": {
+      "description": "[options] FAQ Answer 1 part 2",
+      "message": "在选项页面的底部"
+   },
+   "optFAQ_A1_3": {
+      "description": "[options] FAQ Answer 1 part 3",
+      "message": "重新加载页面（F5）"
+   },
+   "optFAQ_A2_1": {
+      "description": "[options] FAQ Answer 2 part 1",
+      "message": "在 \"选项\"->\"常规\"->\"延迟 \"中，激活 \"隐藏鼠标指针\""
+   },
+   "optFAQ_A3_1": {
+      "description": "[options] FAQ Answer 3 part 1",
+      "message": "例如，在DeviantArt.com和1X.com上激活HoverZoom+。"
+   },
+   "optFAQ_A3_2": {
+      "description": "[options] FAQ Answer 3 part 2",
+      "message": "在选项->网站，激活 \"白名单模式\""
+   },
+   "optFAQ_A3_3": {
+      "description": "[options] FAQ Answer 3 part 3",
+      "message": "将DeviantArt.com和1X.com添加到URL列表中（不区分大小写）。"
+   },
+   "optFAQ_A4_1": {
+      "description": "[options] FAQ Answer 4 part 1",
+      "message": "将鼠标悬停在图像或视频上，然后将其锁定在屏幕上（默认动作键：\"L\"）。"
+   },
+   "optFAQ_A4_2": {
+      "description": "[options] FAQ Answer 4 part 2",
+      "message": "图片或视频现在是全尺寸显示。你可以使用鼠标滚轮放大或缩小。"
+   },
+   "optFAQ_A5_1": {
+      "description": "[options] FAQ Answer 5 part 1",
+      "message": "有时动作键似乎坏了，这通常发生在页面失去焦点的时候。"
+   },
+   "optFAQ_A5_2": {
+      "description": "[options] FAQ Answer 5 part 2",
+      "message": "只要点击页面上的任何地方就可以重新获得焦点。"
+   },
+   "optFAQ_A5_3": {
+      "description": "[options] FAQ Answer 5 part 3",
+      "message": "在 \"选项\"->\"高级 \"中，你可以激活 \"启用动作键焦点叠加信息\"，这样当焦点丢失时你就会得到一个警告信息。"
+   },
+   "optFAQ_A6_1": {
+      "description": "[options] FAQ Answer 6 part 1",
+      "message": "例如Dailymotion视频在dailymotion.com中播放，但在谷歌搜索结果中不播放。"
+   },
+   "optFAQ_A6_2": {
+      "description": "[options] FAQ Answer 6 part 2",
+      "message": "这是由于CORS的限制，要解除它们。"
+   },
+   "optFAQ_A6_3": {
+      "description": "[options] FAQ Answer 6 part 3",
+      "message": "在 \"选项\"->\"高级 \"中，激活 \"允许重写HTTP(S)请求或响应的头信息\""
+   },
+   "optFAQ_A7": {
+      "description": "[options] FAQ Answer 7",
+      "message": "向下滚动或点击页面上的任何地方唤醒HoverZoom+！"
+   },
+   "optFAQ_Q1": {
+      "description": "[options] FAQ Question 1",
+      "message": "我编辑了一些选项，但我没有看到任何变化。"
+   },
+   "optFAQ_Q2": {
+      "description": "[options] FAQ Question 2",
+      "message": "我想在放大的图像或视频上隐藏鼠标指针。"
+   },
+   "optFAQ_Q3": {
+      "description": "[options] FAQ Question 3",
+      "message": "我需要HoverZoom+只对某些网站有效。"
+   },
+   "optFAQ_Q4": {
+      "description": "[options] FAQ Question 4",
+      "message": "我想把图片或视频放大到原来的尺寸，即使比屏幕大。"
+   },
+   "optFAQ_Q5": {
+      "description": "[options] FAQ Question 5",
+      "message": "动作键不起作用!"
+   },
+   "optFAQ_Q6": {
+      "description": "[options] FAQ Question 6",
+      "message": "一些视频在从原始网站以外的地方打开时无法播放。"
+   },
+   "optFAQ_Q7": {
+      "description": "[options] FAQ Question 7",
+      "message": "我悬停一张图片或视频，但有时没有发生任何事件！"
+   },
+   "optFAQ_SaveAndReload": {
+      "description": "[options] FAQ Save and reload page",
+      "message": "保存并重新加载页面(F5)"
+   },
+   "optFadeDuration": {
+      "description": "[options] Fading animation duration option",
+      "message": "淡出动画持续时间："
+   },
+   "optFilterNSFW": {
+      "description": "[options] Exclude NSFW images (Reddit only) option",
+      "message": "排除工作场所不宜的图(仅适用于Reddit)"
+   },
+   "optFlipImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "按此键可以交替垂直和水平翻转图像。方便阅读镜像图像或视频中的文本和徽标。"
+   },
+   "optFlipImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "旋转图像"
+   },
+   "optFontOutline": {
+      "description": "[options] Outline option",
+      "message": "字体外形"
+   },
+   "optFontOutlineTooltip": {
+      "description": "[options] Tooltip for outline option",
+      "message": "如果选中：将使用白色字体 + 细黑色边框作为标题和详细信息"
+   },
+   "optFontSize": {
+      "description": "[options] Font size option",
+      "message": "字体大小"
+   },
+   "optFontSizeTooltip": {
+      "description": "[options] Tooltip for font size option",
+      "message": "用于标题和细节的字体大小"
+   },
+   "optFontSizeUnitName": {
+      "description": "[options] Unit name (pixel) for font size",
+      "message": "像素"
+   },
+   "optFooterChangelog": {
+      "description": "[options] Changelog link in page footer",
+      "message": "更新日志"
+   },
+   "optFooterReportIssue": {
+      "description": "[options] Report a bug link in page footer",
+      "message": "报告程序缺陷"
+   },
+   "optFooterSourceCode": {
+      "description": "[options] Source code link in page footer",
+      "message": "源代码"
+   },
+   "optFooterVersionCopyright": {
+      "description": "[options] Copyright and version number in page footer",
+      "message": "Version $1 - © 2014-$2 Oleg Anashkin"
+   },
+   "optFrameBackgroundColor": {
+      "description": "[options] Frame background color option",
+      "message": "框架背景颜色："
+   },
+   "optFrameBackgroundColorCancelText": {
+      "description": "[options] Frame background color button - Cancel",
+      "message": "取消"
+   },
+   "optFrameBackgroundColorChooseText": {
+      "description": "[options] Frame background color button - Select",
+      "message": "选择"
+   },
+   "optFrameBackgroundColorTooltip": {
+      "description": "[options] Tooltip for frame background color option",
+      "message": "图像出现的框架背景颜色"
+   },
+   "optFrameThickness": {
+      "description": "[options] Frame thickness option",
+      "message": "框架厚度："
+   },
+   "optFrameThicknessTooltip": {
+      "description": "[options] Tooltip for frame thickness option",
+      "message": "图像出现的边框的粗细（0：无边框）"
+   },
+   "optFrameThicknessUnitName": {
+      "description": "[options] Unit name (pixel) for frame thickness",
+      "message": "像素"
+   },
+   "optFullZoomHidesDetailsCaptions": {
+      "description": "[options] Full zoom key hides details and captions option",
+      "message": "Full zoom key hides details and captions"
+   },
+   "optFullZoomHidesDetailsCaptionsTooltip": {
+      "description": "[options] Tooltip for full zoom key hides details and captions option",
+      "message": "When pressing full zoom, details and captions will be hidden, allowing the image able to expand more vertically"
+   },
+   "optFullZoomKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "按住此键时，将使用所有可用空间显示图片。仅对高分辨率图片有用。"
+   },
+   "optFullZoomKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "激活全部放大"
+   },
+   "optGalleriesLoopEnabled": {
+      "description": "[options] Loop albums option",
+      "message": "Loop albums"
+   },
+   "optGalleriesLoopEnabledTooltip": {
+      "description": "[options] Tooltip for loop albums option",
+      "message": "When navigating past the end of an album, loop back to the start"
+   },
+   "optGalleriesMouseWheel": {
+      "description": "[options] Use mousewheel to navigate albums option",
+      "message": "使用鼠标滚轮导航相册"
+   },
+   "optGalleriesMouseWheelTooltip": {
+      "description": "[options] Tooltip for use mousewheel to navigate albums option",
+      "message": "使用鼠标滚轮导航相册"
+   },
+   "optHScrollBarOverlap": {
+      "description": "[options] Allow zoomed images to overlap the horizontal scroll bar option",
+      "message": "Allow zoomed images to overlap the horizontal scroll bar"
+   },
+   "optHScrollBarOverlapTooltip": {
+      "description": "[options] Tooltip for allow zoomed images to overlap the horizontal scroll bar option",
+      "message": "Allow zoomed images to overlap the horizontal bar, letting more of the window be used"
+   },
+   "optHideKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "按住此键隐藏放大的图像/视频。当图片遮挡了仅在悬停时显示的元素时使用。"
+   },
+   "optHideKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "隐藏图像"
+   },
+   "optHideMouseCursor": {
+      "description": "[options] Hide mouse cursor option",
+      "message": "此后隐藏鼠标："
+   },
+   "optHideMouseCursorTooltip": {
+      "description": "[options] Tooltip for hide mouse cursor option",
+      "message": "如果选中，鼠标将在延迟后隐藏"
+   },
+   "optImagePaddingSize": {
+      "description": "[options] Adjust the zoomed image padding size option",
+      "message": "Image padding size:"
+   },
+   "optImagePaddingSizeTooltip": {
+      "description": "[options] Tooltip for adjust the zoomed image padding size option",
+      "message": "Changes the padding size for zoomed images. Padding determines how close the image can get to the edge of the viewing window"
+   },
+   "optImagePaddingSizeUnitName": {
+      "description": "[options] Unit name (pixels) for zoomed images padding option",
+      "message": "像素"
+   },
+   "optImport": {
+      "description": "[options] Notification after successful import to options",
+      "message": "Import Success!"
+   },
+   "optImportExportTextArea": {
+      "description": "[options] Placeholder for import and export text area",
+      "message": "Paste your saved settings here"
+   },
+   "optImportFailed": {
+      "description": "[options] Notification after failed import to options",
+      "message": "Import Failed"
+   },
+   "optLockImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "按此键锁定图像/视频于页面中心，允许您缩放并平移。 按关闭键或点击图像以外部分解锁。"
+   },
+   "optLockImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "在屏幕上锁定图像"
+   },
+   "optLockImageZoomDefaultEnabled": {
+      "description": "[options] Locked images start zoomed in option",
+      "message": "Locked images start zoomed in"
+   },
+   "optLockImageZoomDefaultEnabledTooltip": {
+      "description": "[options] Tooltip for locked images start zoomed in option",
+      "message": "Pressing the 'Lock Image' action key twice will make the image zoom by default. Enabling this instead will make it zoom by on first press"
+   },
+   "optLockImageZoomFactorEnabled": {
+      "description": "[options] Use zoom factor for lock image option",
+      "message": "Use zoom factor for lock image"
+   },
+   "optLockImageZoomFactorEnabledTooltip": {
+      "description": "[options] Tooltip for use zoom factor for lock image option",
+      "message": "Pressing the 'Lock Image' action key twice will make the image zoom to 100% by default. Enabling this instead will make it zoom by the image factor amount"
+   },
+   "optMaxHeight": {
+      "description": "[options] Adjust the size of zoomed images option",
+      "message": "设置缩放图像的最大高度："
+   },
+   "optMaxHeightTooltip": {
+      "description": "[options] Tooltip for adjust the size of zoomed images option",
+      "message": "按此值设置缩放图像的最大高度（如果为 0，则无最大高度）"
+   },
+   "optMaxSizeUnitName": {
+      "description": "[options] Unit name (px) for zoomed images size option",
+      "message": "像素"
+   },
+   "optMaxWidth": {
+      "description": "[options] Adjust the size of zoomed images option",
+      "message": "设置缩放图像的最大宽度："
+   },
+   "optMaxWidthTooltip": {
+      "description": "[options] Tooltip for adjust the size of zoomed images option",
+      "message": "按此值设置缩放图像的最大宽度（如果为 0，则无最大宽度）"
+   },
+   "optMigrateOldSettings": {
+      "description": "[options] Migrate old settings",
+      "message": "Migrate old settings (THIS WILL OVERWRITE YOUR CURRENT SETTINGS)"
+   },
+   "optMigrateOldSettingsTooltip": {
+      "description": "[options] Tooltip for migrate old settings",
+      "message": "Manually migrate settings from old save location. THIS WILL OVERWRITE YOUR CURRENT SETTINGS."
+   },
+   "optMouseClickHoldTime": {
+      "description": "[options] Mouse click hold time option",
+      "message": "Mouse click hold time:"
+   },
+   "optMouseClickHoldTimeTooltip": {
+      "description": "[options] Tooltip for mouse click hold time option",
+      "message": "Amount of time required to hold a mouse click action key before the hold action is triggered"
+   },
+   "optMouseUnderlap": {
+      "description": "[options] Extend zoomed images below the mouse cursor option",
+      "message": "将缩放图像扩展到鼠标下方"
+   },
+   "optMouseUnderlapTooltip": {
+      "description": "[options] Tooltip for extend zoomed images below the mouse cursor option",
+      "message": "如果未选中，缩放图像将动态调整大小"
+   },
+   "optMuteVideos": {
+      "description": "[options] Mute zoomed videos option",
+      "message": "缩放视频时静音"
+   },
+   "optMuteVideosTooltip": {
+      "description": "[options] Tooltip for mute zoomed videos option",
+      "message": "在缩放视频中静音"
+   },
+   "optNextImgKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "按下这个按钮来显示相册中的下一张图片"
+   },
+   "optNextImgKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "显示相册下一张图片"
+   },
+   "optOffsetUnitName": {
+      "description": "[options] Unit name (pixel) for offset amount",
+      "message": "px/%"
+   },
+   "optOpacityUnitName": {
+      "description": "[options] Unit name (percentage) for opacity option",
+      "message": "%"
+   },
+   "optOpenImageInTabKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "按此键可在新标签页中打开您当前查看的图像/视频。再次按此键可关闭该标签页。Shift+该键则在后台标签页中打开该图像。"
+   },
+   "optOpenImageInTabKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "在新标签页中打开"
+   },
+   "optOpenImageInWindowKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "按此键可在新窗口中打开您当前查看的图像/视频。再次按此键可关闭该窗口。"
+   },
+   "optOpenImageInWindowKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "在新窗口打开图片"
+   },
+   "optPageActionEnabled": {
+      "description": "[options] Change toolbar icon option",
+      "message": "Change toolbar icon when images can be zoomed"
+   },
+   "optPageActionEnabledTooltip": {
+      "description": "[options] Tooltip for change toolbar icons option",
+      "message": "Toolbar icon changes color when images can be zoomed"
+   },
+   "optPageActionKeys": {
+      "description": "[options] Page title for action key options",
+      "message": "快捷键"
+   },
+   "optPageAdvanced": {
+      "description": "[options] Page title for advanced options",
+      "message": "高级"
+   },
+   "optPageFAQ": {
+      "description": "[options] Page title for FAQ",
+      "message": "常见问题"
+   },
+   "optPageGeneral": {
+      "description": "[options] Page title for general options",
+      "message": "一般设置"
+   },
+   "optPagePlugins": {
+      "description": "[options] Page title for plugin options",
+      "message": "插件"
+   },
+   "optPageSites": {
+      "description": "[options] Page title for site options",
+      "message": "网站"
+   },
+   "optPicturesOpacity": {
+      "description": "[options] Zoomed pictures opacity option",
+      "message": "放大图片的透明度"
+   },
+   "optPixelsUnitName": {
+      "description": "[options] Unit name (pixels)",
+      "message": "像素"
+   },
+   "optPlayAudio": {
+      "description": "[options] Play audio option",
+      "message": "播放音频源，如MP3"
+   },
+   "optPlayAudioTooltip": {
+      "description": "[options] Tooltip for play audio option",
+      "message": "支持的格式。flac m4a mp3 oga ogg opus wav"
+   },
+   "optPlugins": {
+      "description": "[options] Section which contains checkboxes for disabling plugins",
+      "message": "启用/禁用特定插件"
+   },
+   "optPrevImgKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "按下这个按钮来显示相册中的上一张图片"
+   },
+   "optPrevImgKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "显示相册上一张图片"
+   },
+   "optRenameDownloads": {
+      "description": "[options] Rename downloads option",
+      "message": "Rename saved files by adding:"
+   },
+   "optRenameDownloadsTooltip": {
+      "description": "[options] Tooltip for rename downloads option",
+      "message": "Prefix original names of downloads with origin, size, duration and so on for easier management"
+   },
+   "optReset": {
+      "description": "[options] Notification after resetting options to factory settings",
+      "message": "选项重置为出厂设置，保存即可应用。"
+   },
+   "optResetAllBannedImages": {
+      "description": "[options] Reset all banned images option",
+      "message": "Reset all banned images, videos & audio tracks"
+   },
+   "optResetAllBannedImagesTooltip": {
+      "description": "[options] Tooltip for reset all banned images option",
+      "message": "After reset, all banned images, videos & audio tracks can be zoomed again"
+   },
+   "optSaveImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Press this key to save the image or video you are currently viewing. (Requires 'Enable saving media with action key' to be checked)"
+   },
+   "optSaveImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "保存图片"
+   },
+   "optSaved": {
+      "description": "[options] Notification after saving options",
+      "message": "设置已保存。某些设置项可能需要刷新页面才能生效。"
+   },
+   "optSectionAdvanced": {
+      "description": "[options] Page section for advanced options",
+      "message": "高级选项"
+   },
+   "optSectionAudio": {
+      "description": "[options] Page section for audio options",
+      "message": "音频"
+   },
+   "optSectionDelays": {
+      "description": "[options] Page section for delay options",
+      "message": "延迟"
+   },
+   "optSectionFAQ": {
+      "description": "[options] Page section for Frequently Asked Questions",
+      "message": "常见问题"
+   },
+   "optSectionImportExportSettings": {
+      "description": "[options] Page section for import/export",
+      "message": "Import/Export"
+   },
+   "optSectionImportExportSettingsTooltip": {
+      "description": "[options] Tooltip for input and export options",
+      "message": "Press export to get a string of your current settings. Press import to load your pasted settings"
+   },
+   "optSectionSitesDisabled": {
+      "description": "[options] Page section for enabling extension for specific sites",
+      "message": "必须禁用 Hover Zoom+ 的 URL"
+   },
+   "optSectionSitesEnabled": {
+      "description": "[options] Page section for enabling extension for specific sites",
+      "message": "必须启用 Hover Zoom+ 的 URL"
+   },
+   "optSectionSupportedFormats": {
+      "description": "[options] Page section for supported formats",
+      "message": "支持的格式"
+   },
+   "optSectionTroubleshooting": {
+      "description": "[options] Page section for troubleshooting",
+      "message": "疑难解答"
+   },
+   "optSectionVideo": {
+      "description": "[options] Page section for video options",
+      "message": "视频"
+   },
+   "optSectionView": {
+      "description": "[options] Page section for viewer options",
+      "message": "浏览者"
+   },
+   "optSectionZoomSpeed": {
+      "description": "[options] Page section for zoom speed",
+      "message": "缩放速度"
+   },
+   "optShowDetailContentLength": {
+      "description": "[options] Show Content Length Detail",
+      "message": "Content Length"
+   },
+   "optShowDetailDimensions": {
+      "description": "[options] Show Dimensions Detail",
+      "message": "Dimensions"
+   },
+   "optShowDetailDuration": {
+      "description": "[options] Show Duration Detail",
+      "message": "Duration"
+   },
+   "optShowDetailExtension": {
+      "description": "[options] Show Extension Detail",
+      "message": "Extension"
+   },
+   "optShowDetailFilename": {
+      "description": "[options] Show File Name Detail",
+      "message": "File Name"
+   },
+   "optShowDetailHost": {
+      "description": "[options] Show Host Detail",
+      "message": "Host"
+   },
+   "optShowDetailLastModified": {
+      "description": "[options] Show Last Modified Detail",
+      "message": "Last Modified"
+   },
+   "optShowDetailRatio": {
+      "description": "[options] Show Ratio Detail",
+      "message": "Ratio"
+   },
+   "optShowDetailScale": {
+      "description": "[options] Show Scale Detail",
+      "message": "Scale"
+   },
+   "optShowHighRes": {
+      "description": "[options] Show high resolution pictures when available option",
+      "message": "如果可能就显示高分辨率的图像"
+   },
+   "optShowHighResTooltip": {
+      "description": "[options] Tooltip for show high resolution pictures when available option",
+      "message": "图片可能需要更多的时间来加载"
+   },
+   "optShowWhileLoading": {
+      "description": "[options] Show zoomed pictures while loading option",
+      "message": "加载时显示缩放的图片"
+   },
+   "optShowWhileLoadingTooltip": {
+      "description": "[options] Tooltip for show zoomed pictures while loading option",
+      "message": "缩放图像在完全加载之前将显示"
+   },
+   "optSiteDisclaimer": {
+      "description": "[options] Disclaimer on the sites option page",
+      "message": "请注意，域过滤器可能会重叠。示例：如果您过滤了“picasaweb.google.com”和“google.com”，则删除“picasaweb.google.com”不会重新激活 Picasa 网络相册，因为它仍会被“google.com”过滤器排除在外。"
+   },
+   "optSitePlaceholder": {
+      "description": "[options] Placeholder for a site url input box",
+      "message": "例如：facebook.com, google.com/reader"
+   },
+   "optStatusBarOverlap": {
+      "description": "[options] Allow zoomed images to overlap the status bar option",
+      "message": "Allow zoomed images to overlap the status bar"
+   },
+   "optStatusBarOverlapTooltip": {
+      "description": "[options] Tooltip for allow zoomed images to overlap the status bar option",
+      "message": "Allow zoomed images to overlap the status bar, letting more of the window be used"
+   },
+   "optSupportedAudioFormats": {
+      "description": "[options] Page section for supported audio formats",
+      "message": "音频:"
+   },
+   "optSupportedImageFormats": {
+      "description": "[options] Page section for supported image formats",
+      "message": "图片:"
+   },
+   "optSupportedVideoFormats": {
+      "description": "[options] Page section for supported video formats",
+      "message": "视频:"
+   },
+   "optTitle": {
+      "description": "[options] Page title",
+      "message": "Hover Zoom+ 选项"
+   },
+   "optTitleBoxDetails": {
+      "description": "[options] Title for details selector",
+      "message": "Detail(s) shown:"
+   },
+   "optToggleKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "启用/禁用 HoverZoom+"
+   },
+   "optToggleKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "开/关 HoverZoom+"
+   },
+   "optUseClipboardNameWhenSaving": {
+      "description": "[options] Use clipboard text as file name option",
+      "message": "Use clipboard text as file name"
+   },
+   "optUseClipboardNameWhenSavingTooltip": {
+      "description": "[options] Tooltip for use clipboard text as file name option",
+      "message": "Use the text in the clipboard as the file name when saving an image"
+   },
+   "optUseSeparateTabForUnloadableUrls": {
+      "description": "[options] Use separate tab for unloadable urls option",
+      "message": "标签"
+   },
+   "optUseSeparateTabOrWindowForUnloadableUrls": {
+      "description": "[options] Use separate tab or window for unloadable urls option",
+      "message": "尝试打开无法加载的网址："
+   },
+   "optUseSeparateTabOrWindowForUnloadableUrlsTooltip": {
+      "description": "[options] Tooltip for using separate tab or window for unloadable urls option",
+      "message": "适用于 HTTPS 网站，例如阻止加载 HTTP 图像的 Google 图片"
+   },
+   "optUseSeparateWindowForUnloadableUrls": {
+      "description": "[options] Use separate window for unloadable urls option",
+      "message": "窗口"
+   },
+   "optVideoPositionStep": {
+      "description": "[options] Changing video position amount option",
+      "message": "使用 ←左/右→ 方向键（或鼠标滚轮）改变视频进度"
+   },
+   "optVideoPositionStepTooltip": {
+      "description": "[options] Tooltip for changing video position option",
+      "message": "跳过这个秒数的视频"
+   },
+   "optVideoPositionStepUnitName": {
+      "description": "[options] Unit name (seconds) for changing video position option",
+      "message": "秒"
+   },
+   "optVideoTimestamp": {
+      "description": "[options] Enable timestamp / video length on videos",
+      "message": "在视频上显示时间戳"
+   },
+   "optVideoTimestampTooltip": {
+      "description": "[options] Tooltip for video length countdown on videos",
+      "message": "启用视频上的时间戳 / 视频长度"
+   },
+   "optVideoVolume": {
+      "description": "[options] Audio volume for unmuted videos option",
+      "message": "未静音视频音量："
+   },
+   "optVideoVolumeTooltip": {
+      "description": "[options] Tooltip for audio volume for unmuted videos option",
+      "message": "如果视频没有完全静音, 将音量设置为此百分比 (0-100)"
+   },
+   "optVideoVolumeUnitName": {
+      "description": "[options] Unit name (percentage) for video volume option",
+      "message": "%"
+   },
+   "optWhitelistMode": {
+      "description": "[options] Whitelist mode checkbox",
+      "message": "白名单模式"
+   },
+   "optWhitelistModeTooltip": {
+      "description": "[options] Tooltip for whitelist mode checkbox",
+      "message": "仅对下面列出的网站启用Hover Zoom+"
+   },
+   "optZoomFactor": {
+      "description": "[options] Adjust the size of zoomed images option",
+      "message": "缩放图像倍率: "
+   },
+   "optZoomFactorTooltip": {
+      "description": "[options] Tooltip for adjust the size of zoomed images option",
+      "message": "放大图片的倍数"
+   },
+   "optZoomFactorUnitName": {
+      "description": "[options] Unit name (percentage) for zoomed images size option",
+      "message": "倍"
+   },
+   "optZoomSpeed_P1": {
+      "description": "[options] Zoom speed Part 1",
+      "message": "当图像或视频在屏幕上锁定时，可以使用鼠标滚轮缩放。"
+   },
+   "optZoomSpeed_P2": {
+      "description": "[options] Zoom speed Part 2",
+      "message": "按下"
+   },
+   "optZoomSpeed_P3": {
+      "description": "[options] Zoom speed Part 3",
+      "message": "或"
+   },
+   "optZoomSpeed_P4": {
+      "description": "[options] Zoom speed Part 4",
+      "message": " 滚动缩放时"
+   },
+   "optZoomSpeed_P41": {
+      "description": "[options] Zoom speed Part 41",
+      "message": "更快的"
+   },
+   "optZoomSpeed_P42": {
+      "description": "[options] Zoom speed Part 42",
+      "message": "减速"
+   },
+   "optZoomVideos": {
+      "description": "[options] Zoom videos option",
+      "message": "缩放视频"
+   },
+   "optZoomVideosTooltip": {
+      "description": "[options] Tooltip for zoom videos option",
+      "message": "Supported formats: 3gpp m4v mkv mp4 mpeg-dash ogv webm"
+   },
+   "optrotateImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Press this key to rotate image."
+   },
+   "optrotateImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Rotate image"
+   },
+   "popAllowPerSiteToggle": {
+      "description": "[popup] Allow per-site extension configuration",
+      "message": "允许每个站点分别配置"
+   },
+   "popDisableForAllSites": {
+      "description": "[popup] Disable the extension",
+      "message": "在所有网站上禁用"
+   },
+   "popDisableForSite": {
+      "description": "[popup] Disables the extension for a specific site",
+      "message": "对 1$ 禁用"
+   },
+   "popEnableForSite": {
+      "description": "[popup] Enables the extension for a specific site",
+      "message": "对 1$ 启用"
+   },
+   "popMoreOptions": {
+      "description": "[popup] More options",
+      "message": "更多选项"
+   },
+   "popPreloadImages": {
+      "description": "[popup] Preload zoomed images",
+      "message": "预加载缩放图像"
+   },
+   "popPreloadingImages": {
+      "description": "[popup] Preloading zoomed images",
+      "message": "预载中..."
+   }
+}

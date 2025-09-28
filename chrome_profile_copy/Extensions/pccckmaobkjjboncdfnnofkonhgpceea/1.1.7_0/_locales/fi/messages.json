@@ -1,0 +1,1166 @@
+{
+   "extDescription": {
+      "description": "Extension description in Chrome webstore (max. 132 characters)",
+      "message": "Suurenna kuvia ja videoita suosikki sivuillasi (Facebook, Amazon, Youtube, jne.). Siirrä hiiri kuvan päälle suurentaaksesi sen."
+   },
+   "extName": {
+      "description": "Extension name",
+      "message": "Hover Zoom+"
+   },
+   "extShortName": {
+      "description": "Short extension name",
+      "message": "HoverZoom"
+   },
+   "msgClickPageToActivateActionKeys": {
+      "description": "Action keys are active only if page is focused",
+      "message": "aktivoi toimintonäppäimet napsauttamalla mitä tahansa kohtaa sivulla."
+   },
+   "msgClickPageToPlayVideo": {
+      "description": "User must interact with the document first to play video: https://goo.gl/xX8pDD",
+      "message": "napsauta mitä tahansa kohtaa sivulla ja siirrä sitten hiiren leijaus uudelleen"
+   },
+   "optAbovePositionOffset": {
+      "description": "[options] Above offset option",
+      "message": "Above position offset:"
+   },
+   "optAbovePositionOffsetTooltip": {
+      "description": "[options] Tooltip for above position offset",
+      "message": "Amount to vertically offset the text in the above position (positive values move text up, negative values move text down)"
+   },
+   "optAbovePositionOffsetUnit": {
+      "description": "[options] Set unit type for above offset",
+      "message": "Unit Type:"
+   },
+   "optAbovePositionOffsetUnitPercent": {
+      "description": "[options] Unit type percent",
+      "message": "%"
+   },
+   "optAbovePositionOffsetUnitPixel": {
+      "description": "[options] unit type pixel",
+      "message": "px"
+   },
+   "optAbovePositionOffsetUnitTooltip": {
+      "description": "[options] Tooltip for setting unit for above position offset",
+      "message": "Choose between pixel or percentage based offset"
+   },
+   "optActionKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Jos näppäin on asetettu, HoverZoom+ on aktiivinen vain, kun näppäintä pidetään alhaalla."
+   },
+   "optActionKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Aktivoi HoverZoom+"
+   },
+   "optAddDownloadCaption": {
+      "description": "[options] Add download caption option",
+      "message": "caption"
+   },
+   "optAddDownloadCaptionTooltip": {
+      "description": "[options] Tooltip for add download caption option",
+      "message": "Add caption (e.g: Mona Lisa by Leonardo da Vinci)"
+   },
+   "optAddDownloadDuration": {
+      "description": "[options] Add download duration option",
+      "message": "kesto"
+   },
+   "optAddDownloadDurationTooltip": {
+      "description": "[options] Tooltip for add download duration option",
+      "message": "Lisää videon kesto (hh mm ss) (esim. 00 16 35)."
+   },
+   "optAddDownloadIndex": {
+      "description": "[options] Add download index option",
+      "message": "index"
+   },
+   "optAddDownloadIndexTooltip": {
+      "description": "[options] Tooltip for add download index option",
+      "message": "Add index of image in gallery (e.g: third image out of ten: 03-10)"
+   },
+   "optAddDownloadOrigin": {
+      "description": "[options] Add download origin option",
+      "message": "alkuperä"
+   },
+   "optAddDownloadOriginTooltip": {
+      "description": "[options] Tooltip for add download origin option",
+      "message": "Lisää alkuperä (esim. www.deviantart.com)."
+   },
+   "optAddDownloadSize": {
+      "description": "[options] Add download size option",
+      "message": "koko"
+   },
+   "optAddDownloadSizeTooltip": {
+      "description": "[options] Tooltip for add download size option",
+      "message": "Lisää koko (WxH) pikseleinä (esim. 1024x750)."
+   },
+   "optAddToHistory": {
+      "description": "[options] Add viewed pictures to the browser's history option",
+      "message": "Lisää katseltu kuva selaimen historiaan"
+   },
+   "optAllowMediaSaving": {
+      "description": "[options] Enable saving media with action key option",
+      "message": "Enable saving media with action key"
+   },
+   "optAlwaysPreload": {
+      "description": "[options] Automatically preload zoomed images option",
+      "message": "Lataa automaattisesti zoomatut kuvat valmiiksi"
+   },
+   "optAmbilightBackgroundOpacity": {
+      "description": "[options] Background opacity option",
+      "message": "Taustan läpinäkymättömyys :"
+   },
+   "optAmbilightBackgroundOpacityTooltip": {
+      "description": "[options] Tooltip for background opacity",
+      "message": "0% : läpinäkyvä, 100% : musta"
+   },
+   "optAmbilightBackgroundOpacityUnitName": {
+      "description": "[options] Unit name (percentage) for background opacity",
+      "message": "%"
+   },
+   "optAmbilightHaloSize": {
+      "description": "[options] Size of halo option",
+      "message": "Halon koko :"
+   },
+   "optAmbilightHaloSizeTooltip": {
+      "description": "[options] Tooltip for size of halo",
+      "message": "Halon koko zoomatun kuvan ympärillä (0% : ei haloa)."
+   },
+   "optAmbilightHaloSizeUnitName": {
+      "description": "[options] Unit name (percentage) for halo size",
+      "message": "%"
+   },
+   "optAudioVolume": {
+      "description": "[options] Audio volume option",
+      "message": "Äänenvoimakkuus:"
+   },
+   "optAudioVolumeTooltip": {
+      "description": "[options] Tooltip for audio volume option",
+      "message": "Aseta äänenvoimakkuus tähän prosenttiosuuteen (0-100)."
+   },
+   "optAudioVolumeUnitName": {
+      "description": "[options] Unit name (percentage) for audio volume option",
+      "message": "%"
+   },
+   "optAutoLockImages": {
+      "description": "[options] Automatically lock images option",
+      "message": "Automatically lock images"
+   },
+   "optAutoLockImagesTooltip": {
+      "description": "[options] Tooltip for automatically lock images option",
+      "message": "Automatically lock images when activating Hover Zoom+"
+   },
+   "optBanKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Holding this key down adds the zoomed image or video to ban list. Use it when you do not want an image or video to be zoomed again on this page."
+   },
+   "optBanKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Ban image"
+   },
+   "optBelowPositionOffset": {
+      "description": "[options] Below offset option",
+      "message": "Below position offset:"
+   },
+   "optBelowPositionOffsetTooltip": {
+      "description": "[options] Tooltip for below position offset",
+      "message": "Amount to vertically offset the text in the below position (positive values move text down, negative values move text up)"
+   },
+   "optBelowPositionOffsetUnit": {
+      "description": "[options] Set unit type for below offset",
+      "message": "Unit Type:"
+   },
+   "optBelowPositionOffsetUnitPercent": {
+      "description": "[options] Unit type percent",
+      "message": "%"
+   },
+   "optBelowPositionOffsetUnitPixel": {
+      "description": "[options] unit type pixel",
+      "message": "px"
+   },
+   "optBelowPositionOffsetUnitTooltip": {
+      "description": "[options] Tooltip for setting unit for below position offset",
+      "message": "Choose between pixel or percentage based offset"
+   },
+   "optButtonAddSite": {
+      "description": "[options] Button for adding a site on sites option page",
+      "message": "Lisää"
+   },
+   "optButtonCancel": {
+      "description": "[options] Cancel button label",
+      "message": "Peruuta"
+   },
+   "optButtonDisableAllPlugins": {
+      "description": "[options] disable all plugins button label",
+      "message": "Poista kaikki käytöstä"
+   },
+   "optButtonEnableAllPlugins": {
+      "description": "[options] enable all plugins button label",
+      "message": "Ota kaikki käyttöön"
+   },
+   "optButtonExportSettings": {
+      "description": "[options] Export a save string into the textarea",
+      "message": "Export"
+   },
+   "optButtonImportSettings": {
+      "description": "[options] Import a save string from the textarea",
+      "message": "Import"
+   },
+   "optButtonMigrateOldSettings": {
+      "description": "[options] Migrate old settings button",
+      "message": "Migrate"
+   },
+   "optButtonReset": {
+      "description": "[options] Reset button label",
+      "message": "Palauta"
+   },
+   "optButtonResetAllBannedImages": {
+      "description": "[options] Reset all banned images button",
+      "message": "Palauta"
+   },
+   "optButtonSave": {
+      "description": "[options] Save button label",
+      "message": "Tallenna"
+   },
+   "optCancel": {
+      "description": "[options] Notification after cancelling modification(s) to options",
+      "message": "Muutos (muutokset) peruutettu."
+   },
+   "optCaptionLocation": {
+      "description": "[options] Adjust the position of the caption",
+      "message": "Kuvatekstin sijainti:"
+   },
+   "optCaptionLocationAbove": {
+      "description": "[options] Caption location option to put captions above the image",
+      "message": "Edellä"
+   },
+   "optCaptionLocationBelow": {
+      "description": "[options] Caption location option to put captions below the image",
+      "message": "Alla"
+   },
+   "optCaptionLocationNone": {
+      "description": "[options] Caption location option to disable captions",
+      "message": "Ei ole"
+   },
+   "optCaptionLocationTooltip": {
+      "description": "[options] Tooltip for adjusting the position of the caption",
+      "message": "Näytä kuvateksti kuvan ylä- tai alapuolella tai ei lainkaan."
+   },
+   "optCaptionOpacity": {
+      "description": "[options] Caption opacity option",
+      "message": "Caption opacity:"
+   },
+   "optCenterImages": {
+      "description": "[options] Center images in the middle of the page option",
+      "message": "Keskellä olevat kuvat"
+   },
+   "optCenterImagesTooltip": {
+      "description": "[options] Tooltip for center images in the middle of the page option",
+      "message": "Keskitä kuvat sen sijaan, että ne seuraisivat kursoria."
+   },
+   "optClickHoldTimeUnit": {
+      "description": "[options] Unit name (pixel) for hold time amount",
+      "message": "milliseconds"
+   },
+   "optCloseKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Paina tätä näppäintä sulkeaksesi zoomatun kuvan tai videon."
+   },
+   "optCloseKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Sulje kuva"
+   },
+   "optCopyImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Kun tätä näppäintä painetaan, kuva kopioidaan leikepöydälle."
+   },
+   "optCopyImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Kopioi kuva leikepöydälle"
+   },
+   "optCopyImageUrlKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Kun tätä näppäintä painetaan, kuvan tai videon URL-osoite kopioidaan leikepöydälle."
+   },
+   "optCopyImageUrlKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Kopioi kuvan URL-osoite leikepöydälle"
+   },
+   "optDarkMode": {
+      "description": "[options] Enable dark mode for Options & Popup",
+      "message": "Tumma tila"
+   },
+   "optDetailsLocation": {
+      "description": "[options] Adjust the position of details",
+      "message": "Yksityiskohdat asema:"
+   },
+   "optDetailsLocationAbove": {
+      "description": "[options] Details location option to put details above the image",
+      "message": "Edellä"
+   },
+   "optDetailsLocationBelow": {
+      "description": "[options] Details location option to put details below the image",
+      "message": "Alla"
+   },
+   "optDetailsLocationNone": {
+      "description": "[options] Details location option to disable details",
+      "message": "Ei ole"
+   },
+   "optDetailsLocationTooltip": {
+      "description": "[options] Tooltip for adjusting the position of details",
+      "message": "Näytä tiedot (koko, muoto...) kuvan ylä-/alareunassa tai ei lainkaan."
+   },
+   "optDetailsOpacity": {
+      "description": "[options] Details opacity option",
+      "message": "Details opacity:"
+   },
+   "optDetailsSelectorTooltip": {
+      "description": "[options] Tooltip for details selector",
+      "message": "Select which detail(s) should show, if details are displayed"
+   },
+   "optDisableMouseWheelForVideo": {
+      "description": "[options] Allows you to scroll through albums with the mousewheel but does not change behavior of GFY/Videos",
+      "message": "Älä käytä hiiren rullaa navigointiin videossa (pikanappäimet toimivat silti)"
+   },
+   "optDisableMouseWheelForVideoTooltip": {
+      "description": "[options] Allows you to scroll through albums with the mousewheel but does not change behavior of GFY/Videos",
+      "message": "Selaa albumeita, mutta älä hyppää eteenpäin/taaksepäin videoissa."
+   },
+   "optDisplayDelay": {
+      "description": "[options] Delay before displaying a picture option",
+      "message": "Viiveet ennen kuvan näyttämistä:"
+   },
+   "optDisplayDelayVideo": {
+      "description": "[options] Delay before displaying a video option",
+      "message": "Viiveet ennen videon näyttämistä:"
+   },
+   "optDisplayImageLoader": {
+      "description": "[options] Display image loader option",
+      "message": "Näyttää punaisen spinnerin, kun kuvan lataus epäonnistui"
+   },
+   "optDisplayImageLoaderTooltip": {
+      "description": "[options] Tooltip for display image loader option",
+      "message": "Näyttää pienen pyörittimen, kun kuva latautuu (vihreä: latautuu, punainen: virhe). Punainen pyöritin on valinnainen."
+   },
+   "optDownloadFolder": {
+      "description": "[options] Download folder option",
+      "message": "Save images, videos & audios to folder: Downloads/"
+   },
+   "optDownloadFolderPlaceholder": {
+      "description": "[options] Placeholder for download folder option",
+      "message": "Esimerkki: eläimet/kissat"
+   },
+   "optDownloadFolderTooltip": {
+      "description": "[options] Tooltip for download folder option",
+      "message": "Tarvittaessa luodaan alikansio(t)."
+   },
+   "optDownloadReplaceOriginalFilename": {
+      "description": "[options] Replace original filename when downloading option",
+      "message": "On save, replace original filename by:"
+   },
+   "optDownloadReplaceOriginalFilenamePlaceholder": {
+      "description": "[options] Placeholder for download folder option",
+      "message": "Example: fullsize_image"
+   },
+   "optDownloadReplaceOriginalFilenameTooltip": {
+      "description": "[options] Tooltip for replace original filename when downloading option",
+      "message": "Replace original filename or remove it if no value supplied (extension is preserved)"
+   },
+   "optDurationUnitName": {
+      "description": "[options] Short form of \"second\" for delay duration",
+      "message": "sek"
+   },
+   "optEnableAmbilight": {
+      "description": "[options] Enable ambient light behind images option",
+      "message": "Ympäristön valon ottaminen käyttöön kuvien takana"
+   },
+   "optEnableAmbilightTooltip": {
+      "description": "[options] Tooltip for enable ambient light behind images option",
+      "message": "Luo hienovarainen hehkuva vaikutus, joka on samanlainen kuin Philips Ambilight -tekniikka."
+   },
+   "optEnableCaptionDetailShadow": {
+      "description": "[options] Enable shadow behind caption and details option",
+      "message": "Enable shadow behind caption and details"
+   },
+   "optEnableCaptionDetailShadowTooltip": {
+      "description": "[options] Tooltip for enable shadow behind caption and details option",
+      "message": "Adds a small shadow any captions or details, making it pop out more from the background"
+   },
+   "optEnableDebug": {
+      "description": "[options] Enable debug option",
+      "message": "Ota vianmäärityksen kirjaus käyttöön"
+   },
+   "optEnableDebugTooltip": {
+      "description": "[options] Tooltip for enable debug option",
+      "message": "Näyttää vikailmoitukset selaimen konsolissa (konsolin avaaminen: paina F12)."
+   },
+   "optEnableGalleries": {
+      "description": "[options] Enable albums support option",
+      "message": "Ota albumituki käyttöön"
+   },
+   "optEnableNoFocusMsg": {
+      "description": "[options] Enable Action Keys focus overlay message option",
+      "message": "Ota toimintonäppäinten tarkennuksen päällekkäisviesti käyttöön"
+   },
+   "optEnableNoFocusMsgTooltip": {
+      "description": "[options] Tooltip for enable Action Keys focus overlay message option",
+      "message": "Joskus toimintonäppäimet näyttävät olevan rikki, tämä tapahtuu yleensä silloin, kun sivu on menettänyt tarkennuksen. Jos vaihtoehto on valittuna, näytetään varoitusviesti (vain kerran)."
+   },
+   "optEnableViewerShadow": {
+      "description": "[options] Enable shadow behind image viewer option",
+      "message": "Enable shadow behind image viewer"
+   },
+   "optEnableViewerShadowTooltip": {
+      "description": "[options] Tooltip for enable shadow behind caption and details option",
+      "message": "Adds a small shadow behind the zoomed image viewer, making it more visible from the background"
+   },
+   "optExtensionEnabled": {
+      "description": "[options] Enable Hover Zoom+ option",
+      "message": "Hover Zoom+ päälle"
+   },
+   "optFAQ_A1_1": {
+      "description": "[options] FAQ Answer 1 part 1",
+      "message": "Paina painikkeen \"Save\" painiketta painamisen jälkeen"
+   },
+   "optFAQ_A1_2": {
+      "description": "[options] FAQ Answer 1 part 2",
+      "message": "Vaihtoehdot-sivun alareunassa"
+   },
+   "optFAQ_A1_3": {
+      "description": "[options] FAQ Answer 1 part 3",
+      "message": "Lataa sivu uudelleen (F5)"
+   },
+   "optFAQ_A2_1": {
+      "description": "[options] FAQ Answer 2 part 1",
+      "message": "Aktivoi kohdassa Asetukset -> Yleiset -> Viiveet \"Piilota hiiren kursori\"."
+   },
+   "optFAQ_A3_1": {
+      "description": "[options] FAQ Answer 3 part 1",
+      "message": "Esimerkiksi HoverZoom+:n aktivoimiseksi DeviantArt.comissa ja 1X.comissa:"
+   },
+   "optFAQ_A3_2": {
+      "description": "[options] FAQ Answer 3 part 2",
+      "message": "Aktivoi kohdassa Asetukset -> Sivustot \"Whitelist-tila\"."
+   },
+   "optFAQ_A3_3": {
+      "description": "[options] FAQ Answer 3 part 3",
+      "message": "Lisää DeviantArt.com ja 1X.com URL-osoitteiden luetteloon (ei isojen ja pienten kirjainten erottelua)."
+   },
+   "optFAQ_A4_1": {
+      "description": "[options] FAQ Answer 4 part 1",
+      "message": "Vie hiiren kursori kuvan tai videon päälle ja lukitse se sitten näytölle (oletustoimintonäppäin: \"L\")."
+   },
+   "optFAQ_A4_2": {
+      "description": "[options] FAQ Answer 4 part 2",
+      "message": "Kuva tai video näytetään nyt täysikokoisena. Voit suurentaa tai pienentää kuvaa hiiren pyörän avulla."
+   },
+   "optFAQ_A5_1": {
+      "description": "[options] FAQ Answer 5 part 1",
+      "message": "Joskus toimintonäppäimet näyttävät olevan rikki, tämä tapahtuu yleensä silloin, kun sivu on menettänyt tarkennuksen."
+   },
+   "optFAQ_A5_2": {
+      "description": "[options] FAQ Answer 5 part 2",
+      "message": "Napsauta mitä tahansa kohtaa sivulla saadaksesi tarkennuksen takaisin."
+   },
+   "optFAQ_A5_3": {
+      "description": "[options] FAQ Answer 5 part 3",
+      "message": "Asetuksissa -> Lisäasetukset voit aktivoida \"Ota toimintonäppäinten tarkennuksen päällekkäisviesti käyttöön\", jolloin saat varoitusviestin, kun tarkennus katoaa."
+   },
+   "optFAQ_A6_1": {
+      "description": "[options] FAQ Answer 6 part 1",
+      "message": "esim: Dailymotion-videot toistuvat dailymotion.com-sivustolla, mutta eivät Googlen hakutuloksissa."
+   },
+   "optFAQ_A6_2": {
+      "description": "[options] FAQ Answer 6 part 2",
+      "message": "Tämä johtuu CORS-rajoitteista, jotka on poistettava:"
+   },
+   "optFAQ_A6_3": {
+      "description": "[options] FAQ Answer 6 part 3",
+      "message": "Aktivoi kohdassa Asetukset -> Lisäasetukset \"Salli HTTP(S)-pyynnön tai -vastauksen otsikoiden uudelleenkirjoittaminen\"."
+   },
+   "optFAQ_A7": {
+      "description": "[options] FAQ Answer 7",
+      "message": "Scroll down or click anywhere on page to wake up HoverZoom+!"
+   },
+   "optFAQ_Q1": {
+      "description": "[options] FAQ Question 1",
+      "message": "Muokkasin joitakin vaihtoehtoja, mutta en näe muutoksia."
+   },
+   "optFAQ_Q2": {
+      "description": "[options] FAQ Question 2",
+      "message": "Haluan piilottaa hiiren kursorin zoomatussa kuvassa tai videossa."
+   },
+   "optFAQ_Q3": {
+      "description": "[options] FAQ Question 3",
+      "message": "Tarvitsen HoverZoom+:n olevan aktiivinen vain joillakin sivustoilla."
+   },
+   "optFAQ_Q4": {
+      "description": "[options] FAQ Question 4",
+      "message": "Haluan zoomata kuvan tai videon alkuperäiseen kokoonsa, vaikka se olisi näytön kokoa suurempi."
+   },
+   "optFAQ_Q5": {
+      "description": "[options] FAQ Question 5",
+      "message": "Toimintonäppäimet eivät toimi!"
+   },
+   "optFAQ_Q6": {
+      "description": "[options] FAQ Question 6",
+      "message": "Jotkin videot eivät toistu, kun ne avataan muilta kuin alkuperäisiltä sivustoilta."
+   },
+   "optFAQ_Q7": {
+      "description": "[options] FAQ Question 7",
+      "message": "I hover an image or video but sometimes nothing happens!"
+   },
+   "optFAQ_SaveAndReload": {
+      "description": "[options] FAQ Save and reload page",
+      "message": "Tallenna ja lataa sivu uudelleen (F5)."
+   },
+   "optFadeDuration": {
+      "description": "[options] Fading animation duration option",
+      "message": "Häivytys animaation kesto:"
+   },
+   "optFilterNSFW": {
+      "description": "[options] Exclude NSFW images (Reddit only) option",
+      "message": "Älä näytä NSFW kuvia (Vain Redditissä)"
+   },
+   "optFlipImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Paina tätä näppäintä kääntääksesi kuvaa vuorotellen pysty- ja vaakasuunnassa. Kätevä, kun haluat lukea tekstejä ja logoja peilatuista kuvista tai videoista."
+   },
+   "optFlipImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Käännä kuva"
+   },
+   "optFontOutline": {
+      "description": "[options] Outline option",
+      "message": "Fontin ääriviivat"
+   },
+   "optFontOutlineTooltip": {
+      "description": "[options] Tooltip for outline option",
+      "message": "Jos valittuna: Käytä valkoista fonttia + ohutta mustaa reunusta kuvatekstissä ja yksityiskohdissa."
+   },
+   "optFontSize": {
+      "description": "[options] Font size option",
+      "message": "Kirjasinkoko:"
+   },
+   "optFontSizeTooltip": {
+      "description": "[options] Tooltip for font size option",
+      "message": "Kuvateksteissä ja yksityiskohdissa käytettävän fontin koko"
+   },
+   "optFontSizeUnitName": {
+      "description": "[options] Unit name (pixel) for font size",
+      "message": "pikseliä"
+   },
+   "optFooterChangelog": {
+      "description": "[options] Changelog link in page footer",
+      "message": "Changelog"
+   },
+   "optFooterReportIssue": {
+      "description": "[options] Report a bug link in page footer",
+      "message": "Raportoi bugi"
+   },
+   "optFooterSourceCode": {
+      "description": "[options] Source code link in page footer",
+      "message": "Lähdekoodi"
+   },
+   "optFooterVersionCopyright": {
+      "description": "[options] Copyright and version number in page footer",
+      "message": "Version $1 - © 2014-$2 Oleg Anashkin"
+   },
+   "optFrameBackgroundColor": {
+      "description": "[options] Frame background color option",
+      "message": "Kehyksen taustaväri:"
+   },
+   "optFrameBackgroundColorCancelText": {
+      "description": "[options] Frame background color button - Cancel",
+      "message": "Peruuta"
+   },
+   "optFrameBackgroundColorChooseText": {
+      "description": "[options] Frame background color button - Select",
+      "message": "Valitse"
+   },
+   "optFrameBackgroundColorTooltip": {
+      "description": "[options] Tooltip for frame background color option",
+      "message": "Kuvan näkyvän kehyksen taustaväri"
+   },
+   "optFrameThickness": {
+      "description": "[options] Frame thickness option",
+      "message": "Rungon paksuus:"
+   },
+   "optFrameThicknessTooltip": {
+      "description": "[options] Tooltip for frame thickness option",
+      "message": "Kuvan näkyvän kehyksen reunuksen paksuus (0 : ei kehystä)."
+   },
+   "optFrameThicknessUnitName": {
+      "description": "[options] Unit name (pixel) for frame thickness",
+      "message": "pikseliä"
+   },
+   "optFullZoomHidesDetailsCaptions": {
+      "description": "[options] Full zoom key hides details and captions option",
+      "message": "Full zoom key hides details and captions"
+   },
+   "optFullZoomHidesDetailsCaptionsTooltip": {
+      "description": "[options] Tooltip for full zoom key hides details and captions option",
+      "message": "When pressing full zoom, details and captions will be hidden, allowing the image able to expand more vertically"
+   },
+   "optFullZoomKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Kun tätä näppäintä pidetään alhaalla, kuva näytetään käyttämällä kaikki käytettävissä oleva tila. Hyödyllinen vain korkean resoluution kuville."
+   },
+   "optFullZoomKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Aktivoi täysi zoomaus"
+   },
+   "optGalleriesLoopEnabled": {
+      "description": "[options] Loop albums option",
+      "message": "Loop albums"
+   },
+   "optGalleriesLoopEnabledTooltip": {
+      "description": "[options] Tooltip for loop albums option",
+      "message": "When navigating past the end of an album, loop back to the start"
+   },
+   "optGalleriesMouseWheel": {
+      "description": "[options] Use mousewheel to navigate albums option",
+      "message": "Käytä hiiren rullaa albumeiden navigointiin"
+   },
+   "optGalleriesMouseWheelTooltip": {
+      "description": "[options] Tooltip for use mousewheel to navigate albums option",
+      "message": "Navigoi albumissa hiiren rullalla"
+   },
+   "optHScrollBarOverlap": {
+      "description": "[options] Allow zoomed images to overlap the horizontal scroll bar option",
+      "message": "Allow zoomed images to overlap the horizontal scroll bar"
+   },
+   "optHScrollBarOverlapTooltip": {
+      "description": "[options] Tooltip for allow zoomed images to overlap the horizontal scroll bar option",
+      "message": "Allow zoomed images to overlap the horizontal bar, letting more of the window be used"
+   },
+   "optHideKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Pitämällä tätä näppäintä alhaalla voit piilottaa zoomatun kuvan tai videon. Käytä sitä, kun kuva peittää elementtejä, jotka näkyvät myös hiiren yliohjauksessa."
+   },
+   "optHideKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Piilota kuva"
+   },
+   "optHideMouseCursor": {
+      "description": "[options] Hide mouse cursor option",
+      "message": "Piilota hiiren kursori sen jälkeen:"
+   },
+   "optHideMouseCursorTooltip": {
+      "description": "[options] Tooltip for hide mouse cursor option",
+      "message": "Jos valitaan, hiiren kursori piilotetaan viiveen jälkeen."
+   },
+   "optImagePaddingSize": {
+      "description": "[options] Adjust the zoomed image padding size option",
+      "message": "Image padding size:"
+   },
+   "optImagePaddingSizeTooltip": {
+      "description": "[options] Tooltip for adjust the zoomed image padding size option",
+      "message": "Changes the padding size for zoomed images. Padding determines how close the image can get to the edge of the viewing window"
+   },
+   "optImagePaddingSizeUnitName": {
+      "description": "[options] Unit name (pixels) for zoomed images padding option",
+      "message": "pixels"
+   },
+   "optImport": {
+      "description": "[options] Notification after successful import to options",
+      "message": "Import Success!"
+   },
+   "optImportExportTextArea": {
+      "description": "[options] Placeholder for import and export text area",
+      "message": "Paste your saved settings here"
+   },
+   "optImportFailed": {
+      "description": "[options] Notification after failed import to options",
+      "message": "Import Failed"
+   },
+   "optLockImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Painamalla tätä näppäintä voit lukita kuvan tai videon sivun keskelle, jolloin voit zoomata ja panoroida. Avaa lukitus painamalla Sulje-näppäintä tai napsauttamalla kuvan ulkopuolella."
+   },
+   "optLockImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Lukitse kuva näytöllä"
+   },
+   "optLockImageZoomDefaultEnabled": {
+      "description": "[options] Locked images start zoomed in option",
+      "message": "Locked images start zoomed in"
+   },
+   "optLockImageZoomDefaultEnabledTooltip": {
+      "description": "[options] Tooltip for locked images start zoomed in option",
+      "message": "Pressing the 'Lock Image' action key twice will make the image zoom by default. Enabling this instead will make it zoom by on first press"
+   },
+   "optLockImageZoomFactorEnabled": {
+      "description": "[options] Use zoom factor for lock image option",
+      "message": "Use zoom factor for lock image"
+   },
+   "optLockImageZoomFactorEnabledTooltip": {
+      "description": "[options] Tooltip for use zoom factor for lock image option",
+      "message": "Pressing the 'Lock Image' action key twice will make the image zoom to 100% by default. Enabling this instead will make it zoom by the image factor amount"
+   },
+   "optMaxHeight": {
+      "description": "[options] Adjust the size of zoomed images option",
+      "message": "Set max height of zoomed images:"
+   },
+   "optMaxHeightTooltip": {
+      "description": "[options] Tooltip for adjust the size of zoomed images option",
+      "message": "Set max height of zoomed images by this amount (if 0 then no max height)"
+   },
+   "optMaxSizeUnitName": {
+      "description": "[options] Unit name (px) for zoomed images size option",
+      "message": "px"
+   },
+   "optMaxWidth": {
+      "description": "[options] Adjust the size of zoomed images option",
+      "message": "Set max width of zoomed images:"
+   },
+   "optMaxWidthTooltip": {
+      "description": "[options] Tooltip for adjust the size of zoomed images option",
+      "message": "Set max width of zoomed images by this amount (if 0 then no max width)"
+   },
+   "optMigrateOldSettings": {
+      "description": "[options] Migrate old settings",
+      "message": "Migrate old settings (THIS WILL OVERWRITE YOUR CURRENT SETTINGS)"
+   },
+   "optMigrateOldSettingsTooltip": {
+      "description": "[options] Tooltip for migrate old settings",
+      "message": "Manually migrate settings from old save location. THIS WILL OVERWRITE YOUR CURRENT SETTINGS."
+   },
+   "optMouseClickHoldTime": {
+      "description": "[options] Mouse click hold time option",
+      "message": "Mouse click hold time:"
+   },
+   "optMouseClickHoldTimeTooltip": {
+      "description": "[options] Tooltip for mouse click hold time option",
+      "message": "Amount of time required to hold a mouse click action key before the hold action is triggered"
+   },
+   "optMouseUnderlap": {
+      "description": "[options] Extend zoomed images below the mouse cursor option",
+      "message": "Laajenna suurennetut kuvat hiiren alapuolelle"
+   },
+   "optMouseUnderlapTooltip": {
+      "description": "[options] Tooltip for extend zoomed images below the mouse cursor option",
+      "message": "Jos valintamerkki poistetaan, suurennettujen kuvien kokoa muutetaan dynaamisesti."
+   },
+   "optMuteVideos": {
+      "description": "[options] Mute zoomed videos option",
+      "message": "Mykistetyt videot"
+   },
+   "optMuteVideosTooltip": {
+      "description": "[options] Tooltip for mute zoomed videos option",
+      "message": "Äänen poistaminen käytöstä zoomatuissa videoissa"
+   },
+   "optNextImgKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Paina tätä näppäintä nähdäksesi seuraavan kuvan galleriassa."
+   },
+   "optNextImgKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Katso seuraava kuva galleriassa"
+   },
+   "optOffsetUnitName": {
+      "description": "[options] Unit name (pixel) for offset amount",
+      "message": "px/%"
+   },
+   "optOpacityUnitName": {
+      "description": "[options] Unit name (percentage) for opacity option",
+      "message": "%"
+   },
+   "optOpenImageInTabKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Paina tätä näppäintä, jos haluat avata parhaillaan katselemasi kuvan tai videon uuteen välilehteen. Sulje välilehti painamalla tätä näppäintä uudelleen. Shift+näppäin avaa kuvan taustavälilehdelle."
+   },
+   "optOpenImageInTabKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Avaa kuva uudessa välilehdessä"
+   },
+   "optOpenImageInWindowKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Paina tätä näppäintä, jos haluat avata parhaillaan katselemasi kuvan tai videon uuteen ikkunaan. Sulje ikkuna painamalla tätä näppäintä uudelleen."
+   },
+   "optOpenImageInWindowKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Avaa kuva uudessa ikkunassa"
+   },
+   "optPageActionEnabled": {
+      "description": "[options] Change toolbar icon option",
+      "message": "Change toolbar icon when images can be zoomed"
+   },
+   "optPageActionEnabledTooltip": {
+      "description": "[options] Tooltip for change toolbar icons option",
+      "message": "Toolbar icon changes color when images can be zoomed"
+   },
+   "optPageActionKeys": {
+      "description": "[options] Page title for action key options",
+      "message": "Pikanäppäimet"
+   },
+   "optPageAdvanced": {
+      "description": "[options] Page title for advanced options",
+      "message": "Kehittyneet"
+   },
+   "optPageFAQ": {
+      "description": "[options] Page title for FAQ",
+      "message": "FAQ"
+   },
+   "optPageGeneral": {
+      "description": "[options] Page title for general options",
+      "message": "Yleinen"
+   },
+   "optPagePlugins": {
+      "description": "[options] Page title for plugin options",
+      "message": "Lisäosat"
+   },
+   "optPageSites": {
+      "description": "[options] Page title for site options",
+      "message": "Sivut"
+   },
+   "optPicturesOpacity": {
+      "description": "[options] Zoomed pictures opacity option",
+      "message": "Suurennettujen kuvien läpinäkymättömyys:"
+   },
+   "optPixelsUnitName": {
+      "description": "[options] Unit name (pixels)",
+      "message": "pikseliä"
+   },
+   "optPlayAudio": {
+      "description": "[options] Play audio option",
+      "message": "Toista äänilähteitä, kuten MP3"
+   },
+   "optPlayAudioTooltip": {
+      "description": "[options] Tooltip for play audio option",
+      "message": "Tuetut formaatit: Oga ogg opus wav: Flac m4a mp3 oga ogg opus wav"
+   },
+   "optPlugins": {
+      "description": "[options] Section which contains checkboxes for disabling plugins",
+      "message": "Aseta päälle/pois lisäosia"
+   },
+   "optPrevImgKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Paina tätä näppäintä nähdäksesi edellisen kuvan galleriassa."
+   },
+   "optPrevImgKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Katso edellinen kuva galleriassa"
+   },
+   "optRenameDownloads": {
+      "description": "[options] Rename downloads option",
+      "message": "Rename saved files by adding:"
+   },
+   "optRenameDownloadsTooltip": {
+      "description": "[options] Tooltip for rename downloads option",
+      "message": "Prefix original names of downloads with origin, size, duration and so on for easier management"
+   },
+   "optReset": {
+      "description": "[options] Notification after resetting options to factory settings",
+      "message": "Vaihtoehdot palauta tehdasasetukset, tallenna sovellettavaksi."
+   },
+   "optResetAllBannedImages": {
+      "description": "[options] Reset all banned images option",
+      "message": "Reset all banned images, videos & audio tracks"
+   },
+   "optResetAllBannedImagesTooltip": {
+      "description": "[options] Tooltip for reset all banned images option",
+      "message": "After reset, all banned images, videos & audio tracks can be zoomed again"
+   },
+   "optSaveImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Press this key to save the image or video you are currently viewing. (Requires 'Enable saving media with action key' to be checked)"
+   },
+   "optSaveImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Tallenna kuva"
+   },
+   "optSaved": {
+      "description": "[options] Notification after saving options",
+      "message": "Asetukset tallennettu. Jotkin asetukset voivat vaatia sivun päivityksen."
+   },
+   "optSectionAdvanced": {
+      "description": "[options] Page section for advanced options",
+      "message": "Kehittyneet asetukset"
+   },
+   "optSectionAudio": {
+      "description": "[options] Page section for audio options",
+      "message": "Audio"
+   },
+   "optSectionDelays": {
+      "description": "[options] Page section for delay options",
+      "message": "Viiveet"
+   },
+   "optSectionFAQ": {
+      "description": "[options] Page section for Frequently Asked Questions",
+      "message": "Usein kysytyt kysymykset"
+   },
+   "optSectionImportExportSettings": {
+      "description": "[options] Page section for import/export",
+      "message": "Import/Export"
+   },
+   "optSectionImportExportSettingsTooltip": {
+      "description": "[options] Tooltip for input and export options",
+      "message": "Press export to get a string of your current settings. Press import to load your pasted settings"
+   },
+   "optSectionSitesDisabled": {
+      "description": "[options] Page section for enabling extension for specific sites",
+      "message": "URL osoitteet missä Hover Zoom+ on aina pois päältä"
+   },
+   "optSectionSitesEnabled": {
+      "description": "[options] Page section for enabling extension for specific sites",
+      "message": "URL osoitteet missä Hover Zoom+ on aina päällä"
+   },
+   "optSectionSupportedFormats": {
+      "description": "[options] Page section for supported formats",
+      "message": "Tuetut formaatit"
+   },
+   "optSectionTroubleshooting": {
+      "description": "[options] Page section for troubleshooting",
+      "message": "Vianmääritys"
+   },
+   "optSectionVideo": {
+      "description": "[options] Page section for video options",
+      "message": "Video"
+   },
+   "optSectionView": {
+      "description": "[options] Page section for viewer options",
+      "message": "Katseluohjelma"
+   },
+   "optSectionZoomSpeed": {
+      "description": "[options] Page section for zoom speed",
+      "message": "Zoom speed"
+   },
+   "optShowDetailContentLength": {
+      "description": "[options] Show Content Length Detail",
+      "message": "Content Length"
+   },
+   "optShowDetailDimensions": {
+      "description": "[options] Show Dimensions Detail",
+      "message": "Dimensions"
+   },
+   "optShowDetailDuration": {
+      "description": "[options] Show Duration Detail",
+      "message": "Duration"
+   },
+   "optShowDetailExtension": {
+      "description": "[options] Show Extension Detail",
+      "message": "Extension"
+   },
+   "optShowDetailFilename": {
+      "description": "[options] Show File Name Detail",
+      "message": "File Name"
+   },
+   "optShowDetailHost": {
+      "description": "[options] Show Host Detail",
+      "message": "Host"
+   },
+   "optShowDetailLastModified": {
+      "description": "[options] Show Last Modified Detail",
+      "message": "Last Modified"
+   },
+   "optShowDetailRatio": {
+      "description": "[options] Show Ratio Detail",
+      "message": "Ratio"
+   },
+   "optShowDetailScale": {
+      "description": "[options] Show Scale Detail",
+      "message": "Scale"
+   },
+   "optShowHighRes": {
+      "description": "[options] Show high resolution pictures when available option",
+      "message": "Näytä korkean resoluution kuvat silloin kuin mahdollista"
+   },
+   "optShowHighResTooltip": {
+      "description": "[options] Tooltip for show high resolution pictures when available option",
+      "message": "Kuvien lataaminen saattaa kestää kauemman aikaa"
+   },
+   "optShowWhileLoading": {
+      "description": "[options] Show zoomed pictures while loading option",
+      "message": "Näytä zoomattu kuva ladattaessa"
+   },
+   "optShowWhileLoadingTooltip": {
+      "description": "[options] Tooltip for show zoomed pictures while loading option",
+      "message": "Zoomattu kuva näytetään ennenkuin se on ladattu kokonaan"
+   },
+   "optSiteDisclaimer": {
+      "description": "[options] Disclaimer on the sites option page",
+      "message": "Huomaa, että toimialueen suodattimet voivat olla päällekkäisiä. Esimerkki: jos olet suodattanut \"picasaweb.google.com\" ja \"google.com\", \"picasaweb.google.com\" poistaminen ei aktivoi Picasa Web Albums -verkkokuvaa uudelleen, koska \"google.com\"-suodatin sulkee sen edelleen pois."
+   },
+   "optSitePlaceholder": {
+      "description": "[options] Placeholder for a site url input box",
+      "message": "Esimerkkejä: facebook.com, google.com/reader"
+   },
+   "optStatusBarOverlap": {
+      "description": "[options] Allow zoomed images to overlap the status bar option",
+      "message": "Allow zoomed images to overlap the status bar"
+   },
+   "optStatusBarOverlapTooltip": {
+      "description": "[options] Tooltip for allow zoomed images to overlap the status bar option",
+      "message": "Allow zoomed images to overlap the status bar, letting more of the window be used"
+   },
+   "optSupportedAudioFormats": {
+      "description": "[options] Page section for supported audio formats",
+      "message": "Audio :"
+   },
+   "optSupportedImageFormats": {
+      "description": "[options] Page section for supported image formats",
+      "message": "Kuvat :"
+   },
+   "optSupportedVideoFormats": {
+      "description": "[options] Page section for supported video formats",
+      "message": "Video :"
+   },
+   "optTitle": {
+      "description": "[options] Page title",
+      "message": "Hover Zoom+ Asetukset"
+   },
+   "optTitleBoxDetails": {
+      "description": "[options] Title for details selector",
+      "message": "Detail(s) shown:"
+   },
+   "optToggleKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Ota HoverZoom+ käyttöön/pois käytöstä"
+   },
+   "optToggleKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Vaihda HoverZoom+"
+   },
+   "optUseClipboardNameWhenSaving": {
+      "description": "[options] Use clipboard text as file name option",
+      "message": "Use clipboard text as file name"
+   },
+   "optUseClipboardNameWhenSavingTooltip": {
+      "description": "[options] Tooltip for use clipboard text as file name option",
+      "message": "Use the text in the clipboard as the file name when saving an image"
+   },
+   "optUseSeparateTabForUnloadableUrls": {
+      "description": "[options] Use separate tab for unloadable urls option",
+      "message": "Välilehti"
+   },
+   "optUseSeparateTabOrWindowForUnloadableUrls": {
+      "description": "[options] Use separate tab or window for unloadable urls option",
+      "message": "Yritä avata lataamattomat urlit erillisessä:"
+   },
+   "optUseSeparateTabOrWindowForUnloadableUrlsTooltip": {
+      "description": "[options] Tooltip for using separate tab or window for unloadable urls option",
+      "message": "Hyödyllinen HTTPS-sivustoille, kuten Google Images, jotka estävät HTTP-kuvien lataamisen."
+   },
+   "optUseSeparateWindowForUnloadableUrls": {
+      "description": "[options] Use separate window for unloadable urls option",
+      "message": "Ikkuna"
+   },
+   "optVideoPositionStep": {
+      "description": "[options] Changing video position amount option",
+      "message": "Vaihda videon sijaintia prev/sext-toimintonäppäimillä (tai hiirenpyörällä) seuraavasti."
+   },
+   "optVideoPositionStepTooltip": {
+      "description": "[options] Tooltip for changing video position option",
+      "message": "Hyppää videota edestakaisin tämän sekuntimäärän ajan"
+   },
+   "optVideoPositionStepUnitName": {
+      "description": "[options] Unit name (seconds) for changing video position option",
+      "message": "sek"
+   },
+   "optVideoTimestamp": {
+      "description": "[options] Enable timestamp / video length on videos",
+      "message": "Näytä aikaleima videoissa"
+   },
+   "optVideoTimestampTooltip": {
+      "description": "[options] Tooltip for video length countdown on videos",
+      "message": "Aikaleiman / videon pituuden ottaminen käyttöön videoissa"
+   },
+   "optVideoVolume": {
+      "description": "[options] Audio volume for unmuted videos option",
+      "message": "Äänenvoimakkuus mykistämättömille videoille:"
+   },
+   "optVideoVolumeTooltip": {
+      "description": "[options] Tooltip for audio volume for unmuted videos option",
+      "message": "Jos video ei ole täysin mykistetty, aseta äänenvoimakkuus tähän prosenttiosuuteen (0-100)."
+   },
+   "optVideoVolumeUnitName": {
+      "description": "[options] Unit name (percentage) for video volume option",
+      "message": "%"
+   },
+   "optWhitelistMode": {
+      "description": "[options] Whitelist mode checkbox",
+      "message": "Whitelist-tila"
+   },
+   "optWhitelistModeTooltip": {
+      "description": "[options] Tooltip for whitelist mode checkbox",
+      "message": "Ota Hover Zoom+ käyttöön vain alla luetelluilla sivustoilla."
+   },
+   "optZoomFactor": {
+      "description": "[options] Adjust the size of zoomed images option",
+      "message": "Suurennettavien kuvien koko:"
+   },
+   "optZoomFactorTooltip": {
+      "description": "[options] Tooltip for adjust the size of zoomed images option",
+      "message": "Suurenna kuvien koko"
+   },
+   "optZoomFactorUnitName": {
+      "description": "[options] Unit name (percentage) for zoomed images size option",
+      "message": "kertaa"
+   },
+   "optZoomSpeed_P1": {
+      "description": "[options] Zoom speed Part 1",
+      "message": "When an image or video is locked on screen, it can be zoomed in or out using mouse wheel."
+   },
+   "optZoomSpeed_P2": {
+      "description": "[options] Zoom speed Part 2",
+      "message": "press"
+   },
+   "optZoomSpeed_P3": {
+      "description": "[options] Zoom speed Part 3",
+      "message": "or"
+   },
+   "optZoomSpeed_P4": {
+      "description": "[options] Zoom speed Part 4",
+      "message": " while scrolling to zoom"
+   },
+   "optZoomSpeed_P41": {
+      "description": "[options] Zoom speed Part 41",
+      "message": "faster"
+   },
+   "optZoomSpeed_P42": {
+      "description": "[options] Zoom speed Part 42",
+      "message": "slower"
+   },
+   "optZoomVideos": {
+      "description": "[options] Zoom videos option",
+      "message": "Zoom-videot"
+   },
+   "optZoomVideosTooltip": {
+      "description": "[options] Tooltip for zoom videos option",
+      "message": "Supported formats: 3gpp m4v mkv mp4 mpeg-dash ogv webm"
+   },
+   "optrotateImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Press this key to rotate image."
+   },
+   "optrotateImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Rotate image"
+   },
+   "popAllowPerSiteToggle": {
+      "description": "[popup] Allow per-site extension configuration",
+      "message": "Salli sivukohtainen asetus"
+   },
+   "popDisableForAllSites": {
+      "description": "[popup] Disable the extension",
+      "message": "Poista käytöstä kaikilta sivuilta"
+   },
+   "popDisableForSite": {
+      "description": "[popup] Disables the extension for a specific site",
+      "message": "Poista käytöstä $1"
+   },
+   "popEnableForSite": {
+      "description": "[popup] Enables the extension for a specific site",
+      "message": "Ota käyttöön $1"
+   },
+   "popMoreOptions": {
+      "description": "[popup] More options",
+      "message": "Lisäasetukset"
+   },
+   "popPreloadImages": {
+      "description": "[popup] Preload zoomed images",
+      "message": "Esilataa suurennetut kuvat"
+   },
+   "popPreloadingImages": {
+      "description": "[popup] Preloading zoomed images",
+      "message": "Esiladataan..."
+   }
+}

@@ -1,0 +1,1166 @@
+{
+   "extDescription": {
+      "description": "Extension description in Chrome webstore (max. 132 characters)",
+      "message": "Palielina attēlus/video populārās vietnēs (Facebook u. c.). Vienkārši novietojiet peles kursoru virs attēla, lai to palielinātu."
+   },
+   "extName": {
+      "description": "Extension name",
+      "message": "Virziena tālummaiņa+"
+   },
+   "extShortName": {
+      "description": "Short extension name",
+      "message": "HoverZoom"
+   },
+   "msgClickPageToActivateActionKeys": {
+      "description": "Action keys are active only if page is focused",
+      "message": "noklikšķiniet uz jebkuras vietas lapā, lai aktivizētu darbības taustiņus."
+   },
+   "msgClickPageToPlayVideo": {
+      "description": "User must interact with the document first to play video: https://goo.gl/xX8pDD",
+      "message": "noklikšķiniet uz jebkuras vietas lapā un pēc tam vēlreiz uzvelciet kursoru."
+   },
+   "optAbovePositionOffset": {
+      "description": "[options] Above offset option",
+      "message": "Above position offset:"
+   },
+   "optAbovePositionOffsetTooltip": {
+      "description": "[options] Tooltip for above position offset",
+      "message": "Amount to vertically offset the text in the above position (positive values move text up, negative values move text down)"
+   },
+   "optAbovePositionOffsetUnit": {
+      "description": "[options] Set unit type for above offset",
+      "message": "Unit Type:"
+   },
+   "optAbovePositionOffsetUnitPercent": {
+      "description": "[options] Unit type percent",
+      "message": "%"
+   },
+   "optAbovePositionOffsetUnitPixel": {
+      "description": "[options] unit type pixel",
+      "message": "px"
+   },
+   "optAbovePositionOffsetUnitTooltip": {
+      "description": "[options] Tooltip for setting unit for above position offset",
+      "message": "Choose between pixel or percentage based offset"
+   },
+   "optActionKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Ja ir iestatīts taustiņš, funkcija HoverZoom+ būs aktīva tikai tad, kad šis taustiņš ir nospiests."
+   },
+   "optActionKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Aktivizēt HoverZoom+"
+   },
+   "optAddDownloadCaption": {
+      "description": "[options] Add download caption option",
+      "message": "caption"
+   },
+   "optAddDownloadCaptionTooltip": {
+      "description": "[options] Tooltip for add download caption option",
+      "message": "Add caption (e.g: Mona Lisa by Leonardo da Vinci)"
+   },
+   "optAddDownloadDuration": {
+      "description": "[options] Add download duration option",
+      "message": "ilgums"
+   },
+   "optAddDownloadDurationTooltip": {
+      "description": "[options] Tooltip for add download duration option",
+      "message": "Pievienojiet video ilgumu (hh mm ss) (piemēram, 00 16 35)."
+   },
+   "optAddDownloadIndex": {
+      "description": "[options] Add download index option",
+      "message": "index"
+   },
+   "optAddDownloadIndexTooltip": {
+      "description": "[options] Tooltip for add download index option",
+      "message": "Add index of image in gallery (e.g: third image out of ten: 03-10)"
+   },
+   "optAddDownloadOrigin": {
+      "description": "[options] Add download origin option",
+      "message": "izcelsme"
+   },
+   "optAddDownloadOriginTooltip": {
+      "description": "[options] Tooltip for add download origin option",
+      "message": "Pievienot izcelsmi (piemēram, www.deviantart.com)."
+   },
+   "optAddDownloadSize": {
+      "description": "[options] Add download size option",
+      "message": "izmērs"
+   },
+   "optAddDownloadSizeTooltip": {
+      "description": "[options] Tooltip for add download size option",
+      "message": "Pievienot izmēru (WxH) pikseļos (piemēram, 1024x750)"
+   },
+   "optAddToHistory": {
+      "description": "[options] Add viewed pictures to the browser's history option",
+      "message": "Skatīto attēlu pievienošana pārlūkprogrammas vēsturei"
+   },
+   "optAllowMediaSaving": {
+      "description": "[options] Enable saving media with action key option",
+      "message": "Enable saving media with action key"
+   },
+   "optAlwaysPreload": {
+      "description": "[options] Automatically preload zoomed images option",
+      "message": "Automātiski iepriekš ielādējiet tālummaiņas attēlus"
+   },
+   "optAmbilightBackgroundOpacity": {
+      "description": "[options] Background opacity option",
+      "message": "Fona necaurspīdīgums :"
+   },
+   "optAmbilightBackgroundOpacityTooltip": {
+      "description": "[options] Tooltip for background opacity",
+      "message": "0% : caurspīdīgs, 100% : melns"
+   },
+   "optAmbilightBackgroundOpacityUnitName": {
+      "description": "[options] Unit name (percentage) for background opacity",
+      "message": "%"
+   },
+   "optAmbilightHaloSize": {
+      "description": "[options] Size of halo option",
+      "message": "Aroles lielums :"
+   },
+   "optAmbilightHaloSizeTooltip": {
+      "description": "[options] Tooltip for size of halo",
+      "message": "Alo ap palielināto attēlu (0% : nav alo)"
+   },
+   "optAmbilightHaloSizeUnitName": {
+      "description": "[options] Unit name (percentage) for halo size",
+      "message": "%"
+   },
+   "optAudioVolume": {
+      "description": "[options] Audio volume option",
+      "message": "Skaņas skaļums:"
+   },
+   "optAudioVolumeTooltip": {
+      "description": "[options] Tooltip for audio volume option",
+      "message": "Iestatiet skaļumu uz šo procentuālo daļu (0-100)"
+   },
+   "optAudioVolumeUnitName": {
+      "description": "[options] Unit name (percentage) for audio volume option",
+      "message": "%"
+   },
+   "optAutoLockImages": {
+      "description": "[options] Automatically lock images option",
+      "message": "Automatically lock images"
+   },
+   "optAutoLockImagesTooltip": {
+      "description": "[options] Tooltip for automatically lock images option",
+      "message": "Automatically lock images when activating Hover Zoom+"
+   },
+   "optBanKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Holding this key down adds the zoomed image or video to ban list. Use it when you do not want an image or video to be zoomed again on this page."
+   },
+   "optBanKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Ban image"
+   },
+   "optBelowPositionOffset": {
+      "description": "[options] Below offset option",
+      "message": "Below position offset:"
+   },
+   "optBelowPositionOffsetTooltip": {
+      "description": "[options] Tooltip for below position offset",
+      "message": "Amount to vertically offset the text in the below position (positive values move text down, negative values move text up)"
+   },
+   "optBelowPositionOffsetUnit": {
+      "description": "[options] Set unit type for below offset",
+      "message": "Unit Type:"
+   },
+   "optBelowPositionOffsetUnitPercent": {
+      "description": "[options] Unit type percent",
+      "message": "%"
+   },
+   "optBelowPositionOffsetUnitPixel": {
+      "description": "[options] unit type pixel",
+      "message": "px"
+   },
+   "optBelowPositionOffsetUnitTooltip": {
+      "description": "[options] Tooltip for setting unit for below position offset",
+      "message": "Choose between pixel or percentage based offset"
+   },
+   "optButtonAddSite": {
+      "description": "[options] Button for adding a site on sites option page",
+      "message": "Pievienot"
+   },
+   "optButtonCancel": {
+      "description": "[options] Cancel button label",
+      "message": "Atcelt"
+   },
+   "optButtonDisableAllPlugins": {
+      "description": "[options] disable all plugins button label",
+      "message": "Izslēgt visus"
+   },
+   "optButtonEnableAllPlugins": {
+      "description": "[options] enable all plugins button label",
+      "message": "Ieslēgt visus"
+   },
+   "optButtonExportSettings": {
+      "description": "[options] Export a save string into the textarea",
+      "message": "Export"
+   },
+   "optButtonImportSettings": {
+      "description": "[options] Import a save string from the textarea",
+      "message": "Import"
+   },
+   "optButtonMigrateOldSettings": {
+      "description": "[options] Migrate old settings button",
+      "message": "Migrate"
+   },
+   "optButtonReset": {
+      "description": "[options] Reset button label",
+      "message": "Atiestatīt"
+   },
+   "optButtonResetAllBannedImages": {
+      "description": "[options] Reset all banned images button",
+      "message": "Reset"
+   },
+   "optButtonSave": {
+      "description": "[options] Save button label",
+      "message": "Saglabāt"
+   },
+   "optCancel": {
+      "description": "[options] Notification after cancelling modification(s) to options",
+      "message": "Grozījumi atcelti."
+   },
+   "optCaptionLocation": {
+      "description": "[options] Adjust the position of the caption",
+      "message": "Virsraksta pozīcija:"
+   },
+   "optCaptionLocationAbove": {
+      "description": "[options] Caption location option to put captions above the image",
+      "message": "Virs"
+   },
+   "optCaptionLocationBelow": {
+      "description": "[options] Caption location option to put captions below the image",
+      "message": "Zemāk"
+   },
+   "optCaptionLocationNone": {
+      "description": "[options] Caption location option to disable captions",
+      "message": "Nav"
+   },
+   "optCaptionLocationTooltip": {
+      "description": "[options] Tooltip for adjusting the position of the caption",
+      "message": "Paraksta skatīšana virs/pēc attēla vai arī tā vispār nav skatāms."
+   },
+   "optCaptionOpacity": {
+      "description": "[options] Caption opacity option",
+      "message": "Caption opacity:"
+   },
+   "optCenterImages": {
+      "description": "[options] Center images in the middle of the page option",
+      "message": "Centra attēli"
+   },
+   "optCenterImagesTooltip": {
+      "description": "[options] Tooltip for center images in the middle of the page option",
+      "message": "Attēlu centrēšana, nevis to izvietošana pēc kursora"
+   },
+   "optClickHoldTimeUnit": {
+      "description": "[options] Unit name (pixel) for hold time amount",
+      "message": "milisekundes"
+   },
+   "optCloseKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Nospiediet šo taustiņu, lai aizvērtu palielināto attēlu vai videoklipu."
+   },
+   "optCloseKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Aizvērt attēlu"
+   },
+   "optCopyImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Nospiežot šo taustiņu, attēls tiek kopēts starpliktuvē."
+   },
+   "optCopyImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Attēla kopēšana uz starpliktuvi"
+   },
+   "optCopyImageUrlKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Nospiežot šo taustiņu, attēla vai videoklipa URL tiek kopēts starpliktuvē."
+   },
+   "optCopyImageUrlKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Attēla URL kopēšana uz starpliktuvi"
+   },
+   "optDarkMode": {
+      "description": "[options] Enable dark mode for Options & Popup",
+      "message": "Tumšais režīms"
+   },
+   "optDetailsLocation": {
+      "description": "[options] Adjust the position of details",
+      "message": "Sīkāka informācija par pozīciju:"
+   },
+   "optDetailsLocationAbove": {
+      "description": "[options] Details location option to put details above the image",
+      "message": "Virs"
+   },
+   "optDetailsLocationBelow": {
+      "description": "[options] Details location option to put details below the image",
+      "message": "Zemāk"
+   },
+   "optDetailsLocationNone": {
+      "description": "[options] Details location option to disable details",
+      "message": "Nav"
+   },
+   "optDetailsLocationTooltip": {
+      "description": "[options] Tooltip for adjusting the position of details",
+      "message": "Sīkāka informācija (izmērs, formāts...) virs/zem attēla vai vispār netiek rādīta."
+   },
+   "optDetailsOpacity": {
+      "description": "[options] Details opacity option",
+      "message": "Details opacity:"
+   },
+   "optDetailsSelectorTooltip": {
+      "description": "[options] Tooltip for details selector",
+      "message": "Select which detail(s) should show, if details are displayed"
+   },
+   "optDisableMouseWheelForVideo": {
+      "description": "[options] Allows you to scroll through albums with the mousewheel but does not change behavior of GFY/Videos",
+      "message": "Neizmantojiet peles ritenīti, lai pārvietotos videoklipā (darbību taustiņi joprojām darbojas)."
+   },
+   "optDisableMouseWheelForVideoTooltip": {
+      "description": "[options] Allows you to scroll through albums with the mousewheel but does not change behavior of GFY/Videos",
+      "message": "Ritiniet pa albumiem, bet nepārlēciet uz priekšu/atpakaļ videoklipos."
+   },
+   "optDisplayDelay": {
+      "description": "[options] Delay before displaying a picture option",
+      "message": "Kavēšanās pirms attēla parādīšanas:"
+   },
+   "optDisplayDelayVideo": {
+      "description": "[options] Delay before displaying a video option",
+      "message": "Kavēšanās pirms videoklipa parādīšanas:"
+   },
+   "optDisplayImageLoader": {
+      "description": "[options] Display image loader option",
+      "message": "Sarkana vērpēja rādīšana, kad attēla ielādēšana nav notikusi"
+   },
+   "optDisplayImageLoaderTooltip": {
+      "description": "[options] Tooltip for display image loader option",
+      "message": "Attēla ielādes laikā parādiet nelielu griezējrīku (zaļš:ielāde, sarkans:kļūda). Sarkanais rotators nav obligāts."
+   },
+   "optDownloadFolder": {
+      "description": "[options] Download folder option",
+      "message": "Save images, videos & audios to folder: Downloads/"
+   },
+   "optDownloadFolderPlaceholder": {
+      "description": "[options] Placeholder for download folder option",
+      "message": "Piemērs: dzīvnieki/kaķi"
+   },
+   "optDownloadFolderTooltip": {
+      "description": "[options] Tooltip for download folder option",
+      "message": "Ja nepieciešams, tiks izveidotas apakšmapes."
+   },
+   "optDownloadReplaceOriginalFilename": {
+      "description": "[options] Replace original filename when downloading option",
+      "message": "On save, replace original filename by:"
+   },
+   "optDownloadReplaceOriginalFilenamePlaceholder": {
+      "description": "[options] Placeholder for download folder option",
+      "message": "Example: fullsize_image"
+   },
+   "optDownloadReplaceOriginalFilenameTooltip": {
+      "description": "[options] Tooltip for replace original filename when downloading option",
+      "message": "Replace original filename or remove it if no value supplied (extension is preserved)"
+   },
+   "optDurationUnitName": {
+      "description": "[options] Short form of \"second\" for delay duration",
+      "message": "sec"
+   },
+   "optEnableAmbilight": {
+      "description": "[options] Enable ambient light behind images option",
+      "message": "Apkārtējās gaismas ieslēgšana aiz attēliem"
+   },
+   "optEnableAmbilightTooltip": {
+      "description": "[options] Tooltip for enable ambient light behind images option",
+      "message": "Radiet smalku mirdzuma efektu, kas ir līdzīgs Philips Ambilight tehnoloģijai."
+   },
+   "optEnableCaptionDetailShadow": {
+      "description": "[options] Enable shadow behind caption and details option",
+      "message": "Enable shadow behind caption and details"
+   },
+   "optEnableCaptionDetailShadowTooltip": {
+      "description": "[options] Tooltip for enable shadow behind caption and details option",
+      "message": "Adds a small shadow any captions or details, making it pop out more from the background"
+   },
+   "optEnableDebug": {
+      "description": "[options] Enable debug option",
+      "message": "Ieslēgt atkļūdošanas žurnālu"
+   },
+   "optEnableDebugTooltip": {
+      "description": "[options] Tooltip for enable debug option",
+      "message": "Debug ziņojumu parādīšana pārlūkprogrammas konsoles logā (lai atvērtu konsoles logu: nospiediet F12)."
+   },
+   "optEnableGalleries": {
+      "description": "[options] Enable albums support option",
+      "message": "Albumu atbalsta iespējošana"
+   },
+   "optEnableNoFocusMsg": {
+      "description": "[options] Enable Action Keys focus overlay message option",
+      "message": "Ieslēgt darbības taustiņu fokusa pārklāšanas ziņojumu"
+   },
+   "optEnableNoFocusMsgTooltip": {
+      "description": "[options] Tooltip for enable Action Keys focus overlay message option",
+      "message": "Dažreiz šķiet, ka darbības taustiņi ir bojāti, parasti tas notiek, kad lapa ir zaudējusi fokusu. Ja opcija ir atzīmēta, tiks parādīts brīdinājuma ziņojums (tikai vienu reizi)."
+   },
+   "optEnableViewerShadow": {
+      "description": "[options] Enable shadow behind image viewer option",
+      "message": "Enable shadow behind image viewer"
+   },
+   "optEnableViewerShadowTooltip": {
+      "description": "[options] Tooltip for enable shadow behind caption and details option",
+      "message": "Adds a small shadow behind the zoomed image viewer, making it more visible from the background"
+   },
+   "optExtensionEnabled": {
+      "description": "[options] Enable Hover Zoom+ option",
+      "message": "Ieslēgt tālummaiņu ar kursoru"
+   },
+   "optFAQ_A1_1": {
+      "description": "[options] FAQ Answer 1 part 1",
+      "message": "Pēc rediģēšanas noklikšķiniet uz pogas \"Saglabāt\"."
+   },
+   "optFAQ_A1_2": {
+      "description": "[options] FAQ Answer 1 part 2",
+      "message": "opciju lapas apakšā"
+   },
+   "optFAQ_A1_3": {
+      "description": "[options] FAQ Answer 1 part 3",
+      "message": "Pārlādēt lapu (F5)"
+   },
+   "optFAQ_A2_1": {
+      "description": "[options] FAQ Answer 2 part 1",
+      "message": "Programmā Iespējas -> Vispārīgi -> Kavēšanās aktivizējiet \"Paslēpt peles kursoru\"."
+   },
+   "optFAQ_A3_1": {
+      "description": "[options] FAQ Answer 3 part 1",
+      "message": "Piemēram, lai aktivizētu HoverZoom+ vietnē DeviantArt.com un 1X.com:"
+   },
+   "optFAQ_A3_2": {
+      "description": "[options] FAQ Answer 3 part 2",
+      "message": "Sadaļā Iespējas -> Vietnes aktivizējiet \"Baltā saraksta režīms\"."
+   },
+   "optFAQ_A3_3": {
+      "description": "[options] FAQ Answer 3 part 3",
+      "message": "Pievienojiet DeviantArt.com un 1X.com URL adresātu sarakstam (nav izšķirti mazie un lielie burti)."
+   },
+   "optFAQ_A4_1": {
+      "description": "[options] FAQ Answer 4 part 1",
+      "message": "Novietojiet kursoru virs attēla vai videoklipa un bloķējiet to ekrānā (noklusējuma darbības taustiņš: \"L\")."
+   },
+   "optFAQ_A4_2": {
+      "description": "[options] FAQ Answer 4 part 2",
+      "message": "Attēls vai videoklips tagad tiek parādīts pilnā izmērā. Attēlu var palielināt vai samazināt, izmantojot peles riteni."
+   },
+   "optFAQ_A5_1": {
+      "description": "[options] FAQ Answer 5 part 1",
+      "message": "Dažreiz šķiet, ka darbības taustiņi ir bojāti, tas parasti notiek, kad lapa ir zaudējusi fokusu."
+   },
+   "optFAQ_A5_2": {
+      "description": "[options] FAQ Answer 5 part 2",
+      "message": "Lai atgūtu fokusu, vienkārši noklikšķiniet uz jebkuras lapas vietas."
+   },
+   "optFAQ_A5_3": {
+      "description": "[options] FAQ Answer 5 part 3",
+      "message": "Programmā Iespējas -> Paplašinātie varat aktivizēt opciju \"Aktivizēt darbības taustiņu fokusa pārklāšanas ziņojumu\", lai fokusa zaudēšanas gadījumā tiktu parādīts brīdinājuma ziņojums."
+   },
+   "optFAQ_A6_1": {
+      "description": "[options] FAQ Answer 6 part 1",
+      "message": "piem: Dailymotion videoklipi tiek atskaņoti vietnē dailymotion.com, bet ne Google meklēšanas rezultātos."
+   },
+   "optFAQ_A6_2": {
+      "description": "[options] FAQ Answer 6 part 2",
+      "message": "Tas ir saistīts ar CORS ierobežojumiem, lai tos atceltu:"
+   },
+   "optFAQ_A6_3": {
+      "description": "[options] FAQ Answer 6 part 3",
+      "message": "Sadaļā Iespējas -> Uzlabotie aktivizējiet opciju \"Atļaut pārrakstīt HTTP(S) pieprasījuma vai atbildes galvenes\"."
+   },
+   "optFAQ_A7": {
+      "description": "[options] FAQ Answer 7",
+      "message": "Ritiniet uz leju vai noklikšķiniet uz jebkuras vietas lapā, lai pamodinātu HoverZoom+!"
+   },
+   "optFAQ_Q1": {
+      "description": "[options] FAQ Question 1",
+      "message": "Es rediģēju dažas opcijas, bet neredzu nekādas izmaiņas."
+   },
+   "optFAQ_Q2": {
+      "description": "[options] FAQ Question 2",
+      "message": "Vēlos paslēpt peles kursoru pie tālummaiņas attēla vai videoklipa."
+   },
+   "optFAQ_Q3": {
+      "description": "[options] FAQ Question 3",
+      "message": "Man ir nepieciešams, lai HoverZoom+ būtu aktīvs tikai dažās vietnēs."
+   },
+   "optFAQ_Q4": {
+      "description": "[options] FAQ Question 4",
+      "message": "Vēlos palielināt attēlu vai videoklipu līdz sākotnējam izmēram, pat ja tas ir lielāks par ekrāna izmēru."
+   },
+   "optFAQ_Q5": {
+      "description": "[options] FAQ Question 5",
+      "message": "Darbības taustiņi nedarbojas!"
+   },
+   "optFAQ_Q6": {
+      "description": "[options] FAQ Question 6",
+      "message": "Daži videoklipi netiek atskaņoti, ja tie ir atvērti no vietnēm, kas nav oriģinālās vietnes."
+   },
+   "optFAQ_Q7": {
+      "description": "[options] FAQ Question 7",
+      "message": "Es uzvelku attēlu vai videoklipu, bet dažreiz nekas nenotiek!"
+   },
+   "optFAQ_SaveAndReload": {
+      "description": "[options] FAQ Save and reload page",
+      "message": "Saglabāt un pārlādēt lapu (F5)"
+   },
+   "optFadeDuration": {
+      "description": "[options] Fading animation duration option",
+      "message": "Izbalēšanas animācijas ilgums:"
+   },
+   "optFilterNSFW": {
+      "description": "[options] Exclude NSFW images (Reddit only) option",
+      "message": "Izslēgt NSFW attēlus (tikai Reddit)"
+   },
+   "optFlipImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Nospiediet šo taustiņu, lai pārmaiņus apgrieztu attēlu vertikāli un horizontāli. Ērti, lai lasītu tekstus un logotipus spoguļattēlos vai videoklipos."
+   },
+   "optFlipImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Attēla apgriešana"
+   },
+   "optFontOutline": {
+      "description": "[options] Outline option",
+      "message": "Fonta kontūra"
+   },
+   "optFontOutlineTooltip": {
+      "description": "[options] Tooltip for outline option",
+      "message": "Ja atzīmēts: virsrakstam un informācijai izmantot baltu fontu + plānas melnas apmales."
+   },
+   "optFontSize": {
+      "description": "[options] Font size option",
+      "message": "Fonta lielums:"
+   },
+   "optFontSizeTooltip": {
+      "description": "[options] Tooltip for font size option",
+      "message": "Virsrakstiem un informācijai izmantotā fonta lielums"
+   },
+   "optFontSizeUnitName": {
+      "description": "[options] Unit name (pixel) for font size",
+      "message": "pikseļi"
+   },
+   "optFooterChangelog": {
+      "description": "[options] Changelog link in page footer",
+      "message": "Izmaiņu saraksts"
+   },
+   "optFooterReportIssue": {
+      "description": "[options] Report a bug link in page footer",
+      "message": "Ziņot par kļūdu"
+   },
+   "optFooterSourceCode": {
+      "description": "[options] Source code link in page footer",
+      "message": "Avota kods"
+   },
+   "optFooterVersionCopyright": {
+      "description": "[options] Copyright and version number in page footer",
+      "message": "Version $1 - © 2014-$2 Oleg Anashkin"
+   },
+   "optFrameBackgroundColor": {
+      "description": "[options] Frame background color option",
+      "message": "Rāmja fona krāsa:"
+   },
+   "optFrameBackgroundColorCancelText": {
+      "description": "[options] Frame background color button - Cancel",
+      "message": "Atcelt"
+   },
+   "optFrameBackgroundColorChooseText": {
+      "description": "[options] Frame background color button - Select",
+      "message": "Atlasiet"
+   },
+   "optFrameBackgroundColorTooltip": {
+      "description": "[options] Tooltip for frame background color option",
+      "message": "Attēla attēla fona krāsa rāmī, kurā attēls tiek parādīts"
+   },
+   "optFrameThickness": {
+      "description": "[options] Frame thickness option",
+      "message": "Rāmja biezums:"
+   },
+   "optFrameThicknessTooltip": {
+      "description": "[options] Tooltip for frame thickness option",
+      "message": "Rāmīša, kurā attēls tiek parādīts, malas biezums (0 : bez rāmja)"
+   },
+   "optFrameThicknessUnitName": {
+      "description": "[options] Unit name (pixel) for frame thickness",
+      "message": "pikseļi"
+   },
+   "optFullZoomHidesDetailsCaptions": {
+      "description": "[options] Full zoom key hides details and captions option",
+      "message": "Full zoom key hides details and captions"
+   },
+   "optFullZoomHidesDetailsCaptionsTooltip": {
+      "description": "[options] Tooltip for full zoom key hides details and captions option",
+      "message": "When pressing full zoom, details and captions will be hidden, allowing the image able to expand more vertically"
+   },
+   "optFullZoomKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Ja šis taustiņš tiek turēts nospiests, attēls tiek parādīts, izmantojot visu pieejamo vietu. Lietderīgi tikai augstas izšķirtspējas attēliem."
+   },
+   "optFullZoomKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Pilnas tālummaiņas aktivizēšana"
+   },
+   "optGalleriesLoopEnabled": {
+      "description": "[options] Loop albums option",
+      "message": "Loop albums"
+   },
+   "optGalleriesLoopEnabledTooltip": {
+      "description": "[options] Tooltip for loop albums option",
+      "message": "When navigating past the end of an album, loop back to the start"
+   },
+   "optGalleriesMouseWheel": {
+      "description": "[options] Use mousewheel to navigate albums option",
+      "message": "Izmantojiet peles ritenīti, lai pārvietotos pa albumiem"
+   },
+   "optGalleriesMouseWheelTooltip": {
+      "description": "[options] Tooltip for use mousewheel to navigate albums option",
+      "message": "Pārvietojiet albumu ar peles ritenīti"
+   },
+   "optHScrollBarOverlap": {
+      "description": "[options] Allow zoomed images to overlap the horizontal scroll bar option",
+      "message": "Allow zoomed images to overlap the horizontal scroll bar"
+   },
+   "optHScrollBarOverlapTooltip": {
+      "description": "[options] Tooltip for allow zoomed images to overlap the horizontal scroll bar option",
+      "message": "Allow zoomed images to overlap the horizontal bar, letting more of the window be used"
+   },
+   "optHideKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Nospiežot šo taustiņu, tiek paslēpts palielinātais attēls vai videoklips. Izmantojiet to, ja attēls slēpj elementus, kas tiek parādīti arī, uzbraucot ar peles kursoru."
+   },
+   "optHideKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Paslēpt attēlu"
+   },
+   "optHideMouseCursor": {
+      "description": "[options] Hide mouse cursor option",
+      "message": "Paslēpt peles kursoru pēc:"
+   },
+   "optHideMouseCursorTooltip": {
+      "description": "[options] Tooltip for hide mouse cursor option",
+      "message": "Ja ir atzīmēts, peles kursors tiks paslēpts pēc aiztures."
+   },
+   "optImagePaddingSize": {
+      "description": "[options] Adjust the zoomed image padding size option",
+      "message": "Image padding size:"
+   },
+   "optImagePaddingSizeTooltip": {
+      "description": "[options] Tooltip for adjust the zoomed image padding size option",
+      "message": "Changes the padding size for zoomed images. Padding determines how close the image can get to the edge of the viewing window"
+   },
+   "optImagePaddingSizeUnitName": {
+      "description": "[options] Unit name (pixels) for zoomed images padding option",
+      "message": "pikseļi"
+   },
+   "optImport": {
+      "description": "[options] Notification after successful import to options",
+      "message": "Import Success!"
+   },
+   "optImportExportTextArea": {
+      "description": "[options] Placeholder for import and export text area",
+      "message": "Paste your saved settings here"
+   },
+   "optImportFailed": {
+      "description": "[options] Notification after failed import to options",
+      "message": "Import Failed"
+   },
+   "optLockImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Nospiediet šo taustiņu, lai bloķētu attēlu vai videoklipu lapas centrā, ļaujot tālummaiņu un panoramēšanu. Nospiediet aizvēršanas taustiņu vai noklikšķiniet ārpus attēla, lai atbloķētu."
+   },
+   "optLockImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Ekrāna bloķēšanas attēls"
+   },
+   "optLockImageZoomDefaultEnabled": {
+      "description": "[options] Locked images start zoomed in option",
+      "message": "Locked images start zoomed in"
+   },
+   "optLockImageZoomDefaultEnabledTooltip": {
+      "description": "[options] Tooltip for locked images start zoomed in option",
+      "message": "Pressing the 'Lock Image' action key twice will make the image zoom by default. Enabling this instead will make it zoom by on first press"
+   },
+   "optLockImageZoomFactorEnabled": {
+      "description": "[options] Use zoom factor for lock image option",
+      "message": "Use zoom factor for lock image"
+   },
+   "optLockImageZoomFactorEnabledTooltip": {
+      "description": "[options] Tooltip for use zoom factor for lock image option",
+      "message": "Pressing the 'Lock Image' action key twice will make the image zoom to 100% by default. Enabling this instead will make it zoom by the image factor amount"
+   },
+   "optMaxHeight": {
+      "description": "[options] Adjust the size of zoomed images option",
+      "message": "Pietuvināto attēlu maksimālais augstums:"
+   },
+   "optMaxHeightTooltip": {
+      "description": "[options] Tooltip for adjust the size of zoomed images option",
+      "message": "Pietuvināt palielināto attēlu maksimālo augstumu par šo lielumu (ja 0, tad maksimālā augstuma nav)"
+   },
+   "optMaxSizeUnitName": {
+      "description": "[options] Unit name (px) for zoomed images size option",
+      "message": "px"
+   },
+   "optMaxWidth": {
+      "description": "[options] Adjust the size of zoomed images option",
+      "message": "Pietuvināto attēlu maksimālais platums:"
+   },
+   "optMaxWidthTooltip": {
+      "description": "[options] Tooltip for adjust the size of zoomed images option",
+      "message": "Pietuvināt palielināto attēlu maksimālo platumu par šo lielumu (ja 0, tad maksimālā platuma nav)"
+   },
+   "optMigrateOldSettings": {
+      "description": "[options] Migrate old settings",
+      "message": "Migrate old settings (THIS WILL OVERWRITE YOUR CURRENT SETTINGS)"
+   },
+   "optMigrateOldSettingsTooltip": {
+      "description": "[options] Tooltip for migrate old settings",
+      "message": "Manually migrate settings from old save location. THIS WILL OVERWRITE YOUR CURRENT SETTINGS."
+   },
+   "optMouseClickHoldTime": {
+      "description": "[options] Mouse click hold time option",
+      "message": "Mouse click hold time:"
+   },
+   "optMouseClickHoldTimeTooltip": {
+      "description": "[options] Tooltip for mouse click hold time option",
+      "message": "Amount of time required to hold a mouse click action key before the hold action is triggered"
+   },
+   "optMouseUnderlap": {
+      "description": "[options] Extend zoomed images below the mouse cursor option",
+      "message": "Palielinātu attēlu paplašināšana zem peles kursora"
+   },
+   "optMouseUnderlapTooltip": {
+      "description": "[options] Tooltip for extend zoomed images below the mouse cursor option",
+      "message": "Ja izvēles rūtiņa nav atzīmēta, palielināto attēlu izmērs tiks mainīts dinamiski."
+   },
+   "optMuteVideos": {
+      "description": "[options] Mute zoomed videos option",
+      "message": "Tālummaiņas videoklipu izslēgšana"
+   },
+   "optMuteVideosTooltip": {
+      "description": "[options] Tooltip for mute zoomed videos option",
+      "message": "Izslēgt skaņu tālummaiņas videoklipos"
+   },
+   "optNextImgKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Nospiediet šo taustiņu, lai skatītu nākamo attēlu galerijā."
+   },
+   "optNextImgKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Skatīt nākamo attēlu galerijā"
+   },
+   "optOffsetUnitName": {
+      "description": "[options] Unit name (pixel) for offset amount",
+      "message": "px/%"
+   },
+   "optOpacityUnitName": {
+      "description": "[options] Unit name (percentage) for opacity option",
+      "message": "%"
+   },
+   "optOpenImageInTabKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Nospiediet šo taustiņu, lai pašlaik skatāmo attēlu vai videoklipu atvērtu jaunā cilnē. Vēlreiz nospiediet šo taustiņu, lai aizvērtu cilni. Shift+ taustiņš atver attēlu fona cilnē."
+   },
+   "optOpenImageInTabKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Atvērt attēlu jaunā cilnē"
+   },
+   "optOpenImageInWindowKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Nospiediet šo taustiņu, lai pašlaik skatāmo attēlu vai videoklipu atvērtu jaunā logā. Nospiediet šo taustiņu vēlreiz, lai aizvērtu logu."
+   },
+   "optOpenImageInWindowKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Atvērt attēlu jaunā logā"
+   },
+   "optPageActionEnabled": {
+      "description": "[options] Change toolbar icon option",
+      "message": "Change toolbar icon when images can be zoomed"
+   },
+   "optPageActionEnabledTooltip": {
+      "description": "[options] Tooltip for change toolbar icons option",
+      "message": "Toolbar icon changes color when images can be zoomed"
+   },
+   "optPageActionKeys": {
+      "description": "[options] Page title for action key options",
+      "message": "Darbības taustiņi"
+   },
+   "optPageAdvanced": {
+      "description": "[options] Page title for advanced options",
+      "message": "Advanced"
+   },
+   "optPageFAQ": {
+      "description": "[options] Page title for FAQ",
+      "message": "BIEŽĀK UZDOTIE JAUTĀJUMI"
+   },
+   "optPageGeneral": {
+      "description": "[options] Page title for general options",
+      "message": "Vispārīgi"
+   },
+   "optPagePlugins": {
+      "description": "[options] Page title for plugin options",
+      "message": "Spraudņi"
+   },
+   "optPageSites": {
+      "description": "[options] Page title for site options",
+      "message": "Vietnes"
+   },
+   "optPicturesOpacity": {
+      "description": "[options] Zoomed pictures opacity option",
+      "message": "Palielinātu attēlu necaurredzamība:"
+   },
+   "optPixelsUnitName": {
+      "description": "[options] Unit name (pixels)",
+      "message": "pikseļi"
+   },
+   "optPlayAudio": {
+      "description": "[options] Play audio option",
+      "message": "Atskaņot audio avotus, piemēram, MP3"
+   },
+   "optPlayAudioTooltip": {
+      "description": "[options] Tooltip for play audio option",
+      "message": "Atbalstītie formāti: flac m4a mp3 oga ogg opus wav"
+   },
+   "optPlugins": {
+      "description": "[options] Section which contains checkboxes for disabling plugins",
+      "message": "Ieslēgt/izslēgt konkrētus spraudņus"
+   },
+   "optPrevImgKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Nospiediet šo taustiņu, lai skatītu iepriekšējo attēlu galerijā."
+   },
+   "optPrevImgKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Skatīt iepriekšējo attēlu galerijā"
+   },
+   "optRenameDownloads": {
+      "description": "[options] Rename downloads option",
+      "message": "Rename saved files by adding:"
+   },
+   "optRenameDownloadsTooltip": {
+      "description": "[options] Tooltip for rename downloads option",
+      "message": "Prefix original names of downloads with origin, size, duration and so on for easier management"
+   },
+   "optReset": {
+      "description": "[options] Notification after resetting options to factory settings",
+      "message": "Iespējas atjaunot rūpnīcas iestatījumus, saglabāt, lai piemērotu."
+   },
+   "optResetAllBannedImages": {
+      "description": "[options] Reset all banned images option",
+      "message": "Reset all banned images, videos & audio tracks"
+   },
+   "optResetAllBannedImagesTooltip": {
+      "description": "[options] Tooltip for reset all banned images option",
+      "message": "After reset, all banned images, videos & audio tracks can be zoomed again"
+   },
+   "optSaveImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Press this key to save the image or video you are currently viewing. (Requires 'Enable saving media with action key' to be checked)"
+   },
+   "optSaveImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Saglabāt attēlu"
+   },
+   "optSaved": {
+      "description": "[options] Notification after saving options",
+      "message": "Saglabātas opcijas. Dažiem iestatījumiem var būt nepieciešams atjaunināt lapu."
+   },
+   "optSectionAdvanced": {
+      "description": "[options] Page section for advanced options",
+      "message": "Paplašinātās opcijas"
+   },
+   "optSectionAudio": {
+      "description": "[options] Page section for audio options",
+      "message": "Audio"
+   },
+   "optSectionDelays": {
+      "description": "[options] Page section for delay options",
+      "message": "Kavējumi"
+   },
+   "optSectionFAQ": {
+      "description": "[options] Page section for Frequently Asked Questions",
+      "message": "Biežāk uzdotie jautājumi"
+   },
+   "optSectionImportExportSettings": {
+      "description": "[options] Page section for import/export",
+      "message": "Import/Export"
+   },
+   "optSectionImportExportSettingsTooltip": {
+      "description": "[options] Tooltip for input and export options",
+      "message": "Press export to get a string of your current settings. Press import to load your pasted settings"
+   },
+   "optSectionSitesDisabled": {
+      "description": "[options] Page section for enabling extension for specific sites",
+      "message": "URL adresāti, kuriem jābūt atspējotai funkcijai Hover Zoom+"
+   },
+   "optSectionSitesEnabled": {
+      "description": "[options] Page section for enabling extension for specific sites",
+      "message": "URL adresāti, kuriem jāaktivizē funkcija Hover Zoom+"
+   },
+   "optSectionSupportedFormats": {
+      "description": "[options] Page section for supported formats",
+      "message": "Atbalstītie formāti"
+   },
+   "optSectionTroubleshooting": {
+      "description": "[options] Page section for troubleshooting",
+      "message": "Problēmu novēršana"
+   },
+   "optSectionVideo": {
+      "description": "[options] Page section for video options",
+      "message": "Video"
+   },
+   "optSectionView": {
+      "description": "[options] Page section for viewer options",
+      "message": "Skatītājs"
+   },
+   "optSectionZoomSpeed": {
+      "description": "[options] Page section for zoom speed",
+      "message": "Tālummaiņas ātrums"
+   },
+   "optShowDetailContentLength": {
+      "description": "[options] Show Content Length Detail",
+      "message": "Content Length"
+   },
+   "optShowDetailDimensions": {
+      "description": "[options] Show Dimensions Detail",
+      "message": "Dimensions"
+   },
+   "optShowDetailDuration": {
+      "description": "[options] Show Duration Detail",
+      "message": "Duration"
+   },
+   "optShowDetailExtension": {
+      "description": "[options] Show Extension Detail",
+      "message": "Extension"
+   },
+   "optShowDetailFilename": {
+      "description": "[options] Show File Name Detail",
+      "message": "File Name"
+   },
+   "optShowDetailHost": {
+      "description": "[options] Show Host Detail",
+      "message": "Host"
+   },
+   "optShowDetailLastModified": {
+      "description": "[options] Show Last Modified Detail",
+      "message": "Last Modified"
+   },
+   "optShowDetailRatio": {
+      "description": "[options] Show Ratio Detail",
+      "message": "Ratio"
+   },
+   "optShowDetailScale": {
+      "description": "[options] Show Scale Detail",
+      "message": "Scale"
+   },
+   "optShowHighRes": {
+      "description": "[options] Show high resolution pictures when available option",
+      "message": "Rādīt augstas izšķirtspējas attēlus, ja tādi ir pieejami"
+   },
+   "optShowHighResTooltip": {
+      "description": "[options] Tooltip for show high resolution pictures when available option",
+      "message": "Attēlu ielādei var būt nepieciešams ilgāks laiks"
+   },
+   "optShowWhileLoading": {
+      "description": "[options] Show zoomed pictures while loading option",
+      "message": "Rādīt palielinātas bildes iekraušanas laikā"
+   },
+   "optShowWhileLoadingTooltip": {
+      "description": "[options] Tooltip for show zoomed pictures while loading option",
+      "message": "Palielinātais attēls tiks parādīts, pirms tas ir pilnībā ielādēts."
+   },
+   "optSiteDisclaimer": {
+      "description": "[options] Disclaimer on the sites option page",
+      "message": "Ņemiet vērā, ka domēna filtri var pārklāties. Piemērs: ja esat filtrējis \"picasaweb.google.com\" un \"google.com\", noņemot \"picasaweb.google.com\", Picasa Web Albums netiks aktivizēts, jo to joprojām izslēdz filtrs \"google.com\"."
+   },
+   "optSitePlaceholder": {
+      "description": "[options] Placeholder for a site url input box",
+      "message": "Piemēri: facebook.com, google.com/reader."
+   },
+   "optStatusBarOverlap": {
+      "description": "[options] Allow zoomed images to overlap the status bar option",
+      "message": "Allow zoomed images to overlap the status bar"
+   },
+   "optStatusBarOverlapTooltip": {
+      "description": "[options] Tooltip for allow zoomed images to overlap the status bar option",
+      "message": "Allow zoomed images to overlap the status bar, letting more of the window be used"
+   },
+   "optSupportedAudioFormats": {
+      "description": "[options] Page section for supported audio formats",
+      "message": "Audio :"
+   },
+   "optSupportedImageFormats": {
+      "description": "[options] Page section for supported image formats",
+      "message": "Attēli :"
+   },
+   "optSupportedVideoFormats": {
+      "description": "[options] Page section for supported video formats",
+      "message": "Video :"
+   },
+   "optTitle": {
+      "description": "[options] Page title",
+      "message": "Virziena tālummaiņas+ opcijas"
+   },
+   "optTitleBoxDetails": {
+      "description": "[options] Title for details selector",
+      "message": "Detail(s) shown:"
+   },
+   "optToggleKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Ieslēgt/izslēgt HoverZoom+"
+   },
+   "optToggleKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Pārslēgt HoverZoom+"
+   },
+   "optUseClipboardNameWhenSaving": {
+      "description": "[options] Use clipboard text as file name option",
+      "message": "Use clipboard text as file name"
+   },
+   "optUseClipboardNameWhenSavingTooltip": {
+      "description": "[options] Tooltip for use clipboard text as file name option",
+      "message": "Use the text in the clipboard as the file name when saving an image"
+   },
+   "optUseSeparateTabForUnloadableUrls": {
+      "description": "[options] Use separate tab for unloadable urls option",
+      "message": "Cilne"
+   },
+   "optUseSeparateTabOrWindowForUnloadableUrls": {
+      "description": "[options] Use separate tab or window for unloadable urls option",
+      "message": "Mēģiniet atvērt atsevišķus neiekraujamus urlus:"
+   },
+   "optUseSeparateTabOrWindowForUnloadableUrlsTooltip": {
+      "description": "[options] Tooltip for using separate tab or window for unloadable urls option",
+      "message": "Noderīga HTTPS vietnēm, piemēram, Google Attēliem, kas neļauj ielādēt HTTP attēlus."
+   },
+   "optUseSeparateWindowForUnloadableUrls": {
+      "description": "[options] Use separate window for unloadable urls option",
+      "message": "Logs"
+   },
+   "optVideoPositionStep": {
+      "description": "[options] Changing video position amount option",
+      "message": "Lai mainītu videoklipa pozīciju, izmantojiet iepriekšējās/nākamās darbības taustiņus (vai peles ritenīti), izmantojot"
+   },
+   "optVideoPositionStepTooltip": {
+      "description": "[options] Tooltip for changing video position option",
+      "message": "Pārlaižiet video uz priekšu vai atpakaļ uz šo sekunžu skaitu."
+   },
+   "optVideoPositionStepUnitName": {
+      "description": "[options] Unit name (seconds) for changing video position option",
+      "message": "sec"
+   },
+   "optVideoTimestamp": {
+      "description": "[options] Enable timestamp / video length on videos",
+      "message": "Rādīt laika zīmogu videoklipos"
+   },
+   "optVideoTimestampTooltip": {
+      "description": "[options] Tooltip for video length countdown on videos",
+      "message": "Ieslēgt laika zīmogu / video garumu videoklipos"
+   },
+   "optVideoVolume": {
+      "description": "[options] Audio volume for unmuted videos option",
+      "message": "Audio skaļums bez skaņas izslēgšanas videoklipiem:"
+   },
+   "optVideoVolumeTooltip": {
+      "description": "[options] Tooltip for audio volume for unmuted videos option",
+      "message": "Ja video nav pilnībā izslēgts, iestatiet skaļumu uz šo procentuālo vērtību (0-100)."
+   },
+   "optVideoVolumeUnitName": {
+      "description": "[options] Unit name (percentage) for video volume option",
+      "message": "%"
+   },
+   "optWhitelistMode": {
+      "description": "[options] Whitelist mode checkbox",
+      "message": "Baltā saraksta režīms"
+   },
+   "optWhitelistModeTooltip": {
+      "description": "[options] Tooltip for whitelist mode checkbox",
+      "message": "Iespējiet Hover Zoom+ tikai turpmāk uzskaitītajās vietnēs"
+   },
+   "optZoomFactor": {
+      "description": "[options] Adjust the size of zoomed images option",
+      "message": "Palieliniet tālinātos attēlus ar šo koeficientu:"
+   },
+   "optZoomFactorTooltip": {
+      "description": "[options] Tooltip for adjust the size of zoomed images option",
+      "message": "Palielināto attēlu izmēru reiziniet ar šo lielumu."
+   },
+   "optZoomFactorUnitName": {
+      "description": "[options] Unit name (percentage) for zoomed images size option",
+      "message": "laiki"
+   },
+   "optZoomSpeed_P1": {
+      "description": "[options] Zoom speed Part 1",
+      "message": "Kad attēls vai videoklips ir bloķēts ekrānā, to var tuvināt vai tālināt, izmantojot peles ritenīti."
+   },
+   "optZoomSpeed_P2": {
+      "description": "[options] Zoom speed Part 2",
+      "message": "nospiediet"
+   },
+   "optZoomSpeed_P3": {
+      "description": "[options] Zoom speed Part 3",
+      "message": "vai"
+   },
+   "optZoomSpeed_P4": {
+      "description": "[options] Zoom speed Part 4",
+      "message": " ritinot, lai tālinātu"
+   },
+   "optZoomSpeed_P41": {
+      "description": "[options] Zoom speed Part 41",
+      "message": "ātrāk"
+   },
+   "optZoomSpeed_P42": {
+      "description": "[options] Zoom speed Part 42",
+      "message": "lēnāk"
+   },
+   "optZoomVideos": {
+      "description": "[options] Zoom videos option",
+      "message": "Palielināt video"
+   },
+   "optZoomVideosTooltip": {
+      "description": "[options] Tooltip for zoom videos option",
+      "message": "Supported formats: 3gpp m4v mkv mp4 mpeg-dash ogv webm"
+   },
+   "optrotateImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Press this key to rotate image."
+   },
+   "optrotateImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Rotate image"
+   },
+   "popAllowPerSiteToggle": {
+      "description": "[popup] Allow per-site extension configuration",
+      "message": "Atļaut katras vietnes paplašinājuma konfigurāciju"
+   },
+   "popDisableForAllSites": {
+      "description": "[popup] Disable the extension",
+      "message": "Atslēgt visām vietnēm"
+   },
+   "popDisableForSite": {
+      "description": "[popup] Disables the extension for a specific site",
+      "message": "Izslēgt par $1"
+   },
+   "popEnableForSite": {
+      "description": "[popup] Enables the extension for a specific site",
+      "message": "Iespēja par 1 ASV dolāru"
+   },
+   "popMoreOptions": {
+      "description": "[popup] More options",
+      "message": "Vairāk iespēju"
+   },
+   "popPreloadImages": {
+      "description": "[popup] Preload zoomed images",
+      "message": "Iepriekš ielādējiet tālummaiņas attēlus"
+   },
+   "popPreloadingImages": {
+      "description": "[popup] Preloading zoomed images",
+      "message": "Iepriekšēja ielāde..."
+   }
+}

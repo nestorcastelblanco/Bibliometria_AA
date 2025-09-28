@@ -1,0 +1,1166 @@
+{
+   "extDescription": {
+      "description": "Extension description in Chrome webstore (max. 132 characters)",
+      "message": "Vergrößern Sie Bilder und Videos auf Ihren bevorzugten Websites (Facebook, Amazon, etc.) indem Sie die Maus darüber bewegen."
+   },
+   "extName": {
+      "description": "Extension name",
+      "message": "Hover Zoom+"
+   },
+   "extShortName": {
+      "description": "Short extension name",
+      "message": "HoverZoom"
+   },
+   "msgClickPageToActivateActionKeys": {
+      "description": "Action keys are active only if page is focused",
+      "message": "Klicken Sie auf eine beliebige Stelle auf der Seite, um die Aktionstasten zu aktivieren."
+   },
+   "msgClickPageToPlayVideo": {
+      "description": "User must interact with the document first to play video: https://goo.gl/xX8pDD",
+      "message": "Klicken Sie auf eine beliebige Stelle der Seite und bewegen Sie den Mauszeiger erneut."
+   },
+   "optAbovePositionOffset": {
+      "description": "[options] Above offset option",
+      "message": "Obere Positionsverschiebung:"
+   },
+   "optAbovePositionOffsetTooltip": {
+      "description": "[options] Tooltip for above position offset",
+      "message": "Amount to vertically offset the text in the above position (positive values move text up, negative values move text down)"
+   },
+   "optAbovePositionOffsetUnit": {
+      "description": "[options] Set unit type for above offset",
+      "message": "Unit Type:"
+   },
+   "optAbovePositionOffsetUnitPercent": {
+      "description": "[options] Unit type percent",
+      "message": "%"
+   },
+   "optAbovePositionOffsetUnitPixel": {
+      "description": "[options] unit type pixel",
+      "message": "px"
+   },
+   "optAbovePositionOffsetUnitTooltip": {
+      "description": "[options] Tooltip for setting unit for above position offset",
+      "message": "Choose between pixel or percentage based offset"
+   },
+   "optActionKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Wenn eine Taste festgelegt ist, ist HoverZoom+ nur aktiv, wenn diese Taste gedrückt gehalten wird."
+   },
+   "optActionKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "HoverZoom+ aktivieren"
+   },
+   "optAddDownloadCaption": {
+      "description": "[options] Add download caption option",
+      "message": "Bildunterschrift"
+   },
+   "optAddDownloadCaptionTooltip": {
+      "description": "[options] Tooltip for add download caption option",
+      "message": "Füge eine Bildunterschrift hinzu (z.B.: Mona Lisa von Leonardo da Vinci)"
+   },
+   "optAddDownloadDuration": {
+      "description": "[options] Add download duration option",
+      "message": "Dauer"
+   },
+   "optAddDownloadDurationTooltip": {
+      "description": "[options] Tooltip for add download duration option",
+      "message": "Dauer (hh mm ss) des Videos hinzufügen (z. B. 00 16 35)"
+   },
+   "optAddDownloadIndex": {
+      "description": "[options] Add download index option",
+      "message": "Index"
+   },
+   "optAddDownloadIndexTooltip": {
+      "description": "[options] Tooltip for add download index option",
+      "message": "Füge Index des Bildes in der Galerie hinzu (zum Beispiel 03-10 für das dritte von 10)"
+   },
+   "optAddDownloadOrigin": {
+      "description": "[options] Add download origin option",
+      "message": "Herkunft"
+   },
+   "optAddDownloadOriginTooltip": {
+      "description": "[options] Tooltip for add download origin option",
+      "message": "Herkunft hinzufügen (z. B. www.deviantart.com)"
+   },
+   "optAddDownloadSize": {
+      "description": "[options] Add download size option",
+      "message": "Größe"
+   },
+   "optAddDownloadSizeTooltip": {
+      "description": "[options] Tooltip for add download size option",
+      "message": "Größe (BxH) in Pixel hinzufügen (z.B. 1024x750)"
+   },
+   "optAddToHistory": {
+      "description": "[options] Add viewed pictures to the browser's history option",
+      "message": "Betrachtete Bilder dem Verlauf des Browsers hinzufügen"
+   },
+   "optAllowMediaSaving": {
+      "description": "[options] Enable saving media with action key option",
+      "message": "Enable saving media with action key"
+   },
+   "optAlwaysPreload": {
+      "description": "[options] Automatically preload zoomed images option",
+      "message": "Gezoomte Bilder automatisch im Voraus laden"
+   },
+   "optAmbilightBackgroundOpacity": {
+      "description": "[options] Background opacity option",
+      "message": "Deckkraft des Hintergrunds :"
+   },
+   "optAmbilightBackgroundOpacityTooltip": {
+      "description": "[options] Tooltip for background opacity",
+      "message": "0%: transparent, 100%: schwarz"
+   },
+   "optAmbilightBackgroundOpacityUnitName": {
+      "description": "[options] Unit name (percentage) for background opacity",
+      "message": "%"
+   },
+   "optAmbilightHaloSize": {
+      "description": "[options] Size of halo option",
+      "message": "Größe des Lichthofs :"
+   },
+   "optAmbilightHaloSizeTooltip": {
+      "description": "[options] Tooltip for size of halo",
+      "message": "Größe des Lichthofs um das gezoomte Bild (0% : kein Lichthof)"
+   },
+   "optAmbilightHaloSizeUnitName": {
+      "description": "[options] Unit name (percentage) for halo size",
+      "message": "%"
+   },
+   "optAudioVolume": {
+      "description": "[options] Audio volume option",
+      "message": "Lautstärke:"
+   },
+   "optAudioVolumeTooltip": {
+      "description": "[options] Tooltip for audio volume option",
+      "message": "Stellen Sie die Lautstärke auf diesen Prozentsatz ein (0-100)"
+   },
+   "optAudioVolumeUnitName": {
+      "description": "[options] Unit name (percentage) for audio volume option",
+      "message": "%"
+   },
+   "optAutoLockImages": {
+      "description": "[options] Automatically lock images option",
+      "message": "Bilder automatisch festsetzen"
+   },
+   "optAutoLockImagesTooltip": {
+      "description": "[options] Tooltip for automatically lock images option",
+      "message": "Setze Bilder automatisch fest wenn Hover Zoom+ aktiviert wird"
+   },
+   "optBanKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Holding this key down adds the zoomed image or video to ban list. Use it when you do not want an image or video to be zoomed again on this page."
+   },
+   "optBanKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Ban image"
+   },
+   "optBelowPositionOffset": {
+      "description": "[options] Below offset option",
+      "message": "Untere Positionsverschiebung:"
+   },
+   "optBelowPositionOffsetTooltip": {
+      "description": "[options] Tooltip for below position offset",
+      "message": "Amount to vertically offset the text in the below position (positive values move text down, negative values move text up)"
+   },
+   "optBelowPositionOffsetUnit": {
+      "description": "[options] Set unit type for below offset",
+      "message": "Unit Type:"
+   },
+   "optBelowPositionOffsetUnitPercent": {
+      "description": "[options] Unit type percent",
+      "message": "%"
+   },
+   "optBelowPositionOffsetUnitPixel": {
+      "description": "[options] unit type pixel",
+      "message": "px"
+   },
+   "optBelowPositionOffsetUnitTooltip": {
+      "description": "[options] Tooltip for setting unit for below position offset",
+      "message": "Choose between pixel or percentage based offset"
+   },
+   "optButtonAddSite": {
+      "description": "[options] Button for adding a site on sites option page",
+      "message": "Hinzufügen"
+   },
+   "optButtonCancel": {
+      "description": "[options] Cancel button label",
+      "message": "Abbrechen"
+   },
+   "optButtonDisableAllPlugins": {
+      "description": "[options] disable all plugins button label",
+      "message": "Alle deaktivieren"
+   },
+   "optButtonEnableAllPlugins": {
+      "description": "[options] enable all plugins button label",
+      "message": "Alle freigeben"
+   },
+   "optButtonExportSettings": {
+      "description": "[options] Export a save string into the textarea",
+      "message": "Export"
+   },
+   "optButtonImportSettings": {
+      "description": "[options] Import a save string from the textarea",
+      "message": "Import"
+   },
+   "optButtonMigrateOldSettings": {
+      "description": "[options] Migrate old settings button",
+      "message": "Migrate"
+   },
+   "optButtonReset": {
+      "description": "[options] Reset button label",
+      "message": "Zurücksetzen"
+   },
+   "optButtonResetAllBannedImages": {
+      "description": "[options] Reset all banned images button",
+      "message": "Zurücksetzen"
+   },
+   "optButtonSave": {
+      "description": "[options] Save button label",
+      "message": "Speichern"
+   },
+   "optCancel": {
+      "description": "[options] Notification after cancelling modification(s) to options",
+      "message": "Die Änderung(en) wurde(n) aufgehoben."
+   },
+   "optCaptionLocation": {
+      "description": "[options] Adjust the position of the caption",
+      "message": "Position der Beschriftung:"
+   },
+   "optCaptionLocationAbove": {
+      "description": "[options] Caption location option to put captions above the image",
+      "message": "Oberhalb"
+   },
+   "optCaptionLocationBelow": {
+      "description": "[options] Caption location option to put captions below the image",
+      "message": "Unterhalb"
+   },
+   "optCaptionLocationNone": {
+      "description": "[options] Caption location option to disable captions",
+      "message": "Nicht anzeigen"
+   },
+   "optCaptionLocationTooltip": {
+      "description": "[options] Tooltip for adjusting the position of the caption",
+      "message": "Anzeigen der Beschriftung, über/unter dem Bild, oder gar nicht"
+   },
+   "optCaptionOpacity": {
+      "description": "[options] Caption opacity option",
+      "message": "Betitelung Transparenz:"
+   },
+   "optCenterImages": {
+      "description": "[options] Center images in the middle of the page option",
+      "message": "Bilder zentrieren"
+   },
+   "optCenterImagesTooltip": {
+      "description": "[options] Tooltip for center images in the middle of the page option",
+      "message": "Bilder zentrieren statt am Mauszeiger zu zeigen"
+   },
+   "optClickHoldTimeUnit": {
+      "description": "[options] Unit name (pixel) for hold time amount",
+      "message": "milliseconds"
+   },
+   "optCloseKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Drücken Sie diese Taste, um das gezoomte Bild oder Video zu schließen."
+   },
+   "optCloseKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Bild schließen"
+   },
+   "optCopyImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Wenn Sie diese Taste drücken, wird das Bild in die Zwischenablage kopiert."
+   },
+   "optCopyImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Bild in die Zwischenablage kopieren"
+   },
+   "optCopyImageUrlKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Wenn Sie diese Taste drücken, wird die URL des Bildes oder Videos in die Zwischenablage kopiert."
+   },
+   "optCopyImageUrlKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Bild-URL in die Zwischenablage kopieren"
+   },
+   "optDarkMode": {
+      "description": "[options] Enable dark mode for Options & Popup",
+      "message": "Dunkler Modus"
+   },
+   "optDetailsLocation": {
+      "description": "[options] Adjust the position of details",
+      "message": "Details zur Position:"
+   },
+   "optDetailsLocationAbove": {
+      "description": "[options] Details location option to put details above the image",
+      "message": "Oberhalb"
+   },
+   "optDetailsLocationBelow": {
+      "description": "[options] Details location option to put details below the image",
+      "message": "Unterhalb"
+   },
+   "optDetailsLocationNone": {
+      "description": "[options] Details location option to disable details",
+      "message": "Nicht anzeigen"
+   },
+   "optDetailsLocationTooltip": {
+      "description": "[options] Tooltip for adjusting the position of details",
+      "message": "Details (Größe, Format...) oberhalb/unterhalb des Bildes oder gar nicht anzeigen"
+   },
+   "optDetailsOpacity": {
+      "description": "[options] Details opacity option",
+      "message": "Details Transparenz:"
+   },
+   "optDetailsSelectorTooltip": {
+      "description": "[options] Tooltip for details selector",
+      "message": "Auswahl der Details die angezeigt werden, wenn Details angezeigt werden"
+   },
+   "optDisableMouseWheelForVideo": {
+      "description": "[options] Allows you to scroll through albums with the mousewheel but does not change behavior of GFY/Videos",
+      "message": "Nicht mit dem Mausrad in Videos navigieren (Tastaturkürzel gehen weiterhin)"
+   },
+   "optDisableMouseWheelForVideoTooltip": {
+      "description": "[options] Allows you to scroll through albums with the mousewheel but does not change behavior of GFY/Videos",
+      "message": "Durch Alben scrollen, aber nicht vorwärts/rückwärts in videos springen"
+   },
+   "optDisplayDelay": {
+      "description": "[options] Delay before displaying a picture option",
+      "message": "Verzögerung vor Anzeige eines Bildes:"
+   },
+   "optDisplayDelayVideo": {
+      "description": "[options] Delay before displaying a video option",
+      "message": "Verzögerung vor Anzeige eines Videos:"
+   },
+   "optDisplayImageLoader": {
+      "description": "[options] Display image loader option",
+      "message": "Anzeige eines roten Spinners, wenn das Laden eines Bildes fehlgeschlagen ist"
+   },
+   "optDisplayImageLoaderTooltip": {
+      "description": "[options] Tooltip for display image loader option",
+      "message": "Zeigt ein kleines Symbol an, wenn das Bild geladen wird (grün: Laden, rot: Fehler). Der rote Spinner ist optional."
+   },
+   "optDownloadFolder": {
+      "description": "[options] Download folder option",
+      "message": "Speichere Bilder, Videos, und Audio in das Verzeichnis: Downloads/"
+   },
+   "optDownloadFolderPlaceholder": {
+      "description": "[options] Placeholder for download folder option",
+      "message": "Beispiel: Tiere/Katzen"
+   },
+   "optDownloadFolderTooltip": {
+      "description": "[options] Tooltip for download folder option",
+      "message": "Bei Bedarf werden Unterordner erstellt."
+   },
+   "optDownloadReplaceOriginalFilename": {
+      "description": "[options] Replace original filename when downloading option",
+      "message": "Beim Speichern, ersetze den original Dateinamen mit:"
+   },
+   "optDownloadReplaceOriginalFilenamePlaceholder": {
+      "description": "[options] Placeholder for download folder option",
+      "message": "Beispiel: volle-größe"
+   },
+   "optDownloadReplaceOriginalFilenameTooltip": {
+      "description": "[options] Tooltip for replace original filename when downloading option",
+      "message": "Ersetze original Dateinamen, oder entferne ihn, wenn kein Wert angegeben wird (die Dateiendung wird beibehalten)"
+   },
+   "optDurationUnitName": {
+      "description": "[options] Short form of \"second\" for delay duration",
+      "message": "sek"
+   },
+   "optEnableAmbilight": {
+      "description": "[options] Enable ambient light behind images option",
+      "message": "Umgebungslicht hinter Bildern aktivieren"
+   },
+   "optEnableAmbilightTooltip": {
+      "description": "[options] Tooltip for enable ambient light behind images option",
+      "message": "Erzeugt einen subtilen Leuchteffekt ähnlich der Philips Ambilight-Technologie"
+   },
+   "optEnableCaptionDetailShadow": {
+      "description": "[options] Enable shadow behind caption and details option",
+      "message": "Enable shadow behind caption and details"
+   },
+   "optEnableCaptionDetailShadowTooltip": {
+      "description": "[options] Tooltip for enable shadow behind caption and details option",
+      "message": "Adds a small shadow any captions or details, making it pop out more from the background"
+   },
+   "optEnableDebug": {
+      "description": "[options] Enable debug option",
+      "message": "Debug-Protokollierung einschalten"
+   },
+   "optEnableDebugTooltip": {
+      "description": "[options] Tooltip for enable debug option",
+      "message": "Anzeige von Debug-Meldungen in der Konsole des Browsers (zum Öffnen der Konsole: F12 drücken)"
+   },
+   "optEnableGalleries": {
+      "description": "[options] Enable albums support option",
+      "message": "Alben-Unterstützung aktivieren"
+   },
+   "optEnableNoFocusMsg": {
+      "description": "[options] Enable Action Keys focus overlay message option",
+      "message": "Aktivieren der Aktionstasten-Fokus-Overlay-Meldung"
+   },
+   "optEnableNoFocusMsgTooltip": {
+      "description": "[options] Tooltip for enable Action Keys focus overlay message option",
+      "message": "Manchmal scheinen Aktionstasten defekt zu sein, dies geschieht normalerweise, wenn die Seite den Fokus verloren hat. Wenn die Option aktiviert ist, wird eine Warnmeldung angezeigt (nur einmal)."
+   },
+   "optEnableViewerShadow": {
+      "description": "[options] Enable shadow behind image viewer option",
+      "message": "Enable shadow behind image viewer"
+   },
+   "optEnableViewerShadowTooltip": {
+      "description": "[options] Tooltip for enable shadow behind caption and details option",
+      "message": "Adds a small shadow behind the zoomed image viewer, making it more visible from the background"
+   },
+   "optExtensionEnabled": {
+      "description": "[options] Enable Hover Zoom+ option",
+      "message": "Hover Zoom aktivieren"
+   },
+   "optFAQ_A1_1": {
+      "description": "[options] FAQ Answer 1 part 1",
+      "message": "Nach der Bearbeitung klicken Sie auf die Schaltfläche \"Speichern\"."
+   },
+   "optFAQ_A1_2": {
+      "description": "[options] FAQ Answer 1 part 2",
+      "message": "unten auf der Seite Optionen"
+   },
+   "optFAQ_A1_3": {
+      "description": "[options] FAQ Answer 1 part 3",
+      "message": "Laden Sie die Seite neu (F5)"
+   },
+   "optFAQ_A2_1": {
+      "description": "[options] FAQ Answer 2 part 1",
+      "message": "Aktivieren Sie unter Optionen -> Allgemein -> Verzögerungen \"Mauszeiger ausblenden\"."
+   },
+   "optFAQ_A3_1": {
+      "description": "[options] FAQ Answer 3 part 1",
+      "message": "Z.B. um HoverZoom+ auf DeviantArt.com & 1X.com zu aktivieren:"
+   },
+   "optFAQ_A3_2": {
+      "description": "[options] FAQ Answer 3 part 2",
+      "message": "Aktivieren Sie unter Optionen -> Standorte den \"Whitelist-Modus\"."
+   },
+   "optFAQ_A3_3": {
+      "description": "[options] FAQ Answer 3 part 3",
+      "message": "DeviantArt.com & 1X.com zur Liste der URLs hinzufügen (Groß- und Kleinschreibung wird nicht beachtet)"
+   },
+   "optFAQ_A4_1": {
+      "description": "[options] FAQ Answer 4 part 1",
+      "message": "Bewegen Sie den Mauszeiger über ein Bild oder Video und sperren Sie es auf dem Bildschirm (Standardaktionstaste: \"L\")"
+   },
+   "optFAQ_A4_2": {
+      "description": "[options] FAQ Answer 4 part 2",
+      "message": "Das Bild oder Video wird nun in voller Größe angezeigt. Sie können mit dem Mausrad hinein- oder herauszoomen."
+   },
+   "optFAQ_A5_1": {
+      "description": "[options] FAQ Answer 5 part 1",
+      "message": "Manchmal scheinen die Aktionstasten defekt zu sein. Dies passiert normalerweise, wenn die Seite den Fokus verloren hat."
+   },
+   "optFAQ_A5_2": {
+      "description": "[options] FAQ Answer 5 part 2",
+      "message": "Klicken Sie einfach auf eine beliebige Stelle der Seite, um den Fokus wiederherzustellen."
+   },
+   "optFAQ_A5_3": {
+      "description": "[options] FAQ Answer 5 part 3",
+      "message": "Unter Optionen -> Erweitert können Sie \"Aktiviere Aktionstasten-Fokus-Overlay-Meldung\" aktivieren, damit Sie eine Warnmeldung erhalten, wenn der Fokus verloren geht."
+   },
+   "optFAQ_A6_1": {
+      "description": "[options] FAQ Answer 6 part 1",
+      "message": "z.B.: Dailymotion-Videos werden auf dailymotion.com abgespielt, aber nicht in den Google-Suchergebnissen."
+   },
+   "optFAQ_A6_2": {
+      "description": "[options] FAQ Answer 6 part 2",
+      "message": "Dies ist auf CORS-Beschränkungen zurückzuführen, die es aufzuheben gilt:"
+   },
+   "optFAQ_A6_3": {
+      "description": "[options] FAQ Answer 6 part 3",
+      "message": "Aktivieren Sie unter Optionen -> Erweitert die Option \"Umschreiben von Kopfzeilen für HTTP(S)-Anfrage oder -Antwort zulassen\"."
+   },
+   "optFAQ_A7": {
+      "description": "[options] FAQ Answer 7",
+      "message": "Scrollen Sie nach unten oder klicken Sie irgendwo auf der Seite, um HoverZoom+ zu aktivieren!"
+   },
+   "optFAQ_Q1": {
+      "description": "[options] FAQ Question 1",
+      "message": "Ich habe einige Optionen bearbeitet, aber ich sehe keine Änderungen."
+   },
+   "optFAQ_Q2": {
+      "description": "[options] FAQ Question 2",
+      "message": "Ich möchte den Mauszeiger bei einem gezoomten Bild oder Video ausblenden."
+   },
+   "optFAQ_Q3": {
+      "description": "[options] FAQ Question 3",
+      "message": "Ich möchte, dass HoverZoom+ nur für einige Seiten aktiv ist."
+   },
+   "optFAQ_Q4": {
+      "description": "[options] FAQ Question 4",
+      "message": "Ich möchte ein Bild oder Video auf seine Originalgröße zoomen, auch wenn es größer als der Bildschirm ist."
+   },
+   "optFAQ_Q5": {
+      "description": "[options] FAQ Question 5",
+      "message": "Die Aktionstasten funktionieren nicht!"
+   },
+   "optFAQ_Q6": {
+      "description": "[options] FAQ Question 6",
+      "message": "Einige Videos lassen sich nicht abspielen, wenn sie von anderen Websites als den Originalseiten geöffnet werden."
+   },
+   "optFAQ_Q7": {
+      "description": "[options] FAQ Question 7",
+      "message": "Ich bewege den Mauszeiger über ein Bild oder ein Video, aber manchmal passiert nichts!"
+   },
+   "optFAQ_SaveAndReload": {
+      "description": "[options] FAQ Save and reload page",
+      "message": "Speichern und erneutes Laden der Seite (F5)"
+   },
+   "optFadeDuration": {
+      "description": "[options] Fading animation duration option",
+      "message": "Dauer der verblassen-Animation:"
+   },
+   "optFilterNSFW": {
+      "description": "[options] Exclude NSFW images (Reddit only) option",
+      "message": "Anstößige Bilder ausschließen (nur Reddit)"
+   },
+   "optFlipImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Drücken Sie diese Taste, um das Bild abwechselnd vertikal und horizontal zu spiegeln. Praktisch zum Lesen von Texten und Logos in gespiegelten Bildern oder Videos."
+   },
+   "optFlipImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Bild spiegeln"
+   },
+   "optFontOutline": {
+      "description": "[options] Outline option",
+      "message": "Umriss der Schriftart"
+   },
+   "optFontOutlineTooltip": {
+      "description": "[options] Tooltip for outline option",
+      "message": "Wenn angekreuzt: weiße Schrift + dünner schwarzer Rahmen für Beschriftung und Details verwenden"
+   },
+   "optFontSize": {
+      "description": "[options] Font size option",
+      "message": "Schriftgröße:"
+   },
+   "optFontSizeTooltip": {
+      "description": "[options] Tooltip for font size option",
+      "message": "Größe der Schriftart für Beschriftungen und Details"
+   },
+   "optFontSizeUnitName": {
+      "description": "[options] Unit name (pixel) for font size",
+      "message": "Pixel"
+   },
+   "optFooterChangelog": {
+      "description": "[options] Changelog link in page footer",
+      "message": "Änderungsliste"
+   },
+   "optFooterReportIssue": {
+      "description": "[options] Report a bug link in page footer",
+      "message": "Einen Bug melden"
+   },
+   "optFooterSourceCode": {
+      "description": "[options] Source code link in page footer",
+      "message": "Quelltext"
+   },
+   "optFooterVersionCopyright": {
+      "description": "[options] Copyright and version number in page footer",
+      "message": "Version $1 - © 2014-$2 Oleg Anashkin"
+   },
+   "optFrameBackgroundColor": {
+      "description": "[options] Frame background color option",
+      "message": "Hintergrundfarbe des Rahmens:"
+   },
+   "optFrameBackgroundColorCancelText": {
+      "description": "[options] Frame background color button - Cancel",
+      "message": "Abbrechen"
+   },
+   "optFrameBackgroundColorChooseText": {
+      "description": "[options] Frame background color button - Select",
+      "message": "Wählen Sie"
+   },
+   "optFrameBackgroundColorTooltip": {
+      "description": "[options] Tooltip for frame background color option",
+      "message": "Hintergrundfarbe für den Rahmen, in dem das Bild erscheint"
+   },
+   "optFrameThickness": {
+      "description": "[options] Frame thickness option",
+      "message": "Dicke des Rahmens:"
+   },
+   "optFrameThicknessTooltip": {
+      "description": "[options] Tooltip for frame thickness option",
+      "message": "Dicke des Rahmens, in dem das Bild erscheint (0 : kein Rahmen)"
+   },
+   "optFrameThicknessUnitName": {
+      "description": "[options] Unit name (pixel) for frame thickness",
+      "message": "Pixel"
+   },
+   "optFullZoomHidesDetailsCaptions": {
+      "description": "[options] Full zoom key hides details and captions option",
+      "message": "Voller Zoom versteckt Details und Bildunterschriften"
+   },
+   "optFullZoomHidesDetailsCaptionsTooltip": {
+      "description": "[options] Tooltip for full zoom key hides details and captions option",
+      "message": "Wenn voller Zoom aktiviert wird, dann werden Details und Bilduntertitel versteckt. Das Bild selbst kann vertikal mehr Platz einnehmen."
+   },
+   "optFullZoomKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Wenn diese Taste gedrückt gehalten wird, wird das Bild in der maximal verfügbare Größe angezeigt. Nur für Bilder in hoher Auflösung nützlich."
+   },
+   "optFullZoomKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Vollen Zoom aktivieren"
+   },
+   "optGalleriesLoopEnabled": {
+      "description": "[options] Loop albums option",
+      "message": "Loop albums"
+   },
+   "optGalleriesLoopEnabledTooltip": {
+      "description": "[options] Tooltip for loop albums option",
+      "message": "When navigating past the end of an album, loop back to the start"
+   },
+   "optGalleriesMouseWheel": {
+      "description": "[options] Use mousewheel to navigate albums option",
+      "message": "Mausrad verwenden, um durch Alben zu navigieren"
+   },
+   "optGalleriesMouseWheelTooltip": {
+      "description": "[options] Tooltip for use mousewheel to navigate albums option",
+      "message": "Navigieren Sie mit dem Mausrad in Alben"
+   },
+   "optHScrollBarOverlap": {
+      "description": "[options] Allow zoomed images to overlap the horizontal scroll bar option",
+      "message": "Erlaube gezoomten Bildern den horizontalen Scrollbalken zu überlappen"
+   },
+   "optHScrollBarOverlapTooltip": {
+      "description": "[options] Tooltip for allow zoomed images to overlap the horizontal scroll bar option",
+      "message": "Erlaube gezoomten Bildern den horizontalen Scrollbalken zu überlappen, um mehr Fläche des Fensters zu verwenden"
+   },
+   "optHideKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Wenn Sie diese Taste gedrückt halten, wird das gezoomte Bild oder Video ausgeblendet. Verwenden Sie diese Taste, wenn das Bild Elemente ausblendet, die auch bei Mouseover angezeigt werden."
+   },
+   "optHideKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Bild ausblenden"
+   },
+   "optHideMouseCursor": {
+      "description": "[options] Hide mouse cursor option",
+      "message": "Mauszeiger ausblenden nach:"
+   },
+   "optHideMouseCursorTooltip": {
+      "description": "[options] Tooltip for hide mouse cursor option",
+      "message": "Wenn diese Option aktiviert ist, wird der Mauszeiger nach einer Verzögerung ausgeblendet."
+   },
+   "optImagePaddingSize": {
+      "description": "[options] Adjust the zoomed image padding size option",
+      "message": "Bild Abstandsgröße:"
+   },
+   "optImagePaddingSizeTooltip": {
+      "description": "[options] Tooltip for adjust the zoomed image padding size option",
+      "message": "Ändert den Abstand für gezoomte Bilder. Abstand zum Ansichtsfensterrahmen."
+   },
+   "optImagePaddingSizeUnitName": {
+      "description": "[options] Unit name (pixels) for zoomed images padding option",
+      "message": "Pixel"
+   },
+   "optImport": {
+      "description": "[options] Notification after successful import to options",
+      "message": "Import erfolgreich!"
+   },
+   "optImportExportTextArea": {
+      "description": "[options] Placeholder for import and export text area",
+      "message": "Füge deine gespeicherten Einstellungen hier ein"
+   },
+   "optImportFailed": {
+      "description": "[options] Notification after failed import to options",
+      "message": "Import Fehlgeschlagen"
+   },
+   "optLockImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Drücken Sie diese Taste, um das Bild oder Video in der Mitte der Seite zu fixieren, so dass Sie zoomen und herumschwenken können. Drücken Sie die Schließen-Taste oder klicken Sie außerhalb des Bildes, um die Sperre aufzuheben."
+   },
+   "optLockImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Bild auf dem Bildschirm sperren"
+   },
+   "optLockImageZoomDefaultEnabled": {
+      "description": "[options] Locked images start zoomed in option",
+      "message": "Locked images start zoomed in"
+   },
+   "optLockImageZoomDefaultEnabledTooltip": {
+      "description": "[options] Tooltip for locked images start zoomed in option",
+      "message": "Pressing the 'Lock Image' action key twice will make the image zoom by default. Enabling this instead will make it zoom by on first press"
+   },
+   "optLockImageZoomFactorEnabled": {
+      "description": "[options] Use zoom factor for lock image option",
+      "message": "Use zoom factor for lock image"
+   },
+   "optLockImageZoomFactorEnabledTooltip": {
+      "description": "[options] Tooltip for use zoom factor for lock image option",
+      "message": "Pressing the 'Lock Image' action key twice will make the image zoom to 100% by default. Enabling this instead will make it zoom by the image factor amount"
+   },
+   "optMaxHeight": {
+      "description": "[options] Adjust the size of zoomed images option",
+      "message": "Maximale Höhe gezoomter Bilder festlegen:"
+   },
+   "optMaxHeightTooltip": {
+      "description": "[options] Tooltip for adjust the size of zoomed images option",
+      "message": "Maximale Höhe von gezoomten Bildern (0 für keine Höhenbeschränkung)"
+   },
+   "optMaxSizeUnitName": {
+      "description": "[options] Unit name (px) for zoomed images size option",
+      "message": "px"
+   },
+   "optMaxWidth": {
+      "description": "[options] Adjust the size of zoomed images option",
+      "message": "Maximale Breite gezoomter Bilder festlegen:"
+   },
+   "optMaxWidthTooltip": {
+      "description": "[options] Tooltip for adjust the size of zoomed images option",
+      "message": "Maximale Breite von gezoomten Bildern (0 für keine Breitenbeschränkung)"
+   },
+   "optMigrateOldSettings": {
+      "description": "[options] Migrate old settings",
+      "message": "Migrate old settings (THIS WILL OVERWRITE YOUR CURRENT SETTINGS)"
+   },
+   "optMigrateOldSettingsTooltip": {
+      "description": "[options] Tooltip for migrate old settings",
+      "message": "Manually migrate settings from old save location. THIS WILL OVERWRITE YOUR CURRENT SETTINGS."
+   },
+   "optMouseClickHoldTime": {
+      "description": "[options] Mouse click hold time option",
+      "message": "Mouse click hold time:"
+   },
+   "optMouseClickHoldTimeTooltip": {
+      "description": "[options] Tooltip for mouse click hold time option",
+      "message": "Amount of time required to hold a mouse click action key before the hold action is triggered"
+   },
+   "optMouseUnderlap": {
+      "description": "[options] Extend zoomed images below the mouse cursor option",
+      "message": "Bilder bei Mouse-Hover vergrößern"
+   },
+   "optMouseUnderlapTooltip": {
+      "description": "[options] Tooltip for extend zoomed images below the mouse cursor option",
+      "message": "Wenn nicht gesetzt, werden die Bilder in dynamischer Größe gezeigt"
+   },
+   "optMuteVideos": {
+      "description": "[options] Mute zoomed videos option",
+      "message": "Gezoomte Videos stummschalten"
+   },
+   "optMuteVideosTooltip": {
+      "description": "[options] Tooltip for mute zoomed videos option",
+      "message": "Deaktiviert den Ton im gezoomten Videos"
+   },
+   "optNextImgKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Drücken Sie diese Taste, um das nächste Bild in einer Galerie anzusehen."
+   },
+   "optNextImgKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Nächstes Bild in einer Galerie anzeigen"
+   },
+   "optOffsetUnitName": {
+      "description": "[options] Unit name (pixel) for offset amount",
+      "message": "px/%"
+   },
+   "optOpacityUnitName": {
+      "description": "[options] Unit name (percentage) for opacity option",
+      "message": "%"
+   },
+   "optOpenImageInTabKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Drücken Sie diese Taste, um das Bild oder Video, das Sie gerade betrachten, in einer neuen Registerkarte zu öffnen. Drücken Sie diese Taste erneut, um die Registerkarte zu schließen. Umschalttaste+Taste öffnet das Bild in einer Hintergrundregisterkarte."
+   },
+   "optOpenImageInTabKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Bild in einem neuen Tab öffnen"
+   },
+   "optOpenImageInWindowKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Drücken Sie diese Taste, um das Bild oder Video, das Sie gerade betrachten, in einem neuen Fenster zu öffnen. Drücken Sie diese Taste erneut, um das Fenster zu schließen."
+   },
+   "optOpenImageInWindowKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Bild in einem neuen Fenster öffnen"
+   },
+   "optPageActionEnabled": {
+      "description": "[options] Change toolbar icon option",
+      "message": "Change toolbar icon when images can be zoomed"
+   },
+   "optPageActionEnabledTooltip": {
+      "description": "[options] Tooltip for change toolbar icons option",
+      "message": "Toolbar icon changes color when images can be zoomed"
+   },
+   "optPageActionKeys": {
+      "description": "[options] Page title for action key options",
+      "message": "Aktionstasten"
+   },
+   "optPageAdvanced": {
+      "description": "[options] Page title for advanced options",
+      "message": "Erweitert"
+   },
+   "optPageFAQ": {
+      "description": "[options] Page title for FAQ",
+      "message": "FAQ"
+   },
+   "optPageGeneral": {
+      "description": "[options] Page title for general options",
+      "message": "Allgemeines"
+   },
+   "optPagePlugins": {
+      "description": "[options] Page title for plugin options",
+      "message": "Erweiterungen"
+   },
+   "optPageSites": {
+      "description": "[options] Page title for site options",
+      "message": "Seiten"
+   },
+   "optPicturesOpacity": {
+      "description": "[options] Zoomed pictures opacity option",
+      "message": "Deckkraft gezoomter Bilder:"
+   },
+   "optPixelsUnitName": {
+      "description": "[options] Unit name (pixels)",
+      "message": "Pixel"
+   },
+   "optPlayAudio": {
+      "description": "[options] Play audio option",
+      "message": "Wiedergabe von Audioquellen wie MP3"
+   },
+   "optPlayAudioTooltip": {
+      "description": "[options] Tooltip for play audio option",
+      "message": "Unterstützte Formate: flac m4a mp3 oga ogg opus wav"
+   },
+   "optPlugins": {
+      "description": "[options] Section which contains checkboxes for disabling plugins",
+      "message": "Aktivieren/Deaktivieren von bestimmten Plugins"
+   },
+   "optPrevImgKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Drücken Sie diese Taste, um das vorherige Bild in einer Galerie anzusehen."
+   },
+   "optPrevImgKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Vorheriges Bild in einer Galerie anzeigen"
+   },
+   "optRenameDownloads": {
+      "description": "[options] Rename downloads option",
+      "message": "Benenne gespeicherte Dateien um durch Anhängen von:"
+   },
+   "optRenameDownloadsTooltip": {
+      "description": "[options] Tooltip for rename downloads option",
+      "message": "Füge vor die Namen von Downloads Ursprung, Größe, Laufzeit und so weiter an"
+   },
+   "optReset": {
+      "description": "[options] Notification after resetting options to factory settings",
+      "message": "Optionen auf Werkseinstellungen zurücksetzen, zum Übernehmen speichern."
+   },
+   "optResetAllBannedImages": {
+      "description": "[options] Reset all banned images option",
+      "message": "Reset all banned images, videos & audio tracks"
+   },
+   "optResetAllBannedImagesTooltip": {
+      "description": "[options] Tooltip for reset all banned images option",
+      "message": "After reset, all banned images, videos & audio tracks can be zoomed again"
+   },
+   "optSaveImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Press this key to save the image or video you are currently viewing. (Requires 'Enable saving media with action key' to be checked)"
+   },
+   "optSaveImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Bild speichern"
+   },
+   "optSaved": {
+      "description": "[options] Notification after saving options",
+      "message": "Optionen gespeichert. Eventuell müssen einige Seiten neu geladen werden."
+   },
+   "optSectionAdvanced": {
+      "description": "[options] Page section for advanced options",
+      "message": "Erweiterte Einstellungen"
+   },
+   "optSectionAudio": {
+      "description": "[options] Page section for audio options",
+      "message": "Audio"
+   },
+   "optSectionDelays": {
+      "description": "[options] Page section for delay options",
+      "message": "Verzögerungen"
+   },
+   "optSectionFAQ": {
+      "description": "[options] Page section for Frequently Asked Questions",
+      "message": "Häufig gestellte Fragen"
+   },
+   "optSectionImportExportSettings": {
+      "description": "[options] Page section for import/export",
+      "message": "Import/Export"
+   },
+   "optSectionImportExportSettingsTooltip": {
+      "description": "[options] Tooltip for input and export options",
+      "message": "Betätige Export um die aktuellen Einstellungen als Text zu erhalten. Betätige Import um die eingefügten Einstellungen zu übernehmen."
+   },
+   "optSectionSitesDisabled": {
+      "description": "[options] Page section for enabling extension for specific sites",
+      "message": "URLs für die Hover Zoom+ deaktiviert sein soll"
+   },
+   "optSectionSitesEnabled": {
+      "description": "[options] Page section for enabling extension for specific sites",
+      "message": "URLs für die Hover Zoom+ aktiviert sein soll"
+   },
+   "optSectionSupportedFormats": {
+      "description": "[options] Page section for supported formats",
+      "message": "Unterstützte Formate"
+   },
+   "optSectionTroubleshooting": {
+      "description": "[options] Page section for troubleshooting",
+      "message": "Fehlersuche"
+   },
+   "optSectionVideo": {
+      "description": "[options] Page section for video options",
+      "message": "Video"
+   },
+   "optSectionView": {
+      "description": "[options] Page section for viewer options",
+      "message": "Betrachter"
+   },
+   "optSectionZoomSpeed": {
+      "description": "[options] Page section for zoom speed",
+      "message": "Zoomgeschwindigkeit"
+   },
+   "optShowDetailContentLength": {
+      "description": "[options] Show Content Length Detail",
+      "message": "Content Length"
+   },
+   "optShowDetailDimensions": {
+      "description": "[options] Show Dimensions Detail",
+      "message": "Dimensionen"
+   },
+   "optShowDetailDuration": {
+      "description": "[options] Show Duration Detail",
+      "message": "Laufzeit"
+   },
+   "optShowDetailExtension": {
+      "description": "[options] Show Extension Detail",
+      "message": "Erweiterung"
+   },
+   "optShowDetailFilename": {
+      "description": "[options] Show File Name Detail",
+      "message": "Dateiname"
+   },
+   "optShowDetailHost": {
+      "description": "[options] Show Host Detail",
+      "message": "Host"
+   },
+   "optShowDetailLastModified": {
+      "description": "[options] Show Last Modified Detail",
+      "message": "Zuletzt Geändert"
+   },
+   "optShowDetailRatio": {
+      "description": "[options] Show Ratio Detail",
+      "message": "Ratio"
+   },
+   "optShowDetailScale": {
+      "description": "[options] Show Scale Detail",
+      "message": "Skalierung"
+   },
+   "optShowHighRes": {
+      "description": "[options] Show high resolution pictures when available option",
+      "message": "Bilder wenn verfügbar in hoher Auflösung zeigen"
+   },
+   "optShowHighResTooltip": {
+      "description": "[options] Tooltip for show high resolution pictures when available option",
+      "message": "Das Laden der Bilder kann hierdurch länger dauern"
+   },
+   "optShowWhileLoading": {
+      "description": "[options] Show zoomed pictures while loading option",
+      "message": "Gezoomte Bilder während des Ladevorgangs anzeigen"
+   },
+   "optShowWhileLoadingTooltip": {
+      "description": "[options] Tooltip for show zoomed pictures while loading option",
+      "message": "Gezoomtes Bilder anzeigen, bevor es vollständig geladen ist"
+   },
+   "optSiteDisclaimer": {
+      "description": "[options] Disclaimer on the sites option page",
+      "message": "Beachten Sie, dass sich Domänenfilter überschneiden können. Beispiel: Wenn Sie \"picasaweb.google.com\" und \"google.com\" Filter angewendet haben, wird das Entfernen von \"picasaweb.google.com\" nicht Picasa-Webalben reaktivieren, da diese noch durch den Filter \"google.com\" ausgeschlossen sind."
+   },
+   "optSitePlaceholder": {
+      "description": "[options] Placeholder for a site url input box",
+      "message": "Beispiele: facebook.com, google.com/reader"
+   },
+   "optStatusBarOverlap": {
+      "description": "[options] Allow zoomed images to overlap the status bar option",
+      "message": "Erlaube gezoomten Bildern die Statusbar zu überlappen"
+   },
+   "optStatusBarOverlapTooltip": {
+      "description": "[options] Tooltip for allow zoomed images to overlap the status bar option",
+      "message": "Erlaube gezoomten Bildern die Statusbar zu überlappen, um mehr Fläche des Fensters zu verwenden"
+   },
+   "optSupportedAudioFormats": {
+      "description": "[options] Page section for supported audio formats",
+      "message": "Audio :"
+   },
+   "optSupportedImageFormats": {
+      "description": "[options] Page section for supported image formats",
+      "message": "Bilder:"
+   },
+   "optSupportedVideoFormats": {
+      "description": "[options] Page section for supported video formats",
+      "message": "Video:"
+   },
+   "optTitle": {
+      "description": "[options] Page title",
+      "message": "Hover Zoom+ Optionen"
+   },
+   "optTitleBoxDetails": {
+      "description": "[options] Title for details selector",
+      "message": "Detail(s) shown:"
+   },
+   "optToggleKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Aktivieren/Deaktivieren von HoverZoom+"
+   },
+   "optToggleKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "HoverZoom+ umschalten"
+   },
+   "optUseClipboardNameWhenSaving": {
+      "description": "[options] Use clipboard text as file name option",
+      "message": "Use clipboard text as file name"
+   },
+   "optUseClipboardNameWhenSavingTooltip": {
+      "description": "[options] Tooltip for use clipboard text as file name option",
+      "message": "Use the text in the clipboard as the file name when saving an image"
+   },
+   "optUseSeparateTabForUnloadableUrls": {
+      "description": "[options] Use separate tab for unloadable urls option",
+      "message": "Registerkarte"
+   },
+   "optUseSeparateTabOrWindowForUnloadableUrls": {
+      "description": "[options] Use separate tab or window for unloadable urls option",
+      "message": "Versuchen Sie, nicht ladbare URLs in einem separaten Fenster zu öffnen:"
+   },
+   "optUseSeparateTabOrWindowForUnloadableUrlsTooltip": {
+      "description": "[options] Tooltip for using separate tab or window for unloadable urls option",
+      "message": "Nützlich für HTTPS-Seiten wie Google Images, die das Laden von HTTP-Bildern verhindern"
+   },
+   "optUseSeparateWindowForUnloadableUrls": {
+      "description": "[options] Use separate window for unloadable urls option",
+      "message": "Fenster"
+   },
+   "optVideoPositionStep": {
+      "description": "[options] Changing video position amount option",
+      "message": "Vorheriges/nächstes-Aktionstasten verwenden um vor bzw. zurück zu springen um"
+   },
+   "optVideoPositionStepTooltip": {
+      "description": "[options] Tooltip for changing video position option",
+      "message": "Im Video für diese Zahl von Sekunden vor- oder zurückspringen"
+   },
+   "optVideoPositionStepUnitName": {
+      "description": "[options] Unit name (seconds) for changing video position option",
+      "message": "sek"
+   },
+   "optVideoTimestamp": {
+      "description": "[options] Enable timestamp / video length on videos",
+      "message": "Zeitstempel auf Videos anzeigen"
+   },
+   "optVideoTimestampTooltip": {
+      "description": "[options] Tooltip for video length countdown on videos",
+      "message": "Zeitstempel und Länge auf Videos aktivieren"
+   },
+   "optVideoVolume": {
+      "description": "[options] Audio volume for unmuted videos option",
+      "message": "Lautstärke für nicht stumm geschaltete Videos:"
+   },
+   "optVideoVolumeTooltip": {
+      "description": "[options] Tooltip for audio volume for unmuted videos option",
+      "message": "Falls das Video nicht komplett stumm geschaltet ist, die Lautstärke auf diesen Prozentsatz (0-100) stellen"
+   },
+   "optVideoVolumeUnitName": {
+      "description": "[options] Unit name (percentage) for video volume option",
+      "message": "%"
+   },
+   "optWhitelistMode": {
+      "description": "[options] Whitelist mode checkbox",
+      "message": "Whitelist-Modus"
+   },
+   "optWhitelistModeTooltip": {
+      "description": "[options] Tooltip for whitelist mode checkbox",
+      "message": "Hover Zoom+ nur für die unten aufgeführten Websites aktivieren"
+   },
+   "optZoomFactor": {
+      "description": "[options] Adjust the size of zoomed images option",
+      "message": "Gezoomte Bilder um diesen Faktor vergrößern:"
+   },
+   "optZoomFactorTooltip": {
+      "description": "[options] Tooltip for adjust the size of zoomed images option",
+      "message": "Die Größe von gezoomten Bildern um diesen Faktor vergrößern"
+   },
+   "optZoomFactorUnitName": {
+      "description": "[options] Unit name (percentage) for zoomed images size option",
+      "message": "fach"
+   },
+   "optZoomSpeed_P1": {
+      "description": "[options] Zoom speed Part 1",
+      "message": "Wenn ein Bild oder Video auf dem Bildschirm gesperrt ist, kann es mit dem Mausrad vergrößert oder verkleinert werden."
+   },
+   "optZoomSpeed_P2": {
+      "description": "[options] Zoom speed Part 2",
+      "message": "drücken"
+   },
+   "optZoomSpeed_P3": {
+      "description": "[options] Zoom speed Part 3",
+      "message": "oder"
+   },
+   "optZoomSpeed_P4": {
+      "description": "[options] Zoom speed Part 4",
+      "message": " beim Scrollen zum Zoomen"
+   },
+   "optZoomSpeed_P41": {
+      "description": "[options] Zoom speed Part 41",
+      "message": "schneller"
+   },
+   "optZoomSpeed_P42": {
+      "description": "[options] Zoom speed Part 42",
+      "message": "langsamer"
+   },
+   "optZoomVideos": {
+      "description": "[options] Zoom videos option",
+      "message": "Videos vergrößern"
+   },
+   "optZoomVideosTooltip": {
+      "description": "[options] Tooltip for zoom videos option",
+      "message": "Supported formats: 3gpp m4v mkv mp4 mpeg-dash ogv webm"
+   },
+   "optrotateImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Press this key to rotate image."
+   },
+   "optrotateImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Rotate image"
+   },
+   "popAllowPerSiteToggle": {
+      "description": "[popup] Allow per-site extension configuration",
+      "message": "Konfiguration pro Seite zulassen"
+   },
+   "popDisableForAllSites": {
+      "description": "[popup] Disable the extension",
+      "message": "Für alle Websites deaktivieren"
+   },
+   "popDisableForSite": {
+      "description": "[popup] Disables the extension for a specific site",
+      "message": "Für $1 deaktivieren"
+   },
+   "popEnableForSite": {
+      "description": "[popup] Enables the extension for a specific site",
+      "message": "Für $1 aktivieren"
+   },
+   "popMoreOptions": {
+      "description": "[popup] More options",
+      "message": "Weitere Optionen"
+   },
+   "popPreloadImages": {
+      "description": "[popup] Preload zoomed images",
+      "message": "Vergrößerte Bilder im Voraus laden"
+   },
+   "popPreloadingImages": {
+      "description": "[popup] Preloading zoomed images",
+      "message": "Laden..."
+   }
+}

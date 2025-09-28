@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../css/gumby.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <style>
+        /* max size allowed for default popup: 800w x 600h */
+        body {
+            height: 600px;
+        }
+    </style>
+</head>
+<body class="popup">
+    <div class="pretty container noscrollbars">
+        <div class="header">
+            <div><img src="../images/icon48.png"></div>
+            <h5 id="lblTitle" data-i18n="optTitle"></h5>
+        </div>
+        <div class="field">
+            <label class="checkbox" for="chkExcludeSite">
+                <input type="checkbox" id="chkExcludeSite"><span></span>
+                <div style="display:inline-flex">
+                    <div id="lblToggle"></div><div>&nbsp</div><div id="lblSite"></div>
+                </div>
+            </label>
+        </div>
+        <div>
+            <section>
+                <div class="tab-content active">
+                    <table id="tableActionKeys"></table>
+                </div>
+            </section>
+        </div>
+        <div class="buttons">
+            <div class="small success btn icon-left entypo icon-floppy"><a href="#" id="btnSave" data-i18n="optButtonSave"></a></div>
+            <div class="small warning btn icon-left entypo icon-cancel"><a href="#" id="btnCancel" data-i18n="optButtonCancel"></a></div>
+            <div class="small info btn icon-left entypo icon-arrows-ccw"><a href="#" id="btnReset" data-i18n="optButtonReset"></a></div>
+        </div>
+        <div id="messages" class="row">
+            <div id="msgtxt" class="alert" style="opacity:0">placeholder</div>
+        </div>
+        <div class="footer">
+            <a id="aMoreOptions" href="options.html" target="_blank" data-i18n="popMoreOptions"></a>
+        </div>
+    </div>
+    <script src="../js/jquery-3.7.1.js"></script>
+    <script src="../js/gumby.js"></script>
+    <script src="../js/spectrum.js"></script>
+    <script src="../js/tools.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/popup.js"></script>
+</body>
+</html>

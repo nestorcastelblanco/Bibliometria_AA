@@ -1,0 +1,1166 @@
+{
+   "extDescription": {
+      "description": "Extension description in Chrome webstore (max. 132 characters)",
+      "message": "Favori sitelerinizdeki (Facebook, Amazon, vb.) resim/videoları yakınlaştırın. Fareyi büyütmek istediğiniz resmin üzerine getirin."
+   },
+   "extName": {
+      "description": "Extension name",
+      "message": "Hover Zoom+"
+   },
+   "extShortName": {
+      "description": "Short extension name",
+      "message": "HoverZoom"
+   },
+   "msgClickPageToActivateActionKeys": {
+      "description": "Action keys are active only if page is focused",
+      "message": "aksiyon tuşlarını aktif hale getirmek için sayfada herhangi bir yere tıklayın"
+   },
+   "msgClickPageToPlayVideo": {
+      "description": "User must interact with the document first to play video: https://goo.gl/xX8pDD",
+      "message": "sayfada herhangi bir yeri tıklayın ve ardından tekrar fareyle üzerine gelin"
+   },
+   "optAbovePositionOffset": {
+      "description": "[options] Above offset option",
+      "message": "Yukarı konuma kaydırma:"
+   },
+   "optAbovePositionOffsetTooltip": {
+      "description": "[options] Tooltip for above position offset",
+      "message": "Yukarıdaki konumdaki metni dikey olarak kaydırmak için gereken miktar (pozitif değerler metni yukarı, negatif değerler metni aşağı kaydırır)"
+   },
+   "optAbovePositionOffsetUnit": {
+      "description": "[options] Set unit type for above offset",
+      "message": "Birim Tipi:"
+   },
+   "optAbovePositionOffsetUnitPercent": {
+      "description": "[options] Unit type percent",
+      "message": "%"
+   },
+   "optAbovePositionOffsetUnitPixel": {
+      "description": "[options] unit type pixel",
+      "message": "px"
+   },
+   "optAbovePositionOffsetUnitTooltip": {
+      "description": "[options] Tooltip for setting unit for above position offset",
+      "message": "Piksel veya yüzde bazlı ofset arasında seçim yap"
+   },
+   "optActionKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Eğer bir tuş ayarlanırsa, Hover Zoom+ sadece bu tuşa basılı tutulduğunda etkin olacaktır."
+   },
+   "optActionKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Hover Zoom+ etkinleştir"
+   },
+   "optAddDownloadCaption": {
+      "description": "[options] Add download caption option",
+      "message": "başlık"
+   },
+   "optAddDownloadCaptionTooltip": {
+      "description": "[options] Tooltip for add download caption option",
+      "message": "Resim yazısı ekleyin (ör: Leonardo da Vinci'nin Mona Lisa'sı)"
+   },
+   "optAddDownloadDuration": {
+      "description": "[options] Add download duration option",
+      "message": "Süre"
+   },
+   "optAddDownloadDurationTooltip": {
+      "description": "[options] Tooltip for add download duration option",
+      "message": "Videoya süresini ekle (ss dd ss) (ör. 00 16 35)"
+   },
+   "optAddDownloadIndex": {
+      "description": "[options] Add download index option",
+      "message": "dizin"
+   },
+   "optAddDownloadIndexTooltip": {
+      "description": "[options] Tooltip for add download index option",
+      "message": "Galeriyedeki resme dizin ekleyin (ör: on resimden üçüncüsü: 03-10)"
+   },
+   "optAddDownloadOrigin": {
+      "description": "[options] Add download origin option",
+      "message": "kaynak"
+   },
+   "optAddDownloadOriginTooltip": {
+      "description": "[options] Tooltip for add download origin option",
+      "message": "Kaynak ekle (ör. www.deviantart.com)"
+   },
+   "optAddDownloadSize": {
+      "description": "[options] Add download size option",
+      "message": "boyut"
+   },
+   "optAddDownloadSizeTooltip": {
+      "description": "[options] Tooltip for add download size option",
+      "message": "Boyutu (GxY) piksel cinsinden ekleyin (ör. 1024x750)"
+   },
+   "optAddToHistory": {
+      "description": "[options] Add viewed pictures to the browser's history option",
+      "message": "Görüntülenen resimleri tarayıcı geçmişine ekle"
+   },
+   "optAllowMediaSaving": {
+      "description": "[options] Enable saving media with action key option",
+      "message": "Eylem tuşuyla medya kaydetmeyi etkinleştirin"
+   },
+   "optAlwaysPreload": {
+      "description": "[options] Automatically preload zoomed images option",
+      "message": "Yakınlaştırılmış resimleri otomatik olarak önyükle"
+   },
+   "optAmbilightBackgroundOpacity": {
+      "description": "[options] Background opacity option",
+      "message": "Arkaplan Şeffaflığı :"
+   },
+   "optAmbilightBackgroundOpacityTooltip": {
+      "description": "[options] Tooltip for background opacity",
+      "message": "0% : saydam, 100% : siyah"
+   },
+   "optAmbilightBackgroundOpacityUnitName": {
+      "description": "[options] Unit name (percentage) for background opacity",
+      "message": "%"
+   },
+   "optAmbilightHaloSize": {
+      "description": "[options] Size of halo option",
+      "message": "Işık halkasının boyutu:"
+   },
+   "optAmbilightHaloSizeTooltip": {
+      "description": "[options] Tooltip for size of halo",
+      "message": "Büyütülmüş resmin etrafında ki ışık halkasının boyutu(%0: ışık halkası yok)"
+   },
+   "optAmbilightHaloSizeUnitName": {
+      "description": "[options] Unit name (percentage) for halo size",
+      "message": "%"
+   },
+   "optAudioVolume": {
+      "description": "[options] Audio volume option",
+      "message": "Ses seviyesi:"
+   },
+   "optAudioVolumeTooltip": {
+      "description": "[options] Tooltip for audio volume option",
+      "message": "Sesi bu yüzde aralığında ayarlayın (0-100)"
+   },
+   "optAudioVolumeUnitName": {
+      "description": "[options] Unit name (percentage) for audio volume option",
+      "message": "%"
+   },
+   "optAutoLockImages": {
+      "description": "[options] Automatically lock images option",
+      "message": "Resimleri otomatik olarak kilitle"
+   },
+   "optAutoLockImagesTooltip": {
+      "description": "[options] Tooltip for automatically lock images option",
+      "message": "Hover Zoom+ etkinleştirildiğinde resimleri otomatik olarak kilitle"
+   },
+   "optBanKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Bu tuşu basılı tutmak, yakınlaştırılmış görüntüyü veya videoyu yasak listesine ekler. Bu sayfada bir görüntünün veya videonun tekrar yakınlaştırılmasını istemediğinizde kullanın."
+   },
+   "optBanKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Resmi yasakla"
+   },
+   "optBelowPositionOffset": {
+      "description": "[options] Below offset option",
+      "message": "Aşağı konuma kaydırma:"
+   },
+   "optBelowPositionOffsetTooltip": {
+      "description": "[options] Tooltip for below position offset",
+      "message": "Aşağıdaki konumda metni dikey olarak kaydırmak için gereken miktar (pozitif değerler metni aşağı, negatif değerler metni yukarı kaydırır)"
+   },
+   "optBelowPositionOffsetUnit": {
+      "description": "[options] Set unit type for below offset",
+      "message": "Birim Tipi:"
+   },
+   "optBelowPositionOffsetUnitPercent": {
+      "description": "[options] Unit type percent",
+      "message": "%"
+   },
+   "optBelowPositionOffsetUnitPixel": {
+      "description": "[options] unit type pixel",
+      "message": "px"
+   },
+   "optBelowPositionOffsetUnitTooltip": {
+      "description": "[options] Tooltip for setting unit for below position offset",
+      "message": "Piksel veya yüzde bazlı ofset arasında seçim yap"
+   },
+   "optButtonAddSite": {
+      "description": "[options] Button for adding a site on sites option page",
+      "message": "Ekle"
+   },
+   "optButtonCancel": {
+      "description": "[options] Cancel button label",
+      "message": "Kapat"
+   },
+   "optButtonDisableAllPlugins": {
+      "description": "[options] disable all plugins button label",
+      "message": "Tümünü etkisizleştir"
+   },
+   "optButtonEnableAllPlugins": {
+      "description": "[options] enable all plugins button label",
+      "message": "Tümünü etkinleştir"
+   },
+   "optButtonExportSettings": {
+      "description": "[options] Export a save string into the textarea",
+      "message": "Dışa Aktar"
+   },
+   "optButtonImportSettings": {
+      "description": "[options] Import a save string from the textarea",
+      "message": "İçe Aktar"
+   },
+   "optButtonMigrateOldSettings": {
+      "description": "[options] Migrate old settings button",
+      "message": "Taşı"
+   },
+   "optButtonReset": {
+      "description": "[options] Reset button label",
+      "message": "Sıfırla"
+   },
+   "optButtonResetAllBannedImages": {
+      "description": "[options] Reset all banned images button",
+      "message": "Sıfırla"
+   },
+   "optButtonSave": {
+      "description": "[options] Save button label",
+      "message": "Kaydet"
+   },
+   "optCancel": {
+      "description": "[options] Notification after cancelling modification(s) to options",
+      "message": "Değişiklik(ler) iptal edildi."
+   },
+   "optCaptionLocation": {
+      "description": "[options] Adjust the position of the caption",
+      "message": "Resim yazısı konumu:"
+   },
+   "optCaptionLocationAbove": {
+      "description": "[options] Caption location option to put captions above the image",
+      "message": "Yukarıda"
+   },
+   "optCaptionLocationBelow": {
+      "description": "[options] Caption location option to put captions below the image",
+      "message": "Altında"
+   },
+   "optCaptionLocationNone": {
+      "description": "[options] Caption location option to disable captions",
+      "message": "Hiçbiri"
+   },
+   "optCaptionLocationTooltip": {
+      "description": "[options] Tooltip for adjusting the position of the caption",
+      "message": "Resim yazısını görüntünün üstünde/altında görüntüle ya da hiç görüntüleme"
+   },
+   "optCaptionOpacity": {
+      "description": "[options] Caption opacity option",
+      "message": "Başlık opaklığı:"
+   },
+   "optCenterImages": {
+      "description": "[options] Center images in the middle of the page option",
+      "message": "Resimleri ortala"
+   },
+   "optCenterImagesTooltip": {
+      "description": "[options] Tooltip for center images in the middle of the page option",
+      "message": "İmleç takibi yapmak yerine resimleri ortala"
+   },
+   "optClickHoldTimeUnit": {
+      "description": "[options] Unit name (pixel) for hold time amount",
+      "message": "milisaniye"
+   },
+   "optCloseKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Büyütülmüş resmi veya videoyu kapatmak için bu tuşa bas."
+   },
+   "optCloseKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Resmi kapat"
+   },
+   "optCopyImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Bu tuş basıldığında, resmin açıklaması panoya kopyalanır."
+   },
+   "optCopyImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Resimi panoya kopyala"
+   },
+   "optCopyImageUrlKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Bu tuş basıldığında, resmin veya videonun Url'si panoya kopyalanır."
+   },
+   "optCopyImageUrlKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Resmin URL'sini panoya kopyala"
+   },
+   "optDarkMode": {
+      "description": "[options] Enable dark mode for Options & Popup",
+      "message": "Karanlık mod"
+   },
+   "optDetailsLocation": {
+      "description": "[options] Adjust the position of details",
+      "message": "Detayların pozisyonu:"
+   },
+   "optDetailsLocationAbove": {
+      "description": "[options] Details location option to put details above the image",
+      "message": "Yukarıda"
+   },
+   "optDetailsLocationBelow": {
+      "description": "[options] Details location option to put details below the image",
+      "message": "Altında"
+   },
+   "optDetailsLocationNone": {
+      "description": "[options] Details location option to disable details",
+      "message": "Hiçbiri"
+   },
+   "optDetailsLocationTooltip": {
+      "description": "[options] Tooltip for adjusting the position of details",
+      "message": "Ayrıntıları görüntüle (boyut, biçim) resmin üstünde altında veya hiç bir yerinde"
+   },
+   "optDetailsOpacity": {
+      "description": "[options] Details opacity option",
+      "message": "Ayrıntılar opaklığı:"
+   },
+   "optDetailsSelectorTooltip": {
+      "description": "[options] Tooltip for details selector",
+      "message": "Ayrıntılar görüntüleniyorsa hangi ayrıntı(lar)ın gösterileceğini seçin"
+   },
+   "optDisableMouseWheelForVideo": {
+      "description": "[options] Allows you to scroll through albums with the mousewheel but does not change behavior of GFY/Videos",
+      "message": "Video içinde gezinmek için fare tekerleğini kullanmayın (eylem tuşları hala çalışır)"
+   },
+   "optDisableMouseWheelForVideoTooltip": {
+      "description": "[options] Allows you to scroll through albums with the mousewheel but does not change behavior of GFY/Videos",
+      "message": "Albümleri kaydırın, ancak videolarda ileri/geri atlamayın"
+   },
+   "optDisplayDelay": {
+      "description": "[options] Delay before displaying a picture option",
+      "message": "Bir resim görüntülemeden önceki gecikme:"
+   },
+   "optDisplayDelayVideo": {
+      "description": "[options] Delay before displaying a video option",
+      "message": "Video görüntülemeden önceki gecikme:"
+   },
+   "optDisplayImageLoader": {
+      "description": "[options] Display image loader option",
+      "message": "Resmin yüklenmesi başarısız olduğunda kırmızı dönen daire göster"
+   },
+   "optDisplayImageLoaderTooltip": {
+      "description": "[options] Tooltip for display image loader option",
+      "message": "Resim yüklenirken küçük bir dönen daire göster(yeşil: yükleniyor, kırmızı: hata).Kırmızı dönen daire isteğe bağlı."
+   },
+   "optDownloadFolder": {
+      "description": "[options] Download folder option",
+      "message": "Resimleri, videoları & sesleri şu klasöre kaydet: İndirilenler/"
+   },
+   "optDownloadFolderPlaceholder": {
+      "description": "[options] Placeholder for download folder option",
+      "message": "Örnek: hayvanlar/kediler"
+   },
+   "optDownloadFolderTooltip": {
+      "description": "[options] Tooltip for download folder option",
+      "message": "Gerekliyse alt klasör(ler) oluşturalacak"
+   },
+   "optDownloadReplaceOriginalFilename": {
+      "description": "[options] Replace original filename when downloading option",
+      "message": "Kaydederken, asıl dosya adını şu şekilde değiştirin:"
+   },
+   "optDownloadReplaceOriginalFilenamePlaceholder": {
+      "description": "[options] Placeholder for download folder option",
+      "message": "Örnek: fullsize_image"
+   },
+   "optDownloadReplaceOriginalFilenameTooltip": {
+      "description": "[options] Tooltip for replace original filename when downloading option",
+      "message": "Asıl dosya adını değiştirin veya değer sağlanmadıysa kaldırın (uzantı korunur)"
+   },
+   "optDurationUnitName": {
+      "description": "[options] Short form of \"second\" for delay duration",
+      "message": "sn"
+   },
+   "optEnableAmbilight": {
+      "description": "[options] Enable ambient light behind images option",
+      "message": "Resimlerin arkasında ortam ışığını etkinleştir"
+   },
+   "optEnableAmbilightTooltip": {
+      "description": "[options] Tooltip for enable ambient light behind images option",
+      "message": "Phillips Ambilight teknolojisine benzer bir ince parlama efekti oluşturun"
+   },
+   "optEnableCaptionDetailShadow": {
+      "description": "[options] Enable shadow behind caption and details option",
+      "message": "Başlık ve ayrıntıların arkasındaki gölgeyi etkinleştir"
+   },
+   "optEnableCaptionDetailShadowTooltip": {
+      "description": "[options] Tooltip for enable shadow behind caption and details option",
+      "message": "Başlıklara veya ayrıntılara küçük bir gölge ekle, arka plandan daha fazla öne çıkmasını sağla"
+   },
+   "optEnableDebug": {
+      "description": "[options] Enable debug option",
+      "message": "Hata ayıklama günlüğünü etkinleştir"
+   },
+   "optEnableDebugTooltip": {
+      "description": "[options] Tooltip for enable debug option",
+      "message": "Hata ayıklama mesajlarını tarayıcının konsolunda göster (konsolu açmak için: F12 tuşuna bas)"
+   },
+   "optEnableGalleries": {
+      "description": "[options] Enable albums support option",
+      "message": "Albüm desteğini etkinleştir"
+   },
+   "optEnableNoFocusMsg": {
+      "description": "[options] Enable Action Keys focus overlay message option",
+      "message": "Aksiyon Tuşları odak yerleşimi mesajını etkinleştir"
+   },
+   "optEnableNoFocusMsgTooltip": {
+      "description": "[options] Tooltip for enable Action Keys focus overlay message option",
+      "message": "Bazen Aksiyon Tuşları bozuk görünebilir, bu genellikle sayfa odağı kaybettiğinde olur. Seçenek işaretlenirse, bir uyarı mesajı görüntülenecektir (sadece bir kez)."
+   },
+   "optEnableViewerShadow": {
+      "description": "[options] Enable shadow behind image viewer option",
+      "message": "Görüntü görüntüleyicinin arkasındaki gölgeyi etkinleştir"
+   },
+   "optEnableViewerShadowTooltip": {
+      "description": "[options] Tooltip for enable shadow behind caption and details option",
+      "message": "Yakınlaştırılmış görüntü izleyicinin arkasına küçük bir gölge ekleye, arka plandan daha görünür hale getir"
+   },
+   "optExtensionEnabled": {
+      "description": "[options] Enable Hover Zoom+ option",
+      "message": "Hover Zoom'u etkinleştir"
+   },
+   "optFAQ_A1_1": {
+      "description": "[options] FAQ Answer 1 part 1",
+      "message": "Düzenlemeyi tamamladıktan sonra “Kaydet” düğmesine tıklayın"
+   },
+   "optFAQ_A1_2": {
+      "description": "[options] FAQ Answer 1 part 2",
+      "message": "ayarlar sayfasının alt kısmında"
+   },
+   "optFAQ_A1_3": {
+      "description": "[options] FAQ Answer 1 part 3",
+      "message": "Sayfayı yeniden yükleyin (F5)"
+   },
+   "optFAQ_A2_1": {
+      "description": "[options] FAQ Answer 2 part 1",
+      "message": "Ayarlar -> Genel -> Gecikmeler bölümünde \"Fare imlecini gizle\" seçeneğini etkinleştirin"
+   },
+   "optFAQ_A3_1": {
+      "description": "[options] FAQ Answer 3 part 1",
+      "message": "Ör. DeviantArt.com ve 1X.com'da HoverZoom+'ı etkinleştirmek için:"
+   },
+   "optFAQ_A3_2": {
+      "description": "[options] FAQ Answer 3 part 2",
+      "message": "Ayarlar -> Siteler bölümünde \"Beyaz liste modu\"nu etkinleştirin"
+   },
+   "optFAQ_A3_3": {
+      "description": "[options] FAQ Answer 3 part 3",
+      "message": "DeviantArt.com ve 1X.com'u URL listesine ekleyin (büyük/küçük harf duyarlı değildir)"
+   },
+   "optFAQ_A4_1": {
+      "description": "[options] FAQ Answer 4 part 1",
+      "message": "Bir resim veya videonun üzerine fareyi getirin ve ekran üzerinde sabitleyin (varsayılan eylem tuşu: “L”)"
+   },
+   "optFAQ_A4_2": {
+      "description": "[options] FAQ Answer 4 part 2",
+      "message": "Resim veya video artık tam boyutta görüntüleniyor. Fare tekerleğini kullanarak yakınlaştırma veya uzaklaştırma yapabilirsiniz."
+   },
+   "optFAQ_A5_1": {
+      "description": "[options] FAQ Answer 5 part 1",
+      "message": "Bazen aksiyon tuşları bozuk gibi görünür, bu genellikle sayfa odağı kaybettiğinde olur."
+   },
+   "optFAQ_A5_2": {
+      "description": "[options] FAQ Answer 5 part 2",
+      "message": "Odağı yeniden kazanmak için sayfada herhangi bir yeri tıklamanız yeterlidir."
+   },
+   "optFAQ_A5_3": {
+      "description": "[options] FAQ Answer 5 part 3",
+      "message": "Seçenekler -> Gelişmiş seçeneklerde, \"Aksiyon Tuşları odak yerleşimi mesajını etkinleştir\"i etkinleştirebilirsiniz, böylece odak kaybolduğunda bir uyarı mesajı alırsınız."
+   },
+   "optFAQ_A6_1": {
+      "description": "[options] FAQ Answer 6 part 1",
+      "message": "ör: Dailymotion videoları dailymotion.com'da oynatılır, ancak Google arama sonuçlarında oynatılmaz."
+   },
+   "optFAQ_A6_2": {
+      "description": "[options] FAQ Answer 6 part 2",
+      "message": "Bu, CORS kısıtlamalarından kaynaklanmaktadır. Bunları kaldırmak için:"
+   },
+   "optFAQ_A6_3": {
+      "description": "[options] FAQ Answer 6 part 3",
+      "message": "Seçenekler -> Gelişmiş, \"HTTP(S) isteği veya yanıtı için başlıkların yeniden yazılmasına izin ver\" seçeneğini etkinleştirin"
+   },
+   "optFAQ_A7": {
+      "description": "[options] FAQ Answer 7",
+      "message": "HoverZoom+'ı uyandırmak için sayfayı aşağı kaydırın veya sayfada herhangi bir yeri tıklayın!"
+   },
+   "optFAQ_Q1": {
+      "description": "[options] FAQ Question 1",
+      "message": "Bazı ayarları değiştirdim fakat değişiklik görmüyorum."
+   },
+   "optFAQ_Q2": {
+      "description": "[options] FAQ Question 2",
+      "message": "Büyütülmüş fotoğraf veya videolarda fare imlecini gizlemek istiyorum."
+   },
+   "optFAQ_Q3": {
+      "description": "[options] FAQ Question 3",
+      "message": "HoverZoom+'ın yalnızca bazı sitelerde etkin olmasını istiyorum."
+   },
+   "optFAQ_Q4": {
+      "description": "[options] FAQ Question 4",
+      "message": "Resmi veya videoyu ekran boyutundan daha büyük olsa bile orijinal boyutuna yakınlaştırmak istiyorum."
+   },
+   "optFAQ_Q5": {
+      "description": "[options] FAQ Question 5",
+      "message": "Aksiyon tuşları çalışmıyor!"
+   },
+   "optFAQ_Q6": {
+      "description": "[options] FAQ Question 6",
+      "message": "Bazı videolar, orjinal site dışında açıldığında oynatılmaz."
+   },
+   "optFAQ_Q7": {
+      "description": "[options] FAQ Question 7",
+      "message": "Bir resmin veya videonun üzerine geliyorum ama bazen hiçbir şey olmuyor!"
+   },
+   "optFAQ_SaveAndReload": {
+      "description": "[options] FAQ Save and reload page",
+      "message": "Kaydet ve sayfayı yenile (F5)"
+   },
+   "optFadeDuration": {
+      "description": "[options] Fading animation duration option",
+      "message": "Solma animasyonu süresi:"
+   },
+   "optFilterNSFW": {
+      "description": "[options] Exclude NSFW images (Reddit only) option",
+      "message": "İş ortamına uygun olmayan resimleri dışla (sadece Reddit için)"
+   },
+   "optFlipImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Görüntüyü dönüşümlü olarak dikey ve yatay olarak çevirmek için bu tuşa basın. Yansıtılmış görüntülerdeki veya videolardaki metinleri ve logoları okumak için kullanışlıdır."
+   },
+   "optFlipImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Resmi çevir"
+   },
+   "optFontOutline": {
+      "description": "[options] Outline option",
+      "message": "Yazı dış çizgisi"
+   },
+   "optFontOutlineTooltip": {
+      "description": "[options] Tooltip for outline option",
+      "message": "İşaretliyse: başlık ve ayrıntılar için beyaz yazı tipi + ince siyah kenarlık kullanın"
+   },
+   "optFontSize": {
+      "description": "[options] Font size option",
+      "message": "Yazı boyutu:"
+   },
+   "optFontSizeTooltip": {
+      "description": "[options] Tooltip for font size option",
+      "message": "Başlık & ayrıntılar için kullanılan yazı tipinin boyutu"
+   },
+   "optFontSizeUnitName": {
+      "description": "[options] Unit name (pixel) for font size",
+      "message": "pikseller"
+   },
+   "optFooterChangelog": {
+      "description": "[options] Changelog link in page footer",
+      "message": "Değişim kayıtları"
+   },
+   "optFooterReportIssue": {
+      "description": "[options] Report a bug link in page footer",
+      "message": "Hata bildirimi"
+   },
+   "optFooterSourceCode": {
+      "description": "[options] Source code link in page footer",
+      "message": "Kaynak kodu"
+   },
+   "optFooterVersionCopyright": {
+      "description": "[options] Copyright and version number in page footer",
+      "message": "$1 Sürümü - © 2014-$2 Oleg Anashkin"
+   },
+   "optFrameBackgroundColor": {
+      "description": "[options] Frame background color option",
+      "message": "Kart arka plan rengi:"
+   },
+   "optFrameBackgroundColorCancelText": {
+      "description": "[options] Frame background color button - Cancel",
+      "message": "İptal"
+   },
+   "optFrameBackgroundColorChooseText": {
+      "description": "[options] Frame background color button - Select",
+      "message": "Seç"
+   },
+   "optFrameBackgroundColorTooltip": {
+      "description": "[options] Tooltip for frame background color option",
+      "message": "Resmin olduğu kartın arka plan rengi"
+   },
+   "optFrameThickness": {
+      "description": "[options] Frame thickness option",
+      "message": "Kart kalınlığı:"
+   },
+   "optFrameThicknessTooltip": {
+      "description": "[options] Tooltip for frame thickness option",
+      "message": "Resmin olduğu kartın sınırlarının kalınlığı (0: kart olmaz)"
+   },
+   "optFrameThicknessUnitName": {
+      "description": "[options] Unit name (pixel) for frame thickness",
+      "message": "pikseller"
+   },
+   "optFullZoomHidesDetailsCaptions": {
+      "description": "[options] Full zoom key hides details and captions option",
+      "message": "Tam yakınlaştırma tuşu ayrıntıları ve başlıkları gizler"
+   },
+   "optFullZoomHidesDetailsCaptionsTooltip": {
+      "description": "[options] Tooltip for full zoom key hides details and captions option",
+      "message": "Tam yakınlaştırmaya basıldığında, ayrıntılar ve başlıklar gizlenerek resmin dikey olarak daha fazla genişleyebilmesini sağlar"
+   },
+   "optFullZoomKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Bu tuşa basılı tutulduğunda, resmi tüm kullanılabilir alanı kullanarak gösterir. Sadece yüksek çözünürlüklü resimler için işe yarar."
+   },
+   "optFullZoomKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Tam yakınlaştırmayı etkinleştir"
+   },
+   "optGalleriesLoopEnabled": {
+      "description": "[options] Loop albums option",
+      "message": "Albümleri döngüye al"
+   },
+   "optGalleriesLoopEnabledTooltip": {
+      "description": "[options] Tooltip for loop albums option",
+      "message": "Albümün sonuna geldiğinizde, başlangıca geri dönün"
+   },
+   "optGalleriesMouseWheel": {
+      "description": "[options] Use mousewheel to navigate albums option",
+      "message": "Albümleri gezmek için fare tekerleğini kullanın"
+   },
+   "optGalleriesMouseWheelTooltip": {
+      "description": "[options] Tooltip for use mousewheel to navigate albums option",
+      "message": "Fare tekerleğiyle albümleri gezin"
+   },
+   "optHScrollBarOverlap": {
+      "description": "[options] Allow zoomed images to overlap the horizontal scroll bar option",
+      "message": "Yakınlaştırılmış resimlerin yatay kaydırma çubuğuyla örtüşmesine izin ver"
+   },
+   "optHScrollBarOverlapTooltip": {
+      "description": "[options] Tooltip for allow zoomed images to overlap the horizontal scroll bar option",
+      "message": "Yakınlaştırılmış resimlerin yatay çubukla örtüşmesine izin vererek pencerenin daha fazla kullanılmasını sağlayın"
+   },
+   "optHideKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Bu tuşa basılı tutmak yakınlaştırılmış resmi gizler. Yakınlaştırılan resim fareyi üzerine getirerek görüntülenen diğer şeylerin önüne geçtiğinde kullanın."
+   },
+   "optHideKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Resmi gizle"
+   },
+   "optHideMouseCursor": {
+      "description": "[options] Hide mouse cursor option",
+      "message": "Fare imlecini şundan sonra gizle:"
+   },
+   "optHideMouseCursorTooltip": {
+      "description": "[options] Tooltip for hide mouse cursor option",
+      "message": "İşareliyse, fare imleci gecikmeden sonra gizlenecektir"
+   },
+   "optImagePaddingSize": {
+      "description": "[options] Adjust the zoomed image padding size option",
+      "message": "Görüntü dolgu boyutu:"
+   },
+   "optImagePaddingSizeTooltip": {
+      "description": "[options] Tooltip for adjust the zoomed image padding size option",
+      "message": "Yakınlaştırılmış görüntüler için dolgu boyutunu değiştirir. Dolgu, resmin görüntüleme penceresinin kenarına ne kadar yaklaşabileceğini belirler"
+   },
+   "optImagePaddingSizeUnitName": {
+      "description": "[options] Unit name (pixels) for zoomed images padding option",
+      "message": "pikseller"
+   },
+   "optImport": {
+      "description": "[options] Notification after successful import to options",
+      "message": "İçe Aktarma Başarılı!"
+   },
+   "optImportExportTextArea": {
+      "description": "[options] Placeholder for import and export text area",
+      "message": "Kayıtlı ayarlarınızı buraya yapıştırın"
+   },
+   "optImportFailed": {
+      "description": "[options] Notification after failed import to options",
+      "message": "İçe Aktarma Başarısız"
+   },
+   "optLockImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Resmi veya videoyu ekranın merkezine kilitlemek için bu tuşa bas, sana etrafında gezme ve büyütme şansı tanır. Fotoğrafın kilidini kaldırmak için fotoğrafın dışında bir yere tıkla veya kapat tuşuna bas."
+   },
+   "optLockImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Resmi ekranda kilitle"
+   },
+   "optLockImageZoomDefaultEnabled": {
+      "description": "[options] Locked images start zoomed in option",
+      "message": "Kilitli görüntüler yakınlaştırılmış olarak başlar"
+   },
+   "optLockImageZoomDefaultEnabledTooltip": {
+      "description": "[options] Tooltip for locked images start zoomed in option",
+      "message": "'Görüntüyü Kilitle' eylem tuşuna iki kez basıldığında, görüntü varsayılan olarak yakınlaştırılır. Bunun yerine bu özelliği etkinleştirdiğinizde, ilk basışta yakınlaştırma gerçekleşir"
+   },
+   "optLockImageZoomFactorEnabled": {
+      "description": "[options] Use zoom factor for lock image option",
+      "message": "Görüntüyü kilitlemek için yakınlaştırma faktörünü kullanın"
+   },
+   "optLockImageZoomFactorEnabledTooltip": {
+      "description": "[options] Tooltip for use zoom factor for lock image option",
+      "message": "'Görüntüyü Kilitle' eylem tuşuna iki kez basıldığında, görüntü varsayılan olarak %100 oranında yakınlaştırılır. Bunun yerine bu özelliği etkinleştirdiğinizde, görüntü faktör miktarı kadar yakınlaştırılır"
+   },
+   "optMaxHeight": {
+      "description": "[options] Adjust the size of zoomed images option",
+      "message": "Yakınlaştırılmış resimlerin maksimum yüksekliğini ayarlayın:"
+   },
+   "optMaxHeightTooltip": {
+      "description": "[options] Tooltip for adjust the size of zoomed images option",
+      "message": "Yakınlaştırılmış resimlerin maksimum yüksekliğini bu miktarda ayarlayın (0 ise maksimum yükseklik yok)"
+   },
+   "optMaxSizeUnitName": {
+      "description": "[options] Unit name (px) for zoomed images size option",
+      "message": "px"
+   },
+   "optMaxWidth": {
+      "description": "[options] Adjust the size of zoomed images option",
+      "message": "Yakınlaştırılmış resimlerin maksimum genişliğini ayarlayın:"
+   },
+   "optMaxWidthTooltip": {
+      "description": "[options] Tooltip for adjust the size of zoomed images option",
+      "message": "Yakınlaştırılmış resimlerin maksimum genişliğini bu miktarda ayarlayın (0 ise maksimum genişlik yok)"
+   },
+   "optMigrateOldSettings": {
+      "description": "[options] Migrate old settings",
+      "message": "Eski ayarları taşı (MEVCUT AYARLARINIZIN ÜZERİNE YAZILACAK)"
+   },
+   "optMigrateOldSettingsTooltip": {
+      "description": "[options] Tooltip for migrate old settings",
+      "message": "Ayarları eski kayıt konumundan manuel olarak taşı. BU İŞLEM MEVCUT AYARLARINIZIN ÜZERİNE YAZACAKTIR."
+   },
+   "optMouseClickHoldTime": {
+      "description": "[options] Mouse click hold time option",
+      "message": "Fare tıklama basılı tutma süresi:"
+   },
+   "optMouseClickHoldTimeTooltip": {
+      "description": "[options] Tooltip for mouse click hold time option",
+      "message": "Tıklama eylemi tuşunu basılı tutma eylemi tetiklenmeden önce basılı tutmak için gereken süre"
+   },
+   "optMouseUnderlap": {
+      "description": "[options] Extend zoomed images below the mouse cursor option",
+      "message": "Büyütülmüş resimleri fare imlecinin altına genişlet"
+   },
+   "optMouseUnderlapTooltip": {
+      "description": "[options] Tooltip for extend zoomed images below the mouse cursor option",
+      "message": "İşaretli değilse, yakınlaştırılmış resimler dinamik olarak yeniden boyutlanacak"
+   },
+   "optMuteVideos": {
+      "description": "[options] Mute zoomed videos option",
+      "message": "Yakınlaştırılmış videoları sessize al"
+   },
+   "optMuteVideosTooltip": {
+      "description": "[options] Tooltip for mute zoomed videos option",
+      "message": "Yakınlaştırılmış videoları sessize al"
+   },
+   "optNextImgKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Galerideki bir sonraki resmi göstermek için bu tuşa basın."
+   },
+   "optNextImgKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Galerideki bir sonraki resmi göster"
+   },
+   "optOffsetUnitName": {
+      "description": "[options] Unit name (pixel) for offset amount",
+      "message": "px/%"
+   },
+   "optOpacityUnitName": {
+      "description": "[options] Unit name (percentage) for opacity option",
+      "message": "%"
+   },
+   "optOpenImageInTabKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Görüntülemekte olduğunuz resmi veya videoyu yeni sekmede açmak için bu tuşa basın. Sekmeyi kapatmak için tekrar aynı tuşa basın. Shift+tuş resmi arkaplandaki bir sekmede açar."
+   },
+   "optOpenImageInTabKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Resmi yeni bir sekmede aç"
+   },
+   "optOpenImageInWindowKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Görüntülemekte olduğunuz resmi veya videoyu yeni pencerede açmak için bu tuşa basın. Pencereyi kapatmak için tekrar aynı tuşa basın."
+   },
+   "optOpenImageInWindowKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Resmi yeni bir pencerede aç"
+   },
+   "optPageActionEnabled": {
+      "description": "[options] Change toolbar icon option",
+      "message": "Görüntüler yakınlaştırılabildiğinde araç çubuğu simgesini değiştir"
+   },
+   "optPageActionEnabledTooltip": {
+      "description": "[options] Tooltip for change toolbar icons option",
+      "message": "Görüntüler yakınlaştırılabildiğinde araç çubuğu simgesinin rengi değişir"
+   },
+   "optPageActionKeys": {
+      "description": "[options] Page title for action key options",
+      "message": "Eylem tuşları"
+   },
+   "optPageAdvanced": {
+      "description": "[options] Page title for advanced options",
+      "message": "Gelişmiş"
+   },
+   "optPageFAQ": {
+      "description": "[options] Page title for FAQ",
+      "message": "SSS"
+   },
+   "optPageGeneral": {
+      "description": "[options] Page title for general options",
+      "message": "Genel"
+   },
+   "optPagePlugins": {
+      "description": "[options] Page title for plugin options",
+      "message": "Eklentiler"
+   },
+   "optPageSites": {
+      "description": "[options] Page title for site options",
+      "message": "Siteler"
+   },
+   "optPicturesOpacity": {
+      "description": "[options] Zoomed pictures opacity option",
+      "message": "Yakınlaştırılmış resimlerin opaklığı:"
+   },
+   "optPixelsUnitName": {
+      "description": "[options] Unit name (pixels)",
+      "message": "pikseller"
+   },
+   "optPlayAudio": {
+      "description": "[options] Play audio option",
+      "message": "MP3 gibi ses kaynaklarını oynatın"
+   },
+   "optPlayAudioTooltip": {
+      "description": "[options] Tooltip for play audio option",
+      "message": "Desteklenen formatlar: flac m4a mp3 oga ogg opus wav"
+   },
+   "optPlugins": {
+      "description": "[options] Section which contains checkboxes for disabling plugins",
+      "message": "Belirli eklentileri etkinleştir/devre dışı bırak"
+   },
+   "optPrevImgKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Galerideki bir önceki resmi göstermek için bu tuşa basın."
+   },
+   "optPrevImgKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Galerideki bir önceki resmi göster"
+   },
+   "optRenameDownloads": {
+      "description": "[options] Rename downloads option",
+      "message": "Kaydedilen dosyaları ekleyerek yeniden adlandırın:"
+   },
+   "optRenameDownloadsTooltip": {
+      "description": "[options] Tooltip for rename downloads option",
+      "message": "Daha kolay yönetim için indirmelerin orijinal adlarını kaynak, boyut, süre vb. ile önekleyin"
+   },
+   "optReset": {
+      "description": "[options] Notification after resetting options to factory settings",
+      "message": "Ayarlar fabrika ayarlarına sıfırlandı, uygulamak için kaydedin."
+   },
+   "optResetAllBannedImages": {
+      "description": "[options] Reset all banned images option",
+      "message": "Tüm yasaklı resimleri, videoları ve ses parçalarını sıfırlayın"
+   },
+   "optResetAllBannedImagesTooltip": {
+      "description": "[options] Tooltip for reset all banned images option",
+      "message": "Sıfırlamadan sonra, yasaklanan tüm görüntüler, videolar ve ses parçaları tekrar yakınlaştırılabilir"
+   },
+   "optSaveImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Bu tuşa basarak şu anda görüntülediğiniz resmi veya videoyu kaydedebilirsiniz. (Bunun için ‘Eylem tuşuyla medya kaydetmeyi etkinleştir’ seçeneğinin işaretli olması gerekir)"
+   },
+   "optSaveImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Resmi kaydet"
+   },
+   "optSaved": {
+      "description": "[options] Notification after saving options",
+      "message": "Seçenekler kaydedildi. Bazı ayarlar için sayfanın yenilenmesini gerektirebilir."
+   },
+   "optSectionAdvanced": {
+      "description": "[options] Page section for advanced options",
+      "message": "Gelişmiş seçenekler"
+   },
+   "optSectionAudio": {
+      "description": "[options] Page section for audio options",
+      "message": "Ses"
+   },
+   "optSectionDelays": {
+      "description": "[options] Page section for delay options",
+      "message": "Gecikmeler"
+   },
+   "optSectionFAQ": {
+      "description": "[options] Page section for Frequently Asked Questions",
+      "message": "Sıkça Sorulan Sorular"
+   },
+   "optSectionImportExportSettings": {
+      "description": "[options] Page section for import/export",
+      "message": "İçe Aktar/Dışa Aktar"
+   },
+   "optSectionImportExportSettingsTooltip": {
+      "description": "[options] Tooltip for input and export options",
+      "message": "Mevcut ayarlarınızın bir dizesini almak için dışa aktar düğmesine basın. Yapıştırdığınız ayarları yüklemek için içe aktara basın"
+   },
+   "optSectionSitesDisabled": {
+      "description": "[options] Page section for enabling extension for specific sites",
+      "message": "Hover Zoom+ etkin olmayan adresler"
+   },
+   "optSectionSitesEnabled": {
+      "description": "[options] Page section for enabling extension for specific sites",
+      "message": "Hover Zoom+ etkin olan adresler"
+   },
+   "optSectionSupportedFormats": {
+      "description": "[options] Page section for supported formats",
+      "message": "Desteklenen dosya biçimleri"
+   },
+   "optSectionTroubleshooting": {
+      "description": "[options] Page section for troubleshooting",
+      "message": "Sorun Giderme"
+   },
+   "optSectionVideo": {
+      "description": "[options] Page section for video options",
+      "message": "Video"
+   },
+   "optSectionView": {
+      "description": "[options] Page section for viewer options",
+      "message": "İzleyici"
+   },
+   "optSectionZoomSpeed": {
+      "description": "[options] Page section for zoom speed",
+      "message": "Yakınlaştırma hızı"
+   },
+   "optShowDetailContentLength": {
+      "description": "[options] Show Content Length Detail",
+      "message": "İçerik Uzunluğu"
+   },
+   "optShowDetailDimensions": {
+      "description": "[options] Show Dimensions Detail",
+      "message": "Ölçüler"
+   },
+   "optShowDetailDuration": {
+      "description": "[options] Show Duration Detail",
+      "message": "Süre"
+   },
+   "optShowDetailExtension": {
+      "description": "[options] Show Extension Detail",
+      "message": "Eklenti"
+   },
+   "optShowDetailFilename": {
+      "description": "[options] Show File Name Detail",
+      "message": "Dosya Adı"
+   },
+   "optShowDetailHost": {
+      "description": "[options] Show Host Detail",
+      "message": "Sunucu"
+   },
+   "optShowDetailLastModified": {
+      "description": "[options] Show Last Modified Detail",
+      "message": "Son Düzenleme"
+   },
+   "optShowDetailRatio": {
+      "description": "[options] Show Ratio Detail",
+      "message": "Oran"
+   },
+   "optShowDetailScale": {
+      "description": "[options] Show Scale Detail",
+      "message": "Ölçek"
+   },
+   "optShowHighRes": {
+      "description": "[options] Show high resolution pictures when available option",
+      "message": "Uygunsa yüksek çözünürlüklü resimleri göster"
+   },
+   "optShowHighResTooltip": {
+      "description": "[options] Tooltip for show high resolution pictures when available option",
+      "message": "Resimleri yüklemek daha fazla zaman alabilir"
+   },
+   "optShowWhileLoading": {
+      "description": "[options] Show zoomed pictures while loading option",
+      "message": "Yüklenirken yakınlaştırılmış resimleri göster"
+   },
+   "optShowWhileLoadingTooltip": {
+      "description": "[options] Tooltip for show zoomed pictures while loading option",
+      "message": "Yakınlaştırılmış resimler tam olarak yüklenmeden önce de görüntülenir"
+   },
+   "optSiteDisclaimer": {
+      "description": "[options] Disclaimer on the sites option page",
+      "message": "Adres filtrelerinin çakışabileceğini unutmayın. Örnek: Eğer \"picasaweb.google.com\" ve \"google.com\" için filtre uyguladıysanız, \"picasaweb.google.com\" filtresini kaldırmanız Picasa Web Albümlerini yeniden etkinleştirmez, çünkü hala \"google.com\" filtresine takılıyor."
+   },
+   "optSitePlaceholder": {
+      "description": "[options] Placeholder for a site url input box",
+      "message": "Örnekler: facebook.com, google.com/reader"
+   },
+   "optStatusBarOverlap": {
+      "description": "[options] Allow zoomed images to overlap the status bar option",
+      "message": "Yakınlaştırılmış resimlerin durum çubuğuyla örtüşmesine izin ver"
+   },
+   "optStatusBarOverlapTooltip": {
+      "description": "[options] Tooltip for allow zoomed images to overlap the status bar option",
+      "message": "Yakınlaştırılmış resimlerin durum çubuğuyla örtüşmesine izin vererek pencerenin daha fazla kullanılmasını sağlayın"
+   },
+   "optSupportedAudioFormats": {
+      "description": "[options] Page section for supported audio formats",
+      "message": "Ses :"
+   },
+   "optSupportedImageFormats": {
+      "description": "[options] Page section for supported image formats",
+      "message": "Resimler :"
+   },
+   "optSupportedVideoFormats": {
+      "description": "[options] Page section for supported video formats",
+      "message": "Video :"
+   },
+   "optTitle": {
+      "description": "[options] Page title",
+      "message": "Hover Zoom+ Seçenekleri"
+   },
+   "optTitleBoxDetails": {
+      "description": "[options] Title for details selector",
+      "message": "Gösterilen detay(lar):"
+   },
+   "optToggleKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Etkinleştir/Devre dışı bırak HoverZoom+"
+   },
+   "optToggleKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Aç/kapat HoverZoom+"
+   },
+   "optUseClipboardNameWhenSaving": {
+      "description": "[options] Use clipboard text as file name option",
+      "message": "Pano metnini dosya adı olarak kullan"
+   },
+   "optUseClipboardNameWhenSavingTooltip": {
+      "description": "[options] Tooltip for use clipboard text as file name option",
+      "message": "Bir görüntüyü kaydederken panodaki metni dosya adı olarak kullan"
+   },
+   "optUseSeparateTabForUnloadableUrls": {
+      "description": "[options] Use separate tab for unloadable urls option",
+      "message": "Sekme"
+   },
+   "optUseSeparateTabOrWindowForUnloadableUrls": {
+      "description": "[options] Use separate tab or window for unloadable urls option",
+      "message": "Yüklenemeyen url'leri ayrı açmaya çalış:"
+   },
+   "optUseSeparateTabOrWindowForUnloadableUrlsTooltip": {
+      "description": "[options] Tooltip for using separate tab or window for unloadable urls option",
+      "message": "Google Görseller gibi HTTP resimlerinin yüklenmesini engelleyen HTTPS siteleri için kullanışlıdır"
+   },
+   "optUseSeparateWindowForUnloadableUrls": {
+      "description": "[options] Use separate window for unloadable urls option",
+      "message": "Pencere"
+   },
+   "optVideoPositionStep": {
+      "description": "[options] Changing video position amount option",
+      "message": "Önceki/sonraki eylem tuşlarını (veya fare tekerleğini) kullanarak video konumunu değiştirin"
+   },
+   "optVideoPositionStepTooltip": {
+      "description": "[options] Tooltip for changing video position option",
+      "message": "Videoyu bu kadar saniye ileri veya geri al"
+   },
+   "optVideoPositionStepUnitName": {
+      "description": "[options] Unit name (seconds) for changing video position option",
+      "message": "sn"
+   },
+   "optVideoTimestamp": {
+      "description": "[options] Enable timestamp / video length on videos",
+      "message": "Videolarda zaman damgasını göster"
+   },
+   "optVideoTimestampTooltip": {
+      "description": "[options] Tooltip for video length countdown on videos",
+      "message": "Videolarda zaman damgası / video uzunluğunu etkinleştir"
+   },
+   "optVideoVolume": {
+      "description": "[options] Audio volume for unmuted videos option",
+      "message": "Sessize alınmamış videolar için ses seviyesi:"
+   },
+   "optVideoVolumeTooltip": {
+      "description": "[options] Tooltip for audio volume for unmuted videos option",
+      "message": "Video tamamen sessize alınmamışsa, ses seviyesini bu yüzdeye (0-100) ayarla"
+   },
+   "optVideoVolumeUnitName": {
+      "description": "[options] Unit name (percentage) for video volume option",
+      "message": "%"
+   },
+   "optWhitelistMode": {
+      "description": "[options] Whitelist mode checkbox",
+      "message": "Beyaz liste modu"
+   },
+   "optWhitelistModeTooltip": {
+      "description": "[options] Tooltip for whitelist mode checkbox",
+      "message": "Sadece aşağıda listelenen siteler için Hover Zoom+ etkinleştir"
+   },
+   "optZoomFactor": {
+      "description": "[options] Adjust the size of zoomed images option",
+      "message": "Bu faktör kadar yakınlaştırılmış resimleri büyüt:"
+   },
+   "optZoomFactorTooltip": {
+      "description": "[options] Tooltip for adjust the size of zoomed images option",
+      "message": "Bu miktar kadar yakınlaştırılmış resimlerin boyutunu çarpın"
+   },
+   "optZoomFactorUnitName": {
+      "description": "[options] Unit name (percentage) for zoomed images size option",
+      "message": "kez"
+   },
+   "optZoomSpeed_P1": {
+      "description": "[options] Zoom speed Part 1",
+      "message": "Bir görüntü veya video ekranda kilitlendiğinde, fare tekerleği kullanılarak yakınlaştırılabilir veya uzaklaştırılabilir."
+   },
+   "optZoomSpeed_P2": {
+      "description": "[options] Zoom speed Part 2",
+      "message": "basın"
+   },
+   "optZoomSpeed_P3": {
+      "description": "[options] Zoom speed Part 3",
+      "message": "ya da"
+   },
+   "optZoomSpeed_P4": {
+      "description": "[options] Zoom speed Part 4",
+      "message": " yakınlaştırmak için kaydırırken"
+   },
+   "optZoomSpeed_P41": {
+      "description": "[options] Zoom speed Part 41",
+      "message": "daha hızlı"
+   },
+   "optZoomSpeed_P42": {
+      "description": "[options] Zoom speed Part 42",
+      "message": "daha yavaş"
+   },
+   "optZoomVideos": {
+      "description": "[options] Zoom videos option",
+      "message": "Zoom videoları"
+   },
+   "optZoomVideosTooltip": {
+      "description": "[options] Tooltip for zoom videos option",
+      "message": "Desteklenen formatlar: 3gpp m4v mkv mp4 mpeg-dash ogv webm"
+   },
+   "optrotateImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Görüntüyü döndürmek için bu tuşa basın."
+   },
+   "optrotateImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Görüntüyü döndür"
+   },
+   "popAllowPerSiteToggle": {
+      "description": "[popup] Allow per-site extension configuration",
+      "message": "Siteye özel seçenekleri aç"
+   },
+   "popDisableForAllSites": {
+      "description": "[popup] Disable the extension",
+      "message": "Tüm siteler için devre dışı bırakın"
+   },
+   "popDisableForSite": {
+      "description": "[popup] Disables the extension for a specific site",
+      "message": "$1 için devre dışı bırak"
+   },
+   "popEnableForSite": {
+      "description": "[popup] Enables the extension for a specific site",
+      "message": "$1 için etkinleştir"
+   },
+   "popMoreOptions": {
+      "description": "[popup] More options",
+      "message": "Daha fazla seçenek"
+   },
+   "popPreloadImages": {
+      "description": "[popup] Preload zoomed images",
+      "message": "Yakınlaştırılmış resimleri önyükle"
+   },
+   "popPreloadingImages": {
+      "description": "[popup] Preloading zoomed images",
+      "message": "Önyükleniyor..."
+   }
+}

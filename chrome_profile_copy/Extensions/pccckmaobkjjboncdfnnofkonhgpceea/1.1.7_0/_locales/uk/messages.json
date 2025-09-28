@@ -1,0 +1,1166 @@
+{
+   "extDescription": {
+      "description": "Extension description in Chrome webstore (max. 132 characters)",
+      "message": "Збільшує зображення та відео на ваших улюблених веб-сайтах (Facebook, Amazon і т.п.). Просто наведіть курсор на зображення."
+   },
+   "extName": {
+      "description": "Extension name",
+      "message": "Hover Zoom+"
+   },
+   "extShortName": {
+      "description": "Short extension name",
+      "message": "HoverZoom"
+   },
+   "msgClickPageToActivateActionKeys": {
+      "description": "Action keys are active only if page is focused",
+      "message": "натисніть в будь-якому місці на сторінці для активації Ключів дій"
+   },
+   "msgClickPageToPlayVideo": {
+      "description": "User must interact with the document first to play video: https://goo.gl/xX8pDD",
+      "message": "натисніть будь-де на сторінці, потім знову наведіть курсор"
+   },
+   "optAbovePositionOffset": {
+      "description": "[options] Above offset option",
+      "message": "Above position offset:"
+   },
+   "optAbovePositionOffsetTooltip": {
+      "description": "[options] Tooltip for above position offset",
+      "message": "Amount to vertically offset the text in the above position (positive values move text up, negative values move text down)"
+   },
+   "optAbovePositionOffsetUnit": {
+      "description": "[options] Set unit type for above offset",
+      "message": "Unit Type:"
+   },
+   "optAbovePositionOffsetUnitPercent": {
+      "description": "[options] Unit type percent",
+      "message": "%"
+   },
+   "optAbovePositionOffsetUnitPixel": {
+      "description": "[options] unit type pixel",
+      "message": "px"
+   },
+   "optAbovePositionOffsetUnitTooltip": {
+      "description": "[options] Tooltip for setting unit for above position offset",
+      "message": "Choose between pixel or percentage based offset"
+   },
+   "optActionKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Якщо ключ встановлений, HoverZoom+ буде активним лише при утриманні цієї клавіші."
+   },
+   "optActionKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Активувати HoverZoom+"
+   },
+   "optAddDownloadCaption": {
+      "description": "[options] Add download caption option",
+      "message": "caption"
+   },
+   "optAddDownloadCaptionTooltip": {
+      "description": "[options] Tooltip for add download caption option",
+      "message": "Add caption (e.g: Mona Lisa by Leonardo da Vinci)"
+   },
+   "optAddDownloadDuration": {
+      "description": "[options] Add download duration option",
+      "message": "тривалість"
+   },
+   "optAddDownloadDurationTooltip": {
+      "description": "[options] Tooltip for add download duration option",
+      "message": "Додати тривалість (hh мм ss) відео (наприклад, 16 35)"
+   },
+   "optAddDownloadIndex": {
+      "description": "[options] Add download index option",
+      "message": "index"
+   },
+   "optAddDownloadIndexTooltip": {
+      "description": "[options] Tooltip for add download index option",
+      "message": "Add index of image in gallery (e.g: third image out of ten: 03-10)"
+   },
+   "optAddDownloadOrigin": {
+      "description": "[options] Add download origin option",
+      "message": "початок координат"
+   },
+   "optAddDownloadOriginTooltip": {
+      "description": "[options] Tooltip for add download origin option",
+      "message": "Додати джерело (напр. www.deviantart.com)"
+   },
+   "optAddDownloadSize": {
+      "description": "[options] Add download size option",
+      "message": "розмір"
+   },
+   "optAddDownloadSizeTooltip": {
+      "description": "[options] Tooltip for add download size option",
+      "message": "Розмір додання (WxH) у пікселях (наприклад 1024x750)"
+   },
+   "optAddToHistory": {
+      "description": "[options] Add viewed pictures to the browser's history option",
+      "message": "Додати переглянуті зображення в історію браузера"
+   },
+   "optAllowMediaSaving": {
+      "description": "[options] Enable saving media with action key option",
+      "message": "Enable saving media with action key"
+   },
+   "optAlwaysPreload": {
+      "description": "[options] Automatically preload zoomed images option",
+      "message": "Автоматичне завантаження збільшених зображень"
+   },
+   "optAmbilightBackgroundOpacity": {
+      "description": "[options] Background opacity option",
+      "message": "Прозорість тла:"
+   },
+   "optAmbilightBackgroundOpacityTooltip": {
+      "description": "[options] Tooltip for background opacity",
+      "message": "0% : прозорий, 100% : чорний"
+   },
+   "optAmbilightBackgroundOpacityUnitName": {
+      "description": "[options] Unit name (percentage) for background opacity",
+      "message": "%"
+   },
+   "optAmbilightHaloSize": {
+      "description": "[options] Size of halo option",
+      "message": "Розмір гало:"
+   },
+   "optAmbilightHaloSizeTooltip": {
+      "description": "[options] Tooltip for size of halo",
+      "message": "Розмір гало навколо масштабованого зображення (0% : немає для)"
+   },
+   "optAmbilightHaloSizeUnitName": {
+      "description": "[options] Unit name (percentage) for halo size",
+      "message": "%"
+   },
+   "optAudioVolume": {
+      "description": "[options] Audio volume option",
+      "message": "Гучність звуку:"
+   },
+   "optAudioVolumeTooltip": {
+      "description": "[options] Tooltip for audio volume option",
+      "message": "Встановіть гучність в відсотках (0-100)"
+   },
+   "optAudioVolumeUnitName": {
+      "description": "[options] Unit name (percentage) for audio volume option",
+      "message": "%"
+   },
+   "optAutoLockImages": {
+      "description": "[options] Automatically lock images option",
+      "message": "Automatically lock images"
+   },
+   "optAutoLockImagesTooltip": {
+      "description": "[options] Tooltip for automatically lock images option",
+      "message": "Automatically lock images when activating Hover Zoom+"
+   },
+   "optBanKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Holding this key down adds the zoomed image or video to ban list. Use it when you do not want an image or video to be zoomed again on this page."
+   },
+   "optBanKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Ban image"
+   },
+   "optBelowPositionOffset": {
+      "description": "[options] Below offset option",
+      "message": "Below position offset:"
+   },
+   "optBelowPositionOffsetTooltip": {
+      "description": "[options] Tooltip for below position offset",
+      "message": "Amount to vertically offset the text in the below position (positive values move text down, negative values move text up)"
+   },
+   "optBelowPositionOffsetUnit": {
+      "description": "[options] Set unit type for below offset",
+      "message": "Unit Type:"
+   },
+   "optBelowPositionOffsetUnitPercent": {
+      "description": "[options] Unit type percent",
+      "message": "%"
+   },
+   "optBelowPositionOffsetUnitPixel": {
+      "description": "[options] unit type pixel",
+      "message": "px"
+   },
+   "optBelowPositionOffsetUnitTooltip": {
+      "description": "[options] Tooltip for setting unit for below position offset",
+      "message": "Choose between pixel or percentage based offset"
+   },
+   "optButtonAddSite": {
+      "description": "[options] Button for adding a site on sites option page",
+      "message": "Додати"
+   },
+   "optButtonCancel": {
+      "description": "[options] Cancel button label",
+      "message": "Скасувати"
+   },
+   "optButtonDisableAllPlugins": {
+      "description": "[options] disable all plugins button label",
+      "message": "Заборонити всі"
+   },
+   "optButtonEnableAllPlugins": {
+      "description": "[options] enable all plugins button label",
+      "message": "Дозволити всі"
+   },
+   "optButtonExportSettings": {
+      "description": "[options] Export a save string into the textarea",
+      "message": "Export"
+   },
+   "optButtonImportSettings": {
+      "description": "[options] Import a save string from the textarea",
+      "message": "Import"
+   },
+   "optButtonMigrateOldSettings": {
+      "description": "[options] Migrate old settings button",
+      "message": "Migrate"
+   },
+   "optButtonReset": {
+      "description": "[options] Reset button label",
+      "message": "Перезавантажити"
+   },
+   "optButtonResetAllBannedImages": {
+      "description": "[options] Reset all banned images button",
+      "message": "Перезавантажити"
+   },
+   "optButtonSave": {
+      "description": "[options] Save button label",
+      "message": "Зберегти"
+   },
+   "optCancel": {
+      "description": "[options] Notification after cancelling modification(s) to options",
+      "message": "Зміну(и) скасовано."
+   },
+   "optCaptionLocation": {
+      "description": "[options] Adjust the position of the caption",
+      "message": "Позиція підписів до зображень:"
+   },
+   "optCaptionLocationAbove": {
+      "description": "[options] Caption location option to put captions above the image",
+      "message": "Зверху"
+   },
+   "optCaptionLocationBelow": {
+      "description": "[options] Caption location option to put captions below the image",
+      "message": "Знизу"
+   },
+   "optCaptionLocationNone": {
+      "description": "[options] Caption location option to disable captions",
+      "message": "Без ефекту"
+   },
+   "optCaptionLocationTooltip": {
+      "description": "[options] Tooltip for adjusting the position of the caption",
+      "message": "Переглянути підпис зверху/під зображенням, або зовсім не"
+   },
+   "optCaptionOpacity": {
+      "description": "[options] Caption opacity option",
+      "message": "Caption opacity:"
+   },
+   "optCenterImages": {
+      "description": "[options] Center images in the middle of the page option",
+      "message": "Центрувати зображення"
+   },
+   "optCenterImagesTooltip": {
+      "description": "[options] Tooltip for center images in the middle of the page option",
+      "message": "Відцентруйте зображення на противагу тому, що вони мають курсор"
+   },
+   "optClickHoldTimeUnit": {
+      "description": "[options] Unit name (pixel) for hold time amount",
+      "message": "milliseconds"
+   },
+   "optCloseKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Натисніть цю кнопку, щоб закрити збільшене зображення або відео."
+   },
+   "optCloseKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Закрити зображення"
+   },
+   "optCopyImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Коли ця клавіша натиснута, зображення скопійовано в буфер обміну."
+   },
+   "optCopyImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Копіювати зображення у буфер обміну"
+   },
+   "optCopyImageUrlKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Коли цей ключ натиснено, URL-адреса зображення чи відео скопійована в буфер обміну."
+   },
+   "optCopyImageUrlKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Копіювати адресу зображення у буфер обміну"
+   },
+   "optDarkMode": {
+      "description": "[options] Enable dark mode for Options & Popup",
+      "message": "Темний режим"
+   },
+   "optDetailsLocation": {
+      "description": "[options] Adjust the position of details",
+      "message": "Положення подробиць:"
+   },
+   "optDetailsLocationAbove": {
+      "description": "[options] Details location option to put details above the image",
+      "message": "Зверху"
+   },
+   "optDetailsLocationBelow": {
+      "description": "[options] Details location option to put details below the image",
+      "message": "Знизу"
+   },
+   "optDetailsLocationNone": {
+      "description": "[options] Details location option to disable details",
+      "message": "Без ефекту"
+   },
+   "optDetailsLocationTooltip": {
+      "description": "[options] Tooltip for adjusting the position of details",
+      "message": "Переглянути подробиці (розмір, формат...) вище, / нижче зображення або зовсім не"
+   },
+   "optDetailsOpacity": {
+      "description": "[options] Details opacity option",
+      "message": "Details opacity:"
+   },
+   "optDetailsSelectorTooltip": {
+      "description": "[options] Tooltip for details selector",
+      "message": "Select which detail(s) should show, if details are displayed"
+   },
+   "optDisableMouseWheelForVideo": {
+      "description": "[options] Allows you to scroll through albums with the mousewheel but does not change behavior of GFY/Videos",
+      "message": "Не використовувати колесо миші для переміщення в кадрі відео (ключі дій все одно працюватиму)"
+   },
+   "optDisableMouseWheelForVideoTooltip": {
+      "description": "[options] Allows you to scroll through albums with the mousewheel but does not change behavior of GFY/Videos",
+      "message": "Прокрутити через альбоми, але переходити вперед/назад у відео"
+   },
+   "optDisplayDelay": {
+      "description": "[options] Delay before displaying a picture option",
+      "message": "Затримка перед відображенням зображення:"
+   },
+   "optDisplayDelayVideo": {
+      "description": "[options] Delay before displaying a video option",
+      "message": "Затримка перед відображенням відео:"
+   },
+   "optDisplayImageLoader": {
+      "description": "[options] Display image loader option",
+      "message": "Відображати червоний лічильник при завантаженні зображення"
+   },
+   "optDisplayImageLoaderTooltip": {
+      "description": "[options] Tooltip for display image loader option",
+      "message": "Відображення трохи лічильника, оскільки зображення завантажується (зелене: завантаження, червоний:error). Червоний лічильник необов'язковий."
+   },
+   "optDownloadFolder": {
+      "description": "[options] Download folder option",
+      "message": "Save images, videos & audios to folder: Downloads/"
+   },
+   "optDownloadFolderPlaceholder": {
+      "description": "[options] Placeholder for download folder option",
+      "message": "Приклад: тварина/коти"
+   },
+   "optDownloadFolderTooltip": {
+      "description": "[options] Tooltip for download folder option",
+      "message": "Підтека(и) буде створена якщо необхідно"
+   },
+   "optDownloadReplaceOriginalFilename": {
+      "description": "[options] Replace original filename when downloading option",
+      "message": "On save, replace original filename by:"
+   },
+   "optDownloadReplaceOriginalFilenamePlaceholder": {
+      "description": "[options] Placeholder for download folder option",
+      "message": "Example: fullsize_image"
+   },
+   "optDownloadReplaceOriginalFilenameTooltip": {
+      "description": "[options] Tooltip for replace original filename when downloading option",
+      "message": "Replace original filename or remove it if no value supplied (extension is preserved)"
+   },
+   "optDurationUnitName": {
+      "description": "[options] Short form of \"second\" for delay duration",
+      "message": "сек"
+   },
+   "optEnableAmbilight": {
+      "description": "[options] Enable ambient light behind images option",
+      "message": "Увімкнути Ambient light позаду зображення"
+   },
+   "optEnableAmbilightTooltip": {
+      "description": "[options] Tooltip for enable ambient light behind images option",
+      "message": "Створіть ефект тонкого світла, схожий на технологію Philips Ambilight"
+   },
+   "optEnableCaptionDetailShadow": {
+      "description": "[options] Enable shadow behind caption and details option",
+      "message": "Enable shadow behind caption and details"
+   },
+   "optEnableCaptionDetailShadowTooltip": {
+      "description": "[options] Tooltip for enable shadow behind caption and details option",
+      "message": "Adds a small shadow any captions or details, making it pop out more from the background"
+   },
+   "optEnableDebug": {
+      "description": "[options] Enable debug option",
+      "message": "Увімкнути ведення журналу налагодження"
+   },
+   "optEnableDebugTooltip": {
+      "description": "[options] Tooltip for enable debug option",
+      "message": "Показувати повідомлення налагодження в консолі браузера (для відкриття: натисніть F12)"
+   },
+   "optEnableGalleries": {
+      "description": "[options] Enable albums support option",
+      "message": "Увімкнути підтримку альбомів"
+   },
+   "optEnableNoFocusMsg": {
+      "description": "[options] Enable Action Keys focus overlay message option",
+      "message": "Увімкнути керування кнопками фокусування над повідомленням"
+   },
+   "optEnableNoFocusMsgTooltip": {
+      "description": "[options] Tooltip for enable Action Keys focus overlay message option",
+      "message": "Інколи ключі від дій, здається, були порушені, це зазвичай відбувається, коли сторінка втратила фокус. Якщо опція відмічена, то попередження буде відображатися (тільки один раз)."
+   },
+   "optEnableViewerShadow": {
+      "description": "[options] Enable shadow behind image viewer option",
+      "message": "Enable shadow behind image viewer"
+   },
+   "optEnableViewerShadowTooltip": {
+      "description": "[options] Tooltip for enable shadow behind caption and details option",
+      "message": "Adds a small shadow behind the zoomed image viewer, making it more visible from the background"
+   },
+   "optExtensionEnabled": {
+      "description": "[options] Enable Hover Zoom+ option",
+      "message": "Дозволити Hover Zoom"
+   },
+   "optFAQ_A1_1": {
+      "description": "[options] FAQ Answer 1 part 1",
+      "message": "Після редагування, натисніть кнопку \"Зберегти\""
+   },
+   "optFAQ_A1_2": {
+      "description": "[options] FAQ Answer 1 part 2",
+      "message": "внизу сторінки налаштувань"
+   },
+   "optFAQ_A1_3": {
+      "description": "[options] FAQ Answer 1 part 3",
+      "message": "Перезавантажити сторінку (F5)"
+   },
+   "optFAQ_A2_1": {
+      "description": "[options] FAQ Answer 2 part 1",
+      "message": "У Налаштуваннях -> Загальні -> Затримка активуйте \"Приховати курсор миші\""
+   },
+   "optFAQ_A3_1": {
+      "description": "[options] FAQ Answer 3 part 1",
+      "message": "Наприклад, щоб активувати HoverZoom+ на DeviantArt.com та 1X.com:"
+   },
+   "optFAQ_A3_2": {
+      "description": "[options] FAQ Answer 3 part 2",
+      "message": "В меню Налаштування -> Сайти, активувати режим \"Білий список\""
+   },
+   "optFAQ_A3_3": {
+      "description": "[options] FAQ Answer 3 part 3",
+      "message": "Додати DeviantArt.com і 1X.com до списку URL-адрес (не чутливий до регістру)"
+   },
+   "optFAQ_A4_1": {
+      "description": "[options] FAQ Answer 4 part 1",
+      "message": "Наведіть над зображенням або відео, тоді заблокуйте його на екрані (ключ за замовчуванням: \"L\")"
+   },
+   "optFAQ_A4_2": {
+      "description": "[options] FAQ Answer 4 part 2",
+      "message": "Зображення або відео тепер відображається повний розмір. Ви можете змінити масштаб або зменшити через колесо миші."
+   },
+   "optFAQ_A5_1": {
+      "description": "[options] FAQ Answer 5 part 1",
+      "message": "Іноді ключі дій, здається, були порушені, як правило, це відбувається, коли сторінка втратила увагу."
+   },
+   "optFAQ_A5_2": {
+      "description": "[options] FAQ Answer 5 part 2",
+      "message": "Просто натисни будь-де на сторінці, щоб повернути фокус."
+   },
+   "optFAQ_A5_3": {
+      "description": "[options] FAQ Answer 5 part 3",
+      "message": "У Налаштуваннях -> Додатково, ви можете активувати \"Увімкнути перемикач клавіш вказівника\", тому ви отримаєте попередження, коли фокус втрачено."
+   },
+   "optFAQ_A6_1": {
+      "description": "[options] FAQ Answer 6 part 1",
+      "message": "наприклад, відео Dailymotion відтворюється на dailymotion.com, але не в результатах пошуку Google."
+   },
+   "optFAQ_A6_2": {
+      "description": "[options] FAQ Answer 6 part 2",
+      "message": "Це пов’язано з обмеженнями CORS, щоб підняти їх:"
+   },
+   "optFAQ_A6_3": {
+      "description": "[options] FAQ Answer 6 part 3",
+      "message": "В Налаштуваннях -> Розширені, увімкніть \"Дозволити перезапис заголовків для запиту або відповіді HTTP(S)\""
+   },
+   "optFAQ_A7": {
+      "description": "[options] FAQ Answer 7",
+      "message": "Прокрутіть вниз, або клацніть будь-де на сторінці, щоб активувати HoverZoom+!"
+   },
+   "optFAQ_Q1": {
+      "description": "[options] FAQ Question 1",
+      "message": "Я відредагував деякі варіанти, але не бачив змін."
+   },
+   "optFAQ_Q2": {
+      "description": "[options] FAQ Question 2",
+      "message": "Я хочу приховати курсор миші на збільшеному зображенні або відео."
+   },
+   "optFAQ_Q3": {
+      "description": "[options] FAQ Question 3",
+      "message": "Мені потрібна HoverZoom+ для активної роботи тільки на деяких сайтах."
+   },
+   "optFAQ_Q4": {
+      "description": "[options] FAQ Question 4",
+      "message": "Я хочу збільшити зображення або відео до оригінального розміру, навіть якщо більше екрану."
+   },
+   "optFAQ_Q5": {
+      "description": "[options] FAQ Question 5",
+      "message": "Ключі дій не працюють!"
+   },
+   "optFAQ_Q6": {
+      "description": "[options] FAQ Question 6",
+      "message": "Деякі відео не відтворюються, якщо сайти відкриватимуться за оригінальними."
+   },
+   "optFAQ_Q7": {
+      "description": "[options] FAQ Question 7",
+      "message": "Я наводжу на неї зображення або відео, але іноді нічого не відбувається!"
+   },
+   "optFAQ_SaveAndReload": {
+      "description": "[options] FAQ Save and reload page",
+      "message": "Зберегти і перезавантажити сторінку (F5)"
+   },
+   "optFadeDuration": {
+      "description": "[options] Fading animation duration option",
+      "message": "Тривалість анімації:"
+   },
+   "optFilterNSFW": {
+      "description": "[options] Exclude NSFW images (Reddit only) option",
+      "message": "Виключити зображення NSFW (тільки для Reddit"
+   },
+   "optFlipImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Натисніть цей ключ, щоб по черзі повернути зображення вертикально і по горизонталі. Зручно для читання текстів та логотипу в дзеркальних зображеннях або відео."
+   },
+   "optFlipImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Перевернути зображення"
+   },
+   "optFontOutline": {
+      "description": "[options] Outline option",
+      "message": "Контур"
+   },
+   "optFontOutlineTooltip": {
+      "description": "[options] Tooltip for outline option",
+      "message": "Якщо відмічено: використовувати білий шрифт + тонкий чорний кордон для субтитрів та деталей"
+   },
+   "optFontSize": {
+      "description": "[options] Font size option",
+      "message": "Розмір шрифту:"
+   },
+   "optFontSizeTooltip": {
+      "description": "[options] Tooltip for font size option",
+      "message": "Розмір шрифту, який використовується для субтитрів і деталей"
+   },
+   "optFontSizeUnitName": {
+      "description": "[options] Unit name (pixel) for font size",
+      "message": "pixels"
+   },
+   "optFooterChangelog": {
+      "description": "[options] Changelog link in page footer",
+      "message": "Список змін"
+   },
+   "optFooterReportIssue": {
+      "description": "[options] Report a bug link in page footer",
+      "message": "Повідомити про помилку"
+   },
+   "optFooterSourceCode": {
+      "description": "[options] Source code link in page footer",
+      "message": "Початковий код"
+   },
+   "optFooterVersionCopyright": {
+      "description": "[options] Copyright and version number in page footer",
+      "message": "Version $1 - © 2014-$2 Oleg Anashkin"
+   },
+   "optFrameBackgroundColor": {
+      "description": "[options] Frame background color option",
+      "message": "Колір фону фрейму:"
+   },
+   "optFrameBackgroundColorCancelText": {
+      "description": "[options] Frame background color button - Cancel",
+      "message": "Скасувати"
+   },
+   "optFrameBackgroundColorChooseText": {
+      "description": "[options] Frame background color button - Select",
+      "message": "Вибрати"
+   },
+   "optFrameBackgroundColorTooltip": {
+      "description": "[options] Tooltip for frame background color option",
+      "message": "Колір тла для кадру, в якому зображено зображення"
+   },
+   "optFrameThickness": {
+      "description": "[options] Frame thickness option",
+      "message": "Ширина кадру:"
+   },
+   "optFrameThicknessTooltip": {
+      "description": "[options] Tooltip for frame thickness option",
+      "message": "Товщина рамки для кадру, в якому зображене зображення (0, немає рамок)"
+   },
+   "optFrameThicknessUnitName": {
+      "description": "[options] Unit name (pixel) for frame thickness",
+      "message": "pixels"
+   },
+   "optFullZoomHidesDetailsCaptions": {
+      "description": "[options] Full zoom key hides details and captions option",
+      "message": "Full zoom key hides details and captions"
+   },
+   "optFullZoomHidesDetailsCaptionsTooltip": {
+      "description": "[options] Tooltip for full zoom key hides details and captions option",
+      "message": "When pressing full zoom, details and captions will be hidden, allowing the image able to expand more vertically"
+   },
+   "optFullZoomKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Коли ця клавіша затиснуто, зображення відображається з використанням всього доступного місця. Корисно лише для зображень з високою роздільною здатністю."
+   },
+   "optFullZoomKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Активувати повне масштабування"
+   },
+   "optGalleriesLoopEnabled": {
+      "description": "[options] Loop albums option",
+      "message": "Loop albums"
+   },
+   "optGalleriesLoopEnabledTooltip": {
+      "description": "[options] Tooltip for loop albums option",
+      "message": "When navigating past the end of an album, loop back to the start"
+   },
+   "optGalleriesMouseWheel": {
+      "description": "[options] Use mousewheel to navigate albums option",
+      "message": "Використовувати колесо миші для переміщення альбомів"
+   },
+   "optGalleriesMouseWheelTooltip": {
+      "description": "[options] Tooltip for use mousewheel to navigate albums option",
+      "message": "Перемістіть альбом за допомогою коліщатка миші"
+   },
+   "optHScrollBarOverlap": {
+      "description": "[options] Allow zoomed images to overlap the horizontal scroll bar option",
+      "message": "Allow zoomed images to overlap the horizontal scroll bar"
+   },
+   "optHScrollBarOverlapTooltip": {
+      "description": "[options] Tooltip for allow zoomed images to overlap the horizontal scroll bar option",
+      "message": "Allow zoomed images to overlap the horizontal bar, letting more of the window be used"
+   },
+   "optHideKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Утримуючи цю кнопку вниз приховує збільшене зображення або відео. Використовуйте її, коли зображення приховує елементи, які також відображаються у мишці."
+   },
+   "optHideKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Приховати зображення"
+   },
+   "optHideMouseCursor": {
+      "description": "[options] Hide mouse cursor option",
+      "message": "Приховати курсор миші через:"
+   },
+   "optHideMouseCursorTooltip": {
+      "description": "[options] Tooltip for hide mouse cursor option",
+      "message": "Якщо відмічено, курсор миші буде схований після затримки"
+   },
+   "optImagePaddingSize": {
+      "description": "[options] Adjust the zoomed image padding size option",
+      "message": "Image padding size:"
+   },
+   "optImagePaddingSizeTooltip": {
+      "description": "[options] Tooltip for adjust the zoomed image padding size option",
+      "message": "Changes the padding size for zoomed images. Padding determines how close the image can get to the edge of the viewing window"
+   },
+   "optImagePaddingSizeUnitName": {
+      "description": "[options] Unit name (pixels) for zoomed images padding option",
+      "message": "pixels"
+   },
+   "optImport": {
+      "description": "[options] Notification after successful import to options",
+      "message": "Import Success!"
+   },
+   "optImportExportTextArea": {
+      "description": "[options] Placeholder for import and export text area",
+      "message": "Paste your saved settings here"
+   },
+   "optImportFailed": {
+      "description": "[options] Notification after failed import to options",
+      "message": "Import Failed"
+   },
+   "optLockImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Натисніть цю клавішу, щоб заблокувати зображення або відео у центрі сторінки, що дозволяє вам блимати і масштаб. Натисніть клавішу Закрити або клацніть за межами зображення, щоб розблокувати."
+   },
+   "optLockImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Блокувати зображення на екрані"
+   },
+   "optLockImageZoomDefaultEnabled": {
+      "description": "[options] Locked images start zoomed in option",
+      "message": "Locked images start zoomed in"
+   },
+   "optLockImageZoomDefaultEnabledTooltip": {
+      "description": "[options] Tooltip for locked images start zoomed in option",
+      "message": "Pressing the 'Lock Image' action key twice will make the image zoom by default. Enabling this instead will make it zoom by on first press"
+   },
+   "optLockImageZoomFactorEnabled": {
+      "description": "[options] Use zoom factor for lock image option",
+      "message": "Use zoom factor for lock image"
+   },
+   "optLockImageZoomFactorEnabledTooltip": {
+      "description": "[options] Tooltip for use zoom factor for lock image option",
+      "message": "Pressing the 'Lock Image' action key twice will make the image zoom to 100% by default. Enabling this instead will make it zoom by the image factor amount"
+   },
+   "optMaxHeight": {
+      "description": "[options] Adjust the size of zoomed images option",
+      "message": "Set max height of zoomed images:"
+   },
+   "optMaxHeightTooltip": {
+      "description": "[options] Tooltip for adjust the size of zoomed images option",
+      "message": "Set max height of zoomed images by this amount (if 0 then no max height)"
+   },
+   "optMaxSizeUnitName": {
+      "description": "[options] Unit name (px) for zoomed images size option",
+      "message": "px"
+   },
+   "optMaxWidth": {
+      "description": "[options] Adjust the size of zoomed images option",
+      "message": "Set max width of zoomed images:"
+   },
+   "optMaxWidthTooltip": {
+      "description": "[options] Tooltip for adjust the size of zoomed images option",
+      "message": "Set max width of zoomed images by this amount (if 0 then no max width)"
+   },
+   "optMigrateOldSettings": {
+      "description": "[options] Migrate old settings",
+      "message": "Migrate old settings (THIS WILL OVERWRITE YOUR CURRENT SETTINGS)"
+   },
+   "optMigrateOldSettingsTooltip": {
+      "description": "[options] Tooltip for migrate old settings",
+      "message": "Manually migrate settings from old save location. THIS WILL OVERWRITE YOUR CURRENT SETTINGS."
+   },
+   "optMouseClickHoldTime": {
+      "description": "[options] Mouse click hold time option",
+      "message": "Mouse click hold time:"
+   },
+   "optMouseClickHoldTimeTooltip": {
+      "description": "[options] Tooltip for mouse click hold time option",
+      "message": "Amount of time required to hold a mouse click action key before the hold action is triggered"
+   },
+   "optMouseUnderlap": {
+      "description": "[options] Extend zoomed images below the mouse cursor option",
+      "message": "Розмістити масштабовані зображення під курсором миші"
+   },
+   "optMouseUnderlapTooltip": {
+      "description": "[options] Tooltip for extend zoomed images below the mouse cursor option",
+      "message": "Якщо не позначено, динамічно масштабовані зображення будуть змінені"
+   },
+   "optMuteVideos": {
+      "description": "[options] Mute zoomed videos option",
+      "message": "Вимкнути звук масштабованих відео"
+   },
+   "optMuteVideosTooltip": {
+      "description": "[options] Tooltip for mute zoomed videos option",
+      "message": "Вимкнути звук у збільшених відео"
+   },
+   "optNextImgKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Натисніть цю кнопку, щоб переглянути наступне зображення в галереї."
+   },
+   "optNextImgKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Наступне зображення в галереї"
+   },
+   "optOffsetUnitName": {
+      "description": "[options] Unit name (pixel) for offset amount",
+      "message": "px/%"
+   },
+   "optOpacityUnitName": {
+      "description": "[options] Unit name (percentage) for opacity option",
+      "message": "%"
+   },
+   "optOpenImageInTabKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Натисніть цю клавішу, щоб відкрити зображення чи відео, що ви зараз переглядаєте в новій вкладці. Натисніть цю клавішу знову, щоб закрити вкладку. Shift+клавіша відкриває зображення у фоновій вкладці."
+   },
+   "optOpenImageInTabKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Відкрити зображення в новій вкладці"
+   },
+   "optOpenImageInWindowKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Натисніть цю клавішу, щоб відкрити зображення або відео, що ви зараз переглядаєте в новому вікні. Натисніть цю клавішу ще раз, щоб закрити вікно."
+   },
+   "optOpenImageInWindowKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Відкрити зображення у новому вікні"
+   },
+   "optPageActionEnabled": {
+      "description": "[options] Change toolbar icon option",
+      "message": "Change toolbar icon when images can be zoomed"
+   },
+   "optPageActionEnabledTooltip": {
+      "description": "[options] Tooltip for change toolbar icons option",
+      "message": "Toolbar icon changes color when images can be zoomed"
+   },
+   "optPageActionKeys": {
+      "description": "[options] Page title for action key options",
+      "message": "Ключі дій"
+   },
+   "optPageAdvanced": {
+      "description": "[options] Page title for advanced options",
+      "message": "Додатково"
+   },
+   "optPageFAQ": {
+      "description": "[options] Page title for FAQ",
+      "message": "ЧАП"
+   },
+   "optPageGeneral": {
+      "description": "[options] Page title for general options",
+      "message": "Загальні"
+   },
+   "optPagePlugins": {
+      "description": "[options] Page title for plugin options",
+      "message": "Плагіни"
+   },
+   "optPageSites": {
+      "description": "[options] Page title for site options",
+      "message": "Сайти"
+   },
+   "optPicturesOpacity": {
+      "description": "[options] Zoomed pictures opacity option",
+      "message": "Прозорість масштабованих фотографій:"
+   },
+   "optPixelsUnitName": {
+      "description": "[options] Unit name (pixels)",
+      "message": "pixels"
+   },
+   "optPlayAudio": {
+      "description": "[options] Play audio option",
+      "message": "Відтворення аудіо джерел, наприклад MP3"
+   },
+   "optPlayAudioTooltip": {
+      "description": "[options] Tooltip for play audio option",
+      "message": "Підтримувані формати: flac m4a mp3 ogg opus wav"
+   },
+   "optPlugins": {
+      "description": "[options] Section which contains checkboxes for disabling plugins",
+      "message": "Увімкнути/вимкнути вказані плагіни"
+   },
+   "optPrevImgKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Натисніть цю клавішу, щоб переглянути попереднє зображення в галереї."
+   },
+   "optPrevImgKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Попереднє зображення в галереї"
+   },
+   "optRenameDownloads": {
+      "description": "[options] Rename downloads option",
+      "message": "Rename saved files by adding:"
+   },
+   "optRenameDownloadsTooltip": {
+      "description": "[options] Tooltip for rename downloads option",
+      "message": "Prefix original names of downloads with origin, size, duration and so on for easier management"
+   },
+   "optReset": {
+      "description": "[options] Notification after resetting options to factory settings",
+      "message": "Параметри скинуто до заводських, збережіть для їх застосування."
+   },
+   "optResetAllBannedImages": {
+      "description": "[options] Reset all banned images option",
+      "message": "Reset all banned images, videos & audio tracks"
+   },
+   "optResetAllBannedImagesTooltip": {
+      "description": "[options] Tooltip for reset all banned images option",
+      "message": "After reset, all banned images, videos & audio tracks can be zoomed again"
+   },
+   "optSaveImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Press this key to save the image or video you are currently viewing. (Requires 'Enable saving media with action key' to be checked)"
+   },
+   "optSaveImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Зберегти зображення"
+   },
+   "optSaved": {
+      "description": "[options] Notification after saving options",
+      "message": "Параметри збережені. Можливо, потрібно оновити сторінку."
+   },
+   "optSectionAdvanced": {
+      "description": "[options] Page section for advanced options",
+      "message": "Додаткові параметри"
+   },
+   "optSectionAudio": {
+      "description": "[options] Page section for audio options",
+      "message": "Аудіо"
+   },
+   "optSectionDelays": {
+      "description": "[options] Page section for delay options",
+      "message": "Делейс"
+   },
+   "optSectionFAQ": {
+      "description": "[options] Page section for Frequently Asked Questions",
+      "message": "Найчастіші питання"
+   },
+   "optSectionImportExportSettings": {
+      "description": "[options] Page section for import/export",
+      "message": "Import/Export"
+   },
+   "optSectionImportExportSettingsTooltip": {
+      "description": "[options] Tooltip for input and export options",
+      "message": "Press export to get a string of your current settings. Press import to load your pasted settings"
+   },
+   "optSectionSitesDisabled": {
+      "description": "[options] Page section for enabling extension for specific sites",
+      "message": "URL-адреси, для яких повинен бути вимкнений Hover Zoom+"
+   },
+   "optSectionSitesEnabled": {
+      "description": "[options] Page section for enabling extension for specific sites",
+      "message": "URL-адреси, для яких повинен бути включений Hover Zoom+"
+   },
+   "optSectionSupportedFormats": {
+      "description": "[options] Page section for supported formats",
+      "message": "Формати, що підтримуються"
+   },
+   "optSectionTroubleshooting": {
+      "description": "[options] Page section for troubleshooting",
+      "message": "Виправлення несправностей"
+   },
+   "optSectionVideo": {
+      "description": "[options] Page section for video options",
+      "message": "Відео"
+   },
+   "optSectionView": {
+      "description": "[options] Page section for viewer options",
+      "message": "Переглядач"
+   },
+   "optSectionZoomSpeed": {
+      "description": "[options] Page section for zoom speed",
+      "message": "Швидкість масштабування"
+   },
+   "optShowDetailContentLength": {
+      "description": "[options] Show Content Length Detail",
+      "message": "Content Length"
+   },
+   "optShowDetailDimensions": {
+      "description": "[options] Show Dimensions Detail",
+      "message": "Dimensions"
+   },
+   "optShowDetailDuration": {
+      "description": "[options] Show Duration Detail",
+      "message": "Duration"
+   },
+   "optShowDetailExtension": {
+      "description": "[options] Show Extension Detail",
+      "message": "Extension"
+   },
+   "optShowDetailFilename": {
+      "description": "[options] Show File Name Detail",
+      "message": "File Name"
+   },
+   "optShowDetailHost": {
+      "description": "[options] Show Host Detail",
+      "message": "Host"
+   },
+   "optShowDetailLastModified": {
+      "description": "[options] Show Last Modified Detail",
+      "message": "Last Modified"
+   },
+   "optShowDetailRatio": {
+      "description": "[options] Show Ratio Detail",
+      "message": "Ratio"
+   },
+   "optShowDetailScale": {
+      "description": "[options] Show Scale Detail",
+      "message": "Scale"
+   },
+   "optShowHighRes": {
+      "description": "[options] Show high resolution pictures when available option",
+      "message": "Показувати зображення з високою роздільною здатністю, якщо можливо"
+   },
+   "optShowHighResTooltip": {
+      "description": "[options] Tooltip for show high resolution pictures when available option",
+      "message": "Зображення можуть зайняти більше часу для завантаження"
+   },
+   "optShowWhileLoading": {
+      "description": "[options] Show zoomed pictures while loading option",
+      "message": "Показати збільшені зображення під час завантаження"
+   },
+   "optShowWhileLoadingTooltip": {
+      "description": "[options] Tooltip for show zoomed pictures while loading option",
+      "message": "Масштабування зображення буде відображатися перед повним завантаженням"
+   },
+   "optSiteDisclaimer": {
+      "description": "[options] Disclaimer on the sites option page",
+      "message": "Зверніть увагу, що доменні фільтри можна перетинати. Наприклад: якщо ви відфільтрували \"picasaweb.google.com\" та \"google.com\", видаливши \"picasaweb. oogle.com\" не буде повторно активувати Picasa Web Albums, оскільки фільтр \"google.com\" залишатиметься виключеним."
+   },
+   "optSitePlaceholder": {
+      "description": "[options] Placeholder for a site url input box",
+      "message": "Приклади: facebook.com, google.com/reader"
+   },
+   "optStatusBarOverlap": {
+      "description": "[options] Allow zoomed images to overlap the status bar option",
+      "message": "Allow zoomed images to overlap the status bar"
+   },
+   "optStatusBarOverlapTooltip": {
+      "description": "[options] Tooltip for allow zoomed images to overlap the status bar option",
+      "message": "Allow zoomed images to overlap the status bar, letting more of the window be used"
+   },
+   "optSupportedAudioFormats": {
+      "description": "[options] Page section for supported audio formats",
+      "message": "Аудіо:"
+   },
+   "optSupportedImageFormats": {
+      "description": "[options] Page section for supported image formats",
+      "message": "Images :"
+   },
+   "optSupportedVideoFormats": {
+      "description": "[options] Page section for supported video formats",
+      "message": "Відео :"
+   },
+   "optTitle": {
+      "description": "[options] Page title",
+      "message": "Параметри Hover Zoom+"
+   },
+   "optTitleBoxDetails": {
+      "description": "[options] Title for details selector",
+      "message": "Detail(s) shown:"
+   },
+   "optToggleKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Увімкнути/вимкнути HoverZoom+"
+   },
+   "optToggleKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Прибрати HoverZoom+"
+   },
+   "optUseClipboardNameWhenSaving": {
+      "description": "[options] Use clipboard text as file name option",
+      "message": "Use clipboard text as file name"
+   },
+   "optUseClipboardNameWhenSavingTooltip": {
+      "description": "[options] Tooltip for use clipboard text as file name option",
+      "message": "Use the text in the clipboard as the file name when saving an image"
+   },
+   "optUseSeparateTabForUnloadableUrls": {
+      "description": "[options] Use separate tab for unloadable urls option",
+      "message": "Tab"
+   },
+   "optUseSeparateTabOrWindowForUnloadableUrls": {
+      "description": "[options] Use separate tab or window for unloadable urls option",
+      "message": "Спробуйте відкрити не завантажувані URL-адреси окремо:"
+   },
+   "optUseSeparateTabOrWindowForUnloadableUrlsTooltip": {
+      "description": "[options] Tooltip for using separate tab or window for unloadable urls option",
+      "message": "Корисно для HTTPS сайтів, таких як Google зображень, які перешкоджають завантаження файлів HTTP"
+   },
+   "optUseSeparateWindowForUnloadableUrls": {
+      "description": "[options] Use separate window for unloadable urls option",
+      "message": "Вікно"
+   },
+   "optVideoPositionStep": {
+      "description": "[options] Changing video position amount option",
+      "message": "Використовуйте запобігати/наступний клавіші дій (або колеса) для зміни розташування відео на"
+   },
+   "optVideoPositionStepTooltip": {
+      "description": "[options] Tooltip for changing video position option",
+      "message": "Пропустити відео назад або назад на цю кількість секунд"
+   },
+   "optVideoPositionStepUnitName": {
+      "description": "[options] Unit name (seconds) for changing video position option",
+      "message": "сек"
+   },
+   "optVideoTimestamp": {
+      "description": "[options] Enable timestamp / video length on videos",
+      "message": "Показувати час останнього оновлення на відео"
+   },
+   "optVideoTimestampTooltip": {
+      "description": "[options] Tooltip for video length countdown on videos",
+      "message": "Увімкнути тривалість часу / відео на відео"
+   },
+   "optVideoVolume": {
+      "description": "[options] Audio volume for unmuted videos option",
+      "message": "Гучність звуку для знятих відео:"
+   },
+   "optVideoVolumeTooltip": {
+      "description": "[options] Tooltip for audio volume for unmuted videos option",
+      "message": "Якщо відео не повністю приглушене, встановіть об'єм в відсотках (0-100)"
+   },
+   "optVideoVolumeUnitName": {
+      "description": "[options] Unit name (percentage) for video volume option",
+      "message": "%"
+   },
+   "optWhitelistMode": {
+      "description": "[options] Whitelist mode checkbox",
+      "message": "Режим білого списку"
+   },
+   "optWhitelistModeTooltip": {
+      "description": "[options] Tooltip for whitelist mode checkbox",
+      "message": "Увімкнути лише Hover Zoom+ для сайтів, які перераховані нижче"
+   },
+   "optZoomFactor": {
+      "description": "[options] Adjust the size of zoomed images option",
+      "message": "Додатково збільшити зображення на такий коефіцієнт:"
+   },
+   "optZoomFactorTooltip": {
+      "description": "[options] Tooltip for adjust the size of zoomed images option",
+      "message": "Додатково збільшити зображення в стільки разів"
+   },
+   "optZoomFactorUnitName": {
+      "description": "[options] Unit name (percentage) for zoomed images size option",
+      "message": "рази(ів)"
+   },
+   "optZoomSpeed_P1": {
+      "description": "[options] Zoom speed Part 1",
+      "message": "Коли зображення або відео заблоковане на екрані, його можна збільшувати або зменшувати за допомогою коліщатка миші."
+   },
+   "optZoomSpeed_P2": {
+      "description": "[options] Zoom speed Part 2",
+      "message": "преса"
+   },
+   "optZoomSpeed_P3": {
+      "description": "[options] Zoom speed Part 3",
+      "message": "або"
+   },
+   "optZoomSpeed_P4": {
+      "description": "[options] Zoom speed Part 4",
+      "message": " при прокручуванні до масштабування"
+   },
+   "optZoomSpeed_P41": {
+      "description": "[options] Zoom speed Part 41",
+      "message": "швидше"
+   },
+   "optZoomSpeed_P42": {
+      "description": "[options] Zoom speed Part 42",
+      "message": "повільніше"
+   },
+   "optZoomVideos": {
+      "description": "[options] Zoom videos option",
+      "message": "Масштабування відео"
+   },
+   "optZoomVideosTooltip": {
+      "description": "[options] Tooltip for zoom videos option",
+      "message": "Supported formats: 3gpp m4v mkv mp4 mpeg-dash ogv webm"
+   },
+   "optrotateImageKeyDescription": {
+      "description": "[options] Action key description",
+      "message": "Press this key to rotate image."
+   },
+   "optrotateImageKeyTitle": {
+      "description": "[options] Action key title",
+      "message": "Rotate image"
+   },
+   "popAllowPerSiteToggle": {
+      "description": "[popup] Allow per-site extension configuration",
+      "message": "Дозволити налаштування для кожного сайту"
+   },
+   "popDisableForAllSites": {
+      "description": "[popup] Disable the extension",
+      "message": "Заборонити на всіх сайтах"
+   },
+   "popDisableForSite": {
+      "description": "[popup] Disables the extension for a specific site",
+      "message": "Заборонити для $1"
+   },
+   "popEnableForSite": {
+      "description": "[popup] Enables the extension for a specific site",
+      "message": "Дозволити для $1"
+   },
+   "popMoreOptions": {
+      "description": "[popup] More options",
+      "message": "Інші параметри"
+   },
+   "popPreloadImages": {
+      "description": "[popup] Preload zoomed images",
+      "message": "Попередньо завантажувати зображення"
+   },
+   "popPreloadingImages": {
+      "description": "[popup] Preloading zoomed images",
+      "message": "Попереднє завантаження..."
+   }
+}

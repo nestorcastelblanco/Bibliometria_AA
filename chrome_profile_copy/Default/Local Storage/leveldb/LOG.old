@@ -1,0 +1,16 @@
+2025/09/27-18:35:49.533 44c4 Reusing MANIFEST C:\Bibliometria\chrome_profile_copy\Default\Local Storage\leveldb/MANIFEST-000001
+2025/09/27-18:35:49.545 44c4 Recovering log #286
+2025/09/27-18:35:49.546 44c4 Level-0 table #289: started
+2025/09/27-18:35:49.551 44c4 Level-0 table #289: 82918 bytes OK
+2025/09/27-18:35:49.552 44c4 Recovering log #288
+2025/09/27-18:35:49.554 44c4 Reusing old log C:\Bibliometria\chrome_profile_copy\Default\Local Storage\leveldb/000288.log 
+2025/09/27-18:35:49.556 44c4 Delete type=0 #286
+2025/09/27-18:35:49.558 44c4 Compacting 4@0 + 1@1 files
+2025/09/27-18:35:49.570 44c4 Generated table #290@0: 65 keys, 88488 bytes
+2025/09/27-18:35:49.571 44c4 Compacted 4@0 + 1@1 files => 88488 bytes
+2025/09/27-18:35:49.572 44c4 compacted to: files[ 0 1 0 0 0 0 0 ]
+2025/09/27-18:35:49.574 44c4 Delete type=2 #281
+2025/09/27-18:35:49.574 44c4 Delete type=2 #283
+2025/09/27-18:35:49.574 44c4 Delete type=2 #285
+2025/09/27-18:35:49.574 44c4 Delete type=2 #287
+2025/09/27-18:35:49.574 44c4 Delete type=2 #289
