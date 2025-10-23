@@ -55,7 +55,7 @@ def wait_for_results(driver, timeout=15):
 
 
 def fetch_acm_articles(query, headless=False, user_data_dir=None, profile_dir="Default",
-                       output_dir="data/raw/acm", page_size=50, max_pages=0):
+                       output_dir="data/raw/acm", page_size=50, max_pages=100):
     """
     Automatiza la descarga de artículos de ACM.
     - Guarda BibTeX y CSV por página.
