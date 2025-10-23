@@ -1,51 +1,126 @@
-2025/09/27-18:37:57.324 3e8c Reusing MANIFEST C:\Bibliometria\chrome_profile_copy\Default\Local Storage\leveldb/MANIFEST-000001
-2025/09/27-18:37:57.388 3e8c Recovering log #288
-2025/09/27-18:37:57.391 3e8c Reusing old log C:\Bibliometria\chrome_profile_copy\Default\Local Storage\leveldb/000288.log 
-2025/09/27-18:42:02.012 3e8c Level-0 table #293: started
-2025/09/27-18:42:02.016 3e8c Level-0 table #293: 76418 bytes OK
-2025/09/27-18:42:02.018 3e8c Delete type=0 #288
-2025/09/27-18:43:01.999 3e8c Level-0 table #295: started
-2025/09/27-18:43:02.003 3e8c Level-0 table #295: 85580 bytes OK
-2025/09/27-18:43:02.005 3e8c Delete type=0 #292
-2025/09/27-18:44:02.010 3e8c Level-0 table #297: started
-2025/09/27-18:44:02.014 3e8c Level-0 table #297: 76909 bytes OK
-2025/09/27-18:44:02.017 3e8c Delete type=0 #294
-2025/09/27-18:45:02.004 3e8c Level-0 table #299: started
-2025/09/27-18:45:02.008 3e8c Level-0 table #299: 77988 bytes OK
-2025/09/27-18:45:02.010 3e8c Delete type=0 #296
-2025/09/27-18:45:02.011 3e8c Compacting 4@0 + 1@1 files
-2025/09/27-18:45:02.018 3e8c Generated table #300@0: 65 keys, 83408 bytes
-2025/09/27-18:45:02.018 3e8c Compacted 4@0 + 1@1 files => 83408 bytes
-2025/09/27-18:45:02.019 3e8c compacted to: files[ 0 1 0 0 0 0 0 ]
-2025/09/27-18:45:02.020 3e8c Delete type=2 #290
-2025/09/27-18:45:02.020 3e8c Delete type=2 #293
-2025/09/27-18:45:02.020 3e8c Delete type=2 #295
-2025/09/27-18:45:02.020 3e8c Delete type=2 #297
-2025/09/27-18:45:02.020 3e8c Delete type=2 #299
-2025/09/27-18:47:01.997 3e8c Level-0 table #302: started
-2025/09/27-18:47:02.006 3e8c Level-0 table #302: 76615 bytes OK
-2025/09/27-18:47:02.007 3e8c Delete type=0 #298
-2025/09/27-18:48:02.011 3e8c Level-0 table #304: started
-2025/09/27-18:48:02.020 3e8c Level-0 table #304: 82306 bytes OK
-2025/09/27-18:48:02.022 3e8c Delete type=0 #301
-2025/09/27-18:49:01.997 3e8c Level-0 table #306: started
-2025/09/27-18:49:02.006 3e8c Level-0 table #306: 83236 bytes OK
-2025/09/27-18:49:02.007 3e8c Delete type=0 #303
-2025/09/27-18:50:02.001 3e8c Level-0 table #308: started
-2025/09/27-18:50:02.013 3e8c Level-0 table #308: 75301 bytes OK
-2025/09/27-18:50:02.015 3e8c Delete type=0 #305
-2025/09/27-18:50:02.015 3e8c Compacting 4@0 + 1@1 files
-2025/09/27-18:50:02.020 3e8c Generated table #309@0: 65 keys, 80768 bytes
-2025/09/27-18:50:02.020 3e8c Compacted 4@0 + 1@1 files => 80768 bytes
-2025/09/27-18:50:02.021 3e8c compacted to: files[ 0 1 0 0 0 0 0 ]
-2025/09/27-18:50:02.022 3e8c Delete type=2 #300
-2025/09/27-18:50:02.022 3e8c Delete type=2 #302
-2025/09/27-18:50:02.022 3e8c Delete type=2 #304
-2025/09/27-18:50:02.022 3e8c Delete type=2 #306
-2025/09/27-18:50:02.022 3e8c Delete type=2 #308
-2025/09/27-18:52:02.002 3e8c Level-0 table #311: started
-2025/09/27-18:52:02.010 3e8c Level-0 table #311: 81262 bytes OK
-2025/09/27-18:52:02.012 3e8c Delete type=0 #307
-2025/09/27-18:53:02.010 3e8c Level-0 table #313: started
-2025/09/27-18:53:02.021 3e8c Level-0 table #313: 88925 bytes OK
-2025/09/27-18:53:02.023 3e8c Delete type=0 #310
+2025/10/23-14:45:32.662 5e0 Reusing MANIFEST C:\Bibliometria\chrome_profile_copy\Default\Local Storage\leveldb/MANIFEST-000001
+2025/10/23-14:45:32.679 5e0 Recovering log #312
+2025/10/23-14:45:32.683 5e0 Reusing old log C:\Bibliometria\chrome_profile_copy\Default\Local Storage\leveldb/000312.log 
+2025/10/23-14:48:38.872 5e0 Level-0 table #316: started
+2025/10/23-14:48:38.877 5e0 Level-0 table #316: 76303 bytes OK
+2025/10/23-14:48:38.880 5e0 Delete type=0 #312
+2025/10/23-14:50:38.871 5e0 Level-0 table #318: started
+2025/10/23-14:50:38.876 5e0 Level-0 table #318: 85701 bytes OK
+2025/10/23-14:50:38.878 5e0 Delete type=0 #315
+2025/10/23-14:50:38.879 5e0 Compacting 4@0 + 1@1 files
+2025/10/23-14:50:38.886 5e0 Generated table #319@0: 65 keys, 91067 bytes
+2025/10/23-14:50:38.886 5e0 Compacted 4@0 + 1@1 files => 91067 bytes
+2025/10/23-14:50:38.887 5e0 compacted to: files[ 0 1 0 0 0 0 0 ]
+2025/10/23-14:50:38.888 5e0 Delete type=2 #309
+2025/10/23-14:50:38.889 5e0 Delete type=2 #311
+2025/10/23-14:50:38.889 5e0 Delete type=2 #313
+2025/10/23-14:50:38.889 5e0 Delete type=2 #316
+2025/10/23-14:50:38.889 5e0 Delete type=2 #318
+2025/10/23-14:52:38.871 5e0 Level-0 table #321: started
+2025/10/23-14:52:38.880 5e0 Level-0 table #321: 76240 bytes OK
+2025/10/23-14:52:38.881 5e0 Delete type=0 #317
+2025/10/23-14:53:38.866 5e0 Level-0 table #323: started
+2025/10/23-14:53:38.874 5e0 Level-0 table #323: 79325 bytes OK
+2025/10/23-14:53:38.877 5e0 Delete type=0 #320
+2025/10/23-14:54:38.871 5e0 Level-0 table #325: started
+2025/10/23-14:54:38.881 5e0 Level-0 table #325: 78106 bytes OK
+2025/10/23-14:54:38.884 5e0 Delete type=0 #322
+2025/10/23-14:55:38.883 4d30 Level-0 table #327: started
+2025/10/23-14:55:38.901 4d30 Level-0 table #327: 82293 bytes OK
+2025/10/23-14:55:38.902 4d30 Delete type=0 #324
+2025/10/23-14:55:38.903 4d30 Compacting 4@0 + 1@1 files
+2025/10/23-14:55:38.913 4d30 Generated table #328@0: 65 keys, 87577 bytes
+2025/10/23-14:55:38.913 4d30 Compacted 4@0 + 1@1 files => 87577 bytes
+2025/10/23-14:55:38.914 4d30 compacted to: files[ 0 1 0 0 0 0 0 ]
+2025/10/23-14:55:38.915 4d30 Delete type=2 #319
+2025/10/23-14:55:38.915 4d30 Delete type=2 #321
+2025/10/23-14:55:38.915 4d30 Delete type=2 #323
+2025/10/23-14:55:38.915 4d30 Delete type=2 #325
+2025/10/23-14:55:38.915 4d30 Delete type=2 #327
+2025/10/23-14:57:38.868 5e0 Level-0 table #330: started
+2025/10/23-14:57:38.875 5e0 Level-0 table #330: 84349 bytes OK
+2025/10/23-14:57:38.879 5e0 Delete type=0 #326
+2025/10/23-14:58:38.878 5e0 Level-0 table #332: started
+2025/10/23-14:58:38.892 5e0 Level-0 table #332: 75292 bytes OK
+2025/10/23-14:58:38.895 5e0 Delete type=0 #329
+2025/10/23-14:59:38.867 5e0 Level-0 table #334: started
+2025/10/23-14:59:38.882 5e0 Level-0 table #334: 82148 bytes OK
+2025/10/23-14:59:38.885 5e0 Delete type=0 #331
+2025/10/23-15:01:38.867 5e0 Level-0 table #336: started
+2025/10/23-15:01:38.878 5e0 Level-0 table #336: 90230 bytes OK
+2025/10/23-15:01:38.881 5e0 Delete type=0 #333
+2025/10/23-15:01:38.882 5e0 Compacting 4@0 + 1@1 files
+2025/10/23-15:01:38.894 5e0 Generated table #337@0: 65 keys, 95567 bytes
+2025/10/23-15:01:38.895 5e0 Compacted 4@0 + 1@1 files => 95567 bytes
+2025/10/23-15:01:38.896 5e0 compacted to: files[ 0 1 0 0 0 0 0 ]
+2025/10/23-15:01:38.897 5e0 Delete type=2 #328
+2025/10/23-15:01:38.898 5e0 Delete type=2 #330
+2025/10/23-15:01:38.898 5e0 Delete type=2 #332
+2025/10/23-15:01:38.898 5e0 Delete type=2 #334
+2025/10/23-15:01:38.898 5e0 Delete type=2 #336
+2025/10/23-15:02:38.904 5e0 Level-0 table #339: started
+2025/10/23-15:02:38.913 5e0 Level-0 table #339: 87576 bytes OK
+2025/10/23-15:02:38.915 5e0 Delete type=0 #335
+2025/10/23-15:03:38.880 5e0 Level-0 table #341: started
+2025/10/23-15:03:38.890 5e0 Level-0 table #341: 96124 bytes OK
+2025/10/23-15:03:38.893 5e0 Delete type=0 #338
+2025/10/23-15:04:50.405 4d30 Level-0 table #343: started
+2025/10/23-15:04:50.416 4d30 Level-0 table #343: 94633 bytes OK
+2025/10/23-15:04:50.419 4d30 Delete type=0 #340
+2025/10/23-15:06:38.872 5e0 Level-0 table #345: started
+2025/10/23-15:06:38.882 5e0 Level-0 table #345: 95976 bytes OK
+2025/10/23-15:06:38.884 5e0 Delete type=0 #342
+2025/10/23-15:06:38.885 5e0 Compacting 4@0 + 1@1 files
+2025/10/23-15:06:38.893 5e0 Generated table #346@0: 65 keys, 100764 bytes
+2025/10/23-15:06:38.893 5e0 Compacted 4@0 + 1@1 files => 100764 bytes
+2025/10/23-15:06:38.894 5e0 compacted to: files[ 0 1 0 0 0 0 0 ]
+2025/10/23-15:06:38.895 5e0 Delete type=2 #337
+2025/10/23-15:06:38.896 5e0 Delete type=2 #339
+2025/10/23-15:06:38.896 5e0 Delete type=2 #341
+2025/10/23-15:06:38.896 5e0 Delete type=2 #343
+2025/10/23-15:06:38.896 5e0 Delete type=2 #345
+2025/10/23-15:08:03.087 5e0 Level-0 table #348: started
+2025/10/23-15:08:03.096 5e0 Level-0 table #348: 96422 bytes OK
+2025/10/23-15:08:03.098 5e0 Delete type=0 #344
+2025/10/23-15:09:26.468 5e0 Level-0 table #350: started
+2025/10/23-15:09:26.481 5e0 Level-0 table #350: 80464 bytes OK
+2025/10/23-15:09:26.483 5e0 Delete type=0 #347
+2025/10/23-15:10:53.868 5e0 Level-0 table #352: started
+2025/10/23-15:10:53.877 5e0 Level-0 table #352: 82873 bytes OK
+2025/10/23-15:10:53.880 5e0 Delete type=0 #349
+2025/10/23-15:12:21.783 5e0 Level-0 table #354: started
+2025/10/23-15:12:21.790 5e0 Level-0 table #354: 82477 bytes OK
+2025/10/23-15:12:21.793 5e0 Delete type=0 #351
+2025/10/23-15:12:21.794 5e0 Compacting 4@0 + 1@1 files
+2025/10/23-15:12:21.805 5e0 Generated table #355@0: 65 keys, 87690 bytes
+2025/10/23-15:12:21.805 5e0 Compacted 4@0 + 1@1 files => 87690 bytes
+2025/10/23-15:12:21.807 5e0 compacted to: files[ 0 1 0 0 0 0 0 ]
+2025/10/23-15:12:21.808 5e0 Delete type=2 #346
+2025/10/23-15:12:21.809 5e0 Delete type=2 #348
+2025/10/23-15:12:21.809 5e0 Delete type=2 #350
+2025/10/23-15:12:21.809 5e0 Delete type=2 #352
+2025/10/23-15:12:21.809 5e0 Delete type=2 #354
+2025/10/23-15:13:53.951 5e0 Level-0 table #357: started
+2025/10/23-15:13:53.961 5e0 Level-0 table #357: 87699 bytes OK
+2025/10/23-15:13:53.965 5e0 Delete type=0 #353
+2025/10/23-15:15:22.663 5e0 Level-0 table #359: started
+2025/10/23-15:15:22.673 5e0 Level-0 table #359: 83440 bytes OK
+2025/10/23-15:15:22.677 5e0 Delete type=0 #356
+2025/10/23-15:16:45.449 5e0 Level-0 table #361: started
+2025/10/23-15:16:45.459 5e0 Level-0 table #361: 77404 bytes OK
+2025/10/23-15:16:45.462 5e0 Delete type=0 #358
+2025/10/23-15:18:12.845 5e0 Level-0 table #363: started
+2025/10/23-15:18:12.855 5e0 Level-0 table #363: 81826 bytes OK
+2025/10/23-15:18:12.858 5e0 Delete type=0 #360
+2025/10/23-15:18:12.859 5e0 Compacting 4@0 + 1@1 files
+2025/10/23-15:18:12.871 5e0 Generated table #364@0: 65 keys, 87006 bytes
+2025/10/23-15:18:12.871 5e0 Compacted 4@0 + 1@1 files => 87006 bytes
+2025/10/23-15:18:12.872 5e0 compacted to: files[ 0 1 0 0 0 0 0 ]
+2025/10/23-15:18:12.873 5e0 Delete type=2 #355
+2025/10/23-15:18:12.874 5e0 Delete type=2 #357
+2025/10/23-15:18:12.874 5e0 Delete type=2 #359
+2025/10/23-15:18:12.874 5e0 Delete type=2 #361
+2025/10/23-15:18:12.874 5e0 Delete type=2 #363
+2025/10/23-15:19:41.751 5e0 Level-0 table #366: started
+2025/10/23-15:19:41.763 5e0 Level-0 table #366: 85294 bytes OK
+2025/10/23-15:19:41.766 5e0 Delete type=0 #362
