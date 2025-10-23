@@ -27,8 +27,7 @@ def ejecutar_scripts_base():
             print(f"[ERROR] en {script}\n{e}")
 
 # ===================================================================
-# REQUERIMIENTO 2 – Similitud textual
-# Detecta automáticamente si el módulo expone run() (CSV) o run_from_bib() (BIB)
+# REQ. 2 – Similitud textual (detecta run() CSV o run_from_bib() BIB)
 # ===================================================================
 def ejecutar_req2(indices: list[int]):
     print(f"[RUN] Ejecutando Requerimiento 2 con índices: {indices}")
@@ -44,9 +43,7 @@ def ejecutar_req2(indices: list[int]):
 
     print(f"[OK] Archivo generado: {path}")
 
-    # <-- NUEVO: llamar el reporte en subproceso para que use sus propios args
-    import subprocess, sys
-    venv_python = sys.executable
+    # Lanza el resumen en subproceso para evitar conflicto de argparse
     try:
         subprocess.run(
             [venv_python, "-m", "requirement_2.console_report", "--json", path, "--top", "10"],
@@ -56,15 +53,28 @@ def ejecutar_req2(indices: list[int]):
         print("[Aviso] No se pudo generar el resumen en consola automáticamente:", e)
 
 # ===================================================================
-# REQUERIMIENTO 3 – Frecuencias + términos asociados + precisión
+# REQ. 3 – Frecuencias + términos asociados + precisión
 # ===================================================================
 def ejecutar_req3(bib: Path | None = None, max_terms: int = 15, min_df: int = 2, thr: float = 0.50):
-    from requirement_3.run_req3 import run_req3, print_console_summary, DEFAULT_BIB
+    from requirement_3.run_req3 import run_req3, print_console_summary
+    from requirement_3.data_loader import DEFAULT_BIB
     bib_path = bib if bib else DEFAULT_BIB
     print(f"[RUN] Ejecutando Requerimiento 3 (frecuencias y términos asociados)...")
     out = run_req3(bib_path=bib_path, max_auto_terms=max_terms, min_df=min_df, threshold=thr)
     print(f"[OK] Resultados guardados en: {out}")
     print_console_summary(Path(out))
+
+# ===================================================================
+# REQ. 4 – Clustering jerárquico + dendrogramas
+# ===================================================================
+def ejecutar_req4(bib: Path | None = None, n_samples: int = 25):
+    # run_req4 ya guarda los dendrogramas en data/processed/
+    from requirement_4.run_req4 import run_req4
+    from requirement_3.data_loader import DEFAULT_BIB
+    bib_path = bib if bib else DEFAULT_BIB
+    print(f"[RUN] Ejecutando Requerimiento 4 (clustering jerárquico)...")
+    run_req4(bib_path=bib_path, n_samples=n_samples)
+    print("[OK] Dendrogramas generados en data/processed/.")
 
 # ===================================================================
 # INTERFAZ PRINCIPAL (CLI)
@@ -87,6 +97,11 @@ def main():
     p3.add_argument("--min-df", type=int, default=2, help="Mínimo de documentos donde aparece el término")
     p3.add_argument("--thr", type=float, default=0.50, help="Umbral de similitud para marcar término relevante")
 
+    # Requerimiento 4
+    p4 = sub.add_parser("req4", help="Clustering jerárquico de abstracts y generación de dendrogramas")
+    p4.add_argument("--bib", type=str, default=None, help="Ruta al .bib (por defecto usa productos_unificados.bib)")
+    p4.add_argument("--n", type=int, default=25, help="Número de abstracts a agrupar (ej.: 25)")
+
     args = parser.parse_args()
 
     if args.cmd == "req1":
@@ -96,6 +111,9 @@ def main():
     elif args.cmd == "req3":
         bib = Path(args.bib) if args.bib else None
         ejecutar_req3(bib=bib, max_terms=args.max_terms, min_df=args.min_df, thr=args.thr)
+    elif args.cmd == "req4":
+        bib = Path(args.bib) if args.bib else None
+        ejecutar_req4(bib=bib, n_samples=args.n)
     else:
         parser.print_help()
 
