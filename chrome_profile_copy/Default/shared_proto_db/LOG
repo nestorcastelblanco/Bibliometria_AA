@@ -1,24 +1,3 @@
-2025/09/27-18:37:57.325 3728 Reusing MANIFEST C:\Bibliometria\chrome_profile_copy\Default\shared_proto_db/MANIFEST-000001
-2025/09/27-18:37:57.325 3728 Recovering log #122
-2025/09/27-18:37:57.325 3728 Reusing old log C:\Bibliometria\chrome_profile_copy\Default\shared_proto_db/000122.log 
-2025/09/27-18:41:33.386 d70 Level-0 table #126: started
-2025/09/27-18:41:33.395 d70 Level-0 table #126: 230839 bytes OK
-2025/09/27-18:41:33.396 d70 Delete type=0 #122
-2025/09/27-18:41:33.397 d70 Compacting 4@0 + 1@1 files
-2025/09/27-18:41:33.402 d70 Generated table #127@0: 418 keys, 105873 bytes
-2025/09/27-18:41:33.402 d70 Compacted 4@0 + 1@1 files => 105873 bytes
-2025/09/27-18:41:33.403 d70 compacted to: files[ 0 1 1 0 0 0 0 ]
-2025/09/27-18:41:33.403 d70 Delete type=2 #116
-2025/09/27-18:41:33.404 d70 Delete type=2 #118
-2025/09/27-18:41:33.404 d70 Delete type=2 #120
-2025/09/27-18:41:33.404 d70 Delete type=2 #123
-2025/09/27-18:41:33.404 d70 Delete type=2 #126
-2025/09/27-18:44:01.479 d70 Level-0 table #129: started
-2025/09/27-18:44:01.486 d70 Level-0 table #129: 225703 bytes OK
-2025/09/27-18:44:01.488 d70 Delete type=0 #125
-2025/09/27-18:46:31.379 d70 Level-0 table #131: started
-2025/09/27-18:46:31.383 d70 Level-0 table #131: 221293 bytes OK
-2025/09/27-18:46:31.384 d70 Delete type=0 #128
-2025/09/27-18:47:46.417 d70 Level-0 table #133: started
-2025/09/27-18:47:46.421 d70 Level-0 table #133: 239583 bytes OK
-2025/09/27-18:47:46.422 d70 Delete type=0 #130
+2025/10/21-17:09:23.090 44b0 Reusing MANIFEST C:\Bibliometria\chrome_profile_copy\Default\shared_proto_db/MANIFEST-000001
+2025/10/21-17:09:23.093 44b0 Recovering log #132
+2025/10/21-17:09:23.099 44b0 Reusing old log C:\Bibliometria\chrome_profile_copy\Default\shared_proto_db/000132.log 

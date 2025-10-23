@@ -1,15 +1,3 @@
-2025/09/27-18:35:49.526 3f8c Reusing MANIFEST C:\Bibliometria\chrome_profile_copy\Default\Session Storage/MANIFEST-000001
-2025/09/27-18:35:49.548 3f8c Recovering log #36
-2025/09/27-18:35:49.550 3f8c Reusing old log C:\Bibliometria\chrome_profile_copy\Default\Session Storage/000036.log 
-2025/09/27-18:36:06.811 44c4 Level-0 table #40: started
-2025/09/27-18:36:06.814 44c4 Level-0 table #40: 13333 bytes OK
-2025/09/27-18:36:06.816 44c4 Delete type=0 #36
-2025/09/27-18:36:06.817 44c4 Compacting 4@0 + 1@1 files
-2025/09/27-18:36:06.821 44c4 Generated table #41@0: 892 keys, 28340 bytes
-2025/09/27-18:36:06.821 44c4 Compacted 4@0 + 1@1 files => 28340 bytes
-2025/09/27-18:36:06.822 44c4 compacted to: files[ 0 1 1 0 0 0 0 ]
-2025/09/27-18:36:06.824 44c4 Delete type=2 #29
-2025/09/27-18:36:06.824 44c4 Delete type=2 #32
-2025/09/27-18:36:06.824 44c4 Delete type=2 #34
-2025/09/27-18:36:06.824 44c4 Delete type=2 #37
-2025/09/27-18:36:06.824 44c4 Delete type=2 #40
+2025/09/27-18:37:57.458 ecc Reusing MANIFEST C:\Bibliometria\chrome_profile_copy\Default\Session Storage/MANIFEST-000001
+2025/09/27-18:37:57.459 ecc Recovering log #39
+2025/09/27-18:37:57.467 ecc Reusing old log C:\Bibliometria\chrome_profile_copy\Default\Session Storage/000039.log 

@@ -1,0 +1,421 @@
+{
+  "selected": [
+    {
+      "index": 0,
+      "title": "{G}enerative {A}rtificial {I}ntelligence {P}olicies under the {M}icroscope",
+      "abstract": "How computer science conferences are navigating the new frontier in scholarly writing.",
+      "authors": "Nahar, Mahjabin and Lee, Sian and Guillen, Rebekah and Lee, Dongwon",
+      "source": "Commun. ACM"
+    },
+    {
+      "index": 3,
+      "title": "{T}he relationship between generative artificial intelligence and cybersecurity",
+      "abstract": "This research paper investigates the adoption of generative artificial intelligence by citizens using the Technology Adoption Propensity (TAP) index. The study aims to explore the influence of cybersecurity factors on the acceptance of generative artificial intelligence technologies. The data for the research will be collected through a questionnaire survey that seeks to understand respondents\\textquotesingle  attitudes, expectations and concerns towards generative artificial intelligence technologies. The research will use a mixed-methods approach to analyse the data, including quantitative such as descriptive statistics, cross-tabulation analysis, cluster analysis. The expected outcomes of this study include a better understanding of the factors that influence the adoption of generative artificial intelligence technologies by citizens and the development of strategies to address any concerns that citizens may have.",
+      "authors": "Banyasz, Peter and Szadeczky, Tamas and Vaczi, Kincso Boroka",
+      "source": "Proceedings of the Central and Eastern European EDem and EGov Days 2024"
+    },
+    {
+      "index": 7,
+      "title": "{B}ehavioral {A}nalysis of {C}lassroom {I}nteractions {S}upported by {G}enerative {A}rtificial {I}ntelligence",
+      "abstract": "Generative artificial intelligence, represented by Chatgpt, has been developing rapidly because of its superiority in form and process, covering almost all industries. In order to comply with the development of technology, some classroom teaching also incorporates it to build a generative artificial intelligence classroom. The classroom interaction behavior has an important reference value to help teachers reconstruct the teaching design and reform the teaching mode. The purpose of this paper is to derive significant behavioral sequence characteristics by coding and recording the actual video of generative artificial intelligence classrooms and analyzing the classroom interaction behaviors using lag sequence analysis. The study shows that the teacher-student interaction in the generative artificial intelligence classroom is more active, and the students\\textquotesingle  active participation in the classroom is very high, which will further promote the generative artificial intelligence classroom and realize the deep integration of the new technology and the classroom.",
+      "authors": "Wen, Jiacun and Lin, Yi and Si, Nian",
+      "source": "Proceedings of the 2024 7th International Conference on Educational Technology Management"
+    }
+  ],
+  "results": [
+    {
+      "i": 0,
+      "j": 3,
+      "title_i": "{G}enerative {A}rtificial {I}ntelligence {P}olicies under the {M}icroscope",
+      "title_j": "{T}he relationship between generative artificial intelligence and cybersecurity",
+      "scores": {
+        "Levenshtein (normalizada)": 0.08387799564270149,
+        "Damerau–Levenshtein (normalizada)": 0.08387799564270149,
+        "Jaccard (tokens)": 0.0,
+        "Coseno (TF-IDF)": 0.0,
+        "SBERT (coseno)": 0.15554910898208618,
+        "GTE (coseno)": 0.7624144554138184
+      },
+      "explanations": {
+        "Levenshtein (normalizada)": {
+          "formula": "1 - dist/maxlen",
+          "dist": 841,
+          "maxlen": 918,
+          "normalized": 0.08387799564270149
+        },
+        "Damerau–Levenshtein (normalizada)": {
+          "formula": "1 - DL/maxlen",
+          "includes": "transposición",
+          "dist": 841,
+          "normalized": 0.08387799564270149
+        },
+        "Jaccard (tokens)": {
+          "formula": "|A∩B|/|A∪B|",
+          "|A|": 8,
+          "|B|": 56,
+          "inter": 0,
+          "union": 64,
+          "shared_tokens": []
+        },
+        "Coseno (TF-IDF)": {
+          "formula": "cos(x,y) sobre TF-IDF",
+          "top_tfidf_a": [
+            [
+              "computer",
+              0.3535533905932738
+            ],
+            [
+              "science",
+              0.3535533905932738
+            ],
+            [
+              "conferences",
+              0.3535533905932738
+            ],
+            [
+              "navigating",
+              0.3535533905932738
+            ],
+            [
+              "new",
+              0.3535533905932738
+            ],
+            [
+              "frontier",
+              0.3535533905932738
+            ],
+            [
+              "scholarly",
+              0.3535533905932738
+            ],
+            [
+              "writing",
+              0.3535533905932738
+            ]
+          ],
+          "top_tfidf_b": [
+            [
+              "generative",
+              0.32232918561015234
+            ],
+            [
+              "artificial",
+              0.32232918561015234
+            ],
+            [
+              "intelligence",
+              0.32232918561015234
+            ],
+            [
+              "research",
+              0.24174688920761422
+            ],
+            [
+              "adoption",
+              0.24174688920761422
+            ],
+            [
+              "citizens",
+              0.24174688920761422
+            ],
+            [
+              "technologies",
+              0.24174688920761422
+            ],
+            [
+              "study",
+              0.16116459280507617
+            ],
+            [
+              "influence",
+              0.16116459280507617
+            ],
+            [
+              "factors",
+              0.16116459280507617
+            ]
+          ]
+        },
+        "SBERT (coseno)": {
+          "idea": "Embeddings semánticos; coseno",
+          "model": "sentence-transformers/all-MiniLM-L6-v2"
+        },
+        "GTE (coseno)": {
+          "idea": "Embeddings semánticos generados con modelo GTE; similitud medida por coseno",
+          "model": "thenlper/gte-small",
+          "ventajas": "Modelo gratuito, rápido y de última generación (2023), ideal para textos cortos o resúmenes."
+        }
+      }
+    },
+    {
+      "i": 0,
+      "j": 7,
+      "title_i": "{G}enerative {A}rtificial {I}ntelligence {P}olicies under the {M}icroscope",
+      "title_j": "{B}ehavioral {A}nalysis of {C}lassroom {I}nteractions {S}upported by {G}enerative {A}rtificial {I}ntelligence",
+      "scores": {
+        "Levenshtein (normalizada)": 0.07835820895522383,
+        "Damerau–Levenshtein (normalizada)": 0.07835820895522383,
+        "Jaccard (tokens)": 0.013888888888888888,
+        "Coseno (TF-IDF)": 0.012332022639078684,
+        "SBERT (coseno)": 0.1464821994304657,
+        "GTE (coseno)": 0.7902759909629822
+      },
+      "explanations": {
+        "Levenshtein (normalizada)": {
+          "formula": "1 - dist/maxlen",
+          "dist": 988,
+          "maxlen": 1072,
+          "normalized": 0.07835820895522383
+        },
+        "Damerau–Levenshtein (normalizada)": {
+          "formula": "1 - DL/maxlen",
+          "includes": "transposición",
+          "dist": 988,
+          "normalized": 0.07835820895522383
+        },
+        "Jaccard (tokens)": {
+          "formula": "|A∩B|/|A∪B|",
+          "|A|": 8,
+          "|B|": 65,
+          "inter": 1,
+          "union": 72,
+          "shared_tokens": [
+            "new"
+          ]
+        },
+        "Coseno (TF-IDF)": {
+          "formula": "cos(x,y) sobre TF-IDF",
+          "top_tfidf_a": [
+            [
+              "computer",
+              0.3649964681447582
+            ],
+            [
+              "science",
+              0.3649964681447582
+            ],
+            [
+              "conferences",
+              0.3649964681447582
+            ],
+            [
+              "navigating",
+              0.3649964681447582
+            ],
+            [
+              "frontier",
+              0.3649964681447582
+            ],
+            [
+              "scholarly",
+              0.3649964681447582
+            ],
+            [
+              "writing",
+              0.3649964681447582
+            ],
+            [
+              "new",
+              0.2596979932401624
+            ]
+          ],
+          "top_tfidf_b": [
+            [
+              "classroom",
+              0.5339194905706223
+            ],
+            [
+              "generative",
+              0.3336996816066389
+            ],
+            [
+              "artificial",
+              0.3336996816066389
+            ],
+            [
+              "intelligence",
+              0.3336996816066389
+            ],
+            [
+              "teaching",
+              0.2002198089639833
+            ],
+            [
+              "interaction",
+              0.2002198089639833
+            ],
+            [
+              "technology",
+              0.13347987264265557
+            ],
+            [
+              "sequence",
+              0.13347987264265557
+            ],
+            [
+              "active",
+              0.13347987264265557
+            ],
+            [
+              "represented",
+              0.06673993632132778
+            ]
+          ]
+        },
+        "SBERT (coseno)": {
+          "idea": "Embeddings semánticos; coseno",
+          "model": "sentence-transformers/all-MiniLM-L6-v2"
+        },
+        "GTE (coseno)": {
+          "idea": "Embeddings semánticos generados con modelo GTE; similitud medida por coseno",
+          "model": "thenlper/gte-small",
+          "ventajas": "Modelo gratuito, rápido y de última generación (2023), ideal para textos cortos o resúmenes."
+        }
+      }
+    },
+    {
+      "i": 3,
+      "j": 7,
+      "title_i": "{T}he relationship between generative artificial intelligence and cybersecurity",
+      "title_j": "{B}ehavioral {A}nalysis of {C}lassroom {I}nteractions {S}upported by {G}enerative {A}rtificial {I}ntelligence",
+      "scores": {
+        "Levenshtein (normalizada)": 0.3218283582089553,
+        "Damerau–Levenshtein (normalizada)": 0.3218283582089553,
+        "Jaccard (tokens)": 0.1,
+        "Coseno (TF-IDF)": 0.24434566567755453,
+        "SBERT (coseno)": 0.3682102859020233,
+        "GTE (coseno)": 0.8355130553245544
+      },
+      "explanations": {
+        "Levenshtein (normalizada)": {
+          "formula": "1 - dist/maxlen",
+          "dist": 727,
+          "maxlen": 1072,
+          "normalized": 0.3218283582089553
+        },
+        "Damerau–Levenshtein (normalizada)": {
+          "formula": "1 - DL/maxlen",
+          "includes": "transposición",
+          "dist": 727,
+          "normalized": 0.3218283582089553
+        },
+        "Jaccard (tokens)": {
+          "formula": "|A∩B|/|A∪B|",
+          "|A|": 56,
+          "|B|": 65,
+          "inter": 11,
+          "union": 110,
+          "shared_tokens": [
+            "analysis",
+            "artificial",
+            "development",
+            "generative",
+            "intelligence",
+            "paper",
+            "study",
+            "technology",
+            "textquotesingle",
+            "using",
+            "will"
+          ]
+        },
+        "Coseno (TF-IDF)": {
+          "formula": "cos(x,y) sobre TF-IDF",
+          "top_tfidf_a": [
+            [
+              "research",
+              0.27171209239622046
+            ],
+            [
+              "adoption",
+              0.27171209239622046
+            ],
+            [
+              "citizens",
+              0.27171209239622046
+            ],
+            [
+              "technologies",
+              0.27171209239622046
+            ],
+            [
+              "generative",
+              0.25776718879153143
+            ],
+            [
+              "artificial",
+              0.25776718879153143
+            ],
+            [
+              "intelligence",
+              0.25776718879153143
+            ],
+            [
+              "influence",
+              0.18114139493081366
+            ],
+            [
+              "factors",
+              0.18114139493081366
+            ],
+            [
+              "data",
+              0.18114139493081366
+            ]
+          ],
+          "top_tfidf_b": [
+            [
+              "classroom",
+              0.5921265775391102
+            ],
+            [
+              "generative",
+              0.26331433546585253
+            ],
+            [
+              "artificial",
+              0.26331433546585253
+            ],
+            [
+              "intelligence",
+              0.26331433546585253
+            ],
+            [
+              "teaching",
+              0.2220474665771663
+            ],
+            [
+              "interaction",
+              0.2220474665771663
+            ],
+            [
+              "sequence",
+              0.14803164438477756
+            ],
+            [
+              "active",
+              0.14803164438477756
+            ],
+            [
+              "technology",
+              0.10532573418634102
+            ],
+            [
+              "represented",
+              0.07401582219238878
+            ]
+          ]
+        },
+        "SBERT (coseno)": {
+          "idea": "Embeddings semánticos; coseno",
+          "model": "sentence-transformers/all-MiniLM-L6-v2"
+        },
+        "GTE (coseno)": {
+          "idea": "Embeddings semánticos generados con modelo GTE; similitud medida por coseno",
+          "model": "thenlper/gte-small",
+          "ventajas": "Modelo gratuito, rápido y de última generación (2023), ideal para textos cortos o resúmenes."
+        }
+      }
+    }
+  ]
+}
