@@ -89,6 +89,37 @@ def ejecutar_req5(bib: Path | None = None, affmap: Path | None = None, wc_max: i
         print(f"  - {k}: {v}")
 
 # ===================================================================
+# GRAFOS – Req. 1 (citaciones) y Req. 2 (términos)
+# ===================================================================
+def ejecutar_grafos_cit(bib: Path | None = None, min_sim: float = 0.35):
+    from requirement_grafos.run_grafos import run_req_grafos_citas
+    from requirement_3.data_loader import DEFAULT_BIB
+    bib_path = bib if bib else DEFAULT_BIB
+    print(f"[RUN] Grafos – Citaciones (dirigido) con min_sim={min_sim}")
+    out = run_req_grafos_citas(bib=bib_path, min_sim=min_sim)
+    print("[OK] Grafo de citaciones:", out)
+
+def ejecutar_grafos_terms(
+    bib: Path | None = None,
+    terms_path: Path | None = None,
+    min_df: int = 3,
+    window: int = 30,
+    min_cooc: int = 2
+):
+    from requirement_grafos.run_grafos import run_req_grafos_terminos
+    from requirement_3.data_loader import DEFAULT_BIB
+    bib_path = bib if bib else DEFAULT_BIB
+    print(f"[RUN] Grafos – Términos (no dirigido) df>={min_df}, window={window}, min_cooc={min_cooc}")
+    out = run_req_grafos_terminos(
+        bib=bib_path,
+        terms_path=terms_path,
+        min_df=min_df,
+        window=window,
+        min_cooc=min_cooc
+    )
+    print("[OK] Grafo de términos:", out)
+
+# ===================================================================
 # INTERFAZ PRINCIPAL (CLI)
 # ===================================================================
 def main():
@@ -121,6 +152,19 @@ def main():
     p5.add_argument("--wc-max", type=int, default=150, help="Máx. palabras en la nube de palabras")
     p5.add_argument("--topj", type=int, default=8, help="Top N revistas en timeline por journal")
 
+    # Grafos – Citaciones
+    pg1 = sub.add_parser("grafos_cit", help="Grafo de citaciones (dirigido) + Dijkstra/FW + SCC")
+    pg1.add_argument("--bib", type=str, default=None, help="Ruta al .bib (por defecto usa productos_unificados.bib)")
+    pg1.add_argument("--min-sim", type=float, default=0.35, help="Umbral de similitud para inferir aristas")
+
+    # Grafos – Términos
+    pg2 = sub.add_parser("grafos_terms", help="Grafo de co-ocurrencia de términos (no dirigido)")
+    pg2.add_argument("--bib", type=str, default=None, help="Ruta al .bib (por defecto usa productos_unificados.bib)")
+    pg2.add_argument("--terms", type=str, default="", help="Ruta a JSON/TXT con términos (opcional)")
+    pg2.add_argument("--min-df", type=int, default=3, help="Mínimo DF para incluir términos si no se pasan candidatos")
+    pg2.add_argument("--window", type=int, default=30, help="Tamaño de ventana de co-ocurrencia")
+    pg2.add_argument("--min-cooc", type=int, default=2, help="Co-ocurrencias mínimas para crear arista")
+
     args = parser.parse_args()
 
     if args.cmd == "req1":
@@ -141,6 +185,15 @@ def main():
         bib = Path(args.bib) if args.bib else None
         aff = Path(args.affmap) if args.affmap else None
         ejecutar_req5(bib=bib, affmap=aff, wc_max=args.wc_max, topj=args.topj)
+
+    elif args.cmd == "grafos_cit":
+        bib = Path(args.bib) if args.bib else None
+        ejecutar_grafos_cit(bib=bib, min_sim=args.min_sim)
+
+    elif args.cmd == "grafos_terms":
+        bib = Path(args.bib) if args.bib else None
+        terms = Path(args.terms) if args.terms else None
+        ejecutar_grafos_terms(bib=bib, terms_path=terms, min_df=args.min_df, window=args.window, min_cooc=args.min_cooc)
 
     else:
         parser.print_help()
