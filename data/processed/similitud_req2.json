@@ -33,7 +33,7 @@
         "Damerau–Levenshtein (normalizada)": 0.08387799564270149,
         "Jaccard (tokens)": 0.0,
         "Coseno (TF-IDF)": 0.0,
-        "SBERT (coseno)": 0.15554910898208618,
+        "SBERT (coseno)": 0.1555490791797638,
         "GTE (coseno)": 0.7624144554138184
       },
       "explanations": {
@@ -157,8 +157,8 @@
         "Damerau–Levenshtein (normalizada)": 0.07835820895522383,
         "Jaccard (tokens)": 0.013888888888888888,
         "Coseno (TF-IDF)": 0.012332022639078684,
-        "SBERT (coseno)": 0.1464821994304657,
-        "GTE (coseno)": 0.7902759909629822
+        "SBERT (coseno)": 0.1464822143316269,
+        "GTE (coseno)": 0.7902759313583374
       },
       "explanations": {
         "Levenshtein (normalizada)": {
@@ -282,9 +282,9 @@
         "Levenshtein (normalizada)": 0.3218283582089553,
         "Damerau–Levenshtein (normalizada)": 0.3218283582089553,
         "Jaccard (tokens)": 0.1,
-        "Coseno (TF-IDF)": 0.24434566567755453,
-        "SBERT (coseno)": 0.3682102859020233,
-        "GTE (coseno)": 0.8355130553245544
+        "Coseno (TF-IDF)": 0.2443456656775545,
+        "SBERT (coseno)": 0.3682102560997009,
+        "GTE (coseno)": 0.8355131149291992
       },
       "explanations": {
         "Levenshtein (normalizada)": {

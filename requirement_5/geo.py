@@ -29,7 +29,7 @@ def infer_country(row: pd.Series, aff_map: Optional[pd.DataFrame]) -> str:
                 pass
     # heurística simple por lista de países (pycountry opcional)
     try:
-        import pycountry
+        import pycountry  # type: ignore
         for c in pycountry.countries:
             if c.name.lower() in aff_text:
                 return c.name
@@ -53,7 +53,7 @@ def compute_country_counts(df: pd.DataFrame, aff_map_csv: Optional[Path] = None)
 
 def plot_world_heatmap(counts: pd.DataFrame, out_png: Path, out_html: Path):
     try:
-        import plotly.express as px
+        import plotly.express as px  # type: ignore
         fig = px.choropleth(
             counts, locations="country", locationmode="country names",
             color="count", color_continuous_scale="Blues",
@@ -72,10 +72,26 @@ def plot_world_heatmap(counts: pd.DataFrame, out_png: Path, out_html: Path):
     except Exception:
         # Fallback: gráfico de barras (matplotlib)
         import matplotlib.pyplot as plt
-        plt.figure(figsize=(12,6))
-        plt.bar(counts["country"], counts["count"])
-        plt.xticks(rotation=60, ha="right")
-        plt.title("Primer autor por país (conteo)")
+        
+        # Mostrar todos los países
+        counts_plot = counts.copy()
+        n_countries = len(counts_plot)
+        
+        # Ajustar tamaño de figura según cantidad de países
+        # Aproximadamente 0.3 pulgadas por país, mínimo 8
+        fig_width = max(16, n_countries * 0.3)
+        fig_height = 10
+        
+        plt.figure(figsize=(fig_width, fig_height))
+        plt.bar(range(n_countries), counts_plot["count"], color='steelblue')
+        plt.xticks(range(n_countries), counts_plot["country"], 
+                   rotation=90, ha="center", fontsize=8)
+        plt.xlabel("País", fontsize=11)
+        plt.ylabel("Número de publicaciones", fontsize=11)
+        plt.title(f"Primer autor por país (conteo) - {n_countries} países", 
+                  fontsize=13, fontweight='bold')
+        plt.grid(axis='y', alpha=0.3, linestyle='--')
         plt.tight_layout()
-        plt.savefig(out_png, dpi=200)
+        plt.savefig(out_png, dpi=200, bbox_inches='tight')
+        plt.close()
         return False

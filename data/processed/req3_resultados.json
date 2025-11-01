@@ -40760,22 +40760,22 @@
     "details": [
       {
         "term": "generative",
-        "max_sim": 0.9435121417045593,
+        "max_sim": 0.9435120820999146,
         "relevant": true
       },
       {
         "term": "intelligence",
-        "max_sim": 0.8534518480300903,
+        "max_sim": 0.8534520864486694,
         "relevant": true
       },
       {
         "term": "learning",
-        "max_sim": 0.851469099521637,
+        "max_sim": 0.8514694571495056,
         "relevant": true
       },
       {
         "term": "artificial",
-        "max_sim": 0.8389158248901367,
+        "max_sim": 0.8389157652854919,
         "relevant": true
       },
       {
@@ -40785,22 +40785,22 @@
       },
       {
         "term": "genai",
-        "max_sim": 0.8106077909469604,
+        "max_sim": 0.8106079697608948,
         "relevant": true
       },
       {
         "term": "data",
-        "max_sim": 0.9010360836982727,
+        "max_sim": 0.9010359644889832,
         "relevant": true
       },
       {
         "term": "model",
-        "max_sim": 0.8774269223213196,
+        "max_sim": 0.87742680311203,
         "relevant": true
       },
       {
         "term": "education",
-        "max_sim": 0.8287937045097351,
+        "max_sim": 0.8287934064865112,
         "relevant": true
       },
       {
@@ -40810,27 +40810,27 @@
       },
       {
         "term": "design",
-        "max_sim": 0.8274245262145996,
+        "max_sim": 0.8274246454238892,
         "relevant": true
       },
       {
         "term": "technology",
-        "max_sim": 0.8255391120910645,
+        "max_sim": 0.8255389332771301,
         "relevant": true
       },
       {
         "term": "students",
-        "max_sim": 0.8077753782272339,
+        "max_sim": 0.8077757358551025,
         "relevant": true
       },
       {
         "term": "generative ai",
-        "max_sim": 0.9638758897781372,
+        "max_sim": 0.9638757705688477,
         "relevant": true
       },
       {
         "term": "based",
-        "max_sim": 0.8057469129562378,
+        "max_sim": 0.805747389793396,
         "relevant": true
       }
     ]
