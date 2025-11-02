@@ -107,8 +107,32 @@ def ejecutar_grafos_terms(
     min_cooc: int = 2
 ):
     from requirement_grafos.run_grafos import run_req_grafos_terminos
-    from requirement_3.data_loader import DEFAULT_BIB
+    from requirement_3.data_loader import DEFAULT_BIB, PROJECT_ROOT
+    import json
+    
     bib_path = bib if bib else DEFAULT_BIB
+    
+    # Si no se especifica archivo de términos, intentar cargar desde Req3
+    if not terms_path:
+        req3_results = PROJECT_ROOT / "data" / "processed" / "req3_resultados.json"
+        if req3_results.exists():
+            print("[INFO] Cargando términos desde Requerimiento 3...")
+            with open(req3_results, 'r', encoding='utf-8') as f:
+                req3_data = json.load(f)
+            # Combinar términos semilla y automáticos del Req3
+            seed_terms = req3_data.get('seed_words_normalized', [])
+            auto_terms = req3_data.get('auto_terms', [])
+            combined_terms = seed_terms + auto_terms
+            print(f"[INFO] Usando {len(combined_terms)} términos del Req3 ({len(seed_terms)} semilla + {len(auto_terms)} automáticos)")
+            
+            # Guardar términos combinados temporalmente
+            temp_terms_file = PROJECT_ROOT / "data" / "processed" / "términos_grafos.json"
+            with open(temp_terms_file, 'w', encoding='utf-8') as f:
+                json.dump(combined_terms, f, ensure_ascii=False, indent=2)
+            terms_path = temp_terms_file
+        else:
+            print(f"[AVISO] No se encontró {req3_results}, usando todos los términos del corpus")
+    
     print(f"[RUN] Grafos – Términos (no dirigido) df>={min_df}, window={window}, min_cooc={min_cooc}")
     out = run_req_grafos_terminos(
         bib=bib_path,

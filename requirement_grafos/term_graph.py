@@ -71,7 +71,8 @@ def build_term_graph(
 
     # grados y componentes conexas (BFS)
     degree = {t: 0 for t in vocab}
-    for a,b,_ in edges:
+    for e in edges:
+        a, b = e["u"], e["v"]
         degree[a] += 1
         degree[b] += 1
 

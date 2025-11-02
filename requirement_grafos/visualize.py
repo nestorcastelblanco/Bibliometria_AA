@@ -183,22 +183,40 @@ def plot_term_graph(
     sizes = {u: min(s, max_size) for u, s in raw_sizes.items()}
 
     # construir graph para layout
+    # Para grafos pequeños (<50 nodos), usar layouts más espaciados
+    n_nodes = len(fnodes)
+    if n_nodes <= 50:
+        fig_width, fig_height = 40, 32
+    else:
+        fig_width, fig_height = 30, 24
+    
     if _HAS_NX:
         UG = nx.Graph()
         UG.add_nodes_from([n["id"] for n in fnodes])
         for e in fedges:
             UG.add_edge(e["u"], e["v"], weight=float(e["w"]))
-        # Layout con mucha más separación y más iteraciones
-        pos = nx.spring_layout(UG, k=3.0, iterations=150, seed=seed, scale=2.5)
+        
+        # Para grafos pequeños, usar kamada_kawai (mejor distribución) o spring con parámetros optimizados
+        if n_nodes <= 50:
+            try:
+                # Kamada-Kawai produce layouts más uniformes
+                pos = nx.kamada_kawai_layout(UG, scale=5.0)
+            except:
+                # Fallback a spring con parámetros muy espaciados
+                pos = nx.spring_layout(UG, k=8/math.sqrt(n_nodes), iterations=300, seed=seed, scale=5.0)
+        else:
+            # Para grafos grandes, usar spring normal
+            pos = nx.spring_layout(UG, k=3.0, iterations=150, seed=seed, scale=2.5)
     else:
         # círculo fallback con mayor radio
         import numpy as np
         ids = [n["id"] for n in fnodes]
         theta = np.linspace(0, 2*np.pi, len(ids), endpoint=False)
-        pos = {u: (2.5*float(math.cos(t)), 2.5*float(math.sin(t))) for u, t in zip(ids, theta)}
+        scale_factor = 5.0 if n_nodes <= 50 else 2.5
+        pos = {u: (scale_factor*float(math.cos(t)), scale_factor*float(math.sin(t))) for u, t in zip(ids, theta)}
 
-    # dibujar - figura más grande
-    plt.figure(figsize=(30, 24)); ax = plt.gca()
+    # dibujar - figura con tamaño adaptativo
+    plt.figure(figsize=(fig_width, fig_height)); ax = plt.gca()
     ax.set_title("Grafo de Co-ocurrencia de Términos (no dirigido)", fontsize=20, fontweight="bold", pad=20)
 
     # aristas con grosor según co-ocurrencia (más visibles)
@@ -218,14 +236,16 @@ def plot_term_graph(
         sz = sizes.get(u, 220)
         ax.scatter([x], [y], s=sz, c=[col], edgecolors="white", linewidths=1.2, zorder=2, alpha=0.9)
 
-    # etiquetas con fondo blanco para legibilidad
+    # etiquetas con fondo blanco para legibilidad (tamaño adaptativo)
     if with_labels:
+        # Para grafos pequeños, usar fuente más grande
+        font_size = 11 if n_nodes <= 50 else 9
         for n in fnodes:
             u = n["id"]; x, y = pos[u]
-            ax.text(x, y, _truncate(u, 25), fontsize=9, ha="center", va="center", 
+            ax.text(x, y, _truncate(u, 30), fontsize=font_size, ha="center", va="center", 
                     color="black", weight="medium", zorder=3,
-                    bbox=dict(boxstyle="round,pad=0.4", facecolor="white", 
-                             edgecolor="gray", linewidth=0.3, alpha=0.88))
+                    bbox=dict(boxstyle="round,pad=0.5", facecolor="white", 
+                             edgecolor="gray", linewidth=0.4, alpha=0.90))
 
     ax.axis("off"); plt.tight_layout(); out_png.parent.mkdir(parents=True, exist_ok=True)
     plt.savefig(out_png, dpi=dpi, bbox_inches="tight"); plt.close()
