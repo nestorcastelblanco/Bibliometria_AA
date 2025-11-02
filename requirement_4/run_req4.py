@@ -9,7 +9,7 @@ from requirement_4.similarity_matrix import build_similarity_matrix, similarity_
 from requirement_4.clustering import run_hierarchical_clustering_pretty
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-OUT_DIR = PROJECT_ROOT / "data" / "processed"
+OUT_DIR = PROJECT_ROOT / "requirement_4"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 def _short_text(s: str, n: int = 52) -> str:

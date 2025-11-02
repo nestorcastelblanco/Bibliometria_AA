@@ -8,7 +8,7 @@ from requirement_5.geo import compute_country_counts, plot_world_heatmap
 from requirement_5.wordcloud_gen import make_wordcloud
 from requirement_5.timeline import plot_year_series, plot_journal_series
 
-OUT_DIR = PROJECT_ROOT / "data" / "processed"
+OUT_DIR = PROJECT_ROOT / "requirement_5"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 def run_req5(

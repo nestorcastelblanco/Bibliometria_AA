@@ -19,7 +19,7 @@ from requirement_grafos.visualize import plot_citation_graph
 # Rutas del proyecto
 from requirement_3.data_loader import PROJECT_ROOT, DEFAULT_BIB
 
-OUT_DIR = PROJECT_ROOT / "data" / "processed"
+OUT_DIR = PROJECT_ROOT / "requirement_grafos"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 

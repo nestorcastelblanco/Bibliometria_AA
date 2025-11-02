@@ -10,7 +10,7 @@ from requirement_3.auto_terms import extract_auto_terms
 from requirement_3.evaluate import precision_against_seeds
 from requirement_3.keywords import CATEGORY_NAME, SEED_WORDS
 
-OUT_JSON = PROJECT_ROOT / "data" / "processed" / "req3_resultados.json"
+OUT_JSON = PROJECT_ROOT / "requirement_3" / "req3_resultados.json"
 
 def run_req3(
     bib_path: Path = DEFAULT_BIB,
