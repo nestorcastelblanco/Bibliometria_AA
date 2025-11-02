@@ -29,7 +29,14 @@ def plot_journal_series(df: pd.DataFrame, out_png: Path, top_n: int = 8):
     top = tmp["journal"].value_counts().head(top_n).index.tolist()
     tmp["journal_top"] = tmp["journal"].where(tmp["journal"].isin(top), "Otros")
     piv = tmp.pivot_table(index="year", columns="journal_top", values="title", aggfunc="count").fillna(0)
-    ax = piv.plot(kind="area", stacked=True, figsize=(12,6))
+    
+    fig, ax = plt.subplots(figsize=(14, 6))
+    piv.plot(kind="area", stacked=True, ax=ax)
     ax.set_title("Publicaciones por año y revista (Top {})".format(top_n))
     ax.set_xlabel("Año"); ax.set_ylabel("Cantidad")
-    plt.tight_layout(); plt.savefig(out_png, dpi=220); plt.close()
+    
+    # Mover la leyenda fuera del gráfico (a la derecha)
+    ax.legend(loc='center left', bbox_to_anchor=(1.02, 0.5), 
+              fontsize=8, frameon=True, framealpha=0.9)
+    
+    plt.tight_layout(); plt.savefig(out_png, dpi=220, bbox_inches='tight'); plt.close()

@@ -78,7 +78,6 @@ def plot_world_heatmap(counts: pd.DataFrame, out_png: Path, out_html: Path):
         n_countries = len(counts_plot)
         
         # Ajustar tamaño de figura según cantidad de países
-        # Aproximadamente 0.3 pulgadas por país, mínimo 8
         fig_width = max(16, n_countries * 0.3)
         fig_height = 10
         

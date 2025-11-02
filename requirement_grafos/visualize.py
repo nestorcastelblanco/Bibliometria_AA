@@ -14,7 +14,8 @@ except Exception:
     _HAS_NX = False
 
 
-def _truncate(s: str, n: int = 36) -> str:
+def _truncate(s: str, n: int = 30) -> str:
+    """Trunca el texto a n caracteres, reemplazando saltos de línea por espacios."""
     s = (s or "").strip().replace("\n", " ")
     return s if len(s) <= n else s[: n - 1] + "…"
 
@@ -92,29 +93,41 @@ def plot_citation_graph(
         DG.add_nodes_from([n["id"] for n in fnodes])
         for e in fedges:
             DG.add_edge(e["u"], e["v"], weight=float(e["w"]))
-        pos = nx.spring_layout(DG, seed=seed)
+        # Usar spring_layout con más iteraciones y mayor separación (k)
+        pos = nx.spring_layout(DG, k=2.5, iterations=100, seed=seed, scale=2.0)
     else:
         import numpy as np
         ids = [n["id"] for n in fnodes]
         theta = np.linspace(0, 2*np.pi, len(ids), endpoint=False)
-        pos = {u: (float(math.cos(t)), float(math.sin(t))) for u, t in zip(ids, theta)}
-    plt.figure(figsize=(14, 10)); ax = plt.gca()
-    ax.set_title("Grafo de Citaciones (dirigido)", fontsize=16, fontweight="bold")
+        # Aumentar el radio del círculo para mayor separación
+        pos = {u: (2.0*float(math.cos(t)), 2.0*float(math.sin(t))) for u, t in zip(ids, theta)}
+    plt.figure(figsize=(28, 22)); ax = plt.gca()
+    ax.set_title("Grafo de Citaciones (dirigido)", fontsize=18, fontweight="bold", pad=20)
+    
+    # Dibujar aristas
     for e in fedges:
         u, v, w = e["u"], e["v"], float(e["w"])
         x1, y1 = pos[u]; x2, y2 = pos[v]
         lw = 0.5 + 2.5*(w - min_edge_sim)/(1.0 - min_edge_sim + 1e-6)
         ax.annotate("", xy=(x2, y2), xytext=(x1, y1),
-                    arrowprops=dict(arrowstyle="->", lw=lw, alpha=0.45, color="#64748B"))
+                    arrowprops=dict(arrowstyle="->", lw=lw, alpha=0.3, color="#94A3B8"))
+    
+    # Dibujar nodos
     for n in fnodes:
         u = n["id"]; x, y = pos[u]
         col = node_colors.get(u, (0.3, 0.5, 0.8, 1.0))
         sz = sizes.get(u, 250)
-        ax.scatter([x], [y], s=sz, c=[col], edgecolors="white", linewidths=0.8, zorder=3)
+        ax.scatter([x], [y], s=sz, c=[col], edgecolors="white", linewidths=1.2, zorder=3, alpha=0.9)
+    
+    # Dibujar etiquetas con fondo blanco semitransparente para legibilidad
     if with_labels:
         for n in fnodes:
-            u = n["id"]; ttl = _truncate(n.get("title","")); x, y = pos[u]
-            ax.text(x, y, f"{u}: {ttl}", fontsize=8, ha="center", va="center", color="black")
+            u = n["id"]; ttl = _truncate(n.get("title", ""), 35); x, y = pos[u]
+            ax.text(x, y, f"{u}: {ttl}", fontsize=8, ha="center", va="center", 
+                    color="black", weight="normal",
+                    bbox=dict(boxstyle="round,pad=0.35", facecolor="white", 
+                             edgecolor="gray", linewidth=0.3, alpha=0.85))
+    
     ax.axis("off"); plt.tight_layout(); out_png.parent.mkdir(parents=True, exist_ok=True)
     plt.savefig(out_png, dpi=dpi, bbox_inches="tight"); plt.close()
     return str(out_png)
@@ -163,8 +176,11 @@ def plot_term_graph(
     palette = cm.get_cmap("tab20", max(2, len(comps)))
     node_colors = {n["id"]: palette(comp_index.get(n["id"], 0)) for n in fnodes}
 
-    # tamaños por grado
-    sizes = {u: 220 + 75*math.sqrt(max(1, degree.get(u, 1))) for u in keep}
+    # tamaños por grado (con límite superior para evitar nodos demasiado grandes)
+    # Aumentar tamaño base y factor para mejor visibilidad
+    raw_sizes = {u: 500 + 150*math.sqrt(max(1, degree.get(u, 1))) for u in keep}
+    max_size = 4500  # Límite superior para nodos muy conectados
+    sizes = {u: min(s, max_size) for u, s in raw_sizes.items()}
 
     # construir graph para layout
     if _HAS_NX:
@@ -172,40 +188,44 @@ def plot_term_graph(
         UG.add_nodes_from([n["id"] for n in fnodes])
         for e in fedges:
             UG.add_edge(e["u"], e["v"], weight=float(e["w"]))
-        pos = nx.spring_layout(UG, seed=seed)
+        # Layout con mucha más separación y más iteraciones
+        pos = nx.spring_layout(UG, k=3.0, iterations=150, seed=seed, scale=2.5)
     else:
-        # círculo fallback
+        # círculo fallback con mayor radio
         import numpy as np
         ids = [n["id"] for n in fnodes]
         theta = np.linspace(0, 2*np.pi, len(ids), endpoint=False)
-        pos = {u: (float(math.cos(t)), float(math.sin(t))) for u, t in zip(ids, theta)}
+        pos = {u: (2.5*float(math.cos(t)), 2.5*float(math.sin(t))) for u, t in zip(ids, theta)}
 
-    # dibujar
-    plt.figure(figsize=(14, 10)); ax = plt.gca()
-    ax.set_title("Grafo de Co-ocurrencia de Términos (no dirigido)", fontsize=16, fontweight="bold")
+    # dibujar - figura más grande
+    plt.figure(figsize=(30, 24)); ax = plt.gca()
+    ax.set_title("Grafo de Co-ocurrencia de Términos (no dirigido)", fontsize=20, fontweight="bold", pad=20)
 
-    # aristas con grosor según co-ocurrencia
+    # aristas con grosor según co-ocurrencia (más visibles)
     wmin = min(int(e["w"]) for e in fedges)
     wmax = max(int(e["w"]) for e in fedges)
     for e in fedges:
         u, v, w = e["u"], e["v"], int(e["w"])
         x1, y1 = pos[u]; x2, y2 = pos[v]
         # normalizar grosor
-        lw = 0.5 + 3.0 * ((w - wmin) / (max(1, wmax - wmin)))
-        ax.plot([x1, x2], [y1, y2], color="#94A3B8", lw=lw, alpha=0.6, zorder=1)
+        lw = 0.4 + 1.8 * ((w - wmin) / (max(1, wmax - wmin)))
+        ax.plot([x1, x2], [y1, y2], color="#94A3B8", lw=lw, alpha=0.45, zorder=1)
 
-    # nodos
+    # nodos con mejor contraste
     for n in fnodes:
         u = n["id"]; x, y = pos[u]
         col = node_colors.get(u, (0.3, 0.5, 0.8, 1.0))
         sz = sizes.get(u, 220)
-        ax.scatter([x], [y], s=sz, c=[col], edgecolors="white", linewidths=0.8, zorder=2)
+        ax.scatter([x], [y], s=sz, c=[col], edgecolors="white", linewidths=1.2, zorder=2, alpha=0.9)
 
-    # etiquetas
+    # etiquetas con fondo blanco para legibilidad
     if with_labels:
         for n in fnodes:
             u = n["id"]; x, y = pos[u]
-            ax.text(x, y, _truncate(u, 20), fontsize=9, ha="center", va="center", color="black", zorder=3)
+            ax.text(x, y, _truncate(u, 25), fontsize=9, ha="center", va="center", 
+                    color="black", weight="medium", zorder=3,
+                    bbox=dict(boxstyle="round,pad=0.4", facecolor="white", 
+                             edgecolor="gray", linewidth=0.3, alpha=0.88))
 
     ax.axis("off"); plt.tight_layout(); out_png.parent.mkdir(parents=True, exist_ok=True)
     plt.savefig(out_png, dpi=dpi, bbox_inches="tight"); plt.close()
