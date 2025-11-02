@@ -183,12 +183,8 @@ def plot_term_graph(
     sizes = {u: min(s, max_size) for u, s in raw_sizes.items()}
 
     # construir graph para layout
-    # Para grafos pequeños (<50 nodos), usar layouts más espaciados
     n_nodes = len(fnodes)
-    if n_nodes <= 50:
-        fig_width, fig_height = 40, 32
-    else:
-        fig_width, fig_height = 30, 24
+    fig_width, fig_height = 32, 24
     
     if _HAS_NX:
         UG = nx.Graph()
@@ -196,24 +192,38 @@ def plot_term_graph(
         for e in fedges:
             UG.add_edge(e["u"], e["v"], weight=float(e["w"]))
         
-        # Para grafos pequeños, usar kamada_kawai (mejor distribución) o spring con parámetros optimizados
+        # Para grafos pequeños, usar circular shell layout organizado por grado
         if n_nodes <= 50:
-            try:
-                # Kamada-Kawai produce layouts más uniformes
-                pos = nx.kamada_kawai_layout(UG, scale=5.0)
-            except:
-                # Fallback a spring con parámetros muy espaciados
-                pos = nx.spring_layout(UG, k=8/math.sqrt(n_nodes), iterations=300, seed=seed, scale=5.0)
+            import numpy as np
+            # Ordenar nodos por grado (términos más conectados al centro)
+            node_degrees = [(n["id"], degree.get(n["id"], 0)) for n in fnodes]
+            node_degrees.sort(key=lambda x: -x[1])
+            
+            # Distribuir en círculos concéntricos según grado
+            shells = []
+            # Centro: top 6 nodos más conectados
+            if len(node_degrees) > 6:
+                shells.append([n for n, d in node_degrees[:6]])
+                # Círculo medio: siguientes 14 nodos
+                if len(node_degrees) > 20:
+                    shells.append([n for n, d in node_degrees[6:20]])
+                    # Círculo exterior: resto
+                    shells.append([n for n, d in node_degrees[20:]])
+                else:
+                    shells.append([n for n, d in node_degrees[6:]])
+            else:
+                shells.append([n for n, d in node_degrees])
+            
+            pos = nx.shell_layout(UG, shells, scale=3.0)
         else:
             # Para grafos grandes, usar spring normal
             pos = nx.spring_layout(UG, k=3.0, iterations=150, seed=seed, scale=2.5)
     else:
-        # círculo fallback con mayor radio
+        # círculo fallback
         import numpy as np
         ids = [n["id"] for n in fnodes]
         theta = np.linspace(0, 2*np.pi, len(ids), endpoint=False)
-        scale_factor = 5.0 if n_nodes <= 50 else 2.5
-        pos = {u: (scale_factor*float(math.cos(t)), scale_factor*float(math.sin(t))) for u, t in zip(ids, theta)}
+        pos = {u: (3.0*float(math.cos(t)), 3.0*float(math.sin(t))) for u, t in zip(ids, theta)}
 
     # dibujar - figura con tamaño adaptativo
     plt.figure(figsize=(fig_width, fig_height)); ax = plt.gca()
