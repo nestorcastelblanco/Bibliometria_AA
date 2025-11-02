@@ -35,67 +35,223 @@ def console_summary_citations(
     g: Dict[str, Any],
     sample_src: str | None = None,
     sample_tgt: str | None = None,
-    show_fw: bool = False
+    show_fw: bool = True
 ):
     """Resumen en consola para el grafo de citaciones (dirigido)."""
     nodes = g.get("nodes", [])
     edges = g.get("edges", [])
     adj = g.get("adj", {})
 
-    print("\n==== Grafo de Citaciones (dirigido) ====")
-    print(f"Nodos: {len(nodes)} | Aristas: {len(edges)}")
+    print("\n" + "="*70)
+    print("  REPORTE: GRAFO DE CITACIONES (DIRIGIDO)")
+    print("="*70)
+    
+    # 1. Estructura básica del grafo
+    print("\n[1] ESTRUCTURA DEL GRAFO")
+    print(f"  • Nodos (artículos): {len(nodes)}")
+    print(f"  • Aristas (citaciones): {len(edges)}")
+    if edges:
+        weights = [e['w'] for e in edges]
+        print(f"  • Peso mínimo de arista: {min(weights):.4f}")
+        print(f"  • Peso máximo de arista: {max(weights):.4f}")
+        print(f"  • Peso promedio: {sum(weights)/len(weights):.4f}")
+    
+    # Grado de nodos (entrada y salida)
+    in_degree = {n['id']: 0 for n in nodes}
+    out_degree = {n['id']: 0 for n in nodes}
+    for e in edges:
+        out_degree[e['u']] += 1
+        in_degree[e['v']] += 1
+    
+    max_in = max(in_degree.items(), key=lambda x: x[1])
+    max_out = max(out_degree.items(), key=lambda x: x[1])
+    
+    print(f"\n  • Nodo más citado (grado entrada): {max_in[0]} con {max_in[1]} citas")
+    node_data = next(n for n in nodes if n['id'] == max_in[0])
+    print(f"    Título: {node_data['title'][:60]}...")
+    
+    print(f"  • Nodo que más cita (grado salida): {max_out[0]} con {max_out[1]} citas")
+    node_data = next(n for n in nodes if n['id'] == max_out[0])
+    print(f"    Título: {node_data['title'][:60]}...")
 
-    # SCC (componentes fuertemente conexas)
+    # 2. Componentes fuertemente conexas (SCC)
+    print("\n[2] COMPONENTES FUERTEMENTE CONEXAS (Algoritmo de Kosaraju)")
     scc = strongly_connected_components(adj)
     scc_sorted = sorted(scc, key=len, reverse=True)
-    tops = [len(c) for c in scc_sorted[:5]]
-    print(f"Componentes fuertemente conexas (top 5 por tamaño): {tops}")
+    print(f"  • Total de componentes: {len(scc_sorted)}")
+    print(f"  • Tamaños (top 10): {[len(c) for c in scc_sorted[:10]]}")
+    
+    if scc_sorted[0] and len(scc_sorted[0]) > 1:
+        print(f"  • Componente más grande tiene {len(scc_sorted[0])} nodos:")
+        print(f"    Nodos: {scc_sorted[0][:10]}{'...' if len(scc_sorted[0]) > 10 else ''}")
+    else:
+        print(f"  • No hay ciclos de citación (todas las componentes son de tamaño 1)")
 
-    # Camino mínimo (Dijkstra)
-    if sample_src and sample_tgt and sample_src in adj and sample_tgt in adj:
-        dist, prev = dijkstra(adj, sample_src)
-        path = reconstruct_path(prev, sample_src, sample_tgt)
-        if path:
-            print(f"Camino mínimo (Dijkstra) {sample_src} → {sample_tgt}: {path}  costo={dist[sample_tgt]:.3f}")
-        else:
-            print(f"No hay camino (Dijkstra) entre {sample_src} y {sample_tgt}.")
-
-    # (Opcional) Floyd–Warshall
-    if show_fw and len(nodes) <= 160:  # evitar computación pesada en redes muy grandes
-        print("Ejecutando Floyd–Warshall (todos contra todos)...")
-        dist_fw, nxt_fw = floyd_warshall(adj)
-        # Muestreo de 1 par si no se pasó explícito
-        if not (sample_src and sample_tgt):
-            if len(nodes) >= 2:
-                sample_src = nodes[0]["id"]
-                sample_tgt = nodes[min(1, len(nodes)-1)]["id"]
-        if sample_src and sample_tgt:
-            path_fw = fw_path(nxt_fw, sample_src, sample_tgt)
-            if path_fw:
-                print(f"Camino mínimo (FW) {sample_src} → {sample_tgt}: {path_fw}  costo={dist_fw[(sample_src, sample_tgt)]:.3f}")
+    # 3. Caminos mínimos (Dijkstra)
+    print("\n[3] CAMINOS MÍNIMOS (Algoritmo de Dijkstra)")
+    
+    # Buscar pares conectados para demostrar
+    connected_pairs = []
+    for e in edges[:50]:  # Revisar primeras 50 aristas
+        u, v = e['u'], e['v']
+        dist, prev = dijkstra(adj, u)
+        if dist[v] < float('inf'):
+            connected_pairs.append((u, v, dist[v]))
+        if len(connected_pairs) >= 3:
+            break
+    
+    if connected_pairs:
+        for u, v, cost in connected_pairs[:3]:
+            dist, prev = dijkstra(adj, u)
+            path = reconstruct_path(prev, u, v)
+            node_u = next(n for n in nodes if n['id'] == u)
+            node_v = next(n for n in nodes if n['id'] == v)
+            print(f"  • Camino: {u} → {v}")
+            print(f"    Origen: {node_u['title'][:50]}...")
+            print(f"    Destino: {node_v['title'][:50]}...")
+            print(f"    Ruta: {' → '.join(path)}")
+            print(f"    Costo total: {cost:.4f}")
+    else:
+        print(f"  • No se encontraron caminos conectados (grafo muy disperso)")
+        if sample_src and sample_tgt and sample_src in adj and sample_tgt in adj:
+            dist, prev = dijkstra(adj, sample_src)
+            path = reconstruct_path(prev, sample_src, sample_tgt)
+            if path:
+                print(f"  • Camino {sample_src} → {sample_tgt}: {path}  costo={dist[sample_tgt]:.3f}")
             else:
-                print(f"No hay camino (FW) entre {sample_src} y {sample_tgt}.")
+                print(f"  • No hay camino entre {sample_src} y {sample_tgt}")
 
-    print("========================================\n")
+    # 4. Floyd-Warshall (opcional, solo para grafos pequeños)
+    if show_fw and len(nodes) <= 150:
+        print("\n[4] ANÁLISIS COMPLETO (Algoritmo de Floyd-Warshall)")
+        print(f"  • Ejecutando análisis de todos los pares de nodos...")
+        dist_fw, nxt_fw = floyd_warshall(adj)
+        
+        # Contar pares conectados
+        connected = sum(1 for (i,j) in dist_fw if i != j and dist_fw[(i,j)] < float('inf'))
+        total_pairs = len(nodes) * (len(nodes) - 1)
+        print(f"  • Pares conectados: {connected} de {total_pairs} ({100*connected/total_pairs:.2f}%)")
+        
+        # Encontrar camino más largo
+        max_dist = max(d for (i,j), d in dist_fw.items() if i != j and d < float('inf'))
+        max_pair = [k for k, d in dist_fw.items() if d == max_dist][0]
+        path_longest = fw_path(nxt_fw, max_pair[0], max_pair[1])
+        print(f"  • Camino más largo: {max_pair[0]} → {max_pair[1]}")
+        print(f"    Longitud: {len(path_longest)-1} saltos, costo: {max_dist:.4f}")
+    elif show_fw:
+        print("\n[4] Floyd-Warshall: Omitido (grafo muy grande, >150 nodos)")
+
+    print("\n" + "="*70 + "\n")
 
 
-def console_summary_terms(g: Dict[str, Any], top_k: int = 15):
+def console_summary_terms(g: Dict[str, Any], top_k: int = 20):
     """Resumen en consola para el grafo de términos (no dirigido)."""
     nodes = g.get("nodes", [])
     edges = g.get("edges", [])
     degree = g.get("degree", {})
     comps = g.get("components", [])
 
-    print("\n==== Grafo de Términos (no dirigido) ====")
-    print(f"Nodos: {len(nodes)} | Aristas: {len(edges)}")
-    # Top grados
-    top = sorted(degree.items(), key=lambda x: -x[1])[:top_k]
-    print("Términos con mayor grado:")
-    for t, d in top:
-        print(f"  - {t:25s} grado={d}")
-    sizes = sorted([len(c) for c in comps], reverse=True)[:5]
-    print(f"Componentes conexas (top 5 por tamaño): {sizes}")
-    print("=========================================\n")
+    print("\n" + "="*70)
+    print("  REPORTE: GRAFO DE CO-OCURRENCIA DE TÉRMINOS (NO DIRIGIDO)")
+    print("="*70)
+    
+    # 1. Estructura básica del grafo
+    print("\n[1] CONSTRUCCIÓN DEL GRAFO DE CO-OCURRENCIA")
+    print(f"  • Nodos (términos únicos): {len(nodes)}")
+    print(f"  • Aristas (co-ocurrencias): {len(edges)}")
+    
+    if edges:
+        weights = [e['w'] for e in edges]
+        print(f"  • Co-ocurrencia mínima: {min(weights)} veces")
+        print(f"  • Co-ocurrencia máxima: {max(weights)} veces")
+        print(f"  • Co-ocurrencia promedio: {sum(weights)/len(weights):.2f} veces")
+        print(f"  • Densidad del grafo: {2*len(edges)/(len(nodes)*(len(nodes)-1))*100:.4f}%")
+    
+    # 2. Grado de los nodos (términos más conectados)
+    print(f"\n[2] GRADO DE NODOS - TÉRMINOS MÁS RELACIONADOS")
+    
+    # Recalcular grados desde las aristas para tener datos correctos
+    recalc_degree = {}
+    for e in edges:
+        u, v = e['u'], e['v']
+        recalc_degree[u] = recalc_degree.get(u, 0) + 1
+        recalc_degree[v] = recalc_degree.get(v, 0) + 1
+    
+    # Filtrar términos problemáticos ANTES de ordenar
+    valid_degrees = {t: d for t, d in recalc_degree.items() if len(t) > 2 and t not in ['u', 'v']}
+    
+    if not valid_degrees:
+        print("  ⚠️  No se encontraron términos válidos con conexiones")
+    else:
+        print(f"  Términos con mayor número de conexiones (top {top_k}):\n")
+        
+        top = sorted(valid_degrees.items(), key=lambda x: -x[1])[:top_k]
+        
+        print("  Término                     Grado (conexiones)  % del total")
+        print("  " + "-"*60)
+        max_degree = top[0][1] if top else 1
+        for i, (term, deg) in enumerate(top, 1):
+            pct = (deg / len(edges)) * 100 if edges else 0
+            bar_len = int(30 * deg / max_degree) if max_degree > 0 else 0
+            bar = "█" * bar_len
+            print(f"  {i:2d}. {term:25s} {deg:6d}  ({pct:5.2f}%) {bar}")
+    
+    # Mostrar términos problemáticos si existen
+    problematic = [(t, d) for t, d in recalc_degree.items() if t in ['u', 'v'] or (len(t) <= 2 and d > 1000)]
+    if problematic:
+        print(f"\n  ⚠️  Términos genéricos detectados (artefactos del procesamiento):")
+        for t, d in problematic[:5]:
+            print(f"      '{t}' con grado {d} - posible error de tokenización")
+    
+    # Estadísticas de grado
+    degrees = list(degree.values())
+    if degrees:
+        print(f"\n  Estadísticas de grado:")
+        print(f"  • Grado mínimo: {min(degrees)}")
+        print(f"  • Grado máximo: {max(degrees)}")
+        print(f"  • Grado promedio: {sum(degrees)/len(degrees):.2f}")
+        print(f"  • Grado mediano: {sorted(degrees)[len(degrees)//2]}")
+
+    # 3. Componentes conexas (detección de grupos temáticos)
+    print(f"\n[3] COMPONENTES CONEXAS - GRUPOS DE TÉRMINOS RELACIONADOS")
+    print(f"  Algoritmo: Búsqueda en profundidad (DFS)")
+    print(f"  • Total de componentes: {len(comps)}")
+    
+    sizes = sorted([len(c) for c in comps], reverse=True)
+    print(f"  • Tamaños (top 10): {sizes[:10]}")
+    
+    if comps and len(comps[0]) == len(nodes):
+        print(f"\n  ✓ Todos los términos están interconectados (1 componente gigante)")
+        print(f"    Esto indica una alta cohesión temática en el corpus")
+    elif comps:
+        print(f"\n  • Componente más grande: {len(comps[0])} términos ({len(comps[0])/len(nodes)*100:.1f}% del total)")
+        if len(comps[0]) <= 30:
+            print(f"    Términos: {', '.join(comps[0][:20])}{'...' if len(comps[0]) > 20 else ''}")
+        
+        if len(comps) > 1 and len(comps[1]) > 1:
+            print(f"  • Segunda componente: {len(comps[1])} términos")
+            if len(comps[1]) <= 20:
+                print(f"    Términos: {', '.join(comps[1][:15])}{'...' if len(comps[1]) > 15 else ''}")
+        
+        # Componentes aisladas (temas específicos)
+        isolated = [c for c in comps if len(c) == 1]
+        if isolated:
+            print(f"  • Términos aislados (sin co-ocurrencias): {len(isolated)}")
+            if len(isolated) <= 10:
+                print(f"    Ejemplos: {', '.join([c[0] for c in isolated[:10]])}")
+    
+    # 4. Análisis de aristas (co-ocurrencias más fuertes)
+    if edges:
+        print(f"\n[4] CO-OCURRENCIAS MÁS FUERTES")
+        top_edges = sorted(edges, key=lambda e: e['w'], reverse=True)[:10]
+        print(f"  Top 10 pares de términos que co-ocurren más frecuentemente:\n")
+        print("  Término 1                 Término 2                 Co-ocurrencias")
+        print("  " + "-"*68)
+        for i, e in enumerate(top_edges, 1):
+            t1, t2, w = e['u'], e['v'], e['w']
+            print(f"  {i:2d}. {t1:25s} ↔ {t2:25s} {w:4d} veces")
+    
+    print("\n" + "="*70 + "\n")
 
 
 # --------------------- requerimiento: citaciones ---------------------
