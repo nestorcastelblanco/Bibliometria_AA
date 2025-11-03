@@ -127,11 +127,10 @@ def plot_citation_graph(
                           arrowsize=15, arrowstyle='->', 
                           connectionstyle='arc3,rad=0.1', min_source_margin=15, min_target_margin=15)
     
-    # Dibujar etiquetas de peso en las aristas
+    # Dibujar etiquetas de peso en las aristas (sin caja de fondo)
     edge_labels = {(u, v): f"{edge_weights[(u, v)]:.2f}" for (u, v) in G.edges()}
-    nx.draw_networkx_edge_labels(G, pos, edge_labels, font_size=7, 
-                                  bbox=dict(boxstyle="round,pad=0.2", facecolor="white", 
-                                           edgecolor="none", alpha=0.7), ax=ax)
+    nx.draw_networkx_edge_labels(G, pos, edge_labels, font_size=8, 
+                                  font_color="#555555", ax=ax)
     
     # Dibujar nodos
     node_color_list = [node_colors.get(n, (0.3, 0.5, 0.8, 1.0)) for n in G.nodes()]
