@@ -1,4 +1,16 @@
-# requirement_grafos/run_grafos.py
+"""
+Módulo principal para ejecución de requerimientos de grafos bibliométricos.
+
+Orquesta la construcción, análisis algorítmico, visualización y reporte de:
+1. Grafo de citaciones (dirigido): Relaciones de citación entre artículos
+2. Grafo de términos (no dirigido): Co-ocurrencia de términos técnicos
+
+Incluye implementaciones de algoritmos clásicos:
+- Dijkstra: Caminos más cortos desde un origen
+- Floyd-Warshall: Caminos más cortos entre todos los pares
+- Kosaraju: Componentes fuertemente conexas (SCC)
+- DFS: Componentes conexas en grafos no dirigidos
+"""
 from __future__ import annotations
 import json
 from pathlib import Path
@@ -19,12 +31,30 @@ from requirement_grafos.visualize import plot_citation_graph
 # Rutas del proyecto
 from requirement_3.data_loader import PROJECT_ROOT, DEFAULT_BIB
 
+# Directorio de salida para todos los archivos generados
 OUT_DIR = PROJECT_ROOT / "requirement_grafos"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
-# ------------------------- utilidades -------------------------
+# ==================== UTILIDADES ==================== #
+
 def save_json(obj: Dict[str, Any], path: Path) -> str:
+    """
+    Guarda un diccionario como archivo JSON con formato legible.
+    
+    Args:
+        obj (Dict): Diccionario a serializar
+        path (Path): Ruta del archivo JSON de salida
+    
+    Returns:
+        str: Ruta absoluta del archivo guardado
+    
+    Características:
+        - Crea directorios padre si no existen
+        - Codificación UTF-8 para caracteres especiales
+        - Formato indentado (2 espacios) para legibilidad
+        - ensure_ascii=False para preservar caracteres Unicode
+    """
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(obj, f, ensure_ascii=False, indent=2)
@@ -37,7 +67,31 @@ def console_summary_citations(
     sample_tgt: str | None = None,
     show_fw: bool = True
 ):
-    """Resumen en consola para el grafo de citaciones (dirigido)."""
+    """
+    Genera reporte detallado en consola del grafo de citaciones dirigido.
+    
+    Muestra estadísticas estructurales, componentes fuertemente conexas,
+    y ejemplos de caminos más cortos usando Dijkstra y opcionalmente
+    Floyd-Warshall.
+    
+    Args:
+        g (Dict): Grafo generado por build_citation_graph()
+        sample_src (str | None): Nodo origen para ejemplo de Dijkstra
+        sample_tgt (str | None): Nodo destino para ejemplo de Dijkstra
+        show_fw (bool): Si True, ejecuta y muestra Floyd-Warshall
+                       (advertencia: O(V³), lento para grafos grandes)
+    
+    Secciones del reporte:
+        1. Estructura del grafo: nodos, aristas, pesos, grados
+        2. Componentes fuertemente conexas (Kosaraju)
+        3. Caminos mínimos (Dijkstra con ejemplos)
+        4. Opcional: Todos los pares (Floyd-Warshall)
+    
+    Notas:
+        - SCCs de tamaño 1 indican ausencia de ciclos de citación
+        - Los ejemplos de Dijkstra son seleccionados automáticamente
+        - Floyd-Warshall solo para grafos pequeños (<100 nodos)
+    """
     nodes = g.get("nodes", [])
     edges = g.get("edges", [])
     adj = g.get("adj", {})
@@ -145,7 +199,34 @@ def console_summary_citations(
 
 
 def console_summary_terms(g: Dict[str, Any], top_k: int = 20):
-    """Resumen en consola para el grafo de términos (no dirigido)."""
+    """
+    Genera reporte detallado en consola del grafo de términos no dirigido.
+    
+    Muestra estadísticas de co-ocurrencia, términos más conectados,
+    componentes conexas, y pares de términos con mayor co-ocurrencia.
+    
+    Args:
+        g (Dict): Grafo generado por build_term_graph() con claves:
+                 'nodes', 'edges', 'degree', 'components'
+        top_k (int): Número de términos/pares a mostrar en rankings (default 20)
+    
+    Secciones del reporte:
+        1. Construcción del grafo: nodos, aristas, co-ocurrencias, densidad
+        2. Grado de nodos: términos más relacionados con otros
+        3. Componentes conexas: grupos de términos interconectados
+        4. Co-ocurrencias más fuertes: pares de términos frecuentes
+    
+    Características:
+        - Filtra términos problemáticos (letras sueltas, tokens muy cortos)
+        - Muestra barras de progreso visuales para grados
+        - Identifica términos aislados (sin conexiones)
+        - Detecta componente gigante del grafo
+    
+    Notas:
+        - Densidad alta (>30%) indica vocabulario muy cohesionado
+        - Múltiples componentes sugieren temas desconectados
+        - Términos aislados suelen ser frases compuestas tokenizadas
+    """
     nodes = g.get("nodes", [])
     edges = g.get("edges", [])
     degree = g.get("degree", {})
@@ -254,7 +335,8 @@ def console_summary_terms(g: Dict[str, Any], top_k: int = 20):
     print("\n" + "="*70 + "\n")
 
 
-# --------------------- requerimiento: citaciones ---------------------
+# ==================== REQUERIMIENTO 1: CITACIONES ==================== #
+
 def run_req_grafos_citas(
     bib: Path = DEFAULT_BIB,
     min_sim: float = 0.35,
@@ -264,11 +346,45 @@ def run_req_grafos_citas(
     show_fw: bool = False
 ) -> Dict[str, Any]:
     """
-    Construye el grafo de citaciones dirigido e imprime métricas.
-    - min_sim: umbral de similitud TF-IDF (título+keywords+autores) para inferir aristas
-    - plot: si True, genera PNG del grafo
-    - max_nodes: máximo de nodos a dibujar (top por grado) para legibilidad
-    - min_edge_sim: umbral de similitud para dibujar aristas en la imagen
+    Ejecuta el Requerimiento 1: Grafo de citaciones dirigido.
+    
+    Flujo completo de construcción, análisis algorítmico y visualización
+    del grafo de citaciones. Incluye:
+    - Construcción del grafo basado en similitud TF-IDF
+    - Cálculo de caminos más cortos (Dijkstra y opcionalmente Floyd-Warshall)
+    - Detección de componentes fuertemente conexas (Kosaraju)
+    - Generación de reporte en consola
+    - Visualización PNG de alta calidad
+    
+    Args:
+        bib (Path): Ruta al archivo BibTeX con los artículos
+        min_sim (float): Umbral de similitud TF-IDF para crear aristas (0.0-1.0).
+                        Valores típicos: 0.30 (liberal) a 0.50 (conservador)
+        plot (bool): Si True, genera imagen PNG del grafo
+        max_nodes (int): Máximo de nodos a visualizar en la imagen.
+                        Si el grafo tiene más, selecciona los más conectados
+        min_edge_sim (float): Umbral para visualizar aristas en la imagen
+                             (puede ser mayor que min_sim para claridad visual)
+        show_fw (bool): Si True, ejecuta Floyd-Warshall (lento para >150 nodos)
+    
+    Returns:
+        Dict[str, Any]: Diccionario con rutas de archivos generados:
+            - 'json': Ruta al archivo JSON con estructura del grafo
+            - 'png': Ruta a la imagen PNG (o string vacío si plot=False)
+    
+    Archivos generados:
+        - requirement_grafos/grafos_citaciones.json: Estructura completa del grafo
+        - requirement_grafos/grafos_citaciones.png: Visualización del grafo
+    
+    Ejemplo de uso:
+        >>> result = run_req_grafos_citas(min_sim=0.35, max_nodes=100)
+        >>> print(result['png'])
+        '/path/to/grafos_citaciones.png'
+    
+    Notas:
+        - min_sim bajo (0.30): Más aristas, grafo más denso
+        - min_sim alto (0.50): Menos aristas, relaciones más fuertes
+        - Floyd-Warshall es O(V³), solo para grafos pequeños
     """
     g = build_citation_graph(bib_path=bib, min_sim=min_sim, use_explicit=True)
 
@@ -295,7 +411,8 @@ def run_req_grafos_citas(
     return {"json": str(out_json), "png": out_img or ""}
 
 
-# ---------------------- requerimiento: términos ----------------------
+# ==================== REQUERIMIENTO 2: TÉRMINOS ==================== #
+
 def run_req_grafos_terminos(
     bib: Path = DEFAULT_BIB,
     terms_path: Path | None = None,
@@ -307,6 +424,52 @@ def run_req_grafos_terminos(
     max_nodes: int = 150,
     min_edge_w: int = 2
 ) -> Dict[str, Any]:
+    """
+    Ejecuta el Requerimiento 2: Grafo de co-ocurrencia de términos no dirigido.
+    
+    Flujo completo de construcción, análisis y visualización del grafo de
+    términos técnicos. Incluye:
+    - Construcción del grafo de co-ocurrencia con ventanas deslizantes
+    - Cálculo de grados y componentes conexas (DFS)
+    - Generación de reporte en consola con rankings
+    - Visualización PNG con layout de círculos concéntricos
+    
+    Args:
+        bib (Path): Ruta al archivo BibTeX con los artículos
+        terms_path (Path | None): Ruta a archivo JSON/TXT con términos candidatos.
+                                  Si es None, usa todos los términos frecuentes del corpus
+        min_df (int): Frecuencia mínima de documento para incluir término
+                     (solo aplica si terms_path es None)
+        window (int): Tamaño de la ventana deslizante en tokens para detectar
+                     co-ocurrencias. Valores típicos: 20-50
+        min_cooc (int): Co-ocurrencias mínimas para crear arista
+        top_k_print (int): Número de términos/pares a mostrar en rankings
+        plot (bool): Si True, genera imagen PNG del grafo
+        max_nodes (int): Máximo de nodos a visualizar en la imagen
+        min_edge_w (int): Co-ocurrencias mínimas para visualizar arista
+    
+    Returns:
+        Dict[str, Any]: Diccionario con rutas de archivos generados:
+            - 'json': Ruta al archivo JSON con estructura del grafo
+            - 'png': Ruta a la imagen PNG (o string vacío si plot=False)
+    
+    Archivos generados:
+        - requirement_grafos/grafos_terminos.json: Estructura completa del grafo
+        - requirement_grafos/grafos_terminos.png: Visualización del grafo
+    
+    Ejemplo de uso:
+        >>> # Usando términos específicos del Requerimiento 3
+        >>> terms_file = Path("requirement_3/términos_grafos.json")
+        >>> result = run_req_grafos_terminos(terms_path=terms_file, window=30)
+        >>> print(result['png'])
+        '/path/to/grafos_terminos.png'
+    
+    Notas:
+        - window pequeño (15-20): Solo términos muy cercanos
+        - window grande (40-50): Relaciones más contextuales
+        - min_cooc=1: Incluye todas las co-ocurrencias (puede ser ruidoso)
+        - terms_path: Preferible usar los 30 términos del Req3
+    """
     # cargar términos candidatos si se pasa archivo
     cand_terms: List[str] | None = None
     if terms_path and terms_path.exists():

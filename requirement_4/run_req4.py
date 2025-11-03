@@ -1,4 +1,16 @@
-# requirement_4/run_req4.py
+"""
+Módulo de orquestación del Requerimiento 4: Clustering jerárquico y dendrogramas.
+
+Ejecuta el pipeline completo de clustering de abstracts bibliométricos:
+1. Carga abstracts desde BibTeX
+2. Preprocesa texto (limpieza, tokenización)
+3. Calcula matriz de similitud TF-IDF + coseno
+4. Convierte similitud a distancia
+5. Aplica clustering jerárquico (single/complete/average)
+6. Genera dendrogramas estéticos de alta calidad
+
+Genera archivos PNG individuales para cada método de enlace.
+"""
 from __future__ import annotations
 from pathlib import Path
 from typing import Dict, Any, List
@@ -8,12 +20,31 @@ from requirement_4.preprocess import preprocess_corpus
 from requirement_4.similarity_matrix import build_similarity_matrix, similarity_to_distance
 from requirement_4.clustering import run_hierarchical_clustering_pretty
 
+# Configuración de directorios
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = PROJECT_ROOT / "requirement_4"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 def _short_text(s: str, n: int = 52) -> str:
-    """Trunca texto para etiquetas amigables en dendrograma."""
+    """
+    Trunca texto para etiquetas amigables en dendrograma.
+    
+    Args:
+        s (str): Texto a truncar (típicamente título de paper)
+        n (int, optional): Longitud máxima. Default: 52
+    
+    Returns:
+        str: Texto truncado con '…' si excede longitud
+    
+    Example:
+        >>> _short_text("A comprehensive study of machine learning algorithms", 30)
+        'A comprehensive study of mac…'
+    
+    Notas:
+        - Similar a _truncate de clustering.py pero con default 52
+        - Elimina saltos de línea para etiquetas compactas
+        - Usado para generar etiquetas "A0 — título truncado"
+    """
     s = (s or "").strip().replace("\n", " ")
     return s if len(s) <= n else s[: n - 1] + "…"
 
@@ -26,23 +57,80 @@ def run_req4(
     leaf_font_size: int = 9,
 ) -> Dict[str, Any]:
     """
-    Requerimiento 4:
-      - Preprocesa abstracts
-      - Calcula similitud (TF-IDF + coseno)
-      - Convierte a distancia
-      - Aplica clustering jerárquico (single/complete/average)
-      - Genera dendrogramas estéticos en data/processed/
-
-    Devuelve un dict con info básica (por si quieres inspeccionar en tests).
+    Ejecuta pipeline completo del Requerimiento 4: clustering jerárquico de abstracts.
+    
+    Proceso de 5 etapas principales:
+    1. Carga abstracts desde BibTeX (con submuestreo opcional)
+    2. Preprocesamiento de texto
+    3. Construcción de matriz de similitud/distancia
+    4. Clustering jerárquico con múltiples métodos
+    5. Generación de dendrogramas PNG de alta calidad
+    
+    Args:
+        bib_path (Path, optional): Ruta al archivo BibTeX. Default: DEFAULT_BIB
+        n_samples (int, optional): Número máximo de abstracts a procesar (submuestreo).
+            Default: 25. Útil para visualización legible
+        methods (List[str] | None, optional): Métodos de enlace a comparar.
+            Default: None → ['single', 'complete', 'average']
+        use_titles_as_labels (bool, optional): Si True, etiquetas son "A0 — título truncado".
+            Si False, solo "A0", "A1", etc. Default: True
+        color_threshold (float | None, optional): Umbral de distancia para colorear clusters.
+            None → usa 70% del máximo. Default: None
+        leaf_font_size (int, optional): Tamaño de fuente de etiquetas de hojas. Default: 9
+    
+    Returns:
+        dict: Resultados por método, con keys = método ('single', 'complete', 'average')
+            Cada valor es dict con:
+                - png: Ruta al archivo PNG generado
+                - color_threshold: Umbral usado para colorear
+                - leaf_order: Orden de hojas en dendrograma
+    
+    Example:
+        >>> results = run_req4(
+        ...     bib_path=Path("data/refs.bib"),
+        ...     n_samples=30,
+        ...     methods=["average", "complete"],
+        ...     use_titles_as_labels=True
+        ... )
+        >>> results.keys()
+        dict_keys(['average', 'complete'])
+        >>> results['average']['png']
+        '/path/to/requirement_4/dendrogram_average.png'
+    
+    Métodos de enlace comparados:
+        - 'single': Enlace simple (distancia mínima entre clusters)
+            * Ventajas: Detecta cadenas de documentos similares
+            * Desventajas: Sensible a ruido, puede formar clusters alargados
+        
+        - 'complete': Enlace completo (distancia máxima entre clusters)
+            * Ventajas: Forma clusters compactos y bien separados
+            * Desventajas: Sensible a outliers
+        
+        - 'average': Enlace promedio (distancia media entre clusters)
+            * Ventajas: Balanceado, robusto, recomendado para mayoría de casos
+            * Desventajas: Computacionalmente más costoso
+    
+    Archivos generados:
+        - requirement_4/dendrogram_single.png: Dendrograma con enlace simple
+        - requirement_4/dendrogram_complete.png: Dendrograma con enlace completo
+        - requirement_4/dendrogram_average.png: Dendrograma con enlace promedio
+    
+    Notas:
+        - n_samples recomendado: 15-30 para dendrogramas legibles
+        - TF-IDF usa stop_words='english' para abstracts en inglés
+        - Similitud coseno → distancia: dist = 1 - sim
+        - color_threshold automático: 70% del máximo (regla empírica efectiva)
+        - Títulos largos se truncan a max_label_len caracteres
+        - Alta resolución: DPI 240 para publicaciones
     """
     print("[RUN] Requerimiento 4 – Clustering jerárquico de abstracts")
 
-    # 1) Cargar abstracts desde .bib
+    # ========== ETAPA 1: Cargar abstracts desde BibTeX ==========
     df = load_bib_dataframe(bib_path)
     abstracts_all = [str(x) for x in df["abstract"].tolist() if isinstance(x, str)]
     titles_all    = [str(x) for x in df["title"].tolist()]
 
-    # Submuestreo simple para visualización rápida
+    # Submuestreo para visualización legible
     if len(abstracts_all) > n_samples:
         abstracts = abstracts_all[:n_samples]
         titles    = titles_all[:n_samples]
@@ -51,47 +139,57 @@ def run_req4(
         abstracts = abstracts_all
         titles    = titles_all
 
-    # 2) Preprocesamiento
+    # ========== ETAPA 2: Preprocesamiento de texto ==========
     corpus_clean = preprocess_corpus(abstracts)
 
-    # 3) Similitud (TF-IDF + coseno) y distancia (1 - cos)
+    # ========== ETAPA 3: Matriz de similitud y distancia ==========
+    # TF-IDF + similitud coseno
     sim = build_similarity_matrix(corpus_clean)
+    # Convertir a distancia (1 - similitud)
     dist = similarity_to_distance(sim)
 
-    # 4) Etiquetas
+    # ========== ETAPA 4: Preparar etiquetas ==========
     if use_titles_as_labels:
+        # Etiquetas con títulos truncados: "A0 — título..."
         labels = [f"A{i} — {_short_text(t)}" for i, t in enumerate(titles)]
-        left_margin = 0.32  # deja margen extra para títulos
+        left_margin = 0.32  # Margen extra para títulos largos
         max_label_len = 52
     else:
+        # Etiquetas simples: "A0", "A1", ...
         labels = [f"A{i}" for i in range(len(abstracts))]
         left_margin = 0.22
         max_label_len = 42
 
-    # 5) Métodos a comparar
+    # ========== ETAPA 5: Clustering y dendrogramas ==========
+    # Métodos a comparar
     if methods is None:
         methods = ["single", "complete", "average"]
 
     results: Dict[str, Any] = {}
+    
+    # Generar dendrograma para cada método
     for m in methods:
         out_file = OUT_DIR / f"dendrogram_{m}.png"
         print(f"[RUN] Dendrograma → método: {m}")
+        
         info = run_hierarchical_clustering_pretty(
             distance_matrix=dist,
             labels=labels,
             method=m,
             title=f"Dendrograma — Método: {m}",
             out_file=str(out_file),
-            color_threshold=color_threshold,   # None ⇒ 70% del máximo
+            color_threshold=color_threshold,   # None → 70% del máximo
             leaf_font_size=leaf_font_size,
             left_margin=left_margin,
             annotate_dist_axis=True,
             max_label_len=max_label_len,
         )
+        
+        # Guardar información del clustering
         results[m] = {
             "png": str(out_file),
             "color_threshold": info["color_threshold"],
-            "leaf_order": info["order"],  # índices de hojas en el orden del gráfico
+            "leaf_order": info["order"],  # Índices de hojas en orden del gráfico
         }
 
     print("[OK] Dendrogramas generados en:", OUT_DIR)
@@ -99,17 +197,81 @@ def run_req4(
 
 
 if __name__ == "__main__":
+    """
+    Interfaz de línea de comandos para ejecutar Requerimiento 4.
+    
+    Uso:
+        python -m requirement_4.run_req4 [opciones]
+    
+    Opciones:
+        --bib PATH: Ruta al archivo BibTeX (default: data/processed/biblioteca.bib)
+        --n N: Número de abstracts a procesar (default: 25)
+        --labels {titles|ids}: Tipo de etiquetas (default: titles)
+        --thr FLOAT: Umbral de color para clusters (default: None = auto 70%)
+        --font N: Tamaño de fuente de etiquetas (default: 9)
+        --methods LIST: Métodos separados por coma (default: single,complete,average)
+    
+    Examples:
+        # Ejecución básica con defaults
+        $ python -m requirement_4.run_req4
+        
+        # 30 abstracts con solo IDs como etiquetas
+        $ python -m requirement_4.run_req4 --n 30 --labels ids
+        
+        # Solo método average con umbral 0.5
+        $ python -m requirement_4.run_req4 --methods average --thr 0.5
+        
+        # Fuente grande y 15 abstracts
+        $ python -m requirement_4.run_req4 --n 15 --font 11
+    """
     import argparse
-    ap = argparse.ArgumentParser(description="Requerimiento 4: Clustering jerárquico y dendrogramas estéticos.")
-    ap.add_argument("--bib", type=str, default=str(DEFAULT_BIB), help="Ruta al archivo .bib")
-    ap.add_argument("--n", type=int, default=25, help="Número de abstracts a agrupar (p.ej. 25)")
-    ap.add_argument("--labels", choices=["titles", "ids"], default="titles", help="Etiquetas en hojas: títulos truncados o solo IDs")
-    ap.add_argument("--thr", type=float, default=None, help="Umbral de color para clusters (None = 70% del máximo)")
-    ap.add_argument("--font", type=int, default=9, help="Tamaño de fuente de las hojas")
-    ap.add_argument("--methods", type=str, default="single,complete,average", help="Métodos separados por coma")
+    
+    ap = argparse.ArgumentParser(
+        description="Requerimiento 4: Clustering jerárquico y dendrogramas estéticos."
+    )
+    ap.add_argument(
+        "--bib", 
+        type=str, 
+        default=str(DEFAULT_BIB), 
+        help="Ruta al archivo .bib de entrada"
+    )
+    ap.add_argument(
+        "--n", 
+        type=int, 
+        default=25, 
+        help="Número de abstracts a agrupar (recomendado: 15-30 para legibilidad)"
+    )
+    ap.add_argument(
+        "--labels", 
+        choices=["titles", "ids"], 
+        default="titles", 
+        help="Tipo de etiquetas: 'titles' (A0 — título...) o 'ids' (A0, A1, ...)"
+    )
+    ap.add_argument(
+        "--thr", 
+        type=float, 
+        default=None, 
+        help="Umbral de distancia para colorear clusters (None = auto 70%% del máximo)"
+    )
+    ap.add_argument(
+        "--font", 
+        type=int, 
+        default=9, 
+        help="Tamaño de fuente de etiquetas de hojas"
+    )
+    ap.add_argument(
+        "--methods", 
+        type=str, 
+        default="single,complete,average", 
+        help="Métodos de enlace separados por coma (single, complete, average, ward)"
+    )
 
     args = ap.parse_args()
+    
+    # Parsear lista de métodos
     methods = [m.strip() for m in args.methods.split(",") if m.strip()]
+    
+    # Ejecutar pipeline completo
     run_req4(
         bib_path=Path(args.bib),
         n_samples=args.n,

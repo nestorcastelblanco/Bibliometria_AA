@@ -1,9 +1,53 @@
+"""
+Módulo de explicaciones pedagógicas de algoritmos de similitud.
+
+Provee descripciones paso a paso y documentación educativa de cómo
+funcionan los algoritmos de similitud implementados en el proyecto.
+
+Funcionalidades:
+- Explicaciones en texto plano de cada algoritmo
+- Generación de apéndice Markdown para reportes
+- Descripciones de fórmulas y procesos
+
+Parte del Requerimiento 2: Documentación y explicación de algoritmos.
+"""
 # requirement_2/explainers.py
 from __future__ import annotations
 from typing import Dict, List
 
 def algorithm_explanations() -> Dict[str, List[str]]:
-    """Devuelve explicaciones paso a paso por algoritmo (texto simple)."""
+    """
+    Retorna explicaciones paso a paso de algoritmos de similitud.
+    
+    Provee descripciones educativas en texto plano de cómo cada algoritmo
+    calcula similitud, sus fórmulas principales y características clave.
+    
+    Returns:
+        Dict[str, List[str]]: Diccionario {nombre_algoritmo: [pasos]}
+                             Cada lista contiene strings con pasos del proceso
+    
+    Algoritmos explicados:
+        - Levenshtein (normalizada)
+        - Damerau–Levenshtein (normalizada)
+        - Jaccard (tokens)
+        - Coseno (TF-IDF)
+        - SBERT (coseno)
+        - GTE (coseno)
+    
+    Example:
+        >>> expl = algorithm_explanations()
+        >>> for step in expl["Jaccard (tokens)"]:
+        ...     print(step)
+        Convierte cada texto a un conjunto de palabras (tokens)...
+        Calcula |A∩B|/|A∪B| en [0,1]...
+        Mide traslape del vocabulario...
+    
+    Notas:
+        - Explicaciones orientadas a usuarios no técnicos
+        - Cada paso es autocontenido y comprensible
+        - Útil para reportes, documentación y educación
+        - Se usa en appendix_markdown() para reportes
+    """
     return {
         "Levenshtein (normalizada)": [
             "Mide la distancia de edición mínima entre dos textos (insertar, borrar, sustituir).",
@@ -38,7 +82,44 @@ def algorithm_explanations() -> Dict[str, List[str]]:
     }
 
 def appendix_markdown() -> str:
-    """Bloque Markdown con la explicación completa (resumen amigable)."""
+    """
+    Genera apéndice Markdown con explicaciones de todos los algoritmos.
+    
+    Construye sección de documentación formateada en Markdown explicando
+    cómo funciona cada algoritmo de similitud implementado.
+    
+    Returns:
+        str: Texto Markdown con sección "## Apéndice" completa
+    
+    Estructura del output:
+        ## Apéndice — ¿Cómo se calculan las similitudes?
+        
+        ### Levenshtein (normalizada)
+        - paso 1
+        - paso 2
+        ...
+        
+        ### Damerau–Levenshtein (normalizada)
+        - paso 1
+        ...
+    
+    Example:
+        >>> md = appendix_markdown()
+        >>> print(md[:100])
+        ## Apéndice — ¿Cómo se calculan las similitudes?
+        
+        ### Levenshtein (normalizada)...
+    
+    Uso:
+        Se incluye al final de reportes Markdown generados por reports.py
+        para proveer contexto educativo sobre los algoritmos usados.
+    
+    Notas:
+        - Orden de algoritmos predefinido (clásicos primero, IA después)
+        - Formato Markdown compatible con GitHub, Jupyter, HTML
+        - Bullets (−) para pasos individuales
+        - Líneas en blanco entre secciones para legibilidad
+    """
     parts = []
     parts.append("## Apéndice — ¿Cómo se calculan las similitudes?\n")
     expl = algorithm_explanations()

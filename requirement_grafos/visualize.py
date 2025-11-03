@@ -1,4 +1,9 @@
-# requirement_grafos/visualize.py
+"""
+Módulo para visualización de grafos bibliométricos.
+
+Genera imágenes PNG de alta calidad para grafos de citaciones (dirigidos) y
+grafos de co-ocurrencia de términos (no dirigidos) usando matplotlib y NetworkX.
+"""
 from __future__ import annotations
 from pathlib import Path
 from typing import Dict, Any, List, Tuple
@@ -6,7 +11,7 @@ import math
 import matplotlib.pyplot as plt
 from matplotlib import cm
 
-# networkx es opcional (layout más bonito)
+# networkx es opcional pero recomendado para mejores layouts
 try:
     import networkx as nx
     _HAS_NX = True
@@ -15,54 +20,153 @@ except Exception:
 
 
 def _truncate(s: str, n: int = 30) -> str:
-    """Trunca el texto a n caracteres, reemplazando saltos de línea por espacios."""
+    """
+    Trunca texto a una longitud máxima para visualización.
+    
+    Limpia saltos de línea y limita la longitud del string, agregando
+    puntos suspensivos si es necesario.
+    
+    Args:
+        s (str): Texto a truncar
+        n (int): Longitud máxima (por defecto 30)
+    
+    Returns:
+        str: Texto truncado con '…' al final si fue recortado
+    
+    Example:
+        >>> _truncate("This is a very long title for a paper", 20)
+        'This is a very long…'
+    """
     s = (s or "").strip().replace("\n", " ")
     return s if len(s) <= n else s[: n - 1] + "…"
 
 
-# ------------------ CITATION GRAPH (dirigido) ------------------ #
+# ==================== CITATION GRAPH (dirigido) ==================== #
+
 def _pick_top_nodes(nodes: List[Dict[str, Any]], edges: List[Dict[str, Any]], max_nodes: int) -> List[str]:
+    """
+    Selecciona los nodos más conectados del grafo para visualización.
+    
+    Cuando el grafo es muy grande, es necesario filtrar los nodos más relevantes
+    para evitar una visualización sobrecargada. Este método selecciona los nodos
+    con mayor grado (suma de conexiones entrantes y salientes).
+    
+    Args:
+        nodes (List[Dict]): Lista de nodos del grafo
+        edges (List[Dict]): Lista de aristas con claves 'u' y 'v'
+        max_nodes (int): Número máximo de nodos a seleccionar
+    
+    Returns:
+        List[str]: Lista de IDs de los nodos seleccionados
+    
+    Ejemplo:
+        >>> nodes = [{'id': 'A'}, {'id': 'B'}, {'id': 'C'}]
+        >>> edges = [{'u': 'A', 'v': 'B'}, {'u': 'A', 'v': 'C'}]
+        >>> _pick_top_nodes(nodes, edges, max_nodes=2)
+        ['A', 'B']  # A tiene grado 2, B y C tienen grado 1
+    
+    Algoritmo:
+        1. Calcular grado de cada nodo (número de aristas conectadas)
+        2. Ordenar nodos por grado descendente
+        3. Seleccionar los primeros max_nodes nodos
+    """
+    # Calcular grado de cada nodo (entrantes + salientes)
     deg = {n["id"]: 0 for n in nodes}
     for e in edges:
-        deg[e["u"]] = deg.get(e["u"], 0) + 1
-        deg[e["v"]] = deg.get(e["v"], 0) + 1
+        deg[e["u"]] = deg.get(e["u"], 0) + 1  # Arista saliente
+        deg[e["v"]] = deg.get(e["v"], 0) + 1  # Arista entrante
+    
+    # Ordenar por grado descendente
     ranked = sorted(deg.items(), key=lambda x: -x[1])
+    
+    # Seleccionar top max_nodes nodos
     keep = [u for u, _ in ranked[:max_nodes]]
     return keep
 
 def _colors_by_component(adj: Dict[str, Dict[str, float]], nodes_keep: List[str]) -> Dict[str, Tuple[float,float,float,float]]:
-    # Kosaraju sobre subgrafo (para citaciones)
-    sg = {u: {v:w for v, w in adj.get(u, {}).items() if v in nodes_keep} for u in nodes_keep}
+    """
+    Asigna colores a nodos según su componente fuertemente conexa (SCC).
+    
+    Ejecuta el algoritmo de Kosaraju para encontrar componentes fuertemente conexas
+    en el subgrafo filtrado, y asigna un color único a cada componente. Nodos en
+    la misma SCC se visualizan con el mismo color.
+    
+    Args:
+        adj (Dict): Diccionario de adyacencia del grafo completo
+        nodes_keep (List[str]): IDs de nodos a incluir en la visualización
+    
+    Returns:
+        Dict[str, Tuple[float,float,float,float]]: Diccionario {nodo_id: (r,g,b,a)}
+                                                   con colores RGBA para cada nodo
+    
+    Algoritmo (Kosaraju simplificado):
+        1. Construir subgrafo solo con nodos seleccionados
+        2. Primera DFS en orden de finalización
+        3. Construir grafo transpuesto
+        4. Segunda DFS en orden inverso para encontrar SCCs
+        5. Asignar color único a cada SCC usando paleta tab20
+    
+    Notas:
+        - SCCs de tamaño 1 indican nodos sin ciclos de citación
+        - SCCs grandes indican grupos de papers que se citan mutuamente
+        - Usa paleta 'tab20' de matplotlib (20 colores distintos)
+    """
+    # === PASO 1: Construir subgrafo con nodos seleccionados ===
+    sg = {u: {v: w for v, w in adj.get(u, {}).items() if v in nodes_keep} for u in nodes_keep}
     sys_nodes = list(sg.keys())
-    tr = {u:{} for u in sys_nodes}
+    
+    # === PASO 2: Construir grafo transpuesto ===
+    tr = {u: {} for u in sys_nodes}
     for u in sg:
         for v in sg[u]:
             tr.setdefault(v, {})
             tr[v][u] = sg[u][v]
-    visited = set(); order: List[str] = []
+    
+    # === PASO 3: Primera DFS (orden de finalización) ===
+    visited = set()
+    order: List[str] = []
+    
     def dfs1(u: str):
+        """DFS para registrar orden de finalización."""
         visited.add(u)
         for v in sg[u]:
-            if v not in visited: dfs1(v)
+            if v not in visited: 
+                dfs1(v)
         order.append(u)
+    
     for u in sys_nodes:
-        if u not in visited: dfs1(u)
+        if u not in visited: 
+            dfs1(u)
+    
+    # === PASO 4: Segunda DFS en grafo transpuesto ===
     visited.clear()
     comps: List[List[str]] = []
+    
     def dfs2(u: str, comp: List[str]):
-        visited.add(u); comp.append(u)
+        """DFS para construir componente conexa."""
+        visited.add(u)
+        comp.append(u)
         for v in tr[u]:
-            if v not in visited: dfs2(v, comp)
+            if v not in visited: 
+                dfs2(v, comp)
+    
+    # Procesar en orden inverso de finalización
     for u in reversed(order):
         if u not in visited:
             comp: List[str] = []
-            dfs2(u, comp); comps.append(comp)
+            dfs2(u, comp)
+            comps.append(comp)
+    
+    # === PASO 5: Asignar colores por componente ===
+    # Usar paleta tab20 con al menos 2 colores
     palette = cm.get_cmap("tab20", max(2, len(comps)))
     colors: Dict[str, Tuple[float,float,float,float]] = {}
+    
     for i, comp in enumerate(comps):
-        col = palette(i)
+        col = palette(i)  # Obtener color RGBA para esta componente
         for u in comp:
             colors[u] = col
+    
     return colors
 
 def plot_citation_graph(
@@ -75,6 +179,52 @@ def plot_citation_graph(
     seed: int = 42,
     dpi: int = 240,
 ) -> str:
+    """
+    Genera visualización PNG del grafo de citaciones dirigido.
+    
+    Crea una imagen de alta calidad del grafo de citaciones con:
+    - Flechas indicando dirección de las citas
+    - Colores por componente fuertemente conexa
+    - Tamaño de nodos proporcional al grado
+    - Etiquetas con ID y título truncado
+    - Pesos de aristas visibles sobre las líneas
+    
+    Args:
+        g (Dict): Grafo generado por build_citation_graph() con claves:
+                 'nodes', 'edges', 'adj'
+        out_png (Path): Ruta donde guardar la imagen PNG
+        max_nodes (int): Máximo de nodos a visualizar (default 120).
+                        Si hay más, selecciona los más conectados
+        min_edge_sim (float): Umbral mínimo de similitud para mostrar arista
+                             (default 0.40). Filtra aristas débiles
+        with_labels (bool): Si True, muestra etiquetas con ID y título
+        seed (int): Semilla para layout spring (reproducibilidad)
+        dpi (int): Resolución de la imagen en puntos por pulgada
+    
+    Returns:
+        str: Ruta absoluta del archivo PNG generado
+    
+    Raises:
+        ValueError: Si no quedan aristas después de filtrar por min_edge_sim
+    
+    Proceso de visualización:
+        1. Filtrar aristas por umbral de similitud
+        2. Seleccionar top nodos más conectados (si excede max_nodes)
+        3. Calcular componentes conexas y asignar colores
+        4. Calcular tamaños de nodos según grado
+        5. Generar layout (spring o circular)
+        6. Dibujar aristas con flechas y pesos
+        7. Dibujar nodos con colores y tamaños
+        8. Agregar etiquetas de nodos
+        9. Guardar imagen
+    
+    Características visuales:
+        - Figura: 28x22 pulgadas
+        - Flechas: Estilo '->' con curvas (arc3)
+        - Grosor de arista: Proporcional a peso de similitud
+        - Tamaño de nodo: 200 + 60*√(grado)
+        - Layout: spring_layout con k=2.5, scale=2.0
+    """
     nodes = g["nodes"]; edges = g["edges"]; adj = g["adj"]
     fedges = [e for e in edges if float(e.get("w", 0.0)) >= min_edge_sim]
     if not fedges:
@@ -156,7 +306,8 @@ def plot_citation_graph(
     return str(out_png)
 
 
-# ------------------ TERM GRAPH (no dirigido) ------------------ #
+# ==================== TERM GRAPH (no dirigido) ==================== #
+
 def plot_term_graph(
     g: Dict[str, Any],
     out_png: Path,
@@ -168,10 +319,54 @@ def plot_term_graph(
     dpi: int = 240,
 ) -> str:
     """
-    Dibuja el grafo de co-ocurrencia de términos (no dirigido).
-      - tamaño de nodo: ~ grado
-      - grosor de arista: ~ co-ocurrencia
-      - color de nodo: por componente conexa
+    Genera visualización PNG del grafo de co-ocurrencia de términos no dirigido.
+    
+    Crea una imagen de alta calidad del grafo de términos con:
+    - Aristas sin dirección (grafo no dirigido)
+    - Colores por componente conexa
+    - Tamaño de nodos proporcional al grado (número de co-ocurrencias)
+    - Grosor de aristas proporcional a frecuencia de co-ocurrencia
+    - Layout en círculos concéntricos según conectividad
+    
+    Args:
+        g (Dict): Grafo generado por build_term_graph() con claves:
+                 'nodes', 'edges', 'degree', 'components'
+        out_png (Path): Ruta donde guardar la imagen PNG
+        max_nodes (int): Máximo de nodos a visualizar (default 150).
+                        Si hay más, selecciona los de mayor grado
+        min_edge_w (int): Co-ocurrencia mínima para mostrar arista (default 2).
+                         Filtra relaciones débiles
+        with_labels (bool): Si True, muestra etiquetas con los términos
+        seed (int): Semilla para layout (reproducibilidad)
+        dpi (int): Resolución de la imagen en puntos por pulgada
+    
+    Returns:
+        str: Ruta absoluta del archivo PNG generado
+    
+    Raises:
+        ValueError: Si el grafo no tiene nodos/aristas o no quedan aristas
+                   después de filtrar por min_edge_w
+    
+    Proceso de visualización:
+        1. Filtrar aristas por umbral de co-ocurrencia
+        2. Seleccionar top nodos por grado (si excede max_nodes)
+        3. Calcular componentes conexas y asignar colores
+        4. Calcular tamaños de nodos según grado
+        5. Generar layout en círculos concéntricos (shell)
+        6. Dibujar aristas con grosor proporcional a peso
+        7. Dibujar nodos con colores y tamaños
+        8. Agregar etiquetas de términos
+        9. Guardar imagen
+    
+    Características visuales:
+        - Figura: 32x24 pulgadas
+        - Layout: shell (3 círculos concéntricos)
+          * Centro: términos de mayor grado
+          * Medio: términos de grado moderado
+          * Exterior: términos aislados o bajo grado
+        - Grosor de arista: 0.3 + escala según co-ocurrencia
+        - Tamaño de nodo: 300 + 80*√(grado)
+        - Colores: tab20 por componente conexa
     """
     nodes = g.get("nodes", [])
     edges = g.get("edges", [])

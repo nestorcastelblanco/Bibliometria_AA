@@ -1,3 +1,23 @@
+"""
+Scraper automatizado para descarga de artículos desde ACM Digital Library.
+
+Implementa web scraping con Selenium y undetected-chromedriver para:
+- Realizar búsquedas en ACM Digital Library
+- Navegar por páginas de resultados
+- Seleccionar artículos automáticamente
+- Exportar referencias en formato BibTeX
+- Guardar metadata en CSV
+
+Características:
+- Soporte para sesiones autenticadas (perfil de Chrome)
+- Modo headless para ejecución en background
+- Manejo robusto de elementos dinámicos
+- Descarga directa de BibTeX sin archivos temporales
+- Logs de error para debugging
+- Límite configurable de páginas
+
+Parte del Requerimiento 1: Scraping de bibliografía académica.
+"""
 import os
 import time
 import csv
@@ -10,6 +30,41 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 def get_total_pages(driver, page_size):
+    """
+    Determina el número total de páginas de resultados en ACM.
+    
+    Intenta dos estrategias:
+    1. Leer span.hitsLength con total de resultados
+    2. Buscar números en enlaces de paginación
+    
+    Args:
+        driver: WebDriver de Selenium activo
+        page_size (int): Número de resultados por página
+    
+    Returns:
+        Optional[int]: Número total de páginas (1-indexed) o None si no se puede determinar
+    
+    Estrategia 1 - Cálculo desde total:
+        - Lee elemento span.hitsLength
+        - Extrae número total de artículos
+        - Calcula páginas: ceil(total / page_size)
+    
+    Estrategia 2 - Desde paginación:
+        - Lee enlaces en ul.pagination__list
+        - Extrae números de text, aria-label, title
+        - Retorna el máximo
+    
+    Example:
+        >>> pages = get_total_pages(driver, 50)
+        >>> pages
+        12  # 600 artículos / 50 por página
+    
+    Notas:
+        - Intenta estrategia 1 primero (más confiable)
+        - Fallback a estrategia 2 si falla
+        - Retorna None si ambas fallan
+        - Útil para determinar alcance de scraping
+    """
     """Determina el número total de páginas (1-based)."""
     try:
         hits_elem = driver.find_element(By.CSS_SELECTOR, "span.hitsLength")
@@ -37,6 +92,36 @@ def get_total_pages(driver, page_size):
 
 
 def wait_for_results(driver, timeout=15):
+    """
+    Espera a que carguen los resultados de búsqueda en la página.
+    
+    Prueba múltiples selectores CSS comunes para detectar cuando
+    los resultados están listos para interactuar.
+    
+    Args:
+        driver: WebDriver de Selenium activo
+        timeout (int, optional): Segundos máximos de espera. Default: 15
+    
+    Returns:
+        bool: True si se detectaron resultados, False si timeout
+    
+    Selectores intentados:
+        - "h5.issue-item__title a": Títulos de artículos
+        - "div.search-results": Contenedor de resultados
+        - "section.search-results": Sección de resultados
+    
+    Example:
+        >>> driver.get("https://dl.acm.org/action/doSearch?...")
+        >>> success = wait_for_results(driver, timeout=20)
+        >>> if success:
+        ...     # Procesar resultados
+    
+    Notas:
+        - Intenta cada selector secuencialmente
+        - Retorna True al primer match exitoso
+        - Útil para manejar carga dinámica de JavaScript
+        - Previene errores de elementos no encontrados
+    """
     """Espera a que carguen los resultados de artículos."""
     selectors = [
         "h5.issue-item__title a",
@@ -57,9 +142,95 @@ def wait_for_results(driver, timeout=15):
 def fetch_acm_articles(query, headless=False, user_data_dir=None, profile_dir="Default",
                        output_dir="data/raw/acm", page_size=50, max_pages=100):
     """
-    Automatiza la descarga de artículos de ACM.
-    - Guarda BibTeX y CSV por página.
-    - max_pages=0 descarga todas las páginas detectadas.
+    Automatiza descarga masiva de artículos desde ACM Digital Library.
+    
+    Pipeline completo de scraping:
+    1. Configura Chrome con perfil (para autenticación)
+    2. Realiza búsqueda en ACM con query
+    3. Detecta número total de páginas
+    4. Para cada página:
+       a. Navega a la página
+       b. Selecciona todos los artículos
+       c. Exporta referencias en BibTeX
+       d. Descarga BibTeX desde data:// URI
+       e. Guarda CSV con títulos y enlaces
+    5. Cierra navegador y reporta resultados
+    
+    Args:
+        query (str): Término de búsqueda (ej: "machine learning")
+        headless (bool, optional): Ejecutar sin interfaz gráfica. Default: False
+        user_data_dir (str, optional): Directorio de perfil de Chrome para sesión.
+                                      Útil si requiere autenticación. Default: None
+        profile_dir (str, optional): Nombre del perfil dentro de user_data_dir.
+                                    Default: "Default"
+        output_dir (str, optional): Directorio donde guardar archivos.
+                                   Default: "data/raw/acm"
+        page_size (int, optional): Resultados por página. Default: 50
+        max_pages (int, optional): Máximo de páginas a procesar.
+                                  0 = todas las páginas. Default: 100
+    
+    Archivos generados por página:
+        - ACM_{query}_page{N}.bib: Referencias BibTeX
+        - {query}_page{N}.csv: Tabla con títulos y enlaces
+        - ACM_{query}_page{N}_ERROR.html: Log si falla descarga (debugging)
+    
+    Process detallado:
+        1. Crea directorio de salida si no existe
+        2. Configura ChromeOptions con perfil y headless
+        3. Inicializa undetected_chromedriver
+        4. Construye URL de búsqueda ACM con query encoded
+        5. Navega a página inicial y detecta total de páginas
+        6. Limita a max_pages si es > 0
+        7. Para cada página:
+           - Navega con startPage=(página-1)
+           - Espera carga de resultados
+           - Click en checkbox "marcar todos"
+           - Click en botón "Export Citation"
+           - Espera modal de exportación
+           - Selecciona formato BibTeX en dropdown
+           - Click en botón de descarga
+           - Extrae contenido desde data:// href
+           - Decodifica URL y guarda .bib
+           - Extrae títulos de h5.issue-item__title
+           - Guarda CSV con títulos y enlaces
+        8. Cierra driver en finally
+    
+    Manejo de errores:
+        - Intenta seleccionar todos pero continúa si falla
+        - Si modal no abre, skip página
+        - Si descarga BibTeX falla, guarda HTML para debug
+        - Continúa con siguiente página ante errores
+        - Always ejecuta driver.quit() en finally
+    
+    Example:
+        >>> fetch_acm_articles(
+        ...     query="artificial intelligence",
+        ...     headless=True,
+        ...     output_dir="./downloads/acm",
+        ...     page_size=50,
+        ...     max_pages=5
+        ... )
+        [ACM] Iniciando búsqueda: artificial intelligence
+        [ACM] Se procesarán 5 páginas
+        [ACM] Procesando página 1/5...
+        [ACM] BibTeX guardado: ./downloads/acm/ACM_artificial_intelligence_page1.bib
+        [ACM] CSV guardado: ./downloads/acm/artificial_intelligence_page1.csv
+        ...
+        [ACM] Proceso finalizado.
+    
+    Requisitos:
+        - undetected_chromedriver instalado
+        - Chrome/Chromium instalado
+        - Conexión a internet
+        - Opcionalmente: sesión ACM autenticada (para acceso completo)
+    
+    Notas:
+        - max_pages=0 descarga TODO (puede ser muy largo)
+        - page_size máximo en ACM es típicamente 50-100
+        - user_data_dir útil para mantener sesión entre ejecuciones
+        - Guarda HTML de error para debugging de problemas
+        - Incluye sleeps para evitar rate limiting
+        - Usa JavaScript click para evitar interceptación
     """
     print(f"[ACM] Iniciando búsqueda: {query}")
     os.makedirs(output_dir, exist_ok=True)

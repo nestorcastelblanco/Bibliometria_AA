@@ -13,7 +13,40 @@ DEFAULT_JSON = PROJECT_ROOT / "data" / "processed" / "similitud_req2.json"
 DEFAULT_MD   = PROJECT_ROOT / "data" / "processed" / "reporte_similitud.md"
 DEFAULT_CSV  = PROJECT_ROOT / "data" / "processed" / "reporte_similitud_top.csv"
 
-# Prioridad de “algoritmo principal” si no se especifica --algo
+"""
+Módulo de generación de reportes de similitud en múltiples formatos.
+
+Genera reportes comprehensivos de análisis de similitud textual en:
+- Markdown: Reporte completo con estadísticas, ranking y apéndice explicativo
+- CSV: Tabla de top N pares más similares para análisis externo
+- Consola: Resumen formateado en terminal
+
+Funcionalidades:
+- Selección automática de algoritmo principal
+- Estadísticas descriptivas (media, mediana, min, max)
+- Distribución por rangos de similitud
+- Ranking de pares más similares
+- Comparación multi-algoritmo
+- Apéndice educativo con explicaciones
+
+Parte del Requerimiento 2: Reporting y documentación de resultados.
+"""
+from __future__ import annotations
+import json
+from pathlib import Path
+from typing import Dict, Any, List, Tuple, Optional
+import statistics as stats
+import argparse
+import csv
+from requirement_2.explainers import appendix_markdown
+
+# Rutas robustas
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_JSON = PROJECT_ROOT / "data" / "processed" / "similitud_req2.json"
+DEFAULT_MD   = PROJECT_ROOT / "data" / "processed" / "reporte_similitud.md"
+DEFAULT_CSV  = PROJECT_ROOT / "data" / "processed" / "reporte_similitud_top.csv"
+
+# Prioridad de "algoritmo principal" si no se especifica --algo
 PRIMARY_ORDER = [
     "GTE (coseno)",
     "SBERT (coseno)",
@@ -22,6 +55,15 @@ PRIMARY_ORDER = [
     "Damerau–Levenshtein (normalizada)",
     "Levenshtein (normalizada)",
 ]
+"""
+List[str]: Orden de prioridad para selección de algoritmo principal.
+
+Define qué algoritmo usar cuando el usuario no especifica uno.
+Prioriza embeddings de IA (mayor precisión semántica) sobre clásicos.
+"""
+
+def _pct(x: Optional[float]) -> str:
+    """Formatea decimal como porcentaje con 1 decimal."""
 
 def _pct(x: Optional[float]) -> str:
     if x is None:
@@ -29,12 +71,42 @@ def _pct(x: Optional[float]) -> str:
     return f"{x*100:,.1f}%"
 
 def _read_json(path: Path) -> Dict[str, Any]:
+    """
+    Lee archivo JSON de resultados de similitud.
+    
+    Args:
+        path (Path): Ruta al archivo JSON
+    
+    Returns:
+        Dict[str, Any]: Diccionario con datos cargados
+    
+    Raises:
+        FileNotFoundError: Si el archivo no existe
+    """
     if not path.exists():
         raise FileNotFoundError(f"No se encontró el JSON: {path}")
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 def _detect_primary_algo(results: List[Dict[str, Any]], prefer: Optional[str]) -> str:
+    """
+    Detecta algoritmo principal para reportes según preferencia o auto-selección.
+    
+    Args:
+        results (List[Dict[str, Any]]): Lista de resultados de pares
+        prefer (Optional[str]): Algoritmo preferido por usuario o None
+    
+    Returns:
+        str: Nombre del algoritmo seleccionado
+    
+    Raises:
+        ValueError: Si no se encuentran algoritmos en resultados
+    
+    Estrategia:
+        1. Si prefer existe en resultados: usar ese
+        2. Si no: primer algoritmo de PRIMARY_ORDER presente
+        3. Fallback: primer algoritmo en cualquier resultado
+    """
     # Si el usuario especifica y existe, usarlo
     if prefer:
         # verificar existencia en algún result
@@ -108,6 +180,40 @@ def _safe_get(d: Dict[str, Any], *keys, default: str = "") -> str:
     return str(cur)
 
 def generate_markdown(data: Dict[str, Any], algo: str, top: int, out_md: Path):
+    """
+    Genera reporte completo de similitud en formato Markdown.
+    
+    Crea documento Markdown con:
+    - Encabezado y contexto
+    - Selección de artículos
+    - Estadísticas descriptivas
+    - Distribución por rangos
+    - Top N pares más similares
+    - Comparación multi-algoritmo
+    - Apéndice explicativo
+    
+    Args:
+        data (Dict[str, Any]): Diccionario con resultados completos
+        algo (str): Nombre del algoritmo principal
+        top (int): Cantidad de top pares a incluir
+        out_md (Path): Ruta del archivo Markdown de salida
+    
+    Output estructura:
+        # Reporte de Similitud Textual
+        **Algoritmo principal:** ...
+        
+        ## Selección de artículos
+        ## Estadísticas generales
+        ## Distribución por rangos
+        ## Top N pares por <algoritmo>
+        ## Comparación de algoritmos
+        ## Apéndice — ¿Cómo se calculan las similitudes?
+    
+    Notas:
+        - Crea directorio de salida si no existe
+        - Sobrescribe archivo existente
+        - Formato compatible con GitHub, Jupyter, pandoc
+    """
     selected = data.get("selected", [])
     results = data.get("results", [])
 
@@ -185,6 +291,36 @@ def generate_markdown(data: Dict[str, Any], algo: str, top: int, out_md: Path):
     out_md.write_text("\n".join(md), encoding="utf-8")
 
 def generate_csv_top(data: Dict[str, Any], algo: str, top: int, out_csv: Path):
+    """
+    Genera archivo CSV con top N pares más similares.
+    
+    Exporta tabla con ranking de pares para análisis externo
+    en Excel, R, Python, etc.
+    
+    Args:
+        data (Dict[str, Any]): Diccionario con resultados completos
+        algo (str): Nombre del algoritmo para ordenar
+        top (int): Cantidad de pares a incluir
+        out_csv (Path): Ruta del archivo CSV de salida
+    
+    Columnas CSV:
+        - rank: Posición en ranking (1-based)
+        - i: Índice del primer artículo
+        - j: Índice del segundo artículo
+        - score: Score de similitud (6 decimales)
+        - score_pct: Score como porcentaje formateado
+        - title_i: Título del artículo i
+        - title_j: Título del artículo j
+    
+    Example row:
+        1,0,5,0.856234,85.6%,"Machine Learning Models","Deep Learning..."
+    
+    Notas:
+        - Crea directorio si no existe
+        - Encoding UTF-8 para caracteres especiales
+        - Headers incluidos en primera línea
+        - Formato estándar RFC 4180
+    """
     results = data.get("results", [])
     ranked = _rank(results, algo, min(top, len(results)))
     # columnas
@@ -206,6 +342,29 @@ def generate_csv_top(data: Dict[str, Any], algo: str, top: int, out_csv: Path):
             })
 
 def print_console_summary(data: Dict[str, Any], algo: str, top: int):
+    """
+    Imprime resumen de resultados en consola de forma legible.
+    
+    Args:
+        data (Dict[str, Any]): Diccionario con resultados completos
+        algo (str): Nombre del algoritmo principal
+        top (int): Cantidad de top pares a mostrar
+    
+    Output:
+        === Resumen de Similitud ===
+        Algoritmo principal: <nombre>
+        Artículos seleccionados: [índices]
+        Pares: N | media=X% mediana=X% min=X% max=X%
+        
+        Top N pares por <algoritmo>:
+        1. (i,j) XX.X% | título_i... <> título_j...
+        ...
+    
+    Notas:
+        - Títulos truncados a 60 caracteres para legibilidad
+        - Formato compacto para revisión rápida
+        - Complementa reporte Markdown con vista previa
+    """
     results = data.get("results", [])
     selected = data.get("selected", [])
     vals = _flat_scores_for_algo(results, algo)
@@ -224,6 +383,49 @@ def print_console_summary(data: Dict[str, Any], algo: str, top: int):
         print(f"{idx:>2}. ({r['i']},{r['j']})  {_pct(s)}  |  {r['title_i'][:60]}  <>  {r['title_j'][:60]}")
 
 def main():
+    """
+    Función principal para generación de reportes desde línea de comandos.
+    
+    Coordina generación de reportes en múltiples formatos (Markdown, CSV, consola)
+    a partir de resultados de análisis de similitud.
+    
+    Argumentos CLI:
+        --json: Ruta al JSON de resultados (default: data/processed/similitud_req2.json)
+        --md: Ruta de salida Markdown (default: data/processed/reporte_similitud.md)
+        --csv: Ruta de salida CSV (default: data/processed/reporte_similitud_top.csv)
+        --top: Cantidad de top pares (default: 10)
+        --algo: Algoritmo principal (default: auto-selección)
+    
+    Pipeline:
+        1. Lee JSON de resultados
+        2. Valida presencia de pares
+        3. Detecta/selecciona algoritmo principal
+        4. Imprime resumen en consola
+        5. Genera reporte Markdown completo
+        6. Genera tabla CSV de top pares
+        7. Reporta archivos generados
+    
+    Example:
+        $ python reports.py --algo "GTE (coseno)" --top 15
+        $ python reports.py --json custom.json --md custom.md
+        $ python reports.py  # usa todos los defaults
+    
+    Output:
+        - Resumen en consola inmediato
+        - Archivo Markdown comprehensivo
+        - Archivo CSV para análisis externo
+        - Mensaje de confirmación con rutas
+    
+    Raises:
+        FileNotFoundError: Si JSON de entrada no existe
+        ValueError: Si JSON no contiene resultados válidos
+    
+    Notas:
+        - Todos los argumentos opcionales con defaults razonables
+        - Crea directorios de salida automáticamente
+        - Sobrescribe archivos existentes
+        - Compatible con pipelines automatizados
+    """
     p = argparse.ArgumentParser(description="Genera reporte legible de similitud (porcentajes, ranking y estadísticas).")
     p.add_argument("--json", type=str, default=str(DEFAULT_JSON), help="Ruta al similitud_req2.json")
     p.add_argument("--md", type=str, default=str(DEFAULT_MD), help="Ruta de salida Markdown")
