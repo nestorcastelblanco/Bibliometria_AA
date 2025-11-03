@@ -2,7 +2,14 @@
 Módulo de clustering jerárquico y generación de dendrogramas estéticos.
 
 Implementa clustering aglomerativo con múltiples métodos de enlace
-(single, complete, average, ward) y genera visualizaciones de alta calidad.
+(ward, complete, average) y genera visualizaciones de alta calidad.
+
+Ward requiere tratamiento especial:
+- Reducción SVD de matriz TF-IDF sparse
+- Distancias euclidianas en espacio reducido
+- Minimiza varianza intra-cluster (criterio de Ward)
+
+Complete y Average usan distancia coseno directamente.
 
 Parte del Requerimiento 4: Clustering jerárquico y dendrogramas.
 """
@@ -258,4 +265,151 @@ def run_hierarchical_clustering_pretty(
         "Z": Z,  # Matriz de enlace (linkage matrix)
         "color_threshold": color_threshold,  # Umbral usado
         "order": D.get("leaves", [])  # Orden de hojas en dendrograma
+    }
+
+
+def run_ward_clustering_with_svd(
+    tfidf_matrix,
+    labels: Optional[List[str]] = None,
+    n_components: int = 50,
+    title: Optional[str] = None,
+    out_file: Optional[str] = None,
+    color_threshold: Optional[float] = None,
+    leaf_font_size: int = 9,
+    left_margin: float = 0.25,
+    annotate_dist_axis: bool = True,
+    max_label_len: int = 42,
+) -> Dict[str, Any]:
+    """
+    Ejecuta clustering Ward con reducción SVD para matrices TF-IDF sparse.
+    
+    Ward requiere distancias euclidianas, por lo que primero aplicamos
+    TruncatedSVD para reducir dimensionalidad y obtener representación densa.
+    
+    Proceso de 7 pasos:
+    1. Aplica TruncatedSVD a matriz TF-IDF (reduce dimensión)
+    2. Configura estilo visual matplotlib
+    3. Ejecuta clustering Ward sobre representación reducida
+    4. Calcula umbral de color automático
+    5. Genera dendrograma horizontal con colores
+    6. Aplica estilos y anotaciones
+    7. Guarda PNG de alta resolución
+    
+    Args:
+        tfidf_matrix: Matriz TF-IDF (sparse o densa). Ward requiere euclidiana,
+            así que se reduce con SVD
+        labels (List[str] | None, optional): Etiquetas de hojas
+        n_components (int, optional): Componentes SVD para reducción. Default: 50
+        title (str | None, optional): Título del gráfico
+        out_file (str | None, optional): Ruta de salida PNG
+        color_threshold (float | None, optional): Umbral para colorear clusters
+        leaf_font_size (int, optional): Tamaño de fuente. Default: 9
+        left_margin (float, optional): Margen izquierdo. Default: 0.25
+        annotate_dist_axis (bool, optional): Mostrar grid. Default: True
+        max_label_len (int, optional): Longitud máxima etiquetas. Default: 42
+    
+    Returns:
+        dict: Información del clustering con keys:
+            - Z: Matriz de enlace (linkage matrix)
+            - color_threshold: Umbral usado
+            - order: Orden de hojas en dendrograma
+            - svd: Objeto TruncatedSVD usado
+            - X_reduced: Representación reducida
+    
+    Método Ward:
+        - Minimiza varianza intra-cluster (criterio de Ward)
+        - Forma clusters compactos y balanceados
+        - Requiere distancias euclidianas (no coseno)
+        - Genera dendrogramas con forma más cuadrada/rectangular
+    
+    SVD (Singular Value Decomposition):
+        - Reduce dimensionalidad preservando varianza
+        - TruncatedSVD optimizado para matrices sparse
+        - n_components típico: 50-100 para textos
+        - Permite usar Ward con matrices TF-IDF grandes
+    
+    Example:
+        >>> from sklearn.feature_extraction.text import TfidfVectorizer
+        >>> texts = ["machine learning", "deep learning", "data science"]
+        >>> vec = TfidfVectorizer()
+        >>> X = vec.fit_transform(texts)
+        >>> result = run_ward_clustering_with_svd(
+        ...     tfidf_matrix=X,
+        ...     labels=["Doc1", "Doc2", "Doc3"],
+        ...     n_components=2,
+        ...     out_file="ward_dendrogram.png"
+        ... )
+        >>> result['svd'].explained_variance_ratio_.sum()
+        # Proporción de varianza explicada
+    
+    Notas:
+        - Ward produce dendrogramas más "cuadrados" que average/complete
+        - SVD es necesario porque Ward requiere distancias euclidianas
+        - tfidf_matrix puede ser sparse (TruncatedSVD lo maneja)
+        - n_components debe ser < min(n_samples, n_features)
+        - Útil para identificar grupos temáticos bien definidos
+    """
+    from sklearn.decomposition import TruncatedSVD
+    
+    # PASO 1: Reducción de dimensionalidad con SVD
+    svd = TruncatedSVD(n_components=n_components, random_state=42)
+    X_reduced = svd.fit_transform(tfidf_matrix)
+    
+    # PASO 2: Aplicar estilo visual
+    _apply_matplotlib_style()
+    
+    # PASO 3: Clustering Ward sobre representación reducida
+    # Ward acepta observaciones directamente (no matriz condensada)
+    Z = linkage(X_reduced, method="ward")
+    
+    # PASO 4: Umbral de color automático
+    if color_threshold is None:
+        color_threshold = float(np.max(Z[:, 2]) * 0.7)
+    
+    # Preparar etiquetas truncadas
+    if labels:
+        lab = [_truncate(x, max_label_len) for x in labels]
+    else:
+        lab = None
+    
+    # PASO 5: Generar dendrograma horizontal
+    fig, ax = plt.subplots(figsize=(14, 8))
+    
+    dkwargs = dict(
+        orientation="right",
+        labels=lab,
+        leaf_font_size=leaf_font_size,
+        above_threshold_color="#94A3B8",
+        color_threshold=color_threshold,
+    )
+    D = dendrogram(Z, **dkwargs)
+    
+    # PASO 6: Estilos y anotaciones
+    ax.set_title(title or "Dendrograma — Método: Ward (SVD)")
+    ax.set_xlabel("Distancia euclidiana (espacio reducido)")
+    ax.set_ylabel("Abstracts")
+    ax.tick_params(axis="x", which="both", length=0)
+    ax.tick_params(axis="y", which="both", length=0)
+    
+    if annotate_dist_axis:
+        ax.xaxis.grid(True)
+    
+    plt.subplots_adjust(left=left_margin, right=0.98, top=0.92, bottom=0.08)
+    
+    # PASO 7: Guardar o mostrar
+    if out_file:
+        ext = out_file.split(".")[-1].lower()
+        dpi = 240 if ext in ("png", "jpg", "jpeg") else 96
+        plt.savefig(out_file, dpi=dpi, bbox_inches="tight")
+        print(f"[OK] Dendrograma Ward guardado en {out_file}")
+        plt.close(fig)
+    else:
+        plt.show()
+    
+    return {
+        "Z": Z,
+        "color_threshold": color_threshold,
+        "order": D.get("leaves", []),
+        "svd": svd,  # Retornar SVD para análisis posterior
+        "X_reduced": X_reduced  # Representación reducida
     }

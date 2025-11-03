@@ -4,10 +4,11 @@ Módulo de orquestación del Requerimiento 4: Clustering jerárquico y dendrogra
 Ejecuta el pipeline completo de clustering de abstracts bibliométricos:
 1. Carga abstracts desde BibTeX
 2. Preprocesa texto (limpieza, tokenización)
-3. Calcula matriz de similitud TF-IDF + coseno
-4. Convierte similitud a distancia
-5. Aplica clustering jerárquico (single/complete/average)
-6. Genera dendrogramas estéticos de alta calidad
+3. Calcula matriz TF-IDF para Ward + matriz de similitud coseno para otros
+4. Ward: Reducción SVD + distancia euclidiana
+5. Complete/Average: Distancia coseno (1 - similitud)
+6. Aplica clustering jerárquico (ward/complete/average)
+7. Genera dendrogramas estéticos de alta calidad
 
 Genera archivos PNG individuales para cada método de enlace.
 """
@@ -18,7 +19,8 @@ from typing import Dict, Any, List
 from requirement_3.data_loader import load_bib_dataframe, DEFAULT_BIB  # carga abstracts desde .bib
 from requirement_4.preprocess import preprocess_corpus
 from requirement_4.similarity_matrix import build_similarity_matrix, similarity_to_distance
-from requirement_4.clustering import run_hierarchical_clustering_pretty
+from requirement_4.clustering import run_hierarchical_clustering_pretty, run_ward_clustering_with_svd
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 # Configuración de directorios
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -98,9 +100,9 @@ def run_req4(
         '/path/to/requirement_4/dendrogram_average.png'
     
     Métodos de enlace comparados:
-        - 'single': Enlace simple (distancia mínima entre clusters)
-            * Ventajas: Detecta cadenas de documentos similares
-            * Desventajas: Sensible a ruido, puede formar clusters alargados
+        - 'ward': Enlace Ward con SVD (minimiza varianza intra-cluster)
+            * Ventajas: Clusters balanceados, dendrogramas cuadrados, robusto
+            * Desventajas: Requiere reducción SVD, usa distancias euclidianas
         
         - 'complete': Enlace completo (distancia máxima entre clusters)
             * Ventajas: Forma clusters compactos y bien separados
@@ -111,7 +113,7 @@ def run_req4(
             * Desventajas: Computacionalmente más costoso
     
     Archivos generados:
-        - requirement_4/dendrogram_single.png: Dendrograma con enlace simple
+        - requirement_4/dendrogram_ward.png: Dendrograma con enlace Ward (SVD)
         - requirement_4/dendrogram_complete.png: Dendrograma con enlace completo
         - requirement_4/dendrogram_average.png: Dendrograma con enlace promedio
     
@@ -142,10 +144,13 @@ def run_req4(
     # ========== ETAPA 2: Preprocesamiento de texto ==========
     corpus_clean = preprocess_corpus(abstracts)
 
-    # ========== ETAPA 3: Matriz de similitud y distancia ==========
-    # TF-IDF + similitud coseno
+    # ========== ETAPA 3: Matriz TF-IDF y conversión a distancia ==========
+    # Crear matriz TF-IDF (necesaria para Ward con SVD)
+    vectorizer = TfidfVectorizer(stop_words='english')
+    tfidf_matrix = vectorizer.fit_transform(corpus_clean)
+    
+    # Para average y complete: usar similitud coseno → distancia
     sim = build_similarity_matrix(corpus_clean)
-    # Convertir a distancia (1 - similitud)
     dist = similarity_to_distance(sim)
 
     # ========== ETAPA 4: Preparar etiquetas ==========
@@ -163,7 +168,7 @@ def run_req4(
     # ========== ETAPA 5: Clustering y dendrogramas ==========
     # Métodos a comparar
     if methods is None:
-        methods = ["single", "complete", "average"]
+        methods = ["ward", "complete", "average"]
 
     results: Dict[str, Any] = {}
     
@@ -172,25 +177,45 @@ def run_req4(
         out_file = OUT_DIR / f"dendrogram_{m}.png"
         print(f"[RUN] Dendrograma → método: {m}")
         
-        info = run_hierarchical_clustering_pretty(
-            distance_matrix=dist,
-            labels=labels,
-            method=m,
-            title=f"Dendrograma — Método: {m}",
-            out_file=str(out_file),
-            color_threshold=color_threshold,   # None → 70% del máximo
-            leaf_font_size=leaf_font_size,
-            left_margin=left_margin,
-            annotate_dist_axis=True,
-            max_label_len=max_label_len,
-        )
-        
-        # Guardar información del clustering
-        results[m] = {
-            "png": str(out_file),
-            "color_threshold": info["color_threshold"],
-            "leaf_order": info["order"],  # Índices de hojas en orden del gráfico
-        }
+        # Ward requiere tratamiento especial (SVD + euclidiana)
+        if m == "ward":
+            info = run_ward_clustering_with_svd(
+                tfidf_matrix=tfidf_matrix,
+                labels=labels,
+                n_components=min(50, len(abstracts) - 1),  # SVD components
+                title=f"Dendrograma — Método: Ward (SVD)",
+                out_file=str(out_file),
+                color_threshold=color_threshold,
+                leaf_font_size=leaf_font_size,
+                left_margin=left_margin,
+                annotate_dist_axis=True,
+                max_label_len=max_label_len,
+            )
+            results[m] = {
+                "png": str(out_file),
+                "color_threshold": info["color_threshold"],
+                "leaf_order": info["order"],
+                "svd_variance_explained": info["svd"].explained_variance_ratio_.sum()
+            }
+        else:
+            # Average y Complete usan distancia coseno
+            info = run_hierarchical_clustering_pretty(
+                distance_matrix=dist,
+                labels=labels,
+                method=m,
+                title=f"Dendrograma — Método: {m}",
+                out_file=str(out_file),
+                color_threshold=color_threshold,
+                leaf_font_size=leaf_font_size,
+                left_margin=left_margin,
+                annotate_dist_axis=True,
+                max_label_len=max_label_len,
+            )
+            results[m] = {
+                "png": str(out_file),
+                "color_threshold": info["color_threshold"],
+                "leaf_order": info["order"],
+            }
 
     print("[OK] Dendrogramas generados en:", OUT_DIR)
     return results
@@ -262,8 +287,8 @@ if __name__ == "__main__":
     ap.add_argument(
         "--methods", 
         type=str, 
-        default="single,complete,average", 
-        help="Métodos de enlace separados por coma (single, complete, average, ward)"
+        default="ward,complete,average", 
+        help="Métodos de enlace separados por coma (ward, complete, average)"
     )
 
     args = ap.parse_args()
