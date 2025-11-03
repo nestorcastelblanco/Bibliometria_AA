@@ -114,7 +114,7 @@ def ejecutar_grafos_terms(
     
     # Si no se especifica archivo de términos, intentar cargar desde Req3
     if not terms_path:
-        req3_results = PROJECT_ROOT / "data" / "processed" / "req3_resultados.json"
+        req3_results = PROJECT_ROOT / "requirement_3" / "req3_resultados.json"
         if req3_results.exists():
             print("[INFO] Cargando términos desde Requerimiento 3...")
             with open(req3_results, 'r', encoding='utf-8') as f:
