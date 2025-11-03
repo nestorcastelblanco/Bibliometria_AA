@@ -104,29 +104,53 @@ def plot_citation_graph(
     plt.figure(figsize=(28, 22)); ax = plt.gca()
     ax.set_title("Grafo de Citaciones (dirigido)", fontsize=18, fontweight="bold", pad=20)
     
-    # Dibujar aristas
+    # Crear grafo NetworkX para usar sus funciones de dibujo
+    G = nx.DiGraph()
+    for n in fnodes:
+        G.add_node(n["id"])
+    edge_weights = {}
     for e in fedges:
         u, v, w = e["u"], e["v"], float(e["w"])
-        x1, y1 = pos[u]; x2, y2 = pos[v]
+        G.add_edge(u, v, weight=w)
+        edge_weights[(u, v)] = w
+    
+    # Calcular anchos de aristas basados en peso
+    edge_widths = []
+    for (u, v) in G.edges():
+        w = edge_weights[(u, v)]
         lw = 0.5 + 2.5*(w - min_edge_sim)/(1.0 - min_edge_sim + 1e-6)
-        ax.annotate("", xy=(x2, y2), xytext=(x1, y1),
-                    arrowprops=dict(arrowstyle="->", lw=lw, alpha=0.3, color="#94A3B8"))
+        edge_widths.append(lw)
+    
+    # Dibujar aristas dirigidas con flechas
+    nx.draw_networkx_edges(G, pos, ax=ax, width=edge_widths, alpha=0.4, 
+                          edge_color="#94A3B8", arrows=True, 
+                          arrowsize=15, arrowstyle='->', 
+                          connectionstyle='arc3,rad=0.1', min_source_margin=15, min_target_margin=15)
+    
+    # Dibujar etiquetas de peso en las aristas
+    edge_labels = {(u, v): f"{edge_weights[(u, v)]:.2f}" for (u, v) in G.edges()}
+    nx.draw_networkx_edge_labels(G, pos, edge_labels, font_size=7, 
+                                  bbox=dict(boxstyle="round,pad=0.2", facecolor="white", 
+                                           edgecolor="none", alpha=0.7), ax=ax)
     
     # Dibujar nodos
-    for n in fnodes:
-        u = n["id"]; x, y = pos[u]
-        col = node_colors.get(u, (0.3, 0.5, 0.8, 1.0))
-        sz = sizes.get(u, 250)
-        ax.scatter([x], [y], s=sz, c=[col], edgecolors="white", linewidths=1.2, zorder=3, alpha=0.9)
+    node_color_list = [node_colors.get(n, (0.3, 0.5, 0.8, 1.0)) for n in G.nodes()]
+    node_size_list = [sizes.get(n, 250) for n in G.nodes()]
+    nx.draw_networkx_nodes(G, pos, ax=ax, node_color=node_color_list, 
+                          node_size=node_size_list, edgecolors="white", 
+                          linewidths=1.2, alpha=0.9)
     
-    # Dibujar etiquetas con fondo blanco semitransparente para legibilidad
+    # Dibujar etiquetas de nodos con fondo blanco semitransparente para legibilidad
     if with_labels:
+        node_labels = {}
         for n in fnodes:
-            u = n["id"]; ttl = _truncate(n.get("title", ""), 35); x, y = pos[u]
-            ax.text(x, y, f"{u}: {ttl}", fontsize=8, ha="center", va="center", 
-                    color="black", weight="normal",
-                    bbox=dict(boxstyle="round,pad=0.35", facecolor="white", 
-                             edgecolor="gray", linewidth=0.3, alpha=0.85))
+            u = n["id"]
+            ttl = _truncate(n.get("title", ""), 35)
+            node_labels[u] = f"{u}: {ttl}"
+        nx.draw_networkx_labels(G, pos, node_labels, font_size=8, 
+                               font_color="black", font_weight="normal",
+                               bbox=dict(boxstyle="round,pad=0.35", facecolor="white", 
+                                        edgecolor="gray", linewidth=0.3, alpha=0.85), ax=ax)
     
     ax.axis("off"); plt.tight_layout(); out_png.parent.mkdir(parents=True, exist_ok=True)
     plt.savefig(out_png, dpi=dpi, bbox_inches="tight"); plt.close()
