@@ -1,6 +1,6 @@
-2025/10/23-14:45:32.709 4d30 Reusing MANIFEST C:\Bibliometria\chrome_profile_copy\Default\Session Storage/MANIFEST-000001
-2025/10/23-14:45:32.722 4d30 Recovering log #39
-2025/10/23-14:45:32.725 4d30 Reusing old log C:\Bibliometria\chrome_profile_copy\Default\Session Storage/000039.log 
-2025/10/23-15:05:11.302 5e0 Level-0 table #44: started
-2025/10/23-15:05:11.317 5e0 Level-0 table #44: 17588 bytes OK
-2025/10/23-15:05:11.320 5e0 Delete type=0 #39
+2025/11/05-00:19:10.155 dec Reusing MANIFEST C:\Bibliometria\chrome_profile_copy\Default\Session Storage/MANIFEST-000001
+2025/11/05-00:19:10.165 dec Recovering log #46
+2025/11/05-00:19:10.168 dec Reusing old log C:\Bibliometria\chrome_profile_copy\Default\Session Storage/000046.log 
+2025/11/05-00:19:13.053 dec Level-0 table #50: started
+2025/11/05-00:19:13.063 dec Level-0 table #50: 10438 bytes OK
+2025/11/05-00:19:13.069 dec Delete type=0 #46

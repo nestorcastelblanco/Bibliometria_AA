@@ -1,0 +1,60 @@
+{
+  "selected": [
+    {
+      "index": 10,
+      "title": "Trends and Challenges of Educational Application of Generative Artificial Intelligence"
+    },
+    {
+      "index": 54,
+      "title": "Reborn of the White Bone Demon: Role-Playing Game Design Using Generative AI in XR"
+    },
+    {
+      "index": 78,
+      "title": "Exploring the Design of Generative AI in Supporting Music-based Reminiscence for Older Adults"
+    }
+  ],
+  "results": [
+    {
+      "i": 10,
+      "j": 54,
+      "scores": {
+        "Levenshtein (normalizada)": 0.3189033189033189,
+        "Damerau–Levenshtein (normalizada)": 0.3203463203463204,
+        "Jaccard (tokens)": 0.028846153846153848,
+        "Coseno (TF-IDF)": 0.020882111698880122,
+        "SBERT (coseno)": 0.27604439854621887,
+        "GTE (coseno)": 0.8116070032119751
+      },
+      "title_i": "Trends and Challenges of Educational Application of Generative Artificial Intelligence",
+      "title_j": "Reborn of the White Bone Demon: Role-Playing Game Design Using Generative AI in XR"
+    },
+    {
+      "i": 10,
+      "j": 78,
+      "scores": {
+        "Levenshtein (normalizada)": 0.30009407337723426,
+        "Damerau–Levenshtein (normalizada)": 0.30197554092191914,
+        "Jaccard (tokens)": 0.030534351145038167,
+        "Coseno (TF-IDF)": 0.026136863241469476,
+        "SBERT (coseno)": 0.2937367558479309,
+        "GTE (coseno)": 0.8244460225105286
+      },
+      "title_i": "Trends and Challenges of Educational Application of Generative Artificial Intelligence",
+      "title_j": "Exploring the Design of Generative AI in Supporting Music-based Reminiscence for Older Adults"
+    },
+    {
+      "i": 54,
+      "j": 78,
+      "scores": {
+        "Levenshtein (normalizada)": 0.2793979303857008,
+        "Damerau–Levenshtein (normalizada)": 0.2793979303857008,
+        "Jaccard (tokens)": 0.07964601769911504,
+        "Coseno (TF-IDF)": 0.10310121323990118,
+        "SBERT (coseno)": 0.49429798126220703,
+        "GTE (coseno)": 0.8378955125808716
+      },
+      "title_i": "Reborn of the White Bone Demon: Role-Playing Game Design Using Generative AI in XR",
+      "title_j": "Exploring the Design of Generative AI in Supporting Music-based Reminiscence for Older Adults"
+    }
+  ]
+}
