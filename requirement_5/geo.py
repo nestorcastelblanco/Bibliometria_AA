@@ -239,28 +239,130 @@ def plot_world_heatmap(counts: pd.DataFrame, out_png: Path, out_html: Path):
         # === INTENTO 1: Mapa interactivo con Plotly ===
         import plotly.express as px  # type: ignore
         
+        # Convertir nombres de países a códigos ISO-3 para mejor mapeo
+        counts_with_iso = counts.copy()
+        try:
+            import pycountry
+            
+            def extract_country_name(location_str: str) -> str:
+                """
+                Extrae el nombre del país de strings con formato 'Ciudad, País' o 'Ciudad, Estado, País'.
+                
+                Ejemplos:
+                - "Kuala Lumpur, Malaysia" -> "Malaysia"
+                - "Honolulu, HI, USA" -> "USA"
+                - "Toronto ON, Canada" -> "Canada"
+                - "France" -> "France"
+                """
+                # Dividir por coma y tomar el último elemento (asumiendo que es el país)
+                parts = [p.strip() for p in location_str.split(',')]
+                
+                if len(parts) == 0:
+                    return location_str
+                
+                # El país suele estar al final
+                country_candidate = parts[-1]
+                
+                # Mapeo manual para casos especiales comunes
+                country_mapping = {
+                    'USA': 'United States',
+                    'UK': 'United Kingdom',
+                    'Turkiye': 'Turkey',
+                    'Republic of Korea': 'South Korea',
+                }
+                
+                return country_mapping.get(country_candidate, country_candidate)
+            
+            def get_iso3(country_name: str) -> str:
+                """Convierte nombre de país a código ISO-3."""
+                # Primero extraer el nombre real del país
+                clean_country = extract_country_name(country_name)
+                
+                try:
+                    country = pycountry.countries.search_fuzzy(clean_country)[0]
+                    return country.alpha_3
+                except (LookupError, AttributeError):
+                    # Si falla, retornar el nombre limpio
+                    return clean_country
+            
+            counts_with_iso["iso_alpha"] = counts_with_iso["country"].apply(get_iso3)
+            counts_with_iso["country_clean"] = counts_with_iso["country"].apply(extract_country_name)
+            
+            # IMPORTANTE: Agrupar por ISO-3 para sumar todas las ciudades de cada país
+            counts_with_iso = counts_with_iso.groupby("iso_alpha", as_index=False).agg({
+                "count": "sum",
+                "country_clean": "first"
+            })
+            
+            location_col = "iso_alpha"
+            location_mode = "ISO-3"
+        except ImportError:
+            # Si no hay pycountry, usar nombres directamente
+            location_col = "country"
+            location_mode = "country names"
+        
         # Crear mapa choropleth mundial
         fig = px.choropleth(
-            counts, 
-            locations="country", 
-            locationmode="country names",  # Mapea por nombres de países
-            color="count", 
+            counts_with_iso, 
+            locations=location_col, 
+            locationmode=location_mode,  # Mapea por códigos ISO-3 o nombres
+            color="count",
+            hover_name="country_clean" if "country_clean" in counts_with_iso.columns else "country",  # Mostrar nombre limpio
             color_continuous_scale="Blues",  # Escala de azules
             title="Mapa de calor por país del primer autor"
         )
         
-        # Ajustar márgenes para mejor visualización
-        fig.update_layout(margin=dict(l=0, r=0, t=60, b=0))
+        # Mejorar visualización del mapa
+        fig.update_geos(
+            projection_type="natural earth",  # Proyección Natural Earth (más estética)
+            showcoastlines=True,              # Mostrar líneas costeras
+            coastlinecolor="RebeccaPurple",   # Color de las costas
+            showland=True,                    # Mostrar tierra
+            landcolor="white",                # Color de tierra sin datos
+            showocean=True,                   # Mostrar océanos
+            oceancolor="LightBlue",           # Color de océanos
+            showcountries=True,               # Mostrar límites de países
+            countrycolor="Black",             # Color de límites (negro para mejor definición)
+            countrywidth=0.5,                 # Grosor de líneas de países
+            showlakes=True,                   # Mostrar lagos
+            lakecolor="LightBlue"             # Color de lagos
+        )
+        
+        # Ajustar layout general
+        fig.update_layout(
+            margin=dict(l=0, r=0, t=60, b=0),
+            height=600,                       # Altura del mapa
+            title_font_size=20,               # Tamaño del título
+            title_x=0.5                       # Centrar título
+        )
         
         # Guardar HTML interactivo
         fig.write_html(str(out_html))
         
         # Intentar guardar PNG estático (requiere kaleido)
+        png_generated = False
         try:
-            fig.write_image(str(out_png), scale=2)
-        except Exception:
-            # kaleido no disponible: solo HTML generado
-            pass
+            fig.write_image(str(out_png), scale=2, width=1400, height=600)
+            png_generated = True
+            print(f"✓ PNG generado exitosamente con Kaleido: {out_png}")
+        except Exception as e:
+            print(f"⚠️ Error al generar PNG con Kaleido: {e}")
+            print(f"   Generando PNG alternativo...")
+            # Fallback: usar matplotlib para capturar el HTML
+            try:
+                import io
+                from PIL import Image
+                # Exportar como imagen usando el engine de plotly
+                img_bytes = fig.to_image(format="png", width=1400, height=600, scale=2)
+                with open(out_png, 'wb') as f:
+                    f.write(img_bytes)
+                png_generated = True
+                print(f"✓ PNG generado con método alternativo: {out_png}")
+            except Exception as e2:
+                print(f"❌ No se pudo generar PNG: {e2}")
+        
+        if not png_generated:
+            print(f"⚠️ Solo se generó HTML: {out_html}")
         
         return True  # Indica que se usó Plotly
         

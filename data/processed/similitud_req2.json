@@ -1,60 +1,60 @@
 {
   "selected": [
     {
-      "index": 10,
-      "title": "Trends and Challenges of Educational Application of Generative Artificial Intelligence"
+      "index": 0,
+      "title": "Generative Artificial Intelligence Policies under the Microscope"
     },
     {
-      "index": 54,
-      "title": "Reborn of the White Bone Demon: Role-Playing Game Design Using Generative AI in XR"
+      "index": 3,
+      "title": "The relationship between generative artificial intelligence and cybersecurity"
     },
     {
-      "index": 78,
-      "title": "Exploring the Design of Generative AI in Supporting Music-based Reminiscence for Older Adults"
+      "index": 7,
+      "title": "Behavioral Analysis of Classroom Interactions Supported by Generative Artificial Intelligence"
     }
   ],
   "results": [
     {
-      "i": 10,
-      "j": 54,
+      "i": 0,
+      "j": 3,
       "scores": {
-        "Levenshtein (normalizada)": 0.3189033189033189,
-        "Damerau–Levenshtein (normalizada)": 0.3203463203463204,
-        "Jaccard (tokens)": 0.028846153846153848,
-        "Coseno (TF-IDF)": 0.020882111698880122,
-        "SBERT (coseno)": 0.27604439854621887,
-        "GTE (coseno)": 0.8116070032119751
+        "Levenshtein (normalizada)": 0.08536585365853655,
+        "Damerau–Levenshtein (normalizada)": 0.08536585365853655,
+        "Jaccard (tokens)": 0.0,
+        "Coseno (TF-IDF)": 0.0,
+        "SBERT (coseno)": 0.14815005660057068,
+        "GTE (coseno)": 0.7602063417434692
       },
-      "title_i": "Trends and Challenges of Educational Application of Generative Artificial Intelligence",
-      "title_j": "Reborn of the White Bone Demon: Role-Playing Game Design Using Generative AI in XR"
+      "title_i": "Generative Artificial Intelligence Policies under the Microscope",
+      "title_j": "The relationship between generative artificial intelligence and cybersecurity"
     },
     {
-      "i": 10,
-      "j": 78,
+      "i": 0,
+      "j": 7,
       "scores": {
-        "Levenshtein (normalizada)": 0.30009407337723426,
-        "Damerau–Levenshtein (normalizada)": 0.30197554092191914,
-        "Jaccard (tokens)": 0.030534351145038167,
-        "Coseno (TF-IDF)": 0.026136863241469476,
-        "SBERT (coseno)": 0.2937367558479309,
-        "GTE (coseno)": 0.8244460225105286
+        "Levenshtein (normalizada)": 0.07859848484848486,
+        "Damerau–Levenshtein (normalizada)": 0.07859848484848486,
+        "Jaccard (tokens)": 0.014084507042253521,
+        "Coseno (TF-IDF)": 0.012359579496928928,
+        "SBERT (coseno)": 0.12264416366815567,
+        "GTE (coseno)": 0.7891285419464111
       },
-      "title_i": "Trends and Challenges of Educational Application of Generative Artificial Intelligence",
-      "title_j": "Exploring the Design of Generative AI in Supporting Music-based Reminiscence for Older Adults"
+      "title_i": "Generative Artificial Intelligence Policies under the Microscope",
+      "title_j": "Behavioral Analysis of Classroom Interactions Supported by Generative Artificial Intelligence"
     },
     {
-      "i": 54,
-      "j": 78,
+      "i": 3,
+      "j": 7,
       "scores": {
-        "Levenshtein (normalizada)": 0.2793979303857008,
-        "Damerau–Levenshtein (normalizada)": 0.2793979303857008,
-        "Jaccard (tokens)": 0.07964601769911504,
-        "Coseno (TF-IDF)": 0.10310121323990118,
-        "SBERT (coseno)": 0.49429798126220703,
-        "GTE (coseno)": 0.8378955125808716
+        "Levenshtein (normalizada)": 0.31912878787878785,
+        "Damerau–Levenshtein (normalizada)": 0.31912878787878785,
+        "Jaccard (tokens)": 0.09174311926605505,
+        "Coseno (TF-IDF)": 0.24178936499798212,
+        "SBERT (coseno)": 0.3568804860115051,
+        "GTE (coseno)": 0.832829475402832
       },
-      "title_i": "Reborn of the White Bone Demon: Role-Playing Game Design Using Generative AI in XR",
-      "title_j": "Exploring the Design of Generative AI in Supporting Music-based Reminiscence for Older Adults"
+      "title_i": "The relationship between generative artificial intelligence and cybersecurity",
+      "title_j": "Behavioral Analysis of Classroom Interactions Supported by Generative Artificial Intelligence"
     }
   ]
 }
