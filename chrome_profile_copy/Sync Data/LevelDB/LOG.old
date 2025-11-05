@@ -1,6 +1,0 @@
-2025/09/21-21:29:33.688 880 Reusing MANIFEST C:\Users\nesto\AppData\Local\Google\Chrome\User Data\Profile 1\Sync Data\LevelDB/MANIFEST-000001
-2025/09/21-21:29:33.688 880 Recovering log #91
-2025/09/21-21:29:33.692 880 Reusing old log C:\Users\nesto\AppData\Local\Google\Chrome\User Data\Profile 1\Sync Data\LevelDB/000091.log 
-2025/09/21-21:29:34.962 1260 Level-0 table #95: started
-2025/09/21-21:29:34.965 1260 Level-0 table #95: 106603 bytes OK
-2025/09/21-21:29:34.967 1260 Delete type=0 #91
