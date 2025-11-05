@@ -31,13 +31,6 @@ Funcionalidades:
 
 Parte del Requerimiento 2: Reporting y documentación de resultados.
 """
-from __future__ import annotations
-import json
-from pathlib import Path
-from typing import Dict, Any, List, Tuple, Optional
-import statistics as stats
-import argparse
-import csv
 from requirement_2.explainers import appendix_markdown
 
 # Rutas robustas
@@ -254,8 +247,8 @@ def generate_markdown(data: Dict[str, Any], algo: str, top: int, out_md: Path):
         md.append(f"| {k} | {v} |")
     md.append("")
 
-    # Top pares
-    md.append(f"## Top {len(ranked)} pares por {algo}")
+    # Top pares por algoritmo principal
+    md.append(f"## Top {len(ranked)} pares por {algo} (Algoritmo Principal)")
     md.append("")
     md.append("| Rank | Índices (i,j) | % Similitud | Título i | Título j |")
     md.append("|---:|:---:|---:|---|---|")
@@ -267,23 +260,98 @@ def generate_markdown(data: Dict[str, Any], algo: str, top: int, out_md: Path):
         )
     md.append("")
 
-    # Tabla comparativa por algoritmo (si quieres panorama completo)
-    md.append("## Comparación de algoritmos (para los Top anteriores)")
+    # Tabla comparativa por algoritmo (COMPLETA - todos los pares)
+    md.append("## Comparación de los 6 Algoritmos")
     md.append("")
+    md.append("### Todos los pares comparados")
+    md.append("")
+    
     # Detectar todos los algoritmos presentes (unión de claves)
     algos_all = []
     for r in results:
         for k in r.get("scores", {}).keys():
             if k not in algos_all:
                 algos_all.append(k)
-    md.append("| i,j | " + " | ".join(algos_all) + " |")
-    md.append("|:--:|" + "|".join([":--:" for _ in algos_all]) + "|")
-    for r in ranked:
-        row = [f"{r['i']},{r['j']}"]
-        for a in algos_all:
-            row.append(_pct(r["scores"].get(a)))
+    
+    # Ordenar algoritmos: primero clásicos, luego IA
+    classic_order = ["Levenshtein (normalizada)", "Damerau–Levenshtein (normalizada)", "Jaccard (tokens)", "Coseno (TF-IDF)"]
+    ai_order = ["SBERT (coseno)", "GTE (coseno)"]
+    algos_sorted = [a for a in classic_order if a in algos_all] + [a for a in ai_order if a in algos_all]
+    
+    md.append("**Algoritmos Clásicos (4):**")
+    md.append("- **Levenshtein**: Distancia de edición (inserción, eliminación, sustitución)")
+    md.append("- **Damerau-Levenshtein**: Levenshtein + transposición de caracteres adyacentes")
+    md.append("- **Jaccard**: Similitud de conjuntos de tokens (intersección / unión)")
+    md.append("- **Coseno TF-IDF**: Vectorización estadística con pesos TF-IDF")
+    md.append("")
+    md.append("**Algoritmos con IA (2):**")
+    md.append("- **SBERT**: Sentence-BERT embeddings (all-MiniLM-L6-v2)")
+    md.append("- **GTE**: General Text Embeddings (thenlper/gte-small)")
+    md.append("")
+    
+    md.append("| Par (i,j) | " + " | ".join(algos_sorted) + " |")
+    md.append("|:--:|" + "|".join([":--:" for _ in algos_sorted]) + "|")
+    
+    # Ordenar resultados por el algoritmo principal para mejor visualización
+    results_sorted = sorted(results, key=lambda r: r["scores"].get(algo, 0), reverse=True)
+    
+    for r in results_sorted:
+        row = [f"({r['i']},{r['j']})"]
+        for a in algos_sorted:
+            score_val = r["scores"].get(a)
+            row.append(_pct(score_val))
         md.append("| " + " | ".join(row) + " |")
     md.append("")
+    
+    # Estadísticas por algoritmo
+    md.append("### Estadísticas por Algoritmo")
+    md.append("")
+    md.append("| Algoritmo | Media | Mediana | Min | Max |")
+    md.append("|---|:--:|:--:|:--:|:--:|")
+    
+    for a in algos_sorted:
+        vals_a = _flat_scores_for_algo(results, a)
+        stats_a = _stats(vals_a)
+        md.append(f"| {a} | {_pct(stats_a['mean'])} | {_pct(stats_a['median'])} | {_pct(stats_a['min'])} | {_pct(stats_a['max'])} |")
+    md.append("")
+    
+    # Análisis de divergencias
+    md.append("### Análisis de Divergencias entre Algoritmos")
+    md.append("")
+    md.append("Los algoritmos **clásicos** (basados en caracteres y tokens) suelen dar scores **bajos** porque:")
+    md.append("- Solo detectan coincidencias exactas de palabras")
+    md.append("- No capturan similitud semántica (sinónimos, paráfrasis)")
+    md.append("- Son sensibles a diferencias de redacción")
+    md.append("")
+    md.append("Los algoritmos **con IA** (SBERT, GTE) dan scores **más altos** porque:")
+    md.append("- Capturan significado semántico de los textos")
+    md.append("- Detectan similitud conceptual aunque las palabras sean diferentes")
+    md.append("- Están entrenados en millones de textos para aprender relaciones semánticas")
+    md.append("")
+    
+    # Ranking individual para cada algoritmo
+    md.append("## Ranking por Algoritmo Individual")
+    md.append("")
+    md.append("A continuación se muestra el ranking de los pares según cada uno de los 6 algoritmos:")
+    md.append("")
+    
+    for a in algos_sorted:
+        md.append(f"### {a}")
+        md.append("")
+        
+        # Ordenar resultados por este algoritmo específico
+        ranked_by_algo = sorted(results, key=lambda r: r["scores"].get(a, 0), reverse=True)
+        
+        md.append("| Rank | Par (i,j) | Similitud | Título i | Título j |")
+        md.append("|---:|:---:|---:|---|---|")
+        
+        for idx, r in enumerate(ranked_by_algo, 1):
+            score = r["scores"].get(a)
+            md.append(
+                f"| {idx} | ({r['i']},{r['j']}) | {_pct(score)} | "
+                f"{_safe_get(r, 'title_i').strip()} | {_safe_get(r, 'title_j').strip()} |"
+            )
+        md.append("")
     
     md.append(appendix_markdown())
     

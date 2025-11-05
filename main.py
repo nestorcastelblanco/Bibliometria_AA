@@ -43,6 +43,25 @@ def ejecutar_req2(indices: list[int]):
 
     print(f"[OK] Archivo generado: {path}")
 
+    # Generar reportes Markdown y CSV
+    try:
+        import json
+        from requirement_2.reports import generate_markdown, generate_csv_top, _detect_primary_algo
+        
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        
+        algo = _detect_primary_algo(data.get("results", []), None)
+        out_md = Path("data") / "processed" / "reporte_similitud.md"
+        out_csv = Path("data") / "processed" / "reporte_similitud_top.csv"
+        
+        generate_markdown(data, algo, top=10, out_md=out_md)
+        generate_csv_top(data, algo, top=10, out_csv=out_csv)
+        
+        print(f"[OK] Reportes generados: {out_md}, {out_csv}")
+    except Exception as e:
+        print(f"[Aviso] Error al generar reportes MD/CSV: {e}")
+
     # Resumen en consola (subproceso para evitar conflicto de argparse)
     try:
         subprocess.run(
