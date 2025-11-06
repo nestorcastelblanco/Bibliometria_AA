@@ -54,7 +54,7 @@ def dijkstra(adj: Graph, src: str) -> Tuple[Dict[str, float], Dict[str, str | No
     
     # Iterar hasta visitar todos los nodos
     while len(visited) < len(adj):
-        # Seleccionar nodo no visitado con menor distancia (cola de prioridad greedy)
+        # Seleccionar nodo no visitado con menor distancia (cola de prioridad greedy) Toma la mejor decisión local en cada paso
         u = min(
             (n for n in adj if n not in visited), 
             key=lambda x: dist[x], 
