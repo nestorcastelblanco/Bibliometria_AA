@@ -4,27 +4,40 @@ import subprocess
 import argparse
 from pathlib import Path
 
-venv_python = sys.executable  # C:\Bibliometria\venv\Scripts\python.exe
+venv_python = sys.executable
+PROJECT_ROOT = Path(__file__).resolve().parent
 
 # ===================================================================
 # BLOQUE DE AUTOMATIZACIÓN INICIAL (Req. 1 y Seguimiento 1)
 # ===================================================================
 def ejecutar_scripts_base():
+    """Ejecuta los scrapers inteligentes y scripts de procesamiento"""
+    
+    # 1. Ejecutar scraper inteligente (prueba múltiples estrategias)
+    print("\n[REQ1] Ejecutando scrapers inteligentes...")
+    try:
+        smart_scraper = PROJECT_ROOT / "requirement_1" / "scrapers" / "smart_scraper.py"
+        subprocess.run([venv_python, str(smart_scraper)], check=True)
+        print("[OK] Scrapers completados")
+    except subprocess.CalledProcessError as e:
+        print(f"[AVISO] Scrapers tuvieron problemas: {e}")
+        print("[INFO] Continuando con procesamiento de datos existentes...")
+    
+    # 2. Ejecutar scripts de procesamiento
     scripts = [
-        r"C:\Bibliometria\requirement_1\scrapers\acm_scraper.py",
-        r"C:\Bibliometria\requirement_1\scrapers\sage_scraper.py",
-        r"C:\Bibliometria\requirement_1\unificar.py",
-        r"C:\Bibliometria\Seguimiento_1\algoritmos_ordenamiento.py",
-        r"C:\Bibliometria\Seguimiento_1\author_range.py",
-        r"C:\Bibliometria\Seguimiento_1\stats_algoritmos.py",
+        PROJECT_ROOT / "requirement_1" / "unificar.py",
+        PROJECT_ROOT / "Seguimiento_1" / "algoritmos_ordenamiento.py",
+        PROJECT_ROOT / "Seguimiento_1" / "author_range.py",
+        PROJECT_ROOT / "Seguimiento_1" / "stats_algoritmos.py",
     ]
+    
     for script in scripts:
-        print(f"[RUN] Ejecutando: {script}")
+        print(f"\n[RUN] Ejecutando: {script.name}")
         try:
-            subprocess.run([venv_python, script], check=True)
-            print(f"[OK] Finalizado: {script}")
+            subprocess.run([venv_python, str(script)], check=True)
+            print(f"[OK] Finalizado: {script.name}")
         except subprocess.CalledProcessError as e:
-            print(f"[ERROR] en {script}\n{e}")
+            print(f"[ERROR] en {script.name}\n{e}")
 
 # ===================================================================
 # REQ. 2 – Similitud textual (detecta run() CSV o run_from_bib() BIB)

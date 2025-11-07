@@ -25,9 +25,12 @@ import re
 import time
 import bibtexparser
 from collections import defaultdict
+from pathlib import Path
 
-RAW_DIR = r"C:\Bibliometria\data\raw"
-PROCESSED_DIR = r"C:\Bibliometria\data\processed"
+# Usar rutas relativas al proyecto
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+RAW_DIR = PROJECT_ROOT / "data" / "raw"
+PROCESSED_DIR = PROJECT_ROOT / "data" / "processed"
 
 
 
@@ -147,27 +150,27 @@ def entry_to_raw(entry: dict) -> str:
 
 # ---------- carga y parseo robusto ----------
 
-def find_bib_files(raw_dir=RAW_DIR):
+def find_bib_files(raw_dir=None):
     """
     Encuentra recursivamente todos los archivos .bib en directorio.
     
     Args:
-        raw_dir (str, optional): Directorio raíz para búsqueda. 
-                                Default: RAW_DIR (C:\\Bibliometria\\data\\raw)
+        raw_dir (str|Path, optional): Directorio raíz para búsqueda. 
+                                Default: RAW_DIR (./data/raw)
     
     Returns:
         List[str]: Lista de rutas absolutas a archivos .bib, ordenada
     
     Process:
-        1. Recorre árbol de directorios con os.walk
+        1. Recorre árbol de directorios con pathlib
         2. Filtra archivos con extensión .bib (case-insensitive)
-        3. Construye rutas completas con os.path.join
+        3. Construye rutas completas
         4. Ordena alfabéticamente
     
     Example:
-        >>> files = find_bib_files("C:\\data\\raw")
+        >>> files = find_bib_files("./data/raw")
         >>> files
-        ['C:\\data\\raw\\acm\\articles.bib', 'C:\\data\\raw\\sage\\papers.bib']
+        ['./data/raw/acm/articles.bib', './data/raw/sage/papers.bib']
     
     Notas:
         - Búsqueda recursiva en subdirectorios
@@ -175,11 +178,19 @@ def find_bib_files(raw_dir=RAW_DIR):
         - Lista ordenada para procesamiento consistente
         - Útil para encontrar todos los BibTeX de múltiples fuentes
     """
+    if raw_dir is None:
+        raw_dir = RAW_DIR
+    
+    raw_path = Path(raw_dir)
     files = []
-    for root, _, filenames in os.walk(raw_dir):
-        for fn in filenames:
-            if fn.lower().endswith(".bib"):
-                files.append(os.path.join(root, fn))
+    
+    if raw_path.exists():
+        for bib_file in raw_path.rglob("*.bib"):
+            files.append(str(bib_file))
+        # Also check for uppercase extensions
+        for bib_file in raw_path.rglob("*.BIB"):
+            files.append(str(bib_file))
+    
     files.sort()
     return files
 
@@ -293,7 +304,7 @@ def parse_bib_file(path):
 
 # ---------- unificación con diagnóstico ----------
 
-def unify_all(raw_dir=RAW_DIR, processed_dir=PROCESSED_DIR,
+def unify_all(raw_dir=None, processed_dir=None,
               out_unique="productos_unificados.bib", out_duplicates="duplicados.bib"):
     """
     Unifica y deduplica todos los archivos BibTeX de un directorio.
@@ -307,10 +318,10 @@ def unify_all(raw_dir=RAW_DIR, processed_dir=PROCESSED_DIR,
     6. Reporta estadísticas detalladas del proceso
     
     Args:
-        raw_dir (str, optional): Directorio con archivos .bib originales.
-                                Default: C:\\Bibliometria\\data\\raw
-        processed_dir (str, optional): Directorio de salida.
-                                      Default: C:\\Bibliometria\\data\\processed
+        raw_dir (str|Path, optional): Directorio con archivos .bib originales.
+                                Default: ./data/raw
+        processed_dir (str|Path, optional): Directorio de salida.
+                                      Default: ./data/processed
         out_unique (str, optional): Nombre del archivo de entradas únicas.
                                    Default: "productos_unificados.bib"
         out_duplicates (str, optional): Nombre del archivo de duplicados.
@@ -376,7 +387,14 @@ def unify_all(raw_dir=RAW_DIR, processed_dir=PROCESSED_DIR,
         - Robusto ante formatos variados y errores de sintaxis
         - Útil para consolidar bibliografía de múltiples búsquedas
     """
-    os.makedirs(processed_dir, exist_ok=True)
+    if raw_dir is None:
+        raw_dir = RAW_DIR
+    if processed_dir is None:
+        processed_dir = PROCESSED_DIR
+    
+    processed_path = Path(processed_dir)
+    processed_path.mkdir(parents=True, exist_ok=True)
+    
     files = find_bib_files(raw_dir)
     if not files:
         print("[WARN] No se encontraron archivos .bib en", raw_dir)
@@ -389,11 +407,11 @@ def unify_all(raw_dir=RAW_DIR, processed_dir=PROCESSED_DIR,
     parse_errors = {}
 
     for p in files:
-        folder = os.path.basename(os.path.dirname(p))
+        folder = Path(p).parent.name
         per_folder[folder] = per_folder.get(folder, 0) + 1
         entries, err = parse_bib_file(p)
         per_file_entries[p] = len(entries)
-        all_entries.extend([dict(e, _source=os.path.basename(p)) for e in entries])
+        all_entries.extend([dict(e, _source=Path(p).name) for e in entries])
         if err:
             parse_errors[p] = str(err)
 
@@ -404,7 +422,8 @@ def unify_all(raw_dir=RAW_DIR, processed_dir=PROCESSED_DIR,
     print("\nEntradas extraídas por archivo (muestra parcial):")
     shown = 0
     for p, cnt in per_file_entries.items():
-        print(f"  - {os.path.relpath(p, raw_dir)} : {cnt} entradas")
+        relative_path = Path(p).relative_to(Path(raw_dir)) if Path(raw_dir) in Path(p).parents else Path(p).name
+        print(f"  - {relative_path} : {cnt} entradas")
         shown += 1
         if shown >= 10: break
     total_entries = len(all_entries)
@@ -412,7 +431,8 @@ def unify_all(raw_dir=RAW_DIR, processed_dir=PROCESSED_DIR,
     if parse_errors:
         print("\n[WARN] Errores de parseo en algunos archivos (se incluyeron por fallback):")
         for p, err in parse_errors.items():
-            print(f"  - {os.path.relpath(p, raw_dir)} : {err}")
+            relative_path = Path(p).relative_to(Path(raw_dir)) if Path(raw_dir) in Path(p).parents else Path(p).name
+            print(f"  - {relative_path} : {err}")
 
     # deduplicación por título normalizado (fallback DOI/ID)
     seen = {}
@@ -429,14 +449,14 @@ def unify_all(raw_dir=RAW_DIR, processed_dir=PROCESSED_DIR,
             seen[norm] = e
 
     # guardar unificado y duplicados preservando raw cuando haya
-    unique_path = os.path.join(processed_dir, out_unique)
+    unique_path = processed_path / out_unique
     with open(unique_path, "w", encoding="utf-8") as out:
         for e in seen.values():
             out.write(f"% Fuente: {e.get('_source','unknown')}\n")
             out.write(entry_to_raw(e))
             out.write("\n")
 
-    dup_path = os.path.join(processed_dir, out_duplicates)
+    dup_path = processed_path / out_duplicates
     with open(dup_path, "w", encoding="utf-8") as out:
         for e in duplicates:
             out.write(f"% Fuente (duplicado): {e.get('_source','unknown')}\n")

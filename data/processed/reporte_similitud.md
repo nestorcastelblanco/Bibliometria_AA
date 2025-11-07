@@ -4,26 +4,26 @@
 **Pares totales:** 3
 
 ## Selección de artículos
-- [0] Generative Artificial Intelligence Policies under the Microscope
-- [3] The relationship between generative artificial intelligence and cybersecurity
-- [7] Behavioral Analysis of Classroom Interactions Supported by Generative Artificial Intelligence
+- [1] Machine Learning on Graphs in the Era of Generative Artificial Intelligence
+- [2] Analyzing Students' Use of Generative Artificial Intelligence in Collaborative Problem Solving
+- [3] Experiencing Art Museum with a Generative Artificial Intelligence Chatbot
 
 ## Estadísticas generales
 
 | Métrica | Valor |
 |---|---:|
 | n | 3 |
-| min | 76.0% |
-| max | 83.3% |
-| media | 79.4% |
-| mediana | 78.9% |
+| min | 80.4% |
+| max | 83.6% |
+| media | 82.1% |
+| mediana | 82.4% |
 
 ### Distribución por rangos
 
 | Rango | Conteo |
 |---|---:|
-| ≥0.80 | 1 |
-| 0.60–0.79 | 2 |
+| ≥0.80 | 3 |
+| 0.60–0.79 | 0 |
 | 0.40–0.59 | 0 |
 | 0.20–0.39 | 0 |
 | <0.20 | 0 |
@@ -32,9 +32,9 @@
 
 | Rank | Índices (i,j) | % Similitud | Título i | Título j |
 |---:|:---:|---:|---|---|
-| 1 | 3,7 | 83.3% | The relationship between generative artificial intelligence and cybersecurity | Behavioral Analysis of Classroom Interactions Supported by Generative Artificial Intelligence |
-| 2 | 0,7 | 78.9% | Generative Artificial Intelligence Policies under the Microscope | Behavioral Analysis of Classroom Interactions Supported by Generative Artificial Intelligence |
-| 3 | 0,3 | 76.0% | Generative Artificial Intelligence Policies under the Microscope | The relationship between generative artificial intelligence and cybersecurity |
+| 1 | 2,3 | 83.6% | Analyzing Students' Use of Generative Artificial Intelligence in Collaborative Problem Solving | Experiencing Art Museum with a Generative Artificial Intelligence Chatbot |
+| 2 | 1,3 | 82.4% | Machine Learning on Graphs in the Era of Generative Artificial Intelligence | Experiencing Art Museum with a Generative Artificial Intelligence Chatbot |
+| 3 | 1,2 | 80.4% | Machine Learning on Graphs in the Era of Generative Artificial Intelligence | Analyzing Students' Use of Generative Artificial Intelligence in Collaborative Problem Solving |
 
 ## Comparación de los 6 Algoritmos
 
@@ -52,20 +52,20 @@
 
 | Par (i,j) | Levenshtein (normalizada) | Damerau–Levenshtein (normalizada) | Jaccard (tokens) | Coseno (TF-IDF) | SBERT (coseno) | GTE (coseno) |
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-| (3,7) | 31.9% | 31.9% | 9.2% | 24.2% | 35.7% | 83.3% |
-| (0,7) | 7.9% | 7.9% | 1.4% | 1.2% | 12.3% | 78.9% |
-| (0,3) | 8.5% | 8.5% | 0.0% | 0.0% | 14.8% | 76.0% |
+| (2,3) | 25.2% | 25.2% | 9.4% | 4.3% | 38.6% | 83.6% |
+| (1,3) | 27.4% | 27.4% | 5.4% | 3.2% | 30.1% | 82.4% |
+| (1,2) | 27.2% | 27.4% | 5.8% | 4.7% | 25.9% | 80.4% |
 
 ### Estadísticas por Algoritmo
 
 | Algoritmo | Media | Mediana | Min | Max |
 |---|:--:|:--:|:--:|:--:|
-| Levenshtein (normalizada) | 16.1% | 8.5% | 7.9% | 31.9% |
-| Damerau–Levenshtein (normalizada) | 16.1% | 8.5% | 7.9% | 31.9% |
-| Jaccard (tokens) | 3.5% | 1.4% | 0.0% | 9.2% |
-| Coseno (TF-IDF) | 8.5% | 1.2% | 0.0% | 24.2% |
-| SBERT (coseno) | 20.9% | 14.8% | 12.3% | 35.7% |
-| GTE (coseno) | 79.4% | 78.9% | 76.0% | 83.3% |
+| Levenshtein (normalizada) | 26.6% | 27.2% | 25.2% | 27.4% |
+| Damerau–Levenshtein (normalizada) | 26.7% | 27.4% | 25.2% | 27.4% |
+| Jaccard (tokens) | 6.9% | 5.8% | 5.4% | 9.4% |
+| Coseno (TF-IDF) | 4.1% | 4.3% | 3.2% | 4.7% |
+| SBERT (coseno) | 31.5% | 30.1% | 25.9% | 38.6% |
+| GTE (coseno) | 82.1% | 82.4% | 80.4% | 83.6% |
 
 ### Análisis de Divergencias entre Algoritmos
 
@@ -87,49 +87,49 @@ A continuación se muestra el ranking de los pares según cada uno de los 6 algo
 
 | Rank | Par (i,j) | Similitud | Título i | Título j |
 |---:|:---:|---:|---|---|
-| 1 | (3,7) | 31.9% | The relationship between generative artificial intelligence and cybersecurity | Behavioral Analysis of Classroom Interactions Supported by Generative Artificial Intelligence |
-| 2 | (0,3) | 8.5% | Generative Artificial Intelligence Policies under the Microscope | The relationship between generative artificial intelligence and cybersecurity |
-| 3 | (0,7) | 7.9% | Generative Artificial Intelligence Policies under the Microscope | Behavioral Analysis of Classroom Interactions Supported by Generative Artificial Intelligence |
+| 1 | (1,3) | 27.4% | Machine Learning on Graphs in the Era of Generative Artificial Intelligence | Experiencing Art Museum with a Generative Artificial Intelligence Chatbot |
+| 2 | (1,2) | 27.2% | Machine Learning on Graphs in the Era of Generative Artificial Intelligence | Analyzing Students' Use of Generative Artificial Intelligence in Collaborative Problem Solving |
+| 3 | (2,3) | 25.2% | Analyzing Students' Use of Generative Artificial Intelligence in Collaborative Problem Solving | Experiencing Art Museum with a Generative Artificial Intelligence Chatbot |
 
 ### Damerau–Levenshtein (normalizada)
 
 | Rank | Par (i,j) | Similitud | Título i | Título j |
 |---:|:---:|---:|---|---|
-| 1 | (3,7) | 31.9% | The relationship between generative artificial intelligence and cybersecurity | Behavioral Analysis of Classroom Interactions Supported by Generative Artificial Intelligence |
-| 2 | (0,3) | 8.5% | Generative Artificial Intelligence Policies under the Microscope | The relationship between generative artificial intelligence and cybersecurity |
-| 3 | (0,7) | 7.9% | Generative Artificial Intelligence Policies under the Microscope | Behavioral Analysis of Classroom Interactions Supported by Generative Artificial Intelligence |
+| 1 | (1,2) | 27.4% | Machine Learning on Graphs in the Era of Generative Artificial Intelligence | Analyzing Students' Use of Generative Artificial Intelligence in Collaborative Problem Solving |
+| 2 | (1,3) | 27.4% | Machine Learning on Graphs in the Era of Generative Artificial Intelligence | Experiencing Art Museum with a Generative Artificial Intelligence Chatbot |
+| 3 | (2,3) | 25.2% | Analyzing Students' Use of Generative Artificial Intelligence in Collaborative Problem Solving | Experiencing Art Museum with a Generative Artificial Intelligence Chatbot |
 
 ### Jaccard (tokens)
 
 | Rank | Par (i,j) | Similitud | Título i | Título j |
 |---:|:---:|---:|---|---|
-| 1 | (3,7) | 9.2% | The relationship between generative artificial intelligence and cybersecurity | Behavioral Analysis of Classroom Interactions Supported by Generative Artificial Intelligence |
-| 2 | (0,7) | 1.4% | Generative Artificial Intelligence Policies under the Microscope | Behavioral Analysis of Classroom Interactions Supported by Generative Artificial Intelligence |
-| 3 | (0,3) | 0.0% | Generative Artificial Intelligence Policies under the Microscope | The relationship between generative artificial intelligence and cybersecurity |
+| 1 | (2,3) | 9.4% | Analyzing Students' Use of Generative Artificial Intelligence in Collaborative Problem Solving | Experiencing Art Museum with a Generative Artificial Intelligence Chatbot |
+| 2 | (1,2) | 5.8% | Machine Learning on Graphs in the Era of Generative Artificial Intelligence | Analyzing Students' Use of Generative Artificial Intelligence in Collaborative Problem Solving |
+| 3 | (1,3) | 5.4% | Machine Learning on Graphs in the Era of Generative Artificial Intelligence | Experiencing Art Museum with a Generative Artificial Intelligence Chatbot |
 
 ### Coseno (TF-IDF)
 
 | Rank | Par (i,j) | Similitud | Título i | Título j |
 |---:|:---:|---:|---|---|
-| 1 | (3,7) | 24.2% | The relationship between generative artificial intelligence and cybersecurity | Behavioral Analysis of Classroom Interactions Supported by Generative Artificial Intelligence |
-| 2 | (0,7) | 1.2% | Generative Artificial Intelligence Policies under the Microscope | Behavioral Analysis of Classroom Interactions Supported by Generative Artificial Intelligence |
-| 3 | (0,3) | 0.0% | Generative Artificial Intelligence Policies under the Microscope | The relationship between generative artificial intelligence and cybersecurity |
+| 1 | (1,2) | 4.7% | Machine Learning on Graphs in the Era of Generative Artificial Intelligence | Analyzing Students' Use of Generative Artificial Intelligence in Collaborative Problem Solving |
+| 2 | (2,3) | 4.3% | Analyzing Students' Use of Generative Artificial Intelligence in Collaborative Problem Solving | Experiencing Art Museum with a Generative Artificial Intelligence Chatbot |
+| 3 | (1,3) | 3.2% | Machine Learning on Graphs in the Era of Generative Artificial Intelligence | Experiencing Art Museum with a Generative Artificial Intelligence Chatbot |
 
 ### SBERT (coseno)
 
 | Rank | Par (i,j) | Similitud | Título i | Título j |
 |---:|:---:|---:|---|---|
-| 1 | (3,7) | 35.7% | The relationship between generative artificial intelligence and cybersecurity | Behavioral Analysis of Classroom Interactions Supported by Generative Artificial Intelligence |
-| 2 | (0,3) | 14.8% | Generative Artificial Intelligence Policies under the Microscope | The relationship between generative artificial intelligence and cybersecurity |
-| 3 | (0,7) | 12.3% | Generative Artificial Intelligence Policies under the Microscope | Behavioral Analysis of Classroom Interactions Supported by Generative Artificial Intelligence |
+| 1 | (2,3) | 38.6% | Analyzing Students' Use of Generative Artificial Intelligence in Collaborative Problem Solving | Experiencing Art Museum with a Generative Artificial Intelligence Chatbot |
+| 2 | (1,3) | 30.1% | Machine Learning on Graphs in the Era of Generative Artificial Intelligence | Experiencing Art Museum with a Generative Artificial Intelligence Chatbot |
+| 3 | (1,2) | 25.9% | Machine Learning on Graphs in the Era of Generative Artificial Intelligence | Analyzing Students' Use of Generative Artificial Intelligence in Collaborative Problem Solving |
 
 ### GTE (coseno)
 
 | Rank | Par (i,j) | Similitud | Título i | Título j |
 |---:|:---:|---:|---|---|
-| 1 | (3,7) | 83.3% | The relationship between generative artificial intelligence and cybersecurity | Behavioral Analysis of Classroom Interactions Supported by Generative Artificial Intelligence |
-| 2 | (0,7) | 78.9% | Generative Artificial Intelligence Policies under the Microscope | Behavioral Analysis of Classroom Interactions Supported by Generative Artificial Intelligence |
-| 3 | (0,3) | 76.0% | Generative Artificial Intelligence Policies under the Microscope | The relationship between generative artificial intelligence and cybersecurity |
+| 1 | (2,3) | 83.6% | Analyzing Students' Use of Generative Artificial Intelligence in Collaborative Problem Solving | Experiencing Art Museum with a Generative Artificial Intelligence Chatbot |
+| 2 | (1,3) | 82.4% | Machine Learning on Graphs in the Era of Generative Artificial Intelligence | Experiencing Art Museum with a Generative Artificial Intelligence Chatbot |
+| 3 | (1,2) | 80.4% | Machine Learning on Graphs in the Era of Generative Artificial Intelligence | Analyzing Students' Use of Generative Artificial Intelligence in Collaborative Problem Solving |
 
 ## Apéndice — ¿Cómo se calculan las similitudes?
 

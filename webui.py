@@ -285,4 +285,15 @@ def api_grafos_terms():
         return jsonify({"ok": False, "stdout": e.stdout, "stderr": e.stderr}), 500
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=7860, debug=True)
+    # Detectar modo de ejecución
+    is_production = os.environ.get('ENVIRONMENT', 'development') == 'production'
+    
+    if is_production:
+        # Producción: usar host 0.0.0.0 y puerto configurable
+        port = int(os.environ.get('PORT', 8080))
+        print(f"🚀 Modo PRODUCCIÓN - Servidor en 0.0.0.0:{port}")
+        app.run(host="0.0.0.0", port=port, debug=False)
+    else:
+        # Desarrollo: localhost con debug
+        print("🔧 Modo DESARROLLO - Servidor en 127.0.0.1:7860")
+        app.run(host="127.0.0.1", port=7860, debug=True)

@@ -1,0 +1,13 @@
+# AWS Elastic Beanstalk ignore
+.venv/
+venv/
+*.pyc
+__pycache__/
+.git/
+.gitignore
+chrome_profile_copy/
+selenium_profile/
+data/raw/
+data/processed/
+.DS_Store
+*.log

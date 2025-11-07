@@ -2,7 +2,16 @@ requests
 beautifulsoup4
 selenium
 webdriver-manager
+undetected-chromedriver
 pandas
 plotly
 kaleido
 pycountry
+bibtexparser
+numpy
+scikit-learn
+scipy
+matplotlib
+networkx
+wordcloud
+pillow
