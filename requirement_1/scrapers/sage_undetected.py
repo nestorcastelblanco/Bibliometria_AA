@@ -33,13 +33,22 @@ def setup_driver():
     }
     options.add_experimental_option("prefs", prefs)
     
-    # Maximizar ventana
+    # Opciones para mayor estabilidad
     options.add_argument('--start-maximized')
+    options.add_argument('--disable-blink-features=AutomationControlled')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--disable-gpu')
+    options.add_argument('--remote-debugging-port=9222')
     
     # Crear driver con undetected-chromedriver
-    driver = uc.Chrome(options=options, version_main=None)
-    
-    return driver
+    try:
+        driver = uc.Chrome(options=options, version_main=None)
+        print("    ✅ Driver Chrome iniciado correctamente")
+        return driver
+    except Exception as e:
+        print(f"    ❌ Error iniciando Chrome: {e}")
+        raise
 
 def wait_for_download(download_dir, initial_files, timeout=30):
     """Espera a que se complete la descarga"""
@@ -418,33 +427,46 @@ def main():
     try:
         print("\n🚀 Inicializando Chrome (anti-detección)...")
         driver = setup_driver()
+        print("    ✅ Chrome iniciado correctamente")
+        
         wait = WebDriverWait(driver, 20)
 
-        # Procesar 2821 páginas que tiene sagepub.com para esta búsqueda
-        num_pages = 2821
+        # PRUEBA: Procesar solo 2 páginas para testing
+        num_pages = 2
         successful_downloads = 0
         
+        print(f"\n📋 Iniciando procesamiento de {num_pages} páginas...")
+        
         for page_num in range(num_pages):
-            # Verificar si ya existe archivo para esta página
-            if check_if_page_exists(page_num):
-                print(f"\n📁 Página {page_num + 1} ya existe, saltando...")
-                successful_downloads += 1
-                continue
+            try:
+                print(f"\n{'='*60}")
+                print(f"📄 PROCESANDO PÁGINA {page_num + 1}/{num_pages}")
+                print(f"{'='*60}")
                 
-            # Solo la primera página requiere interacción manual
-            is_first = (page_num == 0)
-            success = download_page_bibtex(driver, page_num, wait, is_first_page=is_first)
-            
-            if success:
-                successful_downloads += 1
-                print(f"\n✅ Página {page_num + 1}/{num_pages} COMPLETADA")
-            else:
-                print(f"\n⚠️  Página {page_num + 1}/{num_pages} - Error detectado, continuando...")
-            
-            # Pausa antes de siguiente página
-            if page_num < num_pages - 1:
-                print(f"\n⏭️  Preparando página {page_num + 2}...")
-                time.sleep(3)
+                # Verificar si ya existe archivo para esta página
+                if check_if_page_exists(page_num):
+                    print(f"📁 Página {page_num + 1} ya existe, saltando...")
+                    successful_downloads += 1
+                    continue
+                    
+                # Solo la primera página requiere interacción manual
+                is_first = (page_num == 0)
+                success = download_page_bibtex(driver, page_num, wait, is_first_page=is_first)
+                
+                if success:
+                    successful_downloads += 1
+                    print(f"✅ Página {page_num + 1}/{num_pages} COMPLETADA")
+                else:
+                    print(f"⚠️  Página {page_num + 1}/{num_pages} - Error detectado, continuando...")
+                
+                # Pausa antes de siguiente página
+                if page_num < num_pages - 1:
+                    print(f"⏭️  Preparando página {page_num + 2}...")
+                    time.sleep(3)
+                    
+            except Exception as e:
+                print(f"❌ Error en página {page_num + 1}: {e}")
+                continue
         
         # Resumen final
         print("\n" + "=" * 80)
@@ -461,10 +483,13 @@ def main():
             total_size = 0
             for bib_file in bib_files:
                 file_path = SAGE_DATA_DIR / bib_file
-                size_kb = file_path.stat().st_size / 1024
-                total_size += size_kb
-                print(f"  - {bib_file} ({size_kb:.1f} KB)")
+                if file_path.exists():
+                    size_kb = file_path.stat().st_size / 1024
+                    total_size += size_kb
+                    print(f"  - {bib_file} ({size_kb:.1f} KB)")
             print(f"\n📦 Tamaño total: {total_size:.1f} KB")
+        else:
+            print("\n⚠️  No se encontraron archivos BibTeX descargados")
 
         return successful_downloads > 0
         
@@ -476,15 +501,33 @@ def main():
         print(f"\n❌ ERROR FATAL: {str(e)}")
         import traceback
         traceback.print_exc()
+        print(f"\n💡 Reintentando en modo seguro...")
+        # Intentar cerrar driver si existe
+        try:
+            if driver:
+                driver.quit()
+        except:
+            pass
+        time.sleep(5)
         return False
         
     finally:
         if driver:
-            print("\n🔚 Cerrando navegador en 5 segundos...")
-            time.sleep(5)
-            driver.quit()
-            print("✅ Navegador cerrado")
+            print("\n🔚 Cerrando navegador en 3 segundos...")
+            time.sleep(3)
+            try:
+                driver.quit()
+                print("✅ Navegador cerrado correctamente")
+            except Exception as e:
+                print(f"⚠️  Error cerrando navegador: {e}")
 
 if __name__ == "__main__":
-    success = main()
-    sys.exit(0 if success else 1)
+    try:
+        success = main()
+        print(f"\n🏁 SAGE Scraper terminado - Éxito: {success}")
+        sys.exit(0 if success else 1)
+    except Exception as e:
+        print(f"\n💥 Error crítico en SAGE Scraper: {e}")
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)

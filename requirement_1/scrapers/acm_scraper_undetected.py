@@ -172,15 +172,14 @@ def download_page_bibtex(driver, page_num):
 def scrape_acm(max_pages=None):
     """Scraper principal de ACM con undetected-chromedriver usando descarga nativa"""
     
-    # Si no se especifica max_pages, usar todas las páginas disponibles
-    # Estimación: ACM tiene aproximadamente 500-800 páginas para "generative artificial intelligence"
+    # PRUEBA: Solo 2 páginas para testing
     if max_pages is None:
-        max_pages = 2943  # Número alto para procesar todas las páginas disponibles
+        max_pages = 2
     
     print("=" * 70)
     print("🔍 ACM Scraper con Descarga Nativa BibTeX (Anti-CAPTCHA)")
     print("=" * 70)
-    print(f"Páginas: {'TODAS LAS DISPONIBLES' if max_pages >= 2943 else max_pages}")
+    print(f"Páginas: {max_pages} (MODO PRUEBA)")
     print(f"Resultados por página: 50")
     print(f"Salida: {PROJECT_ROOT}/data/raw/acm")
     print("=" * 70)
@@ -281,12 +280,18 @@ def scrape_acm(max_pages=None):
         print(f"\n❌ Error general: {str(e)}")
     
     finally:
-        print(f"\n🔚 Cerrando navegador...")
+        print(f"\n🔚 Cerrando navegador ACM...")
         try:
-            driver.quit()
-        except:
-            pass
+            if driver:
+                driver.quit()
+                print("   ✅ Navegador ACM cerrado correctamente")
+        except Exception as e:
+            print(f"   ⚠️  Error cerrando navegador ACM: {e}")
+        
+        # Pausa para asegurar limpieza de recursos
+        time.sleep(3)
+        print("   🧹 Recursos liberados")
 
 if __name__ == "__main__":
-    # Procesar todas las páginas disponibles en ACM
-    scrape_acm(max_pages=None)
+    # PRUEBA: Procesar solo 2 páginas para testing
+    scrape_acm(max_pages=2)

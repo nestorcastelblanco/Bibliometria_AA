@@ -4,6 +4,7 @@ Smart Scraper - Ejecuta scrapers optimizados de ACM y SAGE
 """
 import sys
 import subprocess
+import time
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -22,7 +23,8 @@ def run_scraper(script_name, name):
             [sys.executable, str(script_path)],
             cwd=str(PROJECT_ROOT),
             capture_output=False,
-            text=True
+            text=True,
+            timeout=600  # 10 minutos timeout
         )
         success = result.returncode == 0
         if success:
@@ -30,6 +32,9 @@ def run_scraper(script_name, name):
         else:
             print(f"⚠️  {name} finalizó con código: {result.returncode}")
         return success
+    except subprocess.TimeoutExpired:
+        print(f"⏱️  {name} excedió el tiempo límite (10 min)")
+        return False
     except Exception as e:
         print(f"❌ Error ejecutando {name}: {e}")
         return False
@@ -39,16 +44,38 @@ def smart_scrape_acm():
     return run_scraper("acm_scraper_undetected.py", "ACM Scraper (Undetected)")
 
 def smart_scrape_sage():
-    """Ejecuta el scraper de SAGE optimizado"""
+    """Ejecuta el scraper de SAGE optimizado con manejo de errores"""
+    print("\n🔄 Preparando ejecución de SAGE...")
+    print("   🧹 Limpiando memoria...")
+    import gc
+    gc.collect()
+    
+    print("   ⏳ Esperando estabilidad del sistema...")
+    time.sleep(5)
+    
     return run_scraper("sage_undetected.py", "SAGE Scraper (Undetected)")
 
 if __name__ == "__main__":
     print("\n🚀 SCRAPING INTELIGENTE DE DATOS BIBLIOGRÁFICOS")
     print("=" * 70)
     
-    # Ejecutar scrapers
+    # Ejecutar scrapers con pausa entre ellos
+    print("\n📋 PASO 1: Ejecutando ACM Scraper")
     acm_success = smart_scrape_acm()
+    
+    print(f"   🏁 ACM Scraper terminado: {'✅ Éxito' if acm_success else '⚠️ Con errores'}")
+    
+    # Pausa entre scrapers para liberar recursos
+    print("\n⏳ Esperando 15 segundos para liberar recursos...")
+    print("   🧹 Liberando memoria y procesos...")
+    import gc
+    gc.collect()
+    time.sleep(15)
+    
+    print("\n📋 PASO 2: Ejecutando SAGE Scraper")
     sage_success = smart_scrape_sage()
+    
+    print(f"   🏁 SAGE Scraper terminado: {'✅ Éxito' if sage_success else '⚠️ Con errores'}")
     
     # Resumen final
     print("\n" + "=" * 70)

@@ -1,60 +1,60 @@
 {
   "selected": [
     {
-      "index": 0,
-      "title": "Generative Artificial Intelligence Policies under the Microscope"
+      "index": 1,
+      "title": "Machine Learning on Graphs in the Era of Generative Artificial Intelligence"
+    },
+    {
+      "index": 2,
+      "title": "Analyzing Students' Use of Generative Artificial Intelligence in Collaborative Problem Solving"
     },
     {
       "index": 3,
-      "title": "The relationship between generative artificial intelligence and cybersecurity"
-    },
-    {
-      "index": 7,
-      "title": "Behavioral Analysis of Classroom Interactions Supported by Generative Artificial Intelligence"
+      "title": "Experiencing Art Museum with a Generative Artificial Intelligence Chatbot"
     }
   ],
   "results": [
     {
-      "i": 0,
+      "i": 1,
+      "j": 2,
+      "scores": {
+        "Levenshtein (normalizada)": 0.27192982456140347,
+        "Damerau–Levenshtein (normalizada)": 0.2743221690590112,
+        "Jaccard (tokens)": 0.05806451612903226,
+        "Coseno (TF-IDF)": 0.04711987933871468,
+        "SBERT (coseno)": 0.25894197821617126,
+        "GTE (coseno)": 0.803957462310791
+      },
+      "title_i": "Machine Learning on Graphs in the Era of Generative Artificial Intelligence",
+      "title_j": "Analyzing Students' Use of Generative Artificial Intelligence in Collaborative Problem Solving"
+    },
+    {
+      "i": 1,
       "j": 3,
       "scores": {
-        "Levenshtein (normalizada)": 0.08536585365853655,
-        "Damerau–Levenshtein (normalizada)": 0.08536585365853655,
-        "Jaccard (tokens)": 0.0,
-        "Coseno (TF-IDF)": 0.0,
-        "SBERT (coseno)": 0.14815005660057068,
-        "GTE (coseno)": 0.7602063417434692
+        "Levenshtein (normalizada)": 0.27352472089314195,
+        "Damerau–Levenshtein (normalizada)": 0.27352472089314195,
+        "Jaccard (tokens)": 0.053691275167785234,
+        "Coseno (TF-IDF)": 0.03156416975654938,
+        "SBERT (coseno)": 0.3014885187149048,
+        "GTE (coseno)": 0.8235472440719604
       },
-      "title_i": "Generative Artificial Intelligence Policies under the Microscope",
-      "title_j": "The relationship between generative artificial intelligence and cybersecurity"
+      "title_i": "Machine Learning on Graphs in the Era of Generative Artificial Intelligence",
+      "title_j": "Experiencing Art Museum with a Generative Artificial Intelligence Chatbot"
     },
     {
-      "i": 0,
-      "j": 7,
+      "i": 2,
+      "j": 3,
       "scores": {
-        "Levenshtein (normalizada)": 0.07859848484848486,
-        "Damerau–Levenshtein (normalizada)": 0.07859848484848486,
-        "Jaccard (tokens)": 0.014084507042253521,
-        "Coseno (TF-IDF)": 0.012359579496928928,
-        "SBERT (coseno)": 0.12264416366815567,
-        "GTE (coseno)": 0.7891285419464111
+        "Levenshtein (normalizada)": 0.2518587360594795,
+        "Damerau–Levenshtein (normalizada)": 0.2518587360594795,
+        "Jaccard (tokens)": 0.09448818897637795,
+        "Coseno (TF-IDF)": 0.042887438359105294,
+        "SBERT (coseno)": 0.3858979344367981,
+        "GTE (coseno)": 0.8359703421592712
       },
-      "title_i": "Generative Artificial Intelligence Policies under the Microscope",
-      "title_j": "Behavioral Analysis of Classroom Interactions Supported by Generative Artificial Intelligence"
-    },
-    {
-      "i": 3,
-      "j": 7,
-      "scores": {
-        "Levenshtein (normalizada)": 0.31912878787878785,
-        "Damerau–Levenshtein (normalizada)": 0.31912878787878785,
-        "Jaccard (tokens)": 0.09174311926605505,
-        "Coseno (TF-IDF)": 0.24178936499798212,
-        "SBERT (coseno)": 0.3568804860115051,
-        "GTE (coseno)": 0.832829475402832
-      },
-      "title_i": "The relationship between generative artificial intelligence and cybersecurity",
-      "title_j": "Behavioral Analysis of Classroom Interactions Supported by Generative Artificial Intelligence"
+      "title_i": "Analyzing Students' Use of Generative Artificial Intelligence in Collaborative Problem Solving",
+      "title_j": "Experiencing Art Museum with a Generative Artificial Intelligence Chatbot"
     }
   ]
 }

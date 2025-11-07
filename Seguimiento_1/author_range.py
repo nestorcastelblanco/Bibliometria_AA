@@ -4,6 +4,10 @@ import unicodedata
 import time
 from collections import Counter
 import matplotlib.pyplot as plt
+from pathlib import Path
+
+# Configurar rutas multiplataforma
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 # -------------------------------
 # Normalizar campos
@@ -94,18 +98,18 @@ def plot_top_authors(top_authors_list):
 # Programa principal
 # -------------------------------
 if __name__ == "__main__":
-    input_file = r"C:\Bibliometria\data\processed\productos_unificados.bib"
-    output_dir = r"C:\Bibliometria\data\processed\ordenamiento"
-    os.makedirs(output_dir, exist_ok=True)
+    input_file = PROJECT_ROOT / "data" / "processed" / "productos_unificados.bib"
+    output_dir = PROJECT_ROOT / "data" / "processed" / "ordenamiento"
+    output_dir.mkdir(parents=True, exist_ok=True)
 
-    output_file = os.path.join(output_dir, "ordenado_timsort.bib")
+    output_file = output_dir / "ordenado_timsort.bib"
 
-    if not os.path.exists(input_file):
+    if not input_file.exists():
         print(f"[ERROR] No se encontró el archivo {input_file}")
         exit(1)
 
     print(f"[INFO] Leyendo {input_file}...")
-    entries = parse_bib_file(input_file)
+    entries = parse_bib_file(str(input_file))
     print(f"[INFO] {len(entries)} entradas encontradas")
 
     print("[INFO] Ordenando con Timsort por (año, título)...")
@@ -115,7 +119,7 @@ if __name__ == "__main__":
     print(f"[INFO] Tiempo de ordenamiento: {end_time - start_time:.6f} seg")
 
     print(f"[INFO] Guardando en {output_file}...")
-    save_bib(sorted_entries, output_file)
+    save_bib(sorted_entries, str(output_file))
     print("[OK] Proceso completado ✅")
 
     # -------------------------------
