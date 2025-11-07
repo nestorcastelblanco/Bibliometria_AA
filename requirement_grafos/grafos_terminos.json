@@ -860,9 +860,12 @@
   ],
   "adj": {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     "machine learning": {},
     "algorithmic bias": {},
 =======
+=======
+>>>>>>> Stashed changes
     "artificial": {
       "learning": 0.002380952380952381,
       "generative": 0.0012787723785166241,
@@ -881,6 +884,8 @@
       "privacy": 0.03571428571428571,
       "personalization": 0.2,
       "transparency": 0.1
+<<<<<<< Updated upstream
+=======
     },
     "ethics": {
       "generative": 0.07692307692307693,
@@ -903,6 +908,292 @@
       "based": 0.5,
       "design": 0.3333333333333333
     },
+    "genai": {
+      "learning": 0.005376344086021506,
+      "generative": 0.004098360655737705,
+      "artificial": 0.004651162790697674,
+      "intelligence": 0.004672897196261682,
+      "data": 0.010101010101010102,
+      "design": 0.0045045045045045045,
+      "based": 0.009174311926605505,
+      "students": 0.003968253968253968,
+      "privacy": 0.023255813953488372,
+      "model": 0.021739130434782608,
+      "education": 0.008130081300813009,
+      "technology": 0.017857142857142856,
+      "research": 0.005208333333333333,
+      "personalization": 0.5,
+      "prompting": 0.07692307692307693,
+      "ethics": 0.25,
+      "transparency": 0.14285714285714285,
+      "explainability": 0.25
+    },
+    "co creation": {},
+    "explainability": {
+      "based": 0.25,
+      "research": 0.16666666666666666,
+      "transparency": 0.16666666666666666,
+      "generative": 0.5,
+      "design": 0.2,
+      "genai": 0.25,
+      "data": 0.25,
+      "learning": 0.2
+    },
+    "generative": {
+      "learning": 0.002785515320334262,
+      "artificial": 0.0012787723785166241,
+      "intelligence": 0.001226993865030675,
+      "genai": 0.004098360655737705,
+      "data": 0.00392156862745098,
+      "research": 0.002717391304347826,
+      "technology": 0.0036363636363636364,
+      "model": 0.0056179775280898875,
+      "education": 0.0029585798816568047,
+      "students": 0.003436426116838488,
+      "design": 0.0023923444976076554,
+      "prompting": 0.1111111111111111,
+      "based": 0.004,
+      "ethics": 0.07692307692307693,
+      "privacy": 0.017543859649122806,
+      "personalization": 0.07692307692307693,
+      "explainability": 0.5,
+      "transparency": 0.1111111111111111
+    },
+    "learning": {
+      "data": 0.002717391304347826,
+      "based": 0.0027247956403269754,
+      "generative": 0.002785515320334262,
+      "artificial": 0.002380952380952381,
+      "intelligence": 0.002188183807439825,
+      "genai": 0.005376344086021506,
+      "students": 0.0020325203252032522,
+      "research": 0.0037313432835820895,
+      "education": 0.0024752475247524753,
+      "technology": 0.003105590062111801,
+      "prompting": 0.5,
+      "design": 0.004739336492890996,
+      "ethics": 0.25,
+      "privacy": 0.016666666666666666,
+      "model": 0.0035714285714285713,
+      "personalization": 0.07692307692307693,
+      "explainability": 0.2,
+      "transparency": 0.5
+    },
+    "generative models": {},
+    "training data": {},
+    "education": {
+      "generative": 0.0029585798816568047,
+      "artificial": 0.001941747572815534,
+      "intelligence": 0.0018796992481203006,
+      "students": 0.0038461538461538464,
+      "research": 0.0024330900243309003,
+      "data": 0.0055248618784530384,
+      "learning": 0.0024752475247524753,
+      "based": 0.008264462809917356,
+      "design": 0.005813953488372093,
+      "ethics": 0.043478260869565216,
+      "model": 0.013513513513513514,
+      "technology": 0.0034602076124567475,
+      "privacy": 0.047619047619047616,
+      "genai": 0.008130081300813009,
+      "transparency": 0.5
+    },
+    "algorithmic bias": {},
+    "based": {
+      "data": 0.0037593984962406013,
+      "learning": 0.0027247956403269754,
+      "genai": 0.009174311926605505,
+      "design": 0.005208333333333333,
+      "education": 0.008264462809917356,
+      "generative": 0.004,
+      "students": 0.006211180124223602,
+      "model": 0.002577319587628866,
+      "research": 0.00546448087431694,
+      "technology": 0.005405405405405406,
+      "artificial": 0.0038910505836575876,
+      "intelligence": 0.0036496350364963502,
+      "prompting": 0.14285714285714285,
+      "personalization": 0.16666666666666666,
+      "privacy": 0.043478260869565216,
+      "explainability": 0.25,
+      "transparency": 0.16666666666666666,
+      "ethics": 0.2,
+      "multimodality": 0.5
+    },
+    "fine tuning": {},
+    "research": {
+      "generative": 0.002717391304347826,
+      "artificial": 0.0022172949002217295,
+      "intelligence": 0.002066115702479339,
+      "technology": 0.003663003663003663,
+      "data": 0.004694835680751174,
+      "education": 0.0024330900243309003,
+      "students": 0.008264462809917356,
+      "learning": 0.0037313432835820895,
+      "ethics": 0.043478260869565216,
+      "design": 0.004032258064516129,
+      "based": 0.00546448087431694,
+      "model": 0.007692307692307693,
+      "privacy": 0.02702702702702703,
+      "genai": 0.005208333333333333,
+      "transparency": 0.05555555555555555,
+      "explainability": 0.16666666666666666,
+      "personalization": 0.14285714285714285
+    },
+    "human ai interaction": {},
+    "technology": {
+      "research": 0.003663003663003663,
+      "generative": 0.0036363636363636364,
+      "artificial": 0.0017064846416382253,
+      "intelligence": 0.0016260162601626016,
+      "data": 0.003472222222222222,
+      "design": 0.007246376811594203,
+      "students": 0.006993006993006993,
+      "learning": 0.003105590062111801,
+      "education": 0.0034602076124567475,
+      "based": 0.005405405405405406,
+      "model": 0.005235602094240838,
+      "ethics": 0.16666666666666666,
+      "privacy": 0.023809523809523808,
+      "genai": 0.017857142857142856,
+      "personalization": 0.2,
+      "transparency": 0.14285714285714285
+    },
+    "ai literacy": {},
+    "design": {
+      "genai": 0.0045045045045045045,
+      "based": 0.005208333333333333,
+      "technology": 0.007246376811594203,
+      "generative": 0.0023923444976076554,
+      "artificial": 0.0032258064516129032,
+      "intelligence": 0.0030864197530864196,
+      "learning": 0.004739336492890996,
+      "education": 0.005813953488372093,
+      "research": 0.004032258064516129,
+      "data": 0.008,
+      "privacy": 0.05555555555555555,
+      "model": 0.009708737864077669,
+      "students": 0.007142857142857143,
+      "prompting": 0.3333333333333333,
+      "explainability": 0.2,
+      "transparency": 0.25,
+      "ethics": 0.1,
+      "personalization": 0.25,
+      "multimodality": 0.3333333333333333
+    },
+    "transparency": {
+      "data": 0.0625,
+      "privacy": 0.125,
+      "based": 0.16666666666666666,
+      "research": 0.05555555555555555,
+      "explainability": 0.16666666666666666,
+      "design": 0.25,
+      "generative": 0.1111111111111111,
+      "artificial": 0.1,
+      "intelligence": 0.09090909090909091,
+      "students": 0.25,
+      "technology": 0.14285714285714285,
+      "genai": 0.14285714285714285,
+      "learning": 0.5,
+      "education": 0.5,
+      "model": 0.16666666666666666,
+      "ethics": 0.1111111111111111
+    },
+    "machine learning": {},
+    "students": {
+      "generative": 0.003436426116838488,
+      "artificial": 0.004366812227074236,
+      "intelligence": 0.00411522633744856,
+      "education": 0.0038461538461538464,
+      "research": 0.008264462809917356,
+      "data": 0.00819672131147541,
+      "learning": 0.0020325203252032522,
+      "technology": 0.006993006993006993,
+      "based": 0.006211180124223602,
+      "ethics": 0.1111111111111111,
+      "model": 0.008,
+      "genai": 0.003968253968253968,
+      "privacy": 0.125,
+      "design": 0.007142857142857143,
+      "personalization": 0.14285714285714285,
+      "transparency": 0.25,
+      "prompting": 0.5
+    },
+    "privacy": {
+      "genai": 0.023255813953488372,
+      "learning": 0.016666666666666666,
+      "data": 0.0053475935828877,
+      "students": 0.125,
+      "ethics": 0.2,
+      "technology": 0.023809523809523808,
+      "generative": 0.017543859649122806,
+      "education": 0.047619047619047616,
+      "model": 0.04,
+      "research": 0.02702702702702703,
+      "design": 0.05555555555555555,
+      "artificial": 0.03571428571428571,
+      "intelligence": 0.02857142857142857,
+      "based": 0.043478260869565216,
+      "transparency": 0.125,
+      "personalization": 0.25
+    },
+    "generative ai": {},
+    "artificial intelligence": {},
+    "prompting": {
+      "generative": 0.1111111111111111,
+      "artificial": 0.16666666666666666,
+      "intelligence": 0.2,
+      "learning": 0.5,
+      "model": 0.25,
+      "based": 0.14285714285714285,
+      "genai": 0.07692307692307693,
+      "design": 0.3333333333333333,
+      "students": 0.5
+    },
+    "intelligence": {
+      "learning": 0.002188183807439825,
+      "generative": 0.001226993865030675,
+      "artificial": 0.0005115089514066496,
+      "genai": 0.004672897196261682,
+      "data": 0.002617801047120419,
+      "research": 0.002066115702479339,
+      "technology": 0.0016260162601626016,
+      "education": 0.0018796992481203006,
+      "students": 0.00411522633744856,
+      "design": 0.0030864197530864196,
+      "prompting": 0.2,
+      "ethics": 0.058823529411764705,
+      "based": 0.0036496350364963502,
+      "model": 0.0048543689320388345,
+      "privacy": 0.02857142857142857,
+      "personalization": 0.07692307692307693,
+      "transparency": 0.09090909090909091
+>>>>>>> Stashed changes
+    },
+    "model": {
+      "generative": 0.0056179775280898875,
+      "based": 0.002577319587628866,
+      "students": 0.008,
+      "education": 0.013513513513513514,
+      "research": 0.007692307692307693,
+      "technology": 0.005235602094240838,
+      "artificial": 0.005050505050505051,
+      "intelligence": 0.0048543689320388345,
+      "learning": 0.0035714285714285713,
+      "genai": 0.021739130434782608,
+      "privacy": 0.04,
+      "design": 0.009708737864077669,
+      "data": 0.0026455026455026454,
+      "prompting": 0.25,
+      "personalization": 0.1,
+      "ethics": 0.5,
+      "transparency": 0.16666666666666666
+    },
+    "multimodality": {
+      "based": 0.5,
+      "design": 0.3333333333333333
+    },
+<<<<<<< Updated upstream
     "genai": {
       "learning": 0.005376344086021506,
       "generative": 0.004098360655737705,
@@ -1511,6 +1802,8 @@
       "privacy": 0.005291005291005291,
       "model": 0.0024752475247524753,
 =======
+=======
+>>>>>>> Stashed changes
     "data": {
       "based": 0.0037593984962406013,
       "learning": 0.002717391304347826,
@@ -1525,11 +1818,15 @@
       "design": 0.008,
       "privacy": 0.0053475935828877,
       "model": 0.0026455026455026454,
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       "personalization": 0.125,
       "transparency": 0.0625,
       "ethics": 0.125,
       "explainability": 0.25
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     },
     "training data": {}
@@ -1546,12 +1843,18 @@
   },
   "degree": {
 >>>>>>> Stashed changes
+=======
+    }
+  },
+  "degree": {
+>>>>>>> Stashed changes
     "artificial": 17,
     "co creation": 0,
     "generative models": 0,
     "students": 17,
     "fine tuning": 0,
     "ethics": 15,
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     "study": 18,
     "artificial intelligence": 0,
@@ -1613,6 +1916,39 @@
   "components": [
     [
 >>>>>>> Stashed changes
+=======
+    "multimodality": 2,
+    "genai": 18,
+    "co creation": 0,
+    "explainability": 8,
+    "generative": 18,
+    "learning": 18,
+    "generative models": 0,
+    "training data": 0,
+    "education": 15,
+    "algorithmic bias": 0,
+    "based": 19,
+    "fine tuning": 0,
+    "research": 17,
+    "human ai interaction": 0,
+    "technology": 16,
+    "ai literacy": 0,
+    "design": 19,
+    "transparency": 16,
+    "machine learning": 0,
+    "students": 17,
+    "privacy": 16,
+    "generative ai": 0,
+    "artificial intelligence": 0,
+    "prompting": 9,
+    "intelligence": 17,
+    "model": 17,
+    "personalization": 13,
+    "data": 17
+  },
+  "components": [
+    [
+>>>>>>> Stashed changes
       "artificial",
       "data",
       "design",
@@ -1640,19 +1976,26 @@
     [
       "generative models"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
     ],
     [
       "training data"
     ],
     [
       "algorithmic bias"
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     ],
     [
       "fine tuning"
     ],
     [
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
       "artificial intelligence"
     ],
@@ -1661,6 +2004,9 @@
     ],
     [
       "generative ai"
+=======
+      "human ai interaction"
+>>>>>>> Stashed changes
 =======
       "human ai interaction"
 >>>>>>> Stashed changes
@@ -1670,8 +2016,11 @@
     ],
     [
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "training data"
 =======
+=======
+>>>>>>> Stashed changes
       "machine learning"
     ],
     [
@@ -1679,6 +2028,9 @@
     ],
     [
       "artificial intelligence"
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     ]
   ],

@@ -13,6 +13,9 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 # Ruta relativa multiplataforma
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
+# Ruta relativa multiplataforma
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+
 # -------------------------------
 # Normalizar campos
 # -------------------------------
@@ -105,8 +108,11 @@ if __name__ == "__main__":
     input_file = PROJECT_ROOT / "data" / "processed" / "productos_unificados.bib"
     output_dir = PROJECT_ROOT / "data" / "processed" / "ordenamiento"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     output_dir.mkdir(parents=True, exist_ok=True)
 =======
+=======
+>>>>>>> Stashed changes
     os.makedirs(output_dir, exist_ok=True)
 >>>>>>> Stashed changes
 

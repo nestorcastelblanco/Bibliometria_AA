@@ -28,7 +28,11 @@ from collections import defaultdict
 from pathlib import Path
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # Usar rutas relativas al proyecto
+=======
+# Rutas relativas multiplataforma
+>>>>>>> Stashed changes
 =======
 # Rutas relativas multiplataforma
 >>>>>>> Stashed changes
@@ -165,6 +169,9 @@ def find_bib_files(raw_dir=None):
 =======
         raw_dir (str, optional): Directorio raíz para búsqueda. 
                                 Default: RAW_DIR (PROJECT_ROOT/data/raw)
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     
     Returns:
@@ -337,6 +344,9 @@ def unify_all(raw_dir=None, processed_dir=None,
                                 Default: PROJECT_ROOT/data/raw
         processed_dir (str, optional): Directorio de salida.
                                       Default: PROJECT_ROOT/data/processed
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         out_unique (str, optional): Nombre del archivo de entradas únicas.
                                    Default: "productos_unificados.bib"

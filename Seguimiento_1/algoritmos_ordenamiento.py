@@ -4,7 +4,11 @@ import sys
 from pathlib import Path
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # Usar rutas relativas multiplataforma
+=======
+# Ruta relativa multiplataforma
+>>>>>>> Stashed changes
 =======
 # Ruta relativa multiplataforma
 >>>>>>> Stashed changes
