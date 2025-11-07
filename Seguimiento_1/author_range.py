@@ -3,10 +3,14 @@ import re
 import unicodedata
 import time
 from collections import Counter
+from pathlib import Path
 import matplotlib.pyplot as plt
 from pathlib import Path
 
 # Configurar rutas multiplataforma
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+
+# Ruta relativa multiplataforma
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 # -------------------------------
@@ -100,7 +104,11 @@ def plot_top_authors(top_authors_list):
 if __name__ == "__main__":
     input_file = PROJECT_ROOT / "data" / "processed" / "productos_unificados.bib"
     output_dir = PROJECT_ROOT / "data" / "processed" / "ordenamiento"
+<<<<<<< Updated upstream
     output_dir.mkdir(parents=True, exist_ok=True)
+=======
+    os.makedirs(output_dir, exist_ok=True)
+>>>>>>> Stashed changes
 
     output_file = output_dir / "ordenado_timsort.bib"
 

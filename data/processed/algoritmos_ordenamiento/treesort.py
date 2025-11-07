@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 import re
 import unicodedata
 import time
@@ -6,6 +7,9 @@ import time
 # -------------------------------
 # Normalizar campos
 # -------------------------------
+
+# Ruta relativa multiplataforma
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
 def normalize_field(entry, field):
     val = entry.get(field, "").strip().lower()
     return unicodedata.normalize("NFKD", val).encode("ascii", "ignore").decode("ascii")
@@ -93,8 +97,8 @@ def treesort(entries):
 # Programa principal
 # -------------------------------
 if __name__ == "__main__":
-    input_file = r"C:\Bibliometria\data\processed\productos_unificados.bib"
-    output_dir = r"C:\Bibliometria\data\processed\ordenamiento"
+    input_file = PROJECT_ROOT / "data" / "processed" / "productos_unificados.bib"
+    output_dir = PROJECT_ROOT / "data" / "processed" / "ordenamiento"
     os.makedirs(output_dir, exist_ok=True)
     output_file = os.path.join(output_dir, "ordenado_treesort.bib")
 

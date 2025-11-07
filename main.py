@@ -11,6 +11,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent
 # BLOQUE DE AUTOMATIZACIÓN INICIAL (Req. 1 y Seguimiento 1)
 # ===================================================================
 def ejecutar_scripts_base():
+<<<<<<< Updated upstream
     """Ejecuta los scrapers inteligentes y scripts de procesamiento"""
     
     # 1. Ejecutar scraper inteligente (prueba múltiples estrategias)
@@ -25,11 +26,48 @@ def ejecutar_scripts_base():
     
     # 2. Ejecutar scripts de procesamiento
     scripts = [
+=======
+    """Ejecuta los scrapers y scripts base con rutas relativas multiplataforma.
+    
+    Los scrapers se ejecutan SOLO si no existen datos previos.
+    Esto evita scraping innecesario en despliegues y optimiza el tiempo de ejecución.
+    """
+    import os
+    
+    # Verificar si ya existen datos descargados
+    acm_dir = PROJECT_ROOT / "data" / "raw" / "acm"
+    sage_dir = PROJECT_ROOT / "data" / "raw" / "sage"
+    
+    scripts = []
+    
+    # Solo ejecutar scrapers si no hay datos previos
+    acm_files = list(acm_dir.glob("*.bib")) if acm_dir.exists() else []
+    sage_files = list(sage_dir.glob("*.bib")) if sage_dir.exists() else []
+    
+    if len(acm_files) == 0:
+        print("[INFO] No se encontraron datos de ACM, ejecutando scraper...")
+        scripts.append(PROJECT_ROOT / "requirement_1" / "scrapers" / "acm_scraper.py")
+    else:
+        print(f"[INFO] Se encontraron {len(acm_files)} archivos de ACM, omitiendo scraper")
+    
+    if len(sage_files) == 0:
+        print("[INFO] No se encontraron datos de SAGE, ejecutando scraper...")
+        scripts.append(PROJECT_ROOT / "requirement_1" / "scrapers" / "sage_scraper.py")
+    else:
+        print(f"[INFO] Se encontraron {len(sage_files)} archivos de SAGE, omitiendo scraper")
+    
+    # Siempre ejecutar procesamiento y análisis
+    scripts.extend([
+>>>>>>> Stashed changes
         PROJECT_ROOT / "requirement_1" / "unificar.py",
         PROJECT_ROOT / "Seguimiento_1" / "algoritmos_ordenamiento.py",
         PROJECT_ROOT / "Seguimiento_1" / "author_range.py",
         PROJECT_ROOT / "Seguimiento_1" / "stats_algoritmos.py",
+<<<<<<< Updated upstream
     ]
+=======
+    ])
+>>>>>>> Stashed changes
     
     for script in scripts:
         print(f"\n[RUN] Ejecutando: {script.name}")

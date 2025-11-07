@@ -3,7 +3,11 @@ import subprocess
 import sys
 from pathlib import Path
 
+<<<<<<< Updated upstream
 # Usar rutas relativas multiplataforma
+=======
+# Ruta relativa multiplataforma
+>>>>>>> Stashed changes
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 ALGO_DIR = PROJECT_ROOT / "data" / "processed" / "algoritmos_ordenamiento"
 

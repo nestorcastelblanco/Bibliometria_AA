@@ -27,7 +27,11 @@ import bibtexparser
 from collections import defaultdict
 from pathlib import Path
 
+<<<<<<< Updated upstream
 # Usar rutas relativas al proyecto
+=======
+# Rutas relativas multiplataforma
+>>>>>>> Stashed changes
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 RAW_DIR = PROJECT_ROOT / "data" / "raw"
 PROCESSED_DIR = PROJECT_ROOT / "data" / "processed"
@@ -155,8 +159,13 @@ def find_bib_files(raw_dir=None):
     Encuentra recursivamente todos los archivos .bib en directorio.
     
     Args:
+<<<<<<< Updated upstream
         raw_dir (str|Path, optional): Directorio raíz para búsqueda. 
                                 Default: RAW_DIR (./data/raw)
+=======
+        raw_dir (str, optional): Directorio raíz para búsqueda. 
+                                Default: RAW_DIR (PROJECT_ROOT/data/raw)
+>>>>>>> Stashed changes
     
     Returns:
         List[str]: Lista de rutas absolutas a archivos .bib, ordenada
@@ -318,10 +327,17 @@ def unify_all(raw_dir=None, processed_dir=None,
     6. Reporta estadísticas detalladas del proceso
     
     Args:
+<<<<<<< Updated upstream
         raw_dir (str|Path, optional): Directorio con archivos .bib originales.
                                 Default: ./data/raw
         processed_dir (str|Path, optional): Directorio de salida.
                                       Default: ./data/processed
+=======
+        raw_dir (str, optional): Directorio con archivos .bib originales.
+                                Default: PROJECT_ROOT/data/raw
+        processed_dir (str, optional): Directorio de salida.
+                                      Default: PROJECT_ROOT/data/processed
+>>>>>>> Stashed changes
         out_unique (str, optional): Nombre del archivo de entradas únicas.
                                    Default: "productos_unificados.bib"
         out_duplicates (str, optional): Nombre del archivo de duplicados.

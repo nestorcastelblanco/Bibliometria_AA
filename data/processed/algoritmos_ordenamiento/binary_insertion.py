@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 import re
 import time  # <-- importar time
 from pathlib import Path
@@ -9,6 +10,9 @@ PROJECT_ROOT = Path(__file__).resolve().parents[3]
 # -------------------------------
 # Normalizar campos
 # -------------------------------
+
+# Ruta relativa multiplataforma
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
 def normalize_field(entry, field):
     return entry.get(field, "").strip().lower()
 
@@ -94,7 +98,11 @@ def save_bib(entries, output_file):
 if __name__ == "__main__":
     input_file = PROJECT_ROOT / "data" / "processed" / "productos_unificados.bib"
     output_dir = PROJECT_ROOT / "data" / "processed" / "ordenamiento"
+<<<<<<< Updated upstream
     output_dir.mkdir(parents=True, exist_ok=True)
+=======
+    os.makedirs(output_dir, exist_ok=True)
+>>>>>>> Stashed changes
 
     output_file = output_dir / "ordenado_binary.bib"
 

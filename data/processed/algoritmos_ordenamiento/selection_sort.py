@@ -1,11 +1,15 @@
 import os
+from pathlib import Path
 import bibtexparser
 import unicodedata
 import time
 
 # ================== RUTAS ================== #
-INPUT_FILE = r"C:\Bibliometria\data\processed\productos_unificados.bib"
-OUTPUT_DIR = r"C:\Bibliometria\data\processed\ordenamiento"
+
+# Ruta relativa multiplataforma
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
+INPUT_FILE = PROJECT_ROOT / "data" / "processed" / "productos_unificados.bib"
+OUTPUT_DIR = PROJECT_ROOT / "data" / "processed" / "ordenamiento"
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "ordenado_selection.bib")
 
 # ================== FUNCIONES AUXILIARES ================== #
