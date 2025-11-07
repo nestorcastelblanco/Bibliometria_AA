@@ -4,6 +4,7 @@ ACM Scraper usando undetected-chromedriver para evadir CAPTCHA
 Descarga archivos BibTeX usando la funcionalidad nativa de ACM
 """
 import time
+import os
 import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -13,6 +14,9 @@ import sys
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
+# Detectar si estamos en producción
+IS_PRODUCTION = os.environ.get('ENVIRONMENT', 'development') == 'production'
+
 def setup_driver():
     """Configura undetected-chromedriver para evadir CAPTCHA/Cloudflare"""
     # Configurar directorio de descarga
@@ -21,11 +25,20 @@ def setup_driver():
     
     options = uc.ChromeOptions()
     
-    # Configuraciones para comportamiento más humano
-    options.add_argument('--start-maximized')
+    # Configuraciones base
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--disable-blink-features=AutomationControlled')
+    
+    # Configuraciones específicas para producción (headless)
+    if IS_PRODUCTION:
+        print("   🔧 Modo PRODUCCIÓN detectado - usando headless mode")
+        options.add_argument('--headless=new')
+        options.add_argument('--disable-gpu')
+        options.add_argument('--window-size=1920,1080')
+    else:
+        print("   🔧 Modo DESARROLLO - usando ventana visible")
+        options.add_argument('--start-maximized')
     
     # Configurar directorio de descarga
     prefs = {

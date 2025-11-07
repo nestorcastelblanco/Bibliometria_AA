@@ -4,6 +4,7 @@ SAGE Journals BibTeX Downloader usando undetected-chromedriver
 Para evadir Cloudflare y permitir resolución manual de CAPTCHA
 """
 import time
+import os
 import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait, Select
@@ -11,7 +12,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from pathlib import Path
 from datetime import datetime
 import sys
-import os
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 SAGE_DATA_DIR = PROJECT_ROOT / 'data' / 'raw' / 'sage'
@@ -19,6 +19,9 @@ SAGE_DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 # Configurar carpeta de descargas
 DOWNLOAD_DIR = str(SAGE_DATA_DIR.absolute())
+
+# Detectar si estamos en producción
+IS_PRODUCTION = os.environ.get('ENVIRONMENT', 'development') == 'production'
 
 def setup_driver():
     """Configura undetected-chromedriver para evadir Cloudflare"""
@@ -33,13 +36,21 @@ def setup_driver():
     }
     options.add_experimental_option("prefs", prefs)
     
-    # Opciones para mayor estabilidad
-    options.add_argument('--start-maximized')
+    # Opciones base
     options.add_argument('--disable-blink-features=AutomationControlled')
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--disable-gpu')
     options.add_argument('--remote-debugging-port=9222')
+    
+    # Configuraciones específicas para producción (headless)
+    if IS_PRODUCTION:
+        print("    🔧 Modo PRODUCCIÓN detectado - usando headless mode")
+        options.add_argument('--headless=new')
+        options.add_argument('--window-size=1920,1080')
+    else:
+        print("    🔧 Modo DESARROLLO - usando ventana visible")
+        options.add_argument('--start-maximized')
     
     # Crear driver con undetected-chromedriver
     try:
