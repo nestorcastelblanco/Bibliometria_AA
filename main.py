@@ -12,7 +12,6 @@ PROJECT_ROOT = Path(__file__).resolve().parent
 # ===================================================================
 def ejecutar_scripts_base():
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
     """Ejecuta los scrapers inteligentes y scripts de procesamiento"""
     
     # 1. Ejecutar scraper inteligente (prueba múltiples estrategias)
@@ -28,8 +27,6 @@ def ejecutar_scripts_base():
     # 2. Ejecutar scripts de procesamiento
     scripts = [
 =======
-=======
->>>>>>> Stashed changes
     """Ejecuta los scrapers y scripts base con rutas relativas multiplataforma.
     
     Los scrapers se ejecutan SOLO si no existen datos previos.
@@ -61,20 +58,13 @@ def ejecutar_scripts_base():
     
     # Siempre ejecutar procesamiento y análisis
     scripts.extend([
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
         PROJECT_ROOT / "requirement_1" / "unificar.py",
         PROJECT_ROOT / "Seguimiento_1" / "algoritmos_ordenamiento.py",
         PROJECT_ROOT / "Seguimiento_1" / "author_range.py",
         PROJECT_ROOT / "Seguimiento_1" / "stats_algoritmos.py",
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
     ]
-=======
-    ])
->>>>>>> Stashed changes
 =======
     ])
 >>>>>>> Stashed changes
