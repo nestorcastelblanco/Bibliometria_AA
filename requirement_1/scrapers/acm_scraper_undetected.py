@@ -287,16 +287,50 @@ def scrape_acm(max_pages=None):
             print(f"   ⏳ Esperando {wait_time}s (CAPTCHA/carga)...")
             time.sleep(wait_time)
             
+            # DEBUG: Verificar qué se cargó
+            page_title = driver.title
+            print(f"   🔍 Título de página: {page_title[:80]}")
+            
+            # Verificar si Cloudflare nos bloqueó
+            if "cloudflare" in page_title.lower() or "just a moment" in page_title.lower():
+                print(f"   ❌ CLOUDFLARE DETECTADO - Bloqueado por protección")
+                break
+            
             # Verificar si hay resultados en la página
             try:
-                # Buscar elementos que indican resultados
-                results = driver.find_elements(By.CSS_SELECTOR, ".issue-item")
+                # Buscar elementos que indican resultados - probar múltiples selectores
+                selectors_to_try = [
+                    ".issue-item",
+                    ".search-result",
+                    ".search__item",
+                    "[class*='result']",
+                    "[class*='item']"
+                ]
+                
+                results = []
+                selector_used = None
+                for selector in selectors_to_try:
+                    results = driver.find_elements(By.CSS_SELECTOR, selector)
+                    if results:
+                        selector_used = selector
+                        break
+                
                 if not results:
+                    print(f"   ⚠️  No se encontraron resultados con ningún selector")
+                    print(f"   🔍 URL actual: {driver.current_url[:80]}")
+                    
+                    # Guardar screenshot para debug si es la primera página
+                    if page_num == 0:
+                        screenshot_path = output_dir / "debug_screenshot.png"
+                        driver.save_screenshot(str(screenshot_path))
+                        print(f"   📸 Screenshot guardado en: {screenshot_path}")
+                    
                     print(f"   🏁 No hay más resultados en la página {page_num+1}. Finalizando...")
                     break
-                print(f"   📊 Encontrados {len(results)} resultados en esta página")
-            except:
-                print(f"   ❌ Error verificando resultados en página {page_num+1}")
+                    
+                print(f"   📊 Encontrados {len(results)} elementos con selector '{selector_used}'")
+            except Exception as e:
+                print(f"   ❌ Error verificando resultados: {str(e)[:100]}")
                 break
             
             # Descargar BibTeX de la página
