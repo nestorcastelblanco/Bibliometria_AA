@@ -122,7 +122,20 @@ def run_req3(
     auto_agg = aggregate_frequencies(auto_per_doc)
 
     # 4) Precisión de términos auto-generados vs. semillas (embeddings)
-    eval_res = precision_against_seeds(auto_terms, seeds_norm, threshold=threshold)
+    # Si sentence_transformers no está instalado, skip evaluación
+    try:
+        eval_res = precision_against_seeds(auto_terms, seeds_norm, threshold=threshold)
+    except (ImportError, ModuleNotFoundError) as e:
+        print(f"⚠️  Evaluación con embeddings no disponible: {e}")
+        print("   Continuando sin métricas de precisión semántica...")
+        eval_res = {
+            "precision": None,
+            "relevant_count": None,
+            "total_count": len(auto_terms),
+            "threshold": threshold,
+            "model": "N/A (sentence_transformers no instalado)",
+            "message": "Evaluación semántica omitida - instala: pip install sentence-transformers"
+        }
 
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     payload = {
