@@ -17,7 +17,10 @@ wordcloud
 pillow
 
 # Django y REST API
-Django>=5.2
+Django~=4.2.0
+djangorestframework
+django-cors-headers
+gunicorn
 djangorestframework>=3.14
 django-cors-headers>=4.3
 
