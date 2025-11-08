@@ -207,7 +207,7 @@ def run_grafos_cit(request):
         env['PYTHONPATH'] = str(settings.BASE_DIR)
         
         result = subprocess.run(
-            [sys.executable, str(script), '--tipo', 'citaciones'],
+            [sys.executable, str(script), 'cit', '--plot'],
             cwd=str(settings.BASE_DIR),
             capture_output=True,
             text=True,
@@ -239,7 +239,7 @@ def run_grafos_terms(request):
         env['PYTHONPATH'] = str(settings.BASE_DIR)
         
         result = subprocess.run(
-            [sys.executable, str(script), '--tipo', 'terminos'],
+            [sys.executable, str(script), 'terms', '--plot'],
             cwd=str(settings.BASE_DIR),
             capture_output=True,
             text=True,
