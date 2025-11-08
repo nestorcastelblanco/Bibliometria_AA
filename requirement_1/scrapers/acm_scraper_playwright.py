@@ -36,7 +36,7 @@ def scrape_acm_playwright(max_pages=2, headless=True):
     downloaded_files = []
     
     with sync_playwright() as p:
-        # Configurar navegador
+        # Configurar navegador con más argumentos anti-detección
         print("\n🌐 Iniciando Chromium...")
         browser = p.chromium.launch(
             headless=headless,
@@ -45,14 +45,47 @@ def scrape_acm_playwright(max_pages=2, headless=True):
                 '--disable-setuid-sandbox',
                 '--disable-dev-shm-usage',
                 '--disable-blink-features=AutomationControlled',
+                '--disable-web-security',
+                '--disable-features=IsolateOrigins,site-per-process',
+                '--allow-running-insecure-content',
+                '--disable-ipc-flooding-protection',
+                '--disable-backgrounding-occluded-windows',
+                '--disable-renderer-backgrounding',
+                '--disable-background-timer-throttling',
+                '--disable-hang-monitor',
+                '--disable-client-side-phishing-detection',
+                '--disable-popup-blocking',
+                '--disable-prompt-on-repost',
+                '--disable-sync',
+                '--metrics-recording-only',
+                '--no-first-run',
+                '--safebrowsing-disable-auto-update',
+                '--enable-automation',
+                '--password-store=basic',
+                '--use-mock-keychain',
             ]
         )
         
-        # Configurar contexto del navegador
+        # Configurar contexto del navegador con headers más realistas
         context = browser.new_context(
             viewport={'width': 1920, 'height': 1080},
-            user_agent='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            accept_downloads=True
+            user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+            locale='en-US',
+            timezone_id='America/New_York',
+            accept_downloads=True,
+            extra_http_headers={
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+                'Accept-Language': 'en-US,en;q=0.9',
+                'Accept-Encoding': 'gzip, deflate, br',
+                'DNT': '1',
+                'Connection': 'keep-alive',
+                'Upgrade-Insecure-Requests': '1',
+                'Sec-Fetch-Dest': 'document',
+                'Sec-Fetch-Mode': 'navigate',
+                'Sec-Fetch-Site': 'none',
+                'Sec-Fetch-User': '?1',
+                'Cache-Control': 'max-age=0',
+            }
         )
         
         # Configurar descargas
@@ -60,18 +93,43 @@ def scrape_acm_playwright(max_pages=2, headless=True):
         
         page = context.new_page()
         
-        # Inyectar técnicas anti-detección manualmente
-        print("🥷 Aplicando técnicas anti-detección...")
+        # Inyectar técnicas anti-detección más agresivas
+        print("🥷 Aplicando técnicas anti-detección avanzadas...")
         page.add_init_script("""
             // Ocultar webdriver
             Object.defineProperty(navigator, 'webdriver', {get: () => undefined});
             
-            // Simular chrome
-            Object.defineProperty(navigator, 'plugins', {get: () => [1, 2, 3, 4, 5]});
-            Object.defineProperty(navigator, 'languages', {get: () => ['en-US', 'en']});
+            // Sobrescribir propiedades de detección
+            Object.defineProperty(navigator, 'plugins', {
+                get: () => [
+                    {name: 'Chrome PDF Plugin', filename: 'internal-pdf-viewer', description: 'Portable Document Format'},
+                    {name: 'Chrome PDF Viewer', filename: 'mhjfbmdgcfjbbpaeojofohoefgiehjai', description: ''},
+                    {name: 'Native Client', filename: 'internal-nacl-plugin', description: 'Native Client Executable'}
+                ]
+            });
             
-            // Ocultar automation
-            window.chrome = {runtime: {}};
+            Object.defineProperty(navigator, 'languages', {get: () => ['en-US', 'en']});
+            Object.defineProperty(navigator, 'platform', {get: () => 'Win32'});
+            Object.defineProperty(navigator, 'vendor', {get: () => 'Google Inc.'});
+            
+            // Simular chrome real
+            window.chrome = {
+                runtime: {},
+                loadTimes: function() {},
+                csi: function() {},
+                app: {}
+            };
+            
+            // Permisos
+            const originalQuery = window.navigator.permissions.query;
+            window.navigator.permissions.query = (parameters) => (
+                parameters.name === 'notifications' ?
+                    Promise.resolve({ state: Notification.permission }) :
+                    originalQuery(parameters)
+            );
+            
+            // Ocultar automatización
+            delete navigator.__proto__.webdriver;
         """)
         
         print("✅ Navegador iniciado\n")
@@ -103,17 +161,34 @@ def scrape_acm_playwright(max_pages=2, headless=True):
                 # Esperar a que carguen los elementos principales
                 time.sleep(5)
                 
-                # Verificar si es Cloudflare
+                # Verificar si es Cloudflare y esperar de forma más inteligente
                 title = page.title()
                 if "just a moment" in title.lower() or "cloudflare" in title.lower():
                     print(f"   ⚠️  Cloudflare detectado: {title}")
-                    print(f"   ⏳ Esperando 15s para bypass automático...")
-                    time.sleep(15)
+                    print(f"   ⏳ Esperando resolución automática (hasta 30s)...")
                     
-                    title = page.title()
-                    if "just a moment" in title.lower():
-                        print(f"   ❌ Cloudflare no se resolvió automáticamente")
-                        continue
+                    # Esperar activamente a que desaparezca el challenge
+                    try:
+                        # Esperar a que aparezca algún elemento característico de ACM
+                        page.wait_for_selector(".citation-preview, .search__item, .issue-item", timeout=30000)
+                        print(f"   ✅ Cloudflare superado!")
+                        time.sleep(2)  # Espera adicional para estabilidad
+                    except:
+                        print(f"   ❌ Cloudflare no se resolvió en 30s")
+                        # Intentar scroll como último recurso
+                        try:
+                            print(f"   🔄 Intentando scroll como humano...")
+                            page.mouse.wheel(0, 300)
+                            time.sleep(5)
+                            page.mouse.wheel(0, 300)
+                            time.sleep(5)
+                            
+                            title = page.title()
+                            if "just a moment" in title.lower():
+                                print(f"   ❌ Scroll no ayudó, saltando página")
+                                continue
+                        except:
+                            continue
                 
                 print(f"   ✅ Página cargada: {title[:50]}...")
                 
