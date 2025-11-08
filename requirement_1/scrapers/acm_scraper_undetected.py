@@ -17,6 +17,37 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 # Detectar si estamos en producción
 IS_PRODUCTION = os.environ.get('ENVIRONMENT', 'development') == 'production'
 
+def find_chrome_binary():
+    """Encuentra el binario de Chrome/Chromium instalado"""
+    # Intentar encontrar Chrome en ubicaciones comunes
+    possible_paths = [
+        # Playwright Chromium (Linux)
+        Path.home() / '.cache/ms-playwright/chromium-*/chrome-linux/chrome',
+        # Google Chrome (Linux)
+        '/usr/bin/google-chrome',
+        '/usr/bin/google-chrome-stable',
+        '/usr/bin/chromium-browser',
+        '/usr/bin/chromium',
+        # Chrome (Mac)
+        '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+        # Chromium (Mac)
+        '/Applications/Chromium.app/Contents/MacOS/Chromium',
+    ]
+    
+    for path_pattern in possible_paths:
+        if '*' in str(path_pattern):
+            # Expandir glob para Playwright
+            matches = list(Path(str(path_pattern).split('*')[0]).parent.glob(Path(str(path_pattern).split('*')[0]).name + '*'))
+            for match in matches:
+                chrome_path = match / 'chrome-linux' / 'chrome'
+                if chrome_path.exists():
+                    return str(chrome_path)
+        else:
+            if Path(path_pattern).exists():
+                return str(path_pattern)
+    
+    return None
+
 def setup_driver():
     """Configura undetected-chromedriver para evadir CAPTCHA/Cloudflare"""
     # Configurar directorio de descarga
@@ -24,6 +55,14 @@ def setup_driver():
     download_dir.mkdir(parents=True, exist_ok=True)
     
     options = uc.ChromeOptions()
+    
+    # Buscar Chrome/Chromium
+    chrome_binary = find_chrome_binary()
+    if chrome_binary:
+        print(f"   ✓ Chrome encontrado en: {chrome_binary}")
+        options.binary_location = chrome_binary
+    else:
+        print("   ⚠️  No se encontró Chrome, usando detección automática")
     
     # Configuraciones base
     options.add_argument('--no-sandbox')
