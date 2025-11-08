@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from django.conf import settings
 import subprocess
 import sys
+import os
 from pathlib import Path
 import json
 import pandas as pd
@@ -15,35 +16,59 @@ import pandas as pd
 def run_req2(request):
     """
     POST /api/req2
-    Body: {"indices": [0, 3, 7]}
+    Body: {"indices": "0,3,7"} o {"indices": [0, 3, 7]}
     """
     try:
-        indices = request.data.get('indices', [])
+        # Parsear indices del input
+        indices_str = request.data.get('indices', '')
+        if isinstance(indices_str, str):
+            indices = [int(x.strip()) for x in indices_str.split(',') if x.strip()]
+        else:
+            indices = indices_str
         
-        # Ejecutar script de req2
-        script = settings.BASE_DIR / 'requirement_2' / 'run_req2.py'
+        if not indices or len(indices) < 2:
+            return Response({
+                'ok': False,
+                'stderr': 'Se requieren al menos 2 índices. Ejemplo: 0,3,7'
+            })
         
-        # Construir comando con indices
-        cmd = [sys.executable, str(script)]
-        if indices:
-            cmd.extend(['--indices'] + [str(i) for i in indices])
+        # Importar y ejecutar directamente el módulo
+        import sys
+        sys.path.insert(0, str(settings.BASE_DIR))
         
-        result = subprocess.run(
-            cmd,
-            cwd=str(settings.BASE_DIR),
-            capture_output=True,
-            text=True,
-            timeout=300
-        )
+        from requirement_2 import run_similarity, reports
         
-        # Leer resultados
+        # Ejecutar cálculo
+        output_json = run_similarity.run(indices)
+        
+        # Leer JSON de resultados
+        with open(output_json, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        
+        # Detectar algoritmo principal
+        algo = reports._detect_primary_algo(data.get('results', []), prefer=None)
+        
+        # Generar CSV top 50
         csv_file = settings.DATA_PROCESSED / 'reporte_similitud_top.csv'
+        csv_file.parent.mkdir(parents=True, exist_ok=True)
+        reports.generate_csv_top(data, algo, top=50, out_csv=csv_file)
+        
+        # Generar markdown
         md_file = settings.DATA_PROCESSED / 'reporte_similitud.md'
+        reports.generate_markdown(data, algo, top=10, out_md=md_file)
+        
+        # Generar resumen de consola como string
+        import io
+        from contextlib import redirect_stdout
+        
+        f_out = io.StringIO()
+        with redirect_stdout(f_out):
+            reports.print_console_summary(data, algo, top=10)
+        console_output = f_out.getvalue()
         
         response_data = {
-            'ok': result.returncode == 0,
-            'stdout': result.stdout,
-            'stderr': result.stderr
+            'ok': True,
+            'stdout': console_output or 'Similitud calculada exitosamente'
         }
         
         # Agregar CSV si existe
@@ -59,9 +84,10 @@ def run_req2(request):
         return Response(response_data)
     
     except Exception as e:
+        import traceback
         return Response({
             'ok': False,
-            'stderr': str(e)
+            'stderr': f'{str(e)}\n\n{traceback.format_exc()}'
         })
 
 
@@ -71,12 +97,17 @@ def run_req3(request):
     try:
         script = settings.BASE_DIR / 'requirement_3' / 'run_req3.py'
         
+        # Añadir PYTHONPATH para imports relativos
+        env = os.environ.copy()
+        env['PYTHONPATH'] = str(settings.BASE_DIR)
+        
         result = subprocess.run(
             [sys.executable, str(script)],
             cwd=str(settings.BASE_DIR),
             capture_output=True,
             text=True,
-            timeout=300
+            timeout=300,
+            env=env
         )
         
         # Leer resultados JSON si existe
@@ -107,12 +138,17 @@ def run_req4(request):
     try:
         script = settings.BASE_DIR / 'requirement_4' / 'run_req4.py'
         
+        # Añadir PYTHONPATH para imports relativos
+        env = os.environ.copy()
+        env['PYTHONPATH'] = str(settings.BASE_DIR)
+        
         result = subprocess.run(
             [sys.executable, str(script)],
             cwd=str(settings.BASE_DIR),
             capture_output=True,
             text=True,
-            timeout=300
+            timeout=300,
+            env=env
         )
         
         return Response({
@@ -134,12 +170,17 @@ def run_req5(request):
     try:
         script = settings.BASE_DIR / 'requirement_5' / 'run_req5.py'
         
+        # Añadir PYTHONPATH para imports relativos
+        env = os.environ.copy()
+        env['PYTHONPATH'] = str(settings.BASE_DIR)
+        
         result = subprocess.run(
             [sys.executable, str(script)],
             cwd=str(settings.BASE_DIR),
             capture_output=True,
             text=True,
-            timeout=300
+            timeout=300,
+            env=env
         )
         
         return Response({
@@ -161,12 +202,17 @@ def run_grafos_cit(request):
     try:
         script = settings.BASE_DIR / 'requirement_grafos' / 'run_grafos.py'
         
+        # Añadir PYTHONPATH para imports relativos
+        env = os.environ.copy()
+        env['PYTHONPATH'] = str(settings.BASE_DIR)
+        
         result = subprocess.run(
             [sys.executable, str(script), '--tipo', 'citaciones'],
             cwd=str(settings.BASE_DIR),
             capture_output=True,
             text=True,
-            timeout=300
+            timeout=300,
+            env=env
         )
         
         return Response({
@@ -188,12 +234,17 @@ def run_grafos_terms(request):
     try:
         script = settings.BASE_DIR / 'requirement_grafos' / 'run_grafos.py'
         
+        # Añadir PYTHONPATH para imports relativos
+        env = os.environ.copy()
+        env['PYTHONPATH'] = str(settings.BASE_DIR)
+        
         result = subprocess.run(
             [sys.executable, str(script), '--tipo', 'terminos'],
             cwd=str(settings.BASE_DIR),
             capture_output=True,
             text=True,
-            timeout=300
+            timeout=300,
+            env=env
         )
         
         return Response({
