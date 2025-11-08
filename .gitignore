@@ -39,15 +39,24 @@ venv.bak/
 # Datos procesados y temporales
 data/processed/
 data/raw/
+data/sciencedirect/
 *.csv
 *.xlsx
 *.xls
+
+# Archivos grandes de análisis
+*.json
+!package.json
+!requirements.json
 
 # Perfiles de navegador (Chrome, Selenium, etc.)
 chrome_profile_copy/
 selenium_profile/
 **/chrome_profile_copy/
 **/selenium_profile/
+**/Cache/
+**/Safe Browsing/
+**/*.wasm
 
 # Rutas absolutas de Windows (no deben estar en Git)
 C:\*/
