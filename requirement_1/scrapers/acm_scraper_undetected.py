@@ -20,10 +20,9 @@ IS_PRODUCTION = os.environ.get('ENVIRONMENT', 'development') == 'production'
 def find_chrome_binary():
     """Encuentra el binario de Chrome/Chromium instalado"""
     # Intentar encontrar Chrome en ubicaciones comunes
+    # IMPORTANTE: Priorizar Google Chrome instalado sobre Chromium de Playwright
     possible_paths = [
-        # Playwright Chromium (Linux)
-        Path.home() / '.cache/ms-playwright/chromium-*/chrome-linux/chrome',
-        # Google Chrome (Linux)
+        # Google Chrome (Linux) - PRIMERO para evitar conflictos de versión
         '/usr/bin/google-chrome',
         '/usr/bin/google-chrome-stable',
         '/usr/bin/chromium-browser',
@@ -32,6 +31,8 @@ def find_chrome_binary():
         '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
         # Chromium (Mac)
         '/Applications/Chromium.app/Contents/MacOS/Chromium',
+        # Playwright Chromium (Linux) - ÚLTIMO recurso
+        Path.home() / '.cache/ms-playwright/chromium-*/chrome-linux/chrome',
     ]
     
     for path_pattern in possible_paths:
