@@ -18,15 +18,21 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from scraper_app.views import dashboard
+from django.views.static import serve
+from scraper_app.views import dashboard, panel
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),  # API REST endpoints
+    path('panel/', panel, name='panel'),  # Panel de requerimientos
     path('', dashboard, name='dashboard'),  # Dashboard principal
+    
+    # Servir archivos generados (imágenes, PDFs)
+    path('files/<path:path>', serve, {'document_root': settings.BASE_DIR}),
 ]
 
 # Servir archivos media en desarrollo
 if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

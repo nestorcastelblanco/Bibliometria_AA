@@ -21,6 +21,15 @@ from .views_results import (
     get_sorting_results,
     get_graph_info
 )
+from .views_execute import (
+    run_req2,
+    run_req3,
+    run_req4,
+    run_req5,
+    run_grafos_cit,
+    run_grafos_terms,
+    list_assets
+)
 
 # Router para ViewSets
 router = DefaultRouter()
@@ -46,4 +55,13 @@ urlpatterns = [
     path('clustering/results/', get_clustering_results, name='clustering-results'),
     path('sorting/results/', get_sorting_results, name='sorting-results'),
     path('graphs/info/', get_graph_info, name='graph-info'),
+    
+    # Endpoints para ejecutar requerimientos (Panel)
+    path('req2', run_req2, name='run-req2'),
+    path('req3', run_req3, name='run-req3'),
+    path('req4', run_req4, name='run-req4'),
+    path('req5', run_req5, name='run-req5'),
+    path('grafos/cit', run_grafos_cit, name='run-grafos-cit'),
+    path('grafos/terms', run_grafos_terms, name='run-grafos-terms'),
+    path('list_assets', list_assets, name='list-assets'),
 ]
