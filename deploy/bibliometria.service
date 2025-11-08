@@ -1,0 +1,16 @@
+[Unit]
+Description=Bibliometria Django Application
+After=network.target
+
+[Service]
+Type=simple
+User=sebastian_agudelom
+WorkingDirectory=/home/sebastian_agudelom/Bibliometria_AA
+Environment="PATH=/home/sebastian_agudelom/Bibliometria_AA/venv/bin"
+Environment="PYTHONPATH=/home/sebastian_agudelom/Bibliometria_AA"
+ExecStart=/home/sebastian_agudelom/Bibliometria_AA/venv/bin/python /home/sebastian_agudelom/Bibliometria_AA/manage.py runserver 0.0.0.0:8000
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
