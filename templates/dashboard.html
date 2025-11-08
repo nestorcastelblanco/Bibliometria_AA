@@ -1,487 +1,276 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📊 Bibliometría Dashboard - Pipeline Completo</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1600px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px;
-            text-align: center;
-        }
-        
-        h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-        
-        .subtitle {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-        
-        .content {
-            padding: 40px;
-        }
-        
-        .section {
-            margin-bottom: 50px;
-        }
-        
-        .section-title {
-            font-size: 2em;
-            margin-bottom: 20px;
-            color: #333;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
-        }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .card h3 {
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            color: #333;
-        }
-        
-        .card p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        
-        .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 10px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin: 5px;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
-        }
-        
-        .btn:active {
-            transform: scale(0.95);
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-        }
-        
-        .btn-secondary {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-        
-        .btn-small {
-            padding: 10px 20px;
-            font-size: 0.9em;
-        }
-        
-        .status {
-            padding: 10px 20px;
-            background: #f0f0f0;
-            border-radius: 10px;
-            margin: 15px 0;
-        }
-        
-        .status-running {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-        }
-        
-        .status-success {
-            background: #d4edda;
-            border-left: 4px solid #28a745;
-        }
-        
-        .status-error {
-            background: #f8d7da;
-            border-left: 4px solid #dc3545;
-        }
-        
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .result-item {
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        
-        .result-item h4 {
-            margin-bottom: 10px;
-            color: #667eea;
-        }
-        
-        .result-item .value {
-            font-size: 2em;
-            font-weight: bold;
-            color: #333;
-        }
-        
-        .file-list {
-            list-style: none;
-            margin-top: 15px;
-        }
-        
-        .file-list li {
-            padding: 10px;
-            background: white;
-            margin: 5px 0;
-            border-radius: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .badge {
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.8em;
-            font-weight: bold;
-        }
-        
-        .badge-success {
-            background: #28a745;
-            color: white;
-        }
-        
-        .badge-warning {
-            background: #ffc107;
-            color: #333;
-        }
-        
-        .badge-info {
-            background: #17a2b8;
-            color: white;
-        }
-        
-        #loading {
-            text-align: center;
-            padding: 20px;
-            display: none;
-        }
-        
-        .spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #667eea;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
+  <meta charset="utf-8"/>
+  <title>📊 Bibliometría Dashboard - Google Cloud VM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <style>
+    :root{
+      --bg:#667eea; --card:#ffffff; --muted:#6b7280; --text:#1f2937; --acc:#667eea;
+      --ok:#10b981; --err:#ef4444; --bor:#e5e7eb;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; background:linear-gradient(135deg, #667eea 0%, #764ba2 100%); color:var(--text); min-height:100vh; padding:20px}
+    header{padding:32px 24px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color:white; border-radius:20px 20px 0 0; box-shadow: 0 10px 30px rgba(0,0,0,0.2)}
+    h1{margin:0 0 8px 0; font-size:32px; font-weight:700}
+    .subtitle{font-size:16px; opacity:0.95; margin-bottom:8px}
+    .wrap{max-width:1400px; margin:0 auto; background:white; border-radius:20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow:hidden}
+    .content{padding:32px 24px}
+    .grid{display:grid; gap:24px}
+    .panel{background:var(--card); border:1px solid var(--bor); border-radius:16px; padding:24px; box-shadow:0 4px 12px rgba(0,0,0,.08); transition: transform 0.3s}
+    .panel:hover{transform: translateY(-4px); box-shadow:0 8px 24px rgba(0,0,0,.12)}
+    .panel h2{margin:0 0 16px 0; font-size:22px; color:#667eea; font-weight:600}
+    .row{display:flex; gap:12px; flex-wrap:wrap; margin:12px 0 16px}
+    input,textarea,button{border-radius:10px; border:1px solid var(--bor); background:white; color:var(--text); padding:12px 16px; font-size:15px}
+    input:focus,textarea:focus{outline:none; border-color:#667eea; box-shadow:0 0 0 3px rgba(102,126,234,0.1)}
+    button{background:linear-gradient(135deg, #667eea 0%, #764ba2 100%); border:none; color:white; cursor:pointer; font-weight:600; transition: all 0.3s}
+    button:hover{transform: translateY(-2px); box-shadow:0 4px 12px rgba(102,126,234,0.4)}
+    button:disabled{opacity:.5; cursor:not-allowed; transform:none}
+    .out{white-space:pre-wrap; background:#f9fafb; border:1px solid var(--bor); padding:16px; border-radius:10px; font-size:13px; font-family:'Courier New',monospace; overflow:auto; max-height:400px; margin:16px 0}
+    table{width:100%; border-collapse:collapse; font-size:13px; margin:16px 0}
+    th{background:#f3f4f6; font-weight:600; color:#374151}
+    th, td{border-bottom:1px solid var(--bor); padding:12px 8px; text-align:left}
+    tr:hover{background:#f9fafb}
+    .ok{color:var(--ok); font-weight:600} .err{color:var(--err); font-weight:600}
+    .small{font-size:13px; color:var(--muted); margin-top:8px}
+
+    /* Galería */
+    .gallery{display:grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap:16px; margin-top:16px}
+    .thumb{border:1px solid var(--bor); border-radius:12px; overflow:hidden; background:white; transition: transform 0.3s; box-shadow:0 2px 8px rgba(0,0,0,.08)}
+    .thumb:hover{transform: scale(1.05); box-shadow:0 4px 16px rgba(0,0,0,.15)}
+    .thumb a{display:block; text-decoration:none}
+    .thumb img{display:block; width:100%; height:160px; object-fit:cover}
+    .thumb .cap{font-size:12px; color:var(--muted); padding:8px 12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+
+    /* PDFs */
+    .pdfs{margin-top:12px; list-style:none; padding:0}
+    .pdfs a{color:#667eea; text-decoration:none; font-weight:500}
+    .pdfs a:hover{text-decoration:underline}
+    .pdfs li{margin:8px 0; padding:8px 12px; background:#f9fafb; border-radius:8px; transition: background 0.3s}
+    .pdfs li:hover{background:#f3f4f6}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>📊 Pipeline de Análisis Bibliométrico</h1>
-            <p class="subtitle">Google Cloud VM - Sistema Completo de Análisis</p>
-            <p style="font-size: 0.9em; margin-top: 10px; opacity: 0.8;">
-                🌐 http://136.119.148.160:8000
-            </p>
-        </header>
-        
-        <div class="content">
-            <!-- Control Panel -->
-            <div class="section">
-                <h2 class="section-title">🎯 Panel de Control</h2>
-                <div class="card">
-                    <h3>Ejecutar Pipeline Completo</h3>
-                    <p>Ejecuta los requerimientos 2-5 sobre los archivos .bib existentes</p>
-                    <button class="btn btn-primary" onclick="runAnalysis()">
-                        🚀 Iniciar Análisis Completo
-                    </button>
-                    <button class="btn btn-secondary btn-small" onclick="checkStatus()">
-                        🔄 Actualizar Estado
-                    </button>
-                    
-                    <div id="statusPanel" class="status" style="margin-top: 20px;">
-                        <strong>Estado:</strong> <span id="statusText">Listo para ejecutar</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Req 1: Datos de Entrada -->
-            <div class="section">
-                <h2 class="section-title">📚 Req 1: Datos de Entrada (.bib)</h2>
-                <div class="grid">
-                    <div class="card">
-                        <h3>Estadísticas Generales</h3>
-                        <div id="statsPanel" class="results-grid">
-                            <div class="result-item">
-                                <h4>Total Papers</h4>
-                                <div class="value" id="totalPapers">-</div>
-                            </div>
-                            <div class="result-item">
-                                <h4>Archivos .bib</h4>
-                                <div class="value" id="totalFiles">-</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <h3>Archivos Disponibles</h3>
-                        <ul id="bibFiles" class="file-list">
-                            <li>Cargando...</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Req 2: Similitud -->
-            <div class="section">
-                <h2 class="section-title">🔗 Req 2: Similitud Textual</h2>
-                <div class="card">
-                    <h3>Resultados de Similitud</h3>
-                    <p>Análisis de similitud entre documentos usando TF-IDF y coseno</p>
-                    <div id="similarityResults">
-                        <p style="color: #999;">Ejecuta el análisis para ver resultados</p>
-                    </div>
-                    <button class="btn btn-small" onclick="loadSimilarity()">
-                        📊 Ver Resultados
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Req 3: Frecuencias -->
-            <div class="section">
-                <h2 class="section-title">📈 Req 3: Análisis de Contenido</h2>
-                <div class="card">
-                    <h3>Frecuencias y Términos</h3>
-                    <p>Términos más frecuentes y su distribución en el corpus</p>
-                    <div id="frequenciesResults">
-                        <p style="color: #999;">Ejecuta el análisis para ver resultados</p>
-                    </div>
-                    <button class="btn btn-small" onclick="loadFrequencies()">
-                        📊 Ver Resultados
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Req 4: Clustering -->
-            <div class="section">
-                <h2 class="section-title">🌳 Req 4: Clustering Jerárquico</h2>
-                <div class="card">
-                    <h3>Dendrogramas Generados</h3>
-                    <p>Visualizaciones de clustering con diferentes métodos de enlace</p>
-                    <div id="clusteringResults">
-                        <p style="color: #999;">Ejecuta el análisis para ver resultados</p>
-                    </div>
-                    <button class="btn btn-small" onclick="loadClustering()">
-                        🌳 Ver Dendrogramas
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Req 5: Ordenamiento -->
-            <div class="section">
-                <h2 class="section-title">📑 Req 5: Ordenamiento de Referencias</h2>
-                <div class="card">
-                    <h3>Algoritmos de Ordenamiento</h3>
-                    <p>Referencias ordenadas por diferentes criterios y algoritmos</p>
-                    <div id="sortingResults">
-                        <p style="color: #999;">Ejecuta el análisis para ver resultados</p>
-                    </div>
-                    <button class="btn btn-small" onclick="loadSorting()">
-                        📑 Ver Resultados
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Grafos -->
-            <div class="section">
-                <h2 class="section-title">🕸️ Análisis de Grafos</h2>
-                <div class="card">
-                    <h3>Grafos de Citaciones y Términos</h3>
-                    <p>Visualizaciones de relaciones entre documentos y términos</p>
-                    <div id="graphsResults">
-                        <p style="color: #999;">Ejecuta el análisis para ver resultados</p>
-                    </div>
-                    <button class="btn btn-small" onclick="loadGraphs()">
-                        🕸️ Ver Grafos
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div id="loading" style="display: none;">
-        <div class="spinner"></div>
-        <p>Procesando...</p>
-    </div>
+  <div class="wrap">
+  <header>
+    <h1>📊 Bibliometría - Pipeline Completo</h1>
+    <p class="subtitle">Sistema de Análisis Bibliométrico en Google Cloud VM</p>
+    <p class="small" style="color: rgba(255,255,255,0.8);">🌐 http://136.119.148.160:8000</p>
+  </header>
+  <div class="content grid">
+    <!-- REQ 1 -->
+    <section class="panel" id="p1">
+      <h2>Requerimiento 1 – Automatización y Unificación</h2>
+      <div class="row">
+        <input id="q1" placeholder="Cadena de búsqueda (opcional)" style="min-width:300px">
+        <button id="b1">Ejecutar</button>
+      </div>
+      <div class="small">Nota: si tus scrapers no usan consulta, la cadena se ignora.</div>
+      <div class="out" id="o1"></div>
+      <h3 style="margin-top:12px">Imágenes</h3>
+      <div class="gallery" id="g1"></div>
+      <h3>PDFs</h3>
+      <ul class="pdfs" id="p1pdf"></ul>
+    </section>
 
-    <script>
-        // Cargar estadísticas al inicio
-        loadStats();
-        
-        function loadStats() {
-            fetch('/api/papers/stats/')
-                .then(res => res.json())
-                .then(data => {
-                    document.getElementById('totalPapers').textContent = data.total_papers || 0;
-                    document.getElementById('totalFiles').textContent = data.total_files || 0;
-                })
-                .catch(err => console.error('Error loading stats:', err));
-            
-            // Listar archivos .bib
-            fetch('/api/papers/')
-                .then(res => res.json())
-                .then(data => {
-                    const filesList = document.getElementById('bibFiles');
-                    if (data.files_processed > 0) {
-                        filesList.innerHTML = data.papers
-                            .map((p, i) => i < 5 ? `<li>${p.source_file || 'archivo.bib'} <span class="badge badge-success">✓</span></li>` : '')
-                            .join('') + (data.files_processed > 5 ? `<li>... y ${data.files_processed - 5} más</li>` : '');
-                    } else {
-                        filesList.innerHTML = '<li>No hay archivos .bib disponibles</li>';
-                    }
-                })
-                .catch(err => {
-                    document.getElementById('bibFiles').innerHTML = '<li>No hay datos disponibles</li>';
-                });
-        }
-        
-        function runAnalysis() {
-            document.getElementById('statusPanel').className = 'status status-running';
-            document.getElementById('statusText').textContent = 'Ejecutando análisis...';
-            
-            fetch('/api/trigger-analysis/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            })
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById('statusPanel').className = 'status status-success';
-                document.getElementById('statusText').textContent = data.message || 'Análisis completado';
-                setTimeout(loadStats, 2000);
-            })
-            .catch(err => {
-                document.getElementById('statusPanel').className = 'status status-error';
-                document.getElementById('statusText').textContent = 'Error: ' + err.message;
-            });
-        }
-        
-        function checkStatus() {
-            fetch('/api/scraper-status/')
-                .then(res => res.json())
-                .then(data => {
-                    const statusDiv = document.getElementById('statusPanel');
-                    const statusText = document.getElementById('statusText');
-                    
-                    if (data.is_running) {
-                        statusDiv.className = 'status status-running';
-                        statusText.textContent = `Ejecutando: ${data.current_task || 'procesando...'}`;
-                    } else {
-                        statusDiv.className = 'status status-success';
-                        statusText.textContent = data.last_run ? `Última ejecución: ${data.last_run}` : 'Listo';
-                    }
-                });
-        }
-        
-        function loadSimilarity() {
-            fetch('/api/similarity/')
-                .then(res => res.json())
-                .then(data => {
-                    const div = document.getElementById('similarityResults');
-                    if (data.results && data.results.length > 0) {
-                        div.innerHTML = `
-                            <p><strong>✓ Archivos generados:</strong> ${data.count}</p>
-                            <ul class="file-list">
-                                ${data.results.map(r => `<li>${r.file} <span class="badge badge-info">${r.shape[0]} filas</span></li>`).join('')}
-                            </ul>
-                        `;
-                    } else {
-                        div.innerHTML = '<p style="color: #ffc107;">⚠️ No hay resultados. Ejecuta el análisis primero.</p>';
-                    }
-                })
-                .catch(err => {
-                    document.getElementById('similarityResults').innerHTML = '<p style="color: #dc3545;">❌ Error cargando resultados</p>';
-                });
-        }
-        
-        function loadFrequencies() {
-            document.getElementById('frequenciesResults').innerHTML = '<p>🔍 Buscando resultados de frecuencias...</p>';
-        }
-        
-        function loadClustering() {
-            document.getElementById('clusteringResults').innerHTML = '<p>🔍 Buscando dendrogramas generados...</p>';
-        }
-        
-        function loadSorting() {
-            document.getElementById('sortingResults').innerHTML = '<p>🔍 Buscando resultados de ordenamiento...</p>';
-        }
-        
-        function loadGraphs() {
-            document.getElementById('graphsResults').innerHTML = '<p>🔍 Buscando grafos generados...</p>';
-        }
-        
-        // Auto-refresh status cada 5 segundos
-        setInterval(checkStatus, 5000);
-    </script>
+    <!-- REQ 2 -->
+    <section class="panel" id="p2">
+      <h2>Requerimiento 2 – Similitud Textual</h2>
+      <div class="row">
+        <input id="idx" placeholder="Índices separados por coma. Ej: 0,3,7" style="min-width:300px">
+        <button id="b2">Ejecutar</button>
+      </div>
+      <div class="out" id="o2"></div>
+      <h3 style="margin-top:12px">Top (CSV)</h3>
+      <div id="t2"></div>
+      <h3>Reporte (Markdown preview)</h3>
+      <div class="out" id="md2"></div>
+      <h3 style="margin-top:12px">Imágenes</h3>
+      <div class="gallery" id="g2"></div>
+      <h3>PDFs</h3>
+      <ul class="pdfs" id="p2pdf"></ul>
+    </section>
+
+    <!-- REQ 3 -->
+    <section class="panel" id="p3">
+      <h2>Requerimiento 3 – Frecuencias & Palabras Asociadas</h2>
+      <div class="row"><button id="b3">Ejecutar</button></div>
+      <div class="out" id="o3"></div>
+      <h3 style="margin-top:12px">Imágenes</h3>
+      <div class="gallery" id="g3"></div>
+      <h3>PDFs</h3>
+      <ul class="pdfs" id="p3pdf"></ul>
+    </section>
+
+    <!-- REQ 4 -->
+    <section class="panel" id="p4">
+      <h2>Requerimiento 4 – Clustering Jerárquico</h2>
+      <div class="row"><button id="b4">Ejecutar</button></div>
+      <div class="out" id="o4"></div>
+      <h3 style="margin-top:12px">Imágenes</h3>
+      <div class="gallery" id="g4"></div>
+      <h3>PDFs</h3>
+      <ul class="pdfs" id="p4pdf"></ul>
+    </section>
+
+    <!-- REQ 5 -->
+    <section class="panel" id="p5">
+      <h2>Requerimiento 5 – Visual Analytics</h2>
+      <div class="row"><button id="b5">Ejecutar</button></div>
+      <div class="out" id="o5"></div>
+      <h3 style="margin-top:12px">Imágenes</h3>
+      <div class="gallery" id="g5"></div>
+      <h3>PDFs</h3>
+      <ul class="pdfs" id="p5pdf"></ul>
+    </section>
+
+    <!-- GRAFOS -->
+    <section class="panel" id="pg">
+      <h2>Seguimiento 2 – Grafos</h2>
+      <div class="row">
+        <button id="bg1">Grafo de Citaciones</button>
+        <button id="bg2">Grafo de Términos</button>
+      </div>
+      <div class="out" id="og"></div>
+      <h3 style="margin-top:12px">Imágenes</h3>
+      <div class="gallery" id="gg"></div>
+      <h3>PDFs</h3>
+      <ul class="pdfs" id="pgpdf"></ul>
+    </section>
+  </div>
+
+  <!-- showdown para previsualizar markdown -->
+  <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+  <script>
+  const o1 = document.getElementById('o1');
+  const o2 = document.getElementById('o2');
+  const t2 = document.getElementById('t2');
+  const md2 = document.getElementById('md2');
+  const o3 = document.getElementById('o3');
+  const o4 = document.getElementById('o4');
+  const o5 = document.getElementById('o5');
+  const og = document.getElementById('og');
+
+  function galleryHTML(items){
+    if(!items || !items.length) return "<div class='small'>No hay imágenes.</div>";
+    return items.map(it=>{
+      const href = `/files/${encodeURIComponent(it.rel)}`;
+      const cap  = it.name;
+      return `
+        <div class="thumb">
+          <a href="${href}" target="_blank" rel="noopener">
+            <img src="${href}" alt="${cap}">
+            <div class="cap">${cap}</div>
+          </a>
+        </div>`;
+    }).join("");
+  }
+
+  function pdfListHTML(items){
+    if(!items || !items.length) return "<li class='small'>No hay PDFs.</li>";
+    return items.map(it=>{
+      const href = `/files/${encodeURIComponent(it.rel)}`;
+      const kb = Math.max(1, Math.round((it.bytes || 0)/1024));
+      return `<li><a href="${href}" target="_blank" rel="noopener">${it.name}</a> <span class="small">(${kb} KB)</span></li>`;
+    }).join("");
+  }
+
+  async function loadScope(targetImgsId, targetPdfsId, scope){
+    const r = await fetch(`/api/list_assets?scope=${encodeURIComponent(scope)}&limit=24`);
+    const j = await r.json();
+    const items = j.items || {};
+    document.getElementById(targetImgsId).innerHTML = galleryHTML(items.images || []);
+    document.getElementById(targetPdfsId).innerHTML = pdfListHTML(items.pdfs || []);
+  }
+
+  // ---- Acciones ----
+  document.getElementById('b1').onclick = async ()=>{
+    const q = document.getElementById('q1').value || "";
+    o1.textContent = "Ejecutando Req1...";
+    const r = await fetch('/api/req1', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({query:q})});
+    const j = await r.json();
+    o1.textContent = (j.ok ? j.stdout : (j.stderr || j.stdout || 'Error'));
+    loadScope('g1','p1pdf','req1');
+  };
+
+  document.getElementById('b2').onclick = async ()=>{
+    const idx = (document.getElementById('idx').value || '').split(',').map(s=>parseInt(s.trim(),10)).filter(n=>!isNaN(n));
+    o2.textContent = "Ejecutando Req2...";
+    t2.innerHTML = ""; md2.textContent = "";
+    const r = await fetch('/api/req2', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({indices:idx})});
+    const j = await r.json();
+    o2.textContent = (j.ok ? j.stdout : (j.stderr || j.stdout || 'Error'));
+    if(j.ok){
+      // CSV
+      if(j.table && j.table.length){
+        const cols = Object.keys(j.table[0]);
+        let html = "<table><thead><tr>";
+        cols.forEach(c=> html += `<th>${c}</th>`);
+        html += "</tr></thead><tbody>";
+        j.table.forEach(r=>{
+          html += "<tr>";
+          cols.forEach(c=> html += `<td>${(r[c]??"")}</td>`);
+          html += "</tr>";
+        });
+        html += "</tbody></table>";
+        t2.innerHTML = html;
+      }
+      // MD
+      if(j.md){
+        const conv = new showdown.Converter();
+        md2.innerHTML = conv.makeHtml(j.md);
+      }
+      loadScope('g2','p2pdf','req2');
+    }
+  };
+
+  document.getElementById('b3').onclick = async ()=>{
+    o3.textContent = "Ejecutando Req3...";
+    const r = await fetch('/api/req3', {method:'POST'});
+    const j = await r.json();
+    o3.textContent = (j.ok ? (j.stdout || JSON.stringify(j.result,null,2)) : (j.stderr || j.stdout || 'Error'));
+    loadScope('g3','p3pdf','req3');
+  };
+
+  document.getElementById('b4').onclick = async ()=>{
+    o4.textContent = "Ejecutando Req4...";
+    const r = await fetch('/api/req4', {method:'POST'});
+    const j = await r.json();
+    o4.textContent = (j.ok ? j.stdout : (j.stderr || j.stdout || 'Error'));
+    loadScope('g4','p4pdf','req4');
+  };
+
+  document.getElementById('b5').onclick = async ()=>{
+    o5.textContent = "Ejecutando Req5...";
+    const r = await fetch('/api/req5', {method:'POST'});
+    const j = await r.json();
+    o5.textContent = (j.ok ? j.stdout : (j.stderr || j.stdout || 'Error'));
+    loadScope('g5','p5pdf','req5');
+  };
+
+  document.getElementById('bg1').onclick = async ()=>{
+    og.textContent = "Ejecutando Grafo de Citaciones...";
+    const r = await fetch('/api/grafos/cit', {method:'POST'});
+    const j = await r.json();
+    og.textContent = (j.ok ? j.stdout : (j.stderr || j.stdout || 'Error'));
+    loadScope('gg','pgpdf','grafos_cit');
+  };
+
+  document.getElementById('bg2').onclick = async ()=>{
+    og.textContent = "Ejecutando Grafo de Términos...";
+    const r = await fetch('/api/grafos/terms', {method:'POST'});
+    const j = await r.json();
+    og.textContent = (j.ok ? j.stdout : (j.stderr || j.stdout || 'Error'));
+    loadScope('gg','pgpdf','grafos_terms');
+  };
+
+  // Carga inicial por scope (por si ya hay resultados)
+  loadScope('g1','p1pdf','req1');
+  loadScope('g2','p2pdf','req2');
+  loadScope('g3','p3pdf','req3');
+  loadScope('g4','p4pdf','req4');
+  loadScope('g5','p5pdf','req5');
+  loadScope('gg','pgpdf','grafos_cit');
+  </script>
 </body>
 </html>
