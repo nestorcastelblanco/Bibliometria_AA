@@ -134,6 +134,7 @@ def run_req3(
             "total_count": len(auto_terms),
             "threshold": threshold,
             "model": "N/A (sentence_transformers no instalado)",
+            "details": [],  # Lista vacía para evitar KeyError
             "message": "Evaluación semántica omitida - instala: pip install sentence-transformers"
         }
 
@@ -240,9 +241,16 @@ def print_console_summary(json_path: Path):
     print("Evaluación de precisión de nuevos términos (embeddings):")
     print(f"  Modelo: {eval_res['model']}  |  Umbral: {_pct(eval_res['threshold'])}")
     print(f"  Precisión: {_pct(eval_res['precision'])}")
-    for d in eval_res["details"]:
-        flag = "✔" if d["relevant"] else "✖"
-        print(f"   {flag} {d['term']:25s}  sim={d['max_sim']:.3f}")
+    
+    # Mostrar detalles solo si existen
+    details = eval_res.get("details", [])
+    if details:
+        for d in details:
+            flag = "✔" if d["relevant"] else "✖"
+            print(f"   {flag} {d['term']:25s}  sim={d['max_sim']:.3f}")
+    else:
+        print(f"   ⚠️  {eval_res.get('message', 'No hay detalles disponibles')}")
+    
     print("===========================================================\n")
 
 def main():
