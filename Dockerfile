@@ -1,51 +1,51 @@
-# Usar imagen base con Python 3.11
-FROM python:3.11-slim-bullseye
+# Dockerfile para desplegar Django en Google Cloud Run
+
+FROM python:3.11-slim
+
+# Variables de entorno
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1
 
 # Instalar dependencias del sistema
 RUN apt-get update && apt-get install -y \
-    wget \
-    gnupg \
-    unzip \
-    curl \
-    xvfb \
-    libxi6 \
-    libgconf-2-4 \
-    libnss3 \
-    libxss1 \
-    libasound2 \
-    libatk-bridge2.0-0 \
-    libgtk-3-0 \
-    libgbm1 \
-    && rm -rf /var/lib/apt/lists/*
-
-# Instalar Chrome
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /usr/share/keyrings/google-chrome.gpg \
-    && echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/google-chrome.list \
-    && apt-get update \
-    && apt-get install -y google-chrome-stable \
+    git \
+    gcc \
+    g++ \
+    libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Crear directorio de trabajo
 WORKDIR /app
 
-# Copiar requirements y instalar dependencias Python
-COPY requirements-production.txt .
-RUN pip install --no-cache-dir -r requirements-production.txt
+# Copiar requirements e instalar
+COPY requirements.txt .
+RUN pip install --upgrade pip && \
+    pip install -r requirements.txt && \
+    pip install gunicorn
 
-# Copiar el código de la aplicación
+# Copiar código de la aplicación
 COPY . .
 
 # Crear directorios necesarios
-RUN mkdir -p data/raw/acm data/raw/sage data/processed
+RUN mkdir -p data/raw/acm data/processed downloads media staticfiles
+
+# Recolectar archivos estáticos
+RUN python3 manage.py collectstatic --noinput --clear
 
 # Exponer puerto
-EXPOSE 8080
+EXPOSE 8000
 
-# Variables de entorno
-ENV ENVIRONMENT=production
-ENV PORT=8080
-ENV DISPLAY=:99
-ENV PYTHONUNBUFFERED=1
+# Healthcheck
+HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
+  CMD python3 -c "import requests; requests.get('http://localhost:8000/api/papers/stats/')"
 
-# Comando de inicio
-CMD ["gunicorn", "webui:app", "--bind", "0.0.0.0:8080", "--timeout", "600", "--workers", "2"]
+# Ejecutar con gunicorn
+CMD ["gunicorn", "bibliometria_web.wsgi:application", \
+     "--bind", "0.0.0.0:8000", \
+     "--workers", "2", \
+     "--threads", "4", \
+     "--timeout", "120", \
+     "--access-logfile", "-", \
+     "--error-logfile", "-", \
+     "--log-level", "info"]

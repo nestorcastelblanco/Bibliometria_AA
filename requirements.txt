@@ -15,3 +15,12 @@ matplotlib
 networkx
 wordcloud
 pillow
+
+# Django y REST API
+Django>=5.2
+djangorestframework>=3.14
+django-cors-headers>=4.3
+
+# Playwright para scraping headless
+playwright>=1.40
+gunicorn>=21.2

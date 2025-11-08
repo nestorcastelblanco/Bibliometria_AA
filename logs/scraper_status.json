@@ -1,0 +1,11 @@
+{
+  "task_type": "scraper",
+  "status": "running",
+  "started_at": "2025-11-08T20:28:58.714774",
+  "params": {
+    "pages": 5,
+    "headless": true
+  },
+  "progress": 0,
+  "message": "scraper iniciado"
+}

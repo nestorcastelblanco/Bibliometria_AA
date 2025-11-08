@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliometría Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h2 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 5px;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn:active {
+            transform: scale(0.95);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .api-links {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .api-links h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .api-links a {
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            background: white;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #667eea;
+            transition: all 0.2s;
+        }
+        
+        .api-links a:hover {
+            background: #667eea;
+            color: white;
+            padding-left: 20px;
+        }
+        
+        #status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+        }
+        
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 Bibliometría Dashboard</h1>
+            <p class="subtitle">Análisis de Literatura Científica con IA Generativa</p>
+        </header>
+        
+        <div class="content">
+            <div class="grid">
+                <!-- Card 1: Scraper -->
+                <div class="card">
+                    <h2>🕷️ Web Scraper</h2>
+                    <p>Ejecuta el scraper de ACM con Playwright</p>
+                    <button class="btn" onclick="runScraper()">
+                        Iniciar Scraping (2 páginas)
+                    </button>
+                    <button class="btn btn-secondary" onclick="runScraper(5)">
+                        Scraping Completo (5 páginas)
+                    </button>
+                </div>
+                
+                <!-- Card 2: Análisis -->
+                <div class="card">
+                    <h2>📊 Pipeline de Análisis</h2>
+                    <p>Ejecuta el análisis completo (Req2-5)</p>
+                    <button class="btn" onclick="runAnalysis()">
+                        Iniciar Análisis
+                    </button>
+                </div>
+                
+                <!-- Card 3: Estado -->
+                <div class="card">
+                    <h2>📈 Estado del Sistema</h2>
+                    <p id="papers-count">Cargando...</p>
+                    <button class="btn" onclick="loadStats()">
+                        Actualizar Stats
+                    </button>
+                    <div id="scraper-status" style="margin-top: 15px; padding: 10px; background: #fff; border-radius: 5px; font-size: 0.9em;">
+                        <strong>Estado del Scraper:</strong><br>
+                        <span id="scraper-status-text">Verificando...</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="status"></div>
+            
+            <!-- API Links -->
+            <div class="api-links">
+                <h3>🔗 API Endpoints</h3>
+                <a href="/api/papers/" target="_blank">📚 GET /api/papers/ - Lista de papers</a>
+                <a href="/api/papers/stats/" target="_blank">📊 GET /api/papers/stats/ - Estadísticas</a>
+                <a href="/api/similarity/" target="_blank">🔍 GET /api/similarity/ - Similitud textual</a>
+                <a href="/api/frequencies/" target="_blank">📈 GET /api/frequencies/ - Frecuencias</a>
+                <a href="/api/clusters/" target="_blank">🌳 GET /api/clusters/ - Clustering</a>
+                <a href="/api/" target="_blank">🔗 API Root - Explorador de API</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showStatus(message, type = 'info') {
+            const status = document.getElementById('status');
+            status.className = type;
+            status.textContent = message;
+            status.style.display = 'block';
+            
+            setTimeout(() => {
+                status.style.display = 'none';
+            }, 5000);
+        }
+        
+        async function runScraper(pages = 2) {
+            showStatus('🚀 Iniciando scraper...', 'info');
+            
+            try {
+                const response = await fetch('/api/trigger-scrape/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        pages: pages,
+                        headless: true
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showStatus(`✅ ${data.message} (PID: ${data.pid})`, 'success');
+                    // Iniciar monitoreo
+                    startMonitoring();
+                } else {
+                    showStatus(`❌ Error: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                showStatus(`❌ Error de conexión: ${error}`, 'error');
+            }
+        }
+        
+        async function checkScraperStatus() {
+            try {
+                const response = await fetch('/api/scraper-status/');
+                const data = await response.json();
+                
+                if (response.ok) {
+                    const statusEl = document.getElementById('scraper-status-text');
+                    let statusHTML = `
+                        <strong>Estado:</strong> ${data.status}<br>
+                        <strong>Mensaje:</strong> ${data.message}<br>
+                    `;
+                    
+                    if (data.started_at) {
+                        statusHTML += `<strong>Iniciado:</strong> ${new Date(data.started_at).toLocaleString()}<br>`;
+                    }
+                    
+                    if (data.progress !== undefined) {
+                        statusHTML += `<strong>Progreso:</strong> ${data.progress}%<br>`;
+                    }
+                    
+                    if (data.files_count !== undefined) {
+                        statusHTML += `<strong>Archivos .bib:</strong> ${data.files_count}<br>`;
+                    }
+                    
+                    if (data.recent_files && data.recent_files.length > 0) {
+                        statusHTML += `<strong>Último archivo:</strong> ${data.recent_files[0].name}<br>`;
+                        statusHTML += `<strong>Tamaño:</strong> ${(data.recent_files[0].size / 1024).toFixed(2)} KB<br>`;
+                    }
+                    
+                    statusEl.innerHTML = statusHTML;
+                    
+                    // Si está corriendo, seguir monitoreando
+                    if (data.status === 'running') {
+                        document.getElementById('scraper-status').style.background = '#fff3cd';
+                        return true;
+                    } else if (data.status === 'completed') {
+                        document.getElementById('scraper-status').style.background = '#d4edda';
+                        return false;
+                    } else if (data.status === 'error') {
+                        document.getElementById('scraper-status').style.background = '#f8d7da';
+                        return false;
+                    }
+                }
+            } catch (error) {
+                console.error('Error checking status:', error);
+            }
+            return false;
+        }
+        
+        let monitoringInterval = null;
+        
+        function startMonitoring() {
+            // Limpiar monitoreo anterior
+            if (monitoringInterval) {
+                clearInterval(monitoringInterval);
+            }
+            
+            // Verificar cada 3 segundos
+            monitoringInterval = setInterval(async () => {
+                const isRunning = await checkScraperStatus();
+                if (!isRunning) {
+                    clearInterval(monitoringInterval);
+                    loadStats(); // Actualizar stats cuando termine
+                }
+            }, 3000);
+        }
+        
+        async function runAnalysis() {
+            showStatus('🚀 Iniciando análisis...', 'info');
+            
+            try {
+                const response = await fetch('/api/trigger-analysis/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        req2: [0, 3, 7],
+                        req4n: 25
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showStatus(`✅ ${data.message} (PID: ${data.pid})`, 'success');
+                } else {
+                    showStatus(`❌ Error: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                showStatus(`❌ Error de conexión: ${error}`, 'error');
+            }
+        }
+        
+        async function loadStats() {
+            try {
+                const response = await fetch('/api/papers/stats/');
+                const data = await response.json();
+                
+                if (response.ok) {
+                    document.getElementById('papers-count').innerHTML = `
+                        <strong>${data.total_papers}</strong> papers<br>
+                        <strong>${data.total_files}</strong> archivos .bib<br>
+                        Años: ${data.year_range}
+                    `;
+                    showStatus('✅ Estadísticas actualizadas', 'success');
+                } else {
+                    document.getElementById('papers-count').textContent = 'No hay datos';
+                }
+            } catch (error) {
+                document.getElementById('papers-count').textContent = 'Error al cargar';
+            }
+        }
+        
+        // Cargar stats al inicio
+        loadStats();
+        checkScraperStatus(); // Verificar estado inicial
+    </script>
+</body>
+</html>
