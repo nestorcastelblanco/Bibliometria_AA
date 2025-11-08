@@ -16,6 +16,9 @@ networkx
 wordcloud
 pillow
 
+# ML para evaluación semántica (Req 3)
+sentence-transformers>=2.2.0
+
 # Django y REST API
 Django~=4.2.0
 djangorestframework
