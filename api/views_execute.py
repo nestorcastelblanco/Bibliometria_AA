@@ -243,16 +243,14 @@ def run_grafos_terms(request):
         env = os.environ.copy()
         env['PYTHONPATH'] = str(settings.BASE_DIR)
         
-        # Usar términos de req3 si existe
-        terms_file = settings.DATA_PROCESSED / 'términos_grafos.json'
+        # Usar archivo de términos reducido para grafo legible
+        terms_file = settings.BASE_DIR / 'requirement_grafos' / 'terminos_core.json'
         
         cmd = [sys.executable, str(script), 'terms', '--plot', 
-               '--max-nodes', '30',  # Reducir a 30 nodos para legibilidad
-               '--min-cooc', '3']     # Mínimo 3 co-ocurrencias
-        
-        # Si existe archivo de términos, usarlo
-        if terms_file.exists():
-            cmd.extend(['--terms', str(terms_file)])
+               '--terms', str(terms_file),  # Usar archivo de términos reducido
+               '--max-nodes', '20',         # Máximo 20 nodos
+               '--min-cooc', '5',           # Mínimo 5 co-ocurrencias
+               '--emin', '10']              # Peso mínimo para dibujar aristas
         
         result = subprocess.run(
             cmd,
