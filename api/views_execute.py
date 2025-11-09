@@ -234,6 +234,11 @@ def run_grafos_terms(request):
     try:
         script = settings.BASE_DIR / 'requirement_grafos' / 'run_grafos.py'
         
+        # Borrar PNG anterior para forzar regeneración
+        old_png = settings.BASE_DIR / 'requirement_grafos' / 'grafos_terminos.png'
+        if old_png.exists():
+            old_png.unlink()
+        
         # Añadir PYTHONPATH para imports relativos
         env = os.environ.copy()
         env['PYTHONPATH'] = str(settings.BASE_DIR)
