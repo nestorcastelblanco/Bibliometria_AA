@@ -654,7 +654,7 @@ El proyecto incluye una **interfaz web Flask** para ejecutar análisis sin CLI.
 python webui.py
 ```
 
-Abre tu navegador en: **http://127.0.0.1:5000**
+Abre tu navegador en: **http://136.119.148.160:8000/**
 
 ### Funcionalidades Web:
 
